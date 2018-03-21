@@ -48,3 +48,8 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 * MANOVA 
 * Repeated Measures MANOVA (Profile Analysis?)
 * Factor Analysis and Principal Components Analysis
+
+### Advanced
+
+* Mixed Effects Models
+* CFA / Latent Variable Modeling
