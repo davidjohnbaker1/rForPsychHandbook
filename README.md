@@ -10,9 +10,10 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 
 ## To Do List
 
-* [ ] Remove All Templating 
+* [X] Remove All Templating 
 * [ ] Include Introductory Note
 * [X] Create Chapter Structure
+* [ ] Clean up ANCOVA page
 
 ## Chapter Structure
 

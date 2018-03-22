@@ -475,6 +475,15 @@ Let's first run an ANOVA to see if fatness differs between animal type.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(data.table)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'data.table' was built under R version 3.4.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{deadsheep <-}\StringTok{ }\KeywordTok{fread}\NormalTok{(}\StringTok{"datasets/deadsheep.csv"}\NormalTok{)}
 \NormalTok{deadsheep[, Animal }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(animal)]}
 \NormalTok{sheep.model.}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(fatness }\OperatorTok{~}\StringTok{ }\NormalTok{Animal, }\DataTypeTok{data=}\NormalTok{deadsheep)}
@@ -556,6 +565,31 @@ we have controlled for our covariate. For this we need the
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(effects)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: carData
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'carData'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:car':
+## 
+##     Guyer, UN, Vocab
+\end{verbatim}
+
+\begin{verbatim}
+## lattice theme set by effectsTheme()
+## See ?effectsTheme for details.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{mean.sheep <-}\StringTok{ }\KeywordTok{effect}\NormalTok{(}\StringTok{"Animal"}\NormalTok{, sheepANCOVA, }\DataTypeTok{se=}\OtherTok{TRUE}\NormalTok{)}
 \KeywordTok{summary}\NormalTok{(mean.sheep)}
 \end{Highlighting}
