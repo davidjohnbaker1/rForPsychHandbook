@@ -1,4 +1,4 @@
-# Applications
+# Descriptive Statistics, z Scores, Central Limit
 
 Some _significant_ applications are demonstrated in this chapter.
 

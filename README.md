@@ -12,7 +12,7 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 
 * [ ] Remove All Templating 
 * [ ] Include Introductory Note
-* [ ] Create Chapter Structure
+* [X] Create Chapter Structure
 
 ## Chapter Structure
 

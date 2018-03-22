@@ -1,3 +1,3 @@
-# This is a template file 
+# Repeated Measures ANOVA:
 
 Template file
