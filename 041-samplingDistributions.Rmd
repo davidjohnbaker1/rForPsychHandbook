@@ -1,0 +1,9 @@
+# Sampling Distributions
+
+In this chapter, we'll cover three ideas/questions.
+
+1. What are inferential statistics and the logic behind them
+2. What the underlying distribution of all hypothetical sample estimates is known as the sampling distribution, and it constitutes the third of the three important distributions.
+3. Several important implications follow from an understanding of the sampling distribution as a normal distribution and from the central limit theorem
+
+Spoken about a bit before in the other chapter, we have both sample statistics like $\bar{X}$ and population parameters $\mu$.
