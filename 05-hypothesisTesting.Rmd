@@ -1,0 +1,55 @@
+# Hypothesis Testing
+
+The sampling distribution of the mean helps us to make hypotheses about the likelihood that a given sample mean comes from a sampling distribution with a given mean.
+
+Stated differently, a hypothesis test helps us determine whether the observed difference between a sample mean and a hypothetical population mean is either negligible or meaningful.
+
+The Null Hypothesis $H_o : \mu = some value$ 
+The alternative Hypothesis $H_o : != \mu = some value$
+
+The Alternative Hypothesis
+
+A sample mean of a given sample size is produced and compared to the hypothetical sampling distribution’s mean to test the null hypothesis
+
+Imagine we know the population (for some reason) and the True value is 455.
+
+![True Value is 455](img/hicksonesample1.png)
+
+![Descision Tree](img/hicksonesample2.png)
+
+The hypothesis test is based on inference (i.e., inductive reasoning), and therefore there is a chance that mistaken inferences will be made.
+
+The 2 ×2 matrix of decision outcomes given the state of nature
+and the decision made
+
+![Matrix](img/hicksonesample3.png)
+
+A Type I erroris produced when we mistakenly reject the null. It is associated with probability alpha ($\alpha$), or the level of significance.
+
+We conventionally set this level to be .05in psychology, but there are considerations to be made for increasing or decreasing this value (e.g., .01 or .10).
+
+A Type II erroris produced when we mistakenly fail to reject the null. It is associated with probability beta ($\beta$), which is related to, but not the same as, alpha.
+
+The level of significance creates the bounds for the rejection region—the extreme region(s) under the sampling distribution equal to αif the null hypothesis is true.
+
+![Matrix](img/hicksonesample4.png)
+
+The directionality of the test should also be considered.
+
+![Matrix](img/hicksonesample5.png)
+
+Hypothesis tests differ slightly when population parameters, such as $\sigma^2$, are known versus unknown.
+
+The general formula for a test statistic $Statistic - parameter /SE$
+
+When $\sigma^2$is known, we use the standard error of the normal distribution as the denominator. The result is the ztest.
+
+Z TEST FORMULA 
+
+STANDARD ERROR HERE
+
+When $\sigma^2$ is unknown, we use the t distributionas our sampling distribution, with a standard error that must be estimated from $s^2$ or $s$. The result is the ttest.
+
+T TEST AND STANDARD ERROR FORMULA HERE
+
+Left off on Page 11 in onesampleNHST.png

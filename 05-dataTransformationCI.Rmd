@@ -1,3 +1,0 @@
-# Data Transformations and Confidence Intervals 
-
-We have finished a nice book.
