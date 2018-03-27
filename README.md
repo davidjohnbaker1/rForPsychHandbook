@@ -10,10 +10,9 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 
 ## To Do List
 
-* [X] Remove All Templating 
-* [ ] Include Introductory Note
-* [X] Create Chapter Structure
-* [ ] Clean up ANCOVA page
+* [ ] Add in all content from 4111 and 7111 Notes, Slides, Homework
+* [ ] Add in narrative with R structure
+* [ ] Swap all plots to be made with ggplot2
 
 ## Chapter Structure
 

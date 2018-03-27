@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="mixed-two-way-anova.html">
-<link rel="next" href="chi-square.html">
+<link rel="prev" href="hypothesis-testing.html">
+<link rel="next" href="correlation-and-regression.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -196,18 +196,132 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multiple-regression" class="section level1">
-<h1><span class="header-section-number">Chapter 16</span> Multiple Regression</h1>
-<p>Template file</p>
+<div id="power-confidence-intervals-effect-size-measures" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Power, Confidence Intervals, Effect Size Measures</h1>
+<div id="power" class="section level2">
+<h2><span class="header-section-number">8.1</span> Power</h2>
+<p>We have discussed the fact that the conclusions drawn from hypothesis tests are essentially inferences about population parameters, based on sample information. But we have thus far neglected a discussion of what statistical factors should be considered in planning and assessing research-based hypothesis tests.</p>
+<p>By minimizing the probability of a Type II error (β), we are at the same time increasing the amount of powerof our hypothesis test (1-β). Power is defined as the probability of rejecting the null hypothesis when it is false (i.e., should be rejected). Four important factors affect the power of a statistical test.</p>
+<p>Knowing any three of these factors mathematically fixes the fourth. Thus, one can use these factors in determining the appropriate design for a particular study. Sample size is most often the targeted factor in formulating such a plan.</p>
+<div class="figure">
+<img src="img/hickspower1.png" alt="Table" />
+<p class="caption">Table</p>
+</div>
+<p>Careful planning of research involves minimizing Type I andType II errors. One rule of thumb is that <span class="math inline">\(\beta\)</span> should be no more than .20 (e.g., if <span class="math inline">\(\alpha\)</span> = .05, <span class="math inline">\(\beta\)</span> = .20). c.For the t test, if the null hypothesis distribution is centered on a t value of 0, then the noncentralt distribution represents the alternative hypothesis distribution, centered on <span class="math inline">\(\delta\)</span>. -This represents the average t value one would expect for a given effect size and sample size</p>
+<div class="figure">
+<img src="img/hickspower2.png" alt="Noncentral T" />
+<p class="caption">Noncentral T</p>
+</div>
+<div id="test-equations" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Test Equations</h3>
+<p>One Sample tests</p>
+<p>$ = d$ <span class="math inline">\(d = \frac{\bar{X}-\mu}{\sigma}\)</span> <span class="math inline">\(g = \frac{\bar{X}-\mu}{s}\)</span></p>
+<p>Two sample tests</p>
+<p><span class="math inline">\(\delta = d\sqrt{\frac{n}{2}}\)</span> <span class="math inline">\(d = \frac{\mu_1-\mu_2}{\sigma}\)</span> <span class="math inline">\(g = \frac{\bar{X_1}=\bar{X_2}}{s_p}\)</span></p>
+<p>For unequal n</p>
+<p><span class="math inline">\(n_n = \frac{2n_2n_2}{n_1 + n_2}\)</span> <span class="math inline">\(g = t\sqrt{\frac{n_1 + n_2}{n_1n_2}}\)</span></p>
+<div class="figure">
+<img src="img/hickspower3.png" alt="Noncentral T" />
+<p class="caption">Noncentral T</p>
+</div>
+<p>Effect size (ES) or standardized effect size (e.g., d). i. The difference between population means (e.g., <span class="math inline">\(\mu1-\mu2\)</span>). ii. The population standard deviation (<span class="math inline">\(\sigma\)</span>).</p>
+<div class="figure">
+<img src="img/hickspower4.png" alt="Noncentral T" />
+<p class="caption">Noncentral T</p>
+</div>
+</div>
+<div id="factors-of-power" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Factors of Power</h3>
+<ol style="list-style-type: decimal">
+<li>Effect size (ES) or standardized effect size (e.g., d). <em>The difference between population means (e.g., <span class="math inline">\(\mu_1-\mu_2\)</span>). </em>The population standard deviation (<span class="math inline">\(\sigma\)</span>).</li>
+<li>Sample size (<span class="math inline">\(n\)</span>).</li>
+<li>Significance level (<span class="math inline">\(\alpha\)</span>).</li>
+<li>Directionality of the hypothesis test (one-tailed vs. two-tailed).</li>
+</ol>
+<p><img src="img/hickspower5.png" alt="Noncentral T" /> <img src="img/hickspower6.png" alt="Noncentral T" /> <img src="img/hickspower7.png" alt="Noncentral T" /> <img src="img/hickspower8.png" alt="Noncentral T" /> <img src="img/hickspower9.png" alt="Noncentral T" /></p>
+<p>One sample case</p>
+<p><span class="math inline">\(\delta = d\sqrt{n}\)</span> <span class="math inline">\(n = (\frac{\delta}{d})^2\)</span></p>
+<p>two sample case</p>
+<p><span class="math inline">\(delta = d\sqrt{\frac{n}{2}}\)</span> <span class="math inline">\(n = 2(\frac{\delta}{d})^2\)</span></p>
+<p>A clinical psychologist wants to test the hypothesis that people who seek treatment for psychological problems have higher IQs than the general population. To test her hypothesis, she wants to use the IQ values from 25 randomly selected clients and also to calculate the power to find a 5-point difference in IQ. The mean of the population would be 100 and, therefore, the mean of her clients a 105. The population SD for IQ is 15. (This scenario is from Howell’s 2002 text “Statistical Methods for Psychology”)</p>
+<p>Known: <span class="math inline">\(\mu_{client}=105\)</span> <span class="math inline">\(\mu_{pop}\)</span> <span class="math inline">\(\sigma_{pop} = 15\)</span></p>
+<p>Calculate it with</p>
+<p><span class="math inline">\(d = \frac{105-100}{15} = 0.33\)</span></p>
+<p><span class="math inline">\(\delta = d\sqrt{n} = 0.33\sqrt{25}=1.65\)</span></p>
+<p>Given this information and an expected alpha (two-tailed) of .05, we can find in Table A.4 in the Cohen text that the power is between .25 and .50, and more exactly about halfway in between (around .38). What does this value of .38 mean?</p>
+<p>If power should be at or above .80, what does the clinician do? Increase alpha? Decrease the population SD? Increase the difference between population means? Increase sample size? For a power level of .80, δneeds to be 2.80, from Table A.4</p>
+<p><span class="math inline">\(n = (\frac{\delta}{d})^2=(\frac{2.80}{0.33}^2 = 8.48^2 = 71.91\)</span></p>
+</div>
+</div>
+<div id="confidence-ientervals" class="section level2">
+<h2><span class="header-section-number">8.2</span> Confidence Ientervals</h2>
+<ol style="list-style-type: decimal">
+<li><p>Sample measures of central tendency, such as the mean, are considered point estimates of population parameters. Confidence intervals are considered a type of interval estimation for population parameters.</p></li>
+<li><p>Computation of confidence intervals.</p></li>
+<li><p>Capture percentage, prediction, and replication</p></li>
+</ol>
+<p>Over repeated sampling from a known distribution, the confidence interval represents the percentage of such intervals that contain the population mean. Can be set at any percentage: 90%, 95%, 99% Based on characteristics of the sampling distribution (zor t) and therefore highly related to the manner in which sampling distributions are used for NHST  But CIs and pvalues from NHST are not the same thing!!!</p>
+<div class="figure">
+<img src="img/hicksci1.png" alt="Hicks CI 1" />
+<p class="caption">Hicks CI 1</p>
+</div>
+<p>Confidence Interval for single sample mean</p>
+<p><span class="math inline">\(\bar{X} = +- (t_{cv})s_{\bar{X}}\)</span></p>
+<p>Confidence interval for a mean difference scores (dependent samples)</p>
+<p><span class="math inline">\(\bar{D} +- (t_{cv})s_{\bar{D}\)</span></p>
+<p>Confidence interval for a difference between sample means (independent samples)</p>
+<p><span class="math inline">\((\bar{X_1}-\bar{X_2}) +- (t_{cv})(s_{\bar{X_1}-\bar{X_2}})\)</span></p>
+<p>The instructor of an introductory psychology course is interested in knowing if there is a difference in the mean grades on the final exam between the fall and spring semester classes. Summary data for the two samples is below:</p>
+<p>What are the 95% confidence intervals around each sample mean, and around the difference between the sample means?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fall &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">82.4</span>,<span class="dv">150</span>,<span class="fl">11.56</span>)
+spring &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">84.2</span>,<span class="dv">150</span>,<span class="fl">11.44</span>)
+stat &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mean&quot;</span>,<span class="st">&quot;N&quot;</span>,<span class="st">&quot;s2&quot;</span>)
+grades &lt;-<span class="st"> </span><span class="kw">data.frame</span>(stat,fall, spring)
+grades</code></pre></div>
+<pre><code>##   stat   fall spring
+## 1 Mean  82.40  84.20
+## 2    N 150.00 150.00
+## 3   s2  11.56  11.44</code></pre>
+<p>What are the 95% confidence intervals around each sample mean, and around the difference between the sample means?</p>
+<p>Confidence Interval for single sample mean</p>
+<p><span class="math inline">\(\bar{X} = +- (t_{cv})s_{\bar{X}}\)</span></p>
+<p>This has critical value of 1.97 +-.</p>
+<p>First need to find the standard error with each one.</p>
+<p>$s_{X} =  =  = = 0.28 $</p>
+<p>$s_{X} =  =  = = 0.28 $</p>
+<p>Now do CI for both</p>
+<p><span class="math inline">\(\bar{X} = +- (t_{cv})s_{\bar{X}}\)</span></p>
+<p><span class="math inline">\(82.4 +- (1.97)(0.28)\)</span> <span class="math inline">\(82.4 +- 0.55\)</span> <span class="math inline">\((81.85, 82.95)\)</span></p>
+<p><span class="math inline">\(84.2 +- (1.97)(0.28)\)</span> <span class="math inline">\(84.4 +- 0.55\)</span> <span class="math inline">\((83.65, 84.75)\)</span></p>
+<p>Calculate that now for differences</p>
+<p><span class="math inline">\((\bar{X_1}-\bar{X_2}) +- (t_{cv})(s_{\bar{X_1}-\bar{X_2}})\)</span></p>
+<p><span class="math inline">\(s_{\bar{X_1}-\bar{X_2}}= \sqrt{0.07 + 0.07} = \sqrt{0.14}=0.37\)</span></p>
+<p>Alpha value associated with this is 1.96.</p>
+<p><span class="math inline">\(82.4 - 84.2) +- (1.96)(0.37)\)</span> <span class="math inline">\(-1.8 +- 0.73 = (-2.53,-1.07)\)</span></p>
+<p>Important points to keep in mind regarding confidence intervals:</p>
+<ol style="list-style-type: decimal">
+<li>They are two-tailed by nature (i.e., on either side of a sample mean).</li>
+<li>For a given sample size, increasing the level of confidence (e.g., from 95% to 99%) increases the interval width.</li>
+<li>The narrower the interval (at a given level of confidence!) reflects better statistical precision. Sample size directly affects the width of the interval by affecting the standard error estimate.</li>
+</ol>
+<div id="capture-percentage" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Capture Percentage</h3>
+<p>Capture percentage, prediction, and replication What is the likelihood that a subsequent experiment will replicate? Concept of capture percentage: likelihood that a subsequent sample mean will fall into the CI of the current sample.</p>
+<div class="figure">
+<img src="img/hicksci2.png" alt="Hicks CI 2" />
+<p class="caption">Hicks CI 2</p>
+</div>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="mixed-two-way-anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chi-square.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="correlation-and-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -236,7 +350,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-multipleRegression.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-powereffect.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
