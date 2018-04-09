@@ -188,3 +188,6 @@ This can be done by using the select cases function in SPSS, selecting two group
 
 It can also be done by averaging over groups (form comparisons on the BG variable) and averaging over DVs (form comparisons on the WG variable) and taking the interaction between them.
 
+## Practice 
+
+
