@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-03-27">
+<meta name="date" content="2018-04-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -170,7 +170,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="23.2" data-path="ancova.html"><a href="ancova.html#practice-1"><i class="fa fa-check"></i><b>23.2</b> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="manova.html"><a href="manova.html"><i class="fa fa-check"></i><b>24</b> MANOVA</a></li>
-<li class="chapter" data-level="25" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html"><i class="fa fa-check"></i><b>25</b> Repeated Measures ANOVA</a></li>
+<li class="chapter" data-level="25" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html"><i class="fa fa-check"></i><b>25</b> Repeated Measures ANOVA</a><ul>
+<li class="chapter" data-level="25.0.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#null-hypothesis"><i class="fa fa-check"></i><b>25.0.1</b> Null Hypothesis</a></li>
+<li class="chapter" data-level="25.0.2" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#strength-of-association"><i class="fa fa-check"></i><b>25.0.2</b> Strength of association</a></li>
+<li class="chapter" data-level="25.0.3" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#limitation"><i class="fa fa-check"></i><b>25.0.3</b> Limitation</a></li>
+<li class="chapter" data-level="25.0.4" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#doubly-repeated-manova"><i class="fa fa-check"></i><b>25.0.4</b> Doubly Repeated MANOVA</a></li>
+<li class="chapter" data-level="25.0.5" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#post-tests"><i class="fa fa-check"></i><b>25.0.5</b> Post Tests</a></li>
+<li class="chapter" data-level="25.0.6" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts"><i class="fa fa-check"></i><b>25.0.6</b> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</a></li>
+</ul></li>
 <li class="chapter" data-level="26" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>26</b> Factor Analysis</a></li>
 <li class="chapter" data-level="27" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>27</b> Mixed Effects Models</a></li>
 <li class="chapter" data-level="28" data-path="confirmatory-factor-analysis.html"><a href="confirmatory-factor-analysis.html"><i class="fa fa-check"></i><b>28</b> Confirmatory Factor Analysis</a></li>
@@ -198,8 +205,114 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="repeated-measures-anova-1" class="section level1">
 <h1><span class="header-section-number">Chapter 25</span> Repeated Measures ANOVA</h1>
-<p>Template file</p>
+<p>Profile analysis is the repeated measures extension of MANOVA where a set of DVs are commensurate (on the same scale).</p>
+<p>The common use is where a set of DVs represent the same DV measured at multiple time points</p>
+<p>used in this way it is the multivariate alternative to repeated measures or mixed ANOVA</p>
+<p>The choice often depends on the number of subjects, power and whether the assumptions associated with within subjects ANOVA can be met (e.g. sphericity)</p>
+<div class="figure">
+<img src="img/jhprofile1.png" alt="Profile1" />
+<p class="caption">Profile1</p>
+</div>
+<p>The less common use is to compare groups on multiple DVs that are commensurate (e.g. subscales of the same inventory)</p>
+<p>Current stat packages can be used to perform more complex analyses where there are multiple factorial between subjects effects</p>
+<p>Questions asked by profile analysis</p>
+<p>There is one major question asked by profile analysis; Do groups have similar profiles on a set of DVs? profile – sets of scores. profile is really a line, differences scores get put into vectors, then analyze if line is equal to zero or not (see last quote).</p>
+<p>Segments – difference scores (or other linear combinations) between adjacent DV scores that are used in two of the major tests of profile analysis</p>
+<div id="null-hypothesis" class="section level3">
+<h3><span class="header-section-number">25.0.1</span> Null Hypothesis</h3>
+<p>Parallelism (Interaction) (multivariate) – Parallel Profiles</p>
+<p>Are the profiles for the two groups the same? This is a test for the interaction in repeated measures ANOVA This is usually the main test of interest in profile analysis An interaction occurs when the profiles are not parallel</p>
+<div class="figure">
+<img src="img/jhprofile2.png" alt="Profile 2" />
+<p class="caption">Profile 2</p>
+</div>
+<p>Equal Levels (Between Subjects) (univariate)</p>
+<p>On average does one group score higher than the other Averaging across DVs are the groups different This would be the between-groups main effect in mixed ANOVA</p>
+<div class="figure">
+<img src="img/jhprofile3.png" alt="Profile 3" />
+<p class="caption">Profile 3</p>
+</div>
+<p>Flatness (Within Subjects) (multivariate) –</p>
+<p>This is equivalent to the within subjects main effect in repeated measures ANOVA In profile analysis terms this is a test for the flatness of the profiles “Do all DVs elicit the same average response?”</p>
+<div class="figure">
+<img src="img/jhprofile4.png" alt="Profile 3" />
+<p class="caption">Profile 3</p>
+</div>
+<p>If any of the hypotheses tested by profile analysis are significant, they can be followed by contrasts. Contrasts (on the main effects, with no interaction) Simple effects Simple contrasts Interaction contrasts (done when the interaction and both main effects are significant)</p>
+<p>Interpretation</p>
+<p>Usually done through plots of the actual profiles If the flatness hypothesis is rejected than you would plot the average DV scores averaged across groups</p>
+<p>If equal levels hypothesis is rejected than you would plot the groups scores averaged across DVs</p>
+<p>And if the parallel profiles hypothesis is rejected you would plot the mean of each group on each DV</p>
+</div>
+<div id="strength-of-association" class="section level3">
+<h3><span class="header-section-number">25.0.2</span> Strength of association</h3>
+<p>Calculated in the same way i.e. Eta squared and Partial Eta squared</p>
+</div>
+<div id="limitation" class="section level3">
+<h3><span class="header-section-number">25.0.3</span> Limitation</h3>
+<p>Data must be on the same scale</p>
+<p>This means that any alterations done to one variables need to be applied to the rest This is why it is used often with repeated measures since it is the same variable multiple times</p>
+<p>Data can be converted to Z-scores first and profile analysis can be applied Done by using the pooled within-subjects standard deviation to standardize all scores Factor scores can also be used (more later) Dangerous since it is based on sample estimates of population standard deviation</p>
+<p>Causality is limited to manipulated group variables Generalizability is limited to population used</p>
+<p>Assumptions should be tested on combined DVs but often difficult so screening on original DVs is used</p>
+<p>Sample size needs to be large enough; more subjects in the smallest cell than number of DVs This affects power and the test for homogeneity of covariance matrices Data can be imputed</p>
+<p>Power is also determined on whether the univariate assumptions were met or not; profile analysis has more power than univariate tests adjusted for sphericity violations</p>
+<p>Multivariate normality If there are more subjects in the smallest cell than number of DVs and relatively equal n than PA is robust violations of multivariate normality If very small samples and unequal n than look at the DVs to see if any are particularly skewed</p>
+<p>All DVs should be checked for univariate and multivariate outliers</p>
+<p>Homogeneity of Variance-Covariance matrices</p>
+<p>If you have equal n than skip it If there are unequal n across cells interpret Box’s M at alpha equals .001.</p>
+<p>Linearity It is assumed that the DVs are linearly related to one another inspection of bivariate plots of the DVs is used to assess this If symmetric DVs (normal) and large sample this can also be ignored</p>
+</div>
+<div id="doubly-repeated-manova" class="section level3">
+<h3><span class="header-section-number">25.0.4</span> Doubly Repeated MANOVA</h3>
+<p>Doubly manova is a generalization of MANOVA and Profile analysis taken together in one set of data</p>
+<p>The basic design is multiple DVs taken at multiple time points, but the multiple DVs do not have to be commensurate.</p>
+<p>For example, students at different schools (private vs. public) are measured on basic math, reading, athleticism and IQ in grades 7 through 12.</p>
+<div class="figure">
+<img src="img/jhprofile5.png" alt="Profile 5" />
+<p class="caption">Profile 5</p>
+</div>
+<p>This can be treated as a between-within (groups by time) singly multivariate design but the time effect has to meet the sphericity assumption</p>
+<p>Sphericity can be circumvented by using both the DVs and Time in a multivariate design.</p>
+<p>Called Doubly MANOVA because linear combinations of DVs (at each time) are linearly combined across time.</p>
+<p>Within subjects and interaction effects are doubly multivariate while the between groups effects is singly multivariate.</p>
+<p>This can be performed using the repeated measures ANOVA function in SPSS (now with two within subjects IVs) and just interpreting the multivariate tests</p>
+</div>
+<div id="post-tests" class="section level3">
+<h3><span class="header-section-number">25.0.5</span> Post Tests</h3>
+<p>EQUAL LEVELS</p>
+<p>If the equal levels or flatness hypotheses are rejected and there are more than levels you need to break down the effect to see where the differences lie.</p>
+<p>For a significant equal levels test simply use the compute function in SPSS to create averages over all of the DVs.</p>
+<p>Use this new variable as a DV in a univariate ANOVA where you can use post hoc tests or implement planned comparisons using syntax.</p>
+<p>FLATNESS</p>
+<p>If the multivariate test for flatness is rejected than you turn to interpreting comparisons in a univariate within subjects ANOVA.</p>
+<p>You can rerun the analysis removing the between subjects variables and implement post hoc tests on the within subjects variable or use syntax to use planned comparisons.</p>
+</div>
+<div id="testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts" class="section level3">
+<h3><span class="header-section-number">25.0.6</span> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</h3>
+<div class="figure">
+<img src="img/jhprofile6.png" alt="Profile 6" />
+<p class="caption">Profile 6</p>
+</div>
+<p>Whenever the parallelism hypothesis is rejected you need to pull apart the data to try and pinpoint what parts of the profile are causing the interaction</p>
+<p>Parallelism and Flatness significant, equal levels not significant</p>
+<p>Simple effects would be used to compare the groups while holding each of the DVs constant</p>
+<p>Parallelism and Flatness significant, equal levels not significant This is the same as doing a separate ANOVA between groups for each DV A Scheffe adjustment is recommended if doing this post hoc Fs=(k – 1)F(k – 1), k(n – 1) K is number of groups and n is number of subjects</p>
+<p>Parallelism and Flatness significant, equal levels not significant If any simple effect is significant than it should be followed by simple contrasts that can be implemented through syntax if planned or by post hoc adjustment</p>
+<p>Parallelism and Equal levels significant, flatness not significant This happens “rarely because if parallelism and levels are significant, flatness is nonsignificant only if profiles for different groups are mirror images that cancel each other out”.</p>
+<p>Parallelism and Equal levels significant, flatness not significant This is done by doing a series of one-way within subjects ANOVAs for each group separately.</p>
+<p>Parallelism and Equal levels significant, flatness not significant A Scheffe adjustment is recommended if doing this post hoc Fs=(p – 1)F(p – 1), k(p – 1)(n – 1) P is number of repeated measures, n is number of subjects If any are significant, follow up with simple contrasts on the within subjects variable.</p>
+<p>If all effects are significant</p>
+<p>Perform interaction contrasts by separating the data into smaller two by two interactions</p>
+<div class="figure">
+<img src="img/jhprofile7.png" alt="Profile 7" />
+<p class="caption">Profile 7</p>
+</div>
+<p>If all effects are significant</p>
+<p>This can be done by using the select cases function in SPSS, selecting two groups and doing a mixed ANOVA with just two of the DVs; this will break down the interaction into smaller interactions that are easier to interpret.</p>
+<p>It can also be done by averaging over groups (form comparisons on the BG variable) and averaging over DVs (form comparisons on the WG variable) and taking the interaction between them.</p>
 
+</div>
 </div>
             </section>
 
