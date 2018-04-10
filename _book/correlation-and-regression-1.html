@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Psych Handbook</title>
+  <meta name="description" content="A handbook for psychologists at LSU to get started with R and Statistics.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Psych Handbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Psych Handbook" />
+  
+  <meta name="twitter:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  
+
+<meta name="author" content="David John Baker">
+
+
+<meta name="date" content="2018-04-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="correlation-and-regression.html">
+<link rel="next" href="matched-t-test.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Psych Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> Setting The Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#rationale"><i class="fa fa-check"></i><b>2.3</b> Rationale</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-as-calculator"><i class="fa fa-check"></i><b>2.4</b> R as Calculator</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#data-exploration"><i class="fa fa-check"></i><b>2.5</b> Data Exploration</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#indexing"><i class="fa fa-check"></i><b>2.6</b> Indexing</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#whirlwind-tour-of-r"><i class="fa fa-check"></i><b>2.7</b> Whirlwind Tour of R</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#functions-for-psychologists"><i class="fa fa-check"></i><b>2.8</b> Functions for Psychologists</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#resources"><i class="fa fa-check"></i><b>2.9</b> Resources</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#template-stuff"><i class="fa fa-check"></i><b>2.9.1</b> Template Stuff</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a></li>
+<li class="chapter" data-level="4" data-path="episotomology-of-statistics.html"><a href="episotomology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Episotomology of Statistics</a></li>
+<li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
+<li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#organizing-data"><i class="fa fa-check"></i><b>5.1.1</b> Organizing Data</a></li>
+<li class="chapter" data-level="5.1.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#shape-of-data"><i class="fa fa-check"></i><b>5.1.2</b> Shape of Data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#important-considerations-for-central-tendency"><i class="fa fa-check"></i><b>5.1.3</b> Important Considerations for Central Tendency</a></li>
+<li class="chapter" data-level="5.1.4" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#measures-of-variability"><i class="fa fa-check"></i><b>5.1.4</b> Measures of Variability</a></li>
+<li class="chapter" data-level="5.1.5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#properties-of-z-scores"><i class="fa fa-check"></i><b>5.1.5</b> Properties of z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#practice"><i class="fa fa-check"></i><b>5.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>7</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#steps-of-hypothesis-testing"><i class="fa fa-check"></i><b>7.1</b> Steps of Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#other-important-considerations."><i class="fa fa-check"></i><b>7.1.1</b> Other important considerations.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#two-sample"><i class="fa fa-check"></i><b>7.2</b> Two Sample</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html"><i class="fa fa-check"></i><b>8</b> Power, Confidence Intervals, Effect Size Measures</a><ul>
+<li class="chapter" data-level="8.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#power"><i class="fa fa-check"></i><b>8.1</b> Power</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#test-equations"><i class="fa fa-check"></i><b>8.1.1</b> Test Equations</a></li>
+<li class="chapter" data-level="8.1.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#factors-of-power"><i class="fa fa-check"></i><b>8.1.2</b> Factors of Power</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#confidence-ientervals"><i class="fa fa-check"></i><b>8.2</b> Confidence Ientervals</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#capture-percentage"><i class="fa fa-check"></i><b>8.2.1</b> Capture Percentage</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html"><i class="fa fa-check"></i><b>9</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="9.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#calculating-person-c"><i class="fa fa-check"></i><b>9.1</b> Calculating Person C</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation-and-regression-1.html"><a href="correlation-and-regression-1.html"><i class="fa fa-check"></i><b>10</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlation-and-regression-1.html"><a href="correlation-and-regression-1.html#calculating-person-c-1"><i class="fa fa-check"></i><b>10.1</b> Calculating Person C</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation-and-regression-1.html"><a href="correlation-and-regression-1.html#assumptions-1"><i class="fa fa-check"></i><b>10.1.1</b> Assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
+<li class="chapter" data-level="11.1" data-path="matched-t-test.html"><a href="matched-t-test.html#theory"><i class="fa fa-check"></i><b>11.1</b> Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>12</b> One Way ANOVA</a></li>
+<li class="chapter" data-level="13" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html"><i class="fa fa-check"></i><b>13</b> Multiple Comparisons</a></li>
+<li class="chapter" data-level="14" data-path="simple-effects-interactions-mixed-designs.html"><a href="simple-effects-interactions-mixed-designs.html"><i class="fa fa-check"></i><b>14</b> Simple Effects, Interactions, Mixed Designs</a></li>
+<li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a></li>
+<li class="chapter" data-level="16" data-path="mixed-two-way-anova.html"><a href="mixed-two-way-anova.html"><i class="fa fa-check"></i><b>16</b> Mixed Two Way ANOVA</a></li>
+<li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a></li>
+<li class="chapter" data-level="18" data-path="chi-square.html"><a href="chi-square.html"><i class="fa fa-check"></i><b>18</b> Chi-Square</a></li>
+<li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
+<li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
+<li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a></li>
+<li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
+<li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
+<li class="chapter" data-level="24" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>24</b> ANCOVA</a><ul>
+<li class="chapter" data-level="24.1" data-path="ancova.html"><a href="ancova.html#theory-1"><i class="fa fa-check"></i><b>24.1</b> Theory</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="ancova.html"><a href="ancova.html#reducing-noise"><i class="fa fa-check"></i><b>24.1.1</b> Reducing Noise</a></li>
+<li class="chapter" data-level="24.1.2" data-path="ancova.html"><a href="ancova.html#assumptions-of-anova"><i class="fa fa-check"></i><b>24.1.2</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="24.1.3" data-path="ancova.html"><a href="ancova.html#best-practice"><i class="fa fa-check"></i><b>24.1.3</b> Best Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="ancova.html"><a href="ancova.html#practice-1"><i class="fa fa-check"></i><b>24.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="manova.html"><a href="manova.html"><i class="fa fa-check"></i><b>25</b> MANOVA</a></li>
+<li class="chapter" data-level="26" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html"><i class="fa fa-check"></i><b>26</b> Repeated Measures ANOVA</a><ul>
+<li class="chapter" data-level="26.0.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#null-hypothesis"><i class="fa fa-check"></i><b>26.0.1</b> Null Hypothesis</a></li>
+<li class="chapter" data-level="26.0.2" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#strength-of-association"><i class="fa fa-check"></i><b>26.0.2</b> Strength of association</a></li>
+<li class="chapter" data-level="26.0.3" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#limitation"><i class="fa fa-check"></i><b>26.0.3</b> Limitation</a></li>
+<li class="chapter" data-level="26.0.4" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#doubly-repeated-manova"><i class="fa fa-check"></i><b>26.0.4</b> Doubly Repeated MANOVA</a></li>
+<li class="chapter" data-level="26.0.5" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#post-tests"><i class="fa fa-check"></i><b>26.0.5</b> Post Tests</a></li>
+<li class="chapter" data-level="26.0.6" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts"><i class="fa fa-check"></i><b>26.0.6</b> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</a></li>
+<li class="chapter" data-level="26.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#practice-2"><i class="fa fa-check"></i><b>26.1</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a></li>
+<li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
+<li class="chapter" data-level="29" data-path="confirmatory-factor-analysis.html"><a href="confirmatory-factor-analysis.html"><i class="fa fa-check"></i><b>29</b> Confirmatory Factor Analysis</a></li>
+<li class="chapter" data-level="30" data-path="this-is-a-template-file.html"><a href="this-is-a-template-file.html"><i class="fa fa-check"></i><b>30</b> This is a template file</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Psych Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="correlation-and-regression-1" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Correlation and Regression</h1>
+<ol style="list-style-type: decimal">
+<li>Statistical correlation simply refers to the notion that two variables are related to one another—when one varies, the other varies in a predictable manner. There are typically two ways to understand the nature of a correlation: visually and numerically.</li>
+<li>There are multiple ways to understand and, therefore, calculate the Pearson correlation coefficient.</li>
+<li>Relying on Pearson’s rto describe a relationship assumes that certain conditions have been met.</li>
+<li>Other factors may impact how one interprets the linear correlation.</li>
+<li>Testing the “significance” of the correlation coefficient.</li>
+<li>There is a correlation coefficient to deal with ordinal variables, or those measured by ranks.</li>
+</ol>
+<p>The variables are represented in the abstract as Xand Y. b.Scatterplotsare figures that represent a pairof scores for each individual, one score for each measured variable. The pattern of the scatter indicates the nature of the relationship.</p>
+<div class="figure">
+<img src="img/hickscor1.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<div class="figure">
+<img src="img/hickscor2.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<div class="figure">
+<img src="img/hickscor3.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>The statistical representation of the correlation was developed by Karl Pearson and is called the Pearson product-moment correlation coefficient, or r.</p>
+<ol style="list-style-type: lower-roman">
+<li>r varies from -1 to 1.</li>
+<li>The strength, or magnitude, of the relationship increases as distance from 0 increases. iii.The sign of the correlation represents the direction, or slopeof the relationship.</li>
+</ol>
+<div class="figure">
+<img src="img/hickscor3.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>A graduate student samples 50 college professors in social sciences at the same university who have been there for at least 10 years. She measures them on a number of characteristics: average quality of their instruction, average quality of their courses, number of publications, and number of citations by other authors. Is there a relationship between the number of publications and number of citations?</p>
+<div class="figure">
+<img src="img/hickscor4.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<div class="figure">
+<img src="img/hickscor5.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<div id="calculating-person-c-1" class="section level2">
+<h2><span class="header-section-number">10.1</span> Calculating Person C</h2>
+<p>One method is to examine the cross-products, which represent the multiplication of Xand Y, usually on a standard scores. The result is the standard score formula:</p>
+<div class="figure">
+<img src="img/hickscor6.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>Note these formulas (e.g., z-score) use population characteristics This approach is very tedious, and does not make sense unless you already have the z-scores calculated for some reason.</p>
+<div class="figure">
+<img src="img/hickscor7.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>The deviation score formulais a computational formula that relies on using deviations from respective means:</p>
+<div class="figure">
+<img src="img/hickscor8.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>There is a raw score, computational formula that bypasses the need to calculate deviations from each mean:</p>
+<div class="figure">
+<img src="img/hickscor9.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>Finally, we can use the covarianceto compute the correlation.</p>
+<p>Covariance is the average sum of the cross-products of deviations:</p>
+<div class="figure">
+<img src="img/hickscor9a.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>Dividing this number by the cross-product of the unbiased sample standard deviations produces:</p>
+<div class="figure">
+<img src="img/hickscor10.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<div id="assumptions-1" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> Assumptions</h3>
+<ol style="list-style-type: lower-alpha">
+<li>The scores are pairs—the same set of individuals needs to contribute both scores. b.Because the mean and variance are used to compute r, the variables need to be measured on an interval or ratio scale. c.Xand Yare normally distributed. d.The observations were randomly sampled. e.The relationship between the variables is linear, rather than curvilinear. Values of rare uninterpretable (and are underestimates) for curvilinear relationships.</li>
+</ol>
+<p>If the rangeon one or both variables is restricted(i.e., the group is very homogeneous on Xand/or Y), then the value of rtends to become smaller. Theoretically, the correlation can get bigger with range restriction, although this is VERY rare with moderate-to-large sample sizes.</p>
+<div class="figure">
+<img src="img/hickscor11.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>The sample size will not affect the value of r(except when N= 2), but will affect its accuracyin terms of statistical significance. -when N= 2, rALWAYS equals ±1.0 c.The coefficient of determinationrepresents the amount of variance in Ythat can be associated with the variance in X.</p>
+<div class="figure">
+<img src="img/hickscor12.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>Conceptual</p>
+<div class="figure">
+<img src="img/hickscor13.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>Finally, a measured correlation says nothing about whether Xand Yare causally linked, only that there is an association. There are three generic possible reasons for the association.</p>
+<div class="figure">
+<img src="img/hickscor14.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>Testing the “significance” of the correlation coefficient. a.Is the correlation different from 0?</p>
+<div class="figure">
+<img src="img/hickscor15.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>Or look up critical values in A5 and compare with r 48df .05 alpha of .273</p>
+<div class="figure">
+<img src="img/hickscor16.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<div class="figure">
+<img src="img/hickscor17.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>There is a correlation coefficient to deal with ordinal variables, or those measured by ranks, called Spearman rho.</p>
+<div class="figure">
+<img src="img/hickscor18.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+<p>d= the difference between paired ranks, rather than paired scores.</p>
+<div class="figure">
+<img src="img/hickscor19.png" alt="Hicks" />
+<p class="caption">Hicks</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="correlation-and-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matched-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/072-Regression.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
