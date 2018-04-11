@@ -116,3 +116,26 @@ significant.”
 
 ![five](img/hicksfa24.png)
 ![five](img/hicksfa25.png)
+
+### Three Way Factorial 
+
+![five](img/hicksfa26.png)
+
+
+Example research scenario: A researcher tests driving ability based on three
+factors:
+Experience of driver (inexperienced vs. experienced)
+Road class (class 1, class 2, or dirt)
+Time of day (daytime vs. nighttime)
+2 × 3 × 2 factorial design
+DV is the number of steering corrections made during a 1-mile section of
+roadway
+
+![five](img/hicksfa27.png)
+![five](img/hicksfa28.png)
+![five](img/hicksfa29.png)
+![five](img/hicksfa30.png)
+![five](img/hicksfa31.png)
+![five](img/hicksfa32.png)
+![five](img/hicksfa33.png)
+![five](img/hicksfa34.png)
