@@ -1,3 +1,2 @@
 # Multiple Regression 
 
-Template file
