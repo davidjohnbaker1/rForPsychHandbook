@@ -164,9 +164,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="14" data-path="factorial-anova.html"><a href="factorial-anova.html"><i class="fa fa-check"></i><b>14</b> Factorial Anova</a><ul>
 <li class="chapter" data-level="14.1" data-path="factorial-anova.html"><a href="factorial-anova.html#assumptions-of-anova-1"><i class="fa fa-check"></i><b>14.1</b> Assumptions of ANOVA</a></li>
-<li class="chapter" data-level="14.2" data-path="factorial-anova.html"><a href="factorial-anova.html#power-and-sample-size-estimatoin"><i class="fa fa-check"></i><b>14.2</b> Power and Sample Size Estimatoin</a></li>
+<li class="chapter" data-level="14.2" data-path="factorial-anova.html"><a href="factorial-anova.html#power-and-sample-size-estimatoin"><i class="fa fa-check"></i><b>14.2</b> Power and Sample Size Estimatoin</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="factorial-anova.html"><a href="factorial-anova.html#three-way-factorial"><i class="fa fa-check"></i><b>14.2.1</b> Three Way Factorial</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
+<li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
+<li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+</ul></li>
 <li class="chapter" data-level="16" data-path="mixed-two-way-anova.html"><a href="mixed-two-way-anova.html"><i class="fa fa-check"></i><b>16</b> Mixed Two Way ANOVA</a></li>
 <li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a></li>
 <li class="chapter" data-level="18" data-path="chi-square.html"><a href="chi-square.html"><i class="fa fa-check"></i><b>18</b> Chi-Square</a></li>
@@ -220,8 +225,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="repeated-measures-anova" class="section level1">
 <h1><span class="header-section-number">Chapter 15</span> Repeated Measures ANOVA:</h1>
-<p>Template file</p>
+<ol style="list-style-type: decimal">
+<li>Repeated measures designs are those in which subjects are tested in each level of the independent variable. 2.The conceptual difference is that repeated measures designs allow for the separate estimation of the influence of individual differences from participant to participant, whereas between subject designs do not. 3.The repeated measures design is more economical and contains more statistical power as compared to its counterpart. 4.The assumptions of the repeated measures ANOVA 5.Power and effect size</li>
+</ol>
+<p>The linear model includes two more components, the source of an individual’s performance across the entire study and how an individual interacts with the treatment levels:</p>
+<p><img src="img/hicksrma1.png" alt="rma" /> <img src="img/hicksrma2.png" alt="rma" /> <img src="img/hicksrma3.png" alt="rma" /></p>
+<p>This ability to isolate the source of individual differences allows us to further reduce the error variance (i.e., the denominator of the F ratio).</p>
+<p><span class="math inline">\(F = \frac{MR_{RM}}{MS_{sub x RM}}\)</span></p>
+<p>Variability due to subjects is taken into account, but then ignored in the computation of F.</p>
+<div class="figure">
+<img src="img/hicksrma4.png" alt="rma" />
+<p class="caption">rma</p>
+</div>
+<p>A consumer psychologist is interested in the effect of label information on the perceived quality of wine. Six individuals are asked to rate 3 different wines a scale of 1 to 20, with higher scores being a better quality. The wines were labeled as French, Italian, or American, but the wine was identical across the conditions. The results are shown below:</p>
+<p><img src="img/hicksrma5.png" alt="rma" /> <img src="img/hicksrma6.png" alt="rma" /> <img src="img/hicksrma7.png" alt="rma" /> <img src="img/hicksrma8.png" alt="rma" /> <img src="img/hicksrma9.png" alt="rma" /> <img src="img/hicksrma10.png" alt="rma" /> <img src="img/hicksrma11.png" alt="rma" /></p>
+<div id="assumptions-of-rmanova" class="section level2">
+<h2><span class="header-section-number">15.1</span> Assumptions of RMANOVA</h2>
+<ol style="list-style-type: decimal">
+<li>Sample randomly selected from the population</li>
+<li>The DV is normally distributed in the population</li>
+<li>Sphericity: the variances of difference scores from all possible pairs of conditions are equal</li>
+</ol>
+<div class="figure">
+<img src="img/hicksrma12.png" alt="rma" />
+<p class="caption">rma</p>
+</div>
+<div class="figure">
+<img src="img/hicksrma13.png" alt="rma" />
+<p class="caption">rma</p>
+</div>
+<div class="figure">
+<img src="img/hicksrma14.png" alt="rma" />
+<p class="caption">rma</p>
+</div>
+<p>If sphericityis violated, there are several avenues to correct for it that involve applying a correction for the Epsilon value (ε) In SPSS, you’ll see the following in the within-subject ANOVA output: Lower bound correction—this is a change to the critical Fvalue from df= K–1, (n–1)(K–1) to df= 1, n–1. This severelyincreases the critical Fvalue to 6.61 in our case. Huynh &amp; Feldtand Geisser-Greenhouse are corrections to the dfbased on the degree of violation to sphericity, and create more modest corrections to the critical Fvalue. The non-corrected dfare multiplied by the epsilon values for each respective procedure.</p>
+<p>If none of the Fs is significant, don’t worry about these corrections—fail to reject the null. If all of the Fs are significant, then reject the null. If one/some of the “corrected” Fs is significant but others are not, then most advocate the Huynh &amp; Feldtcorrection (it’s not as conservative as the lower bound). Field text advocates averaging the G-G and H&amp;F estimates—for a rule of thumb, average the significance values of these estimates</p>
+</div>
+<div id="effect-size" class="section level2">
+<h2><span class="header-section-number">15.2</span> Effect Size</h2>
+<p>An effect size measure, f, is used to represent the population SD between groups from the grand mean, versus population SD within a group</p>
+<p><img src="img/hicksrma15.png" alt="rma" /> <img src="img/hicksrma16.png" alt="rma" /> <img src="img/hicksrma17.png" alt="rma" /> <img src="img/hicksrma18.png" alt="rma" /> <img src="img/hicksrma19.png" alt="rma" /> <img src="img/hicksrma20.png" alt="rma" /></p>
 
+</div>
 </div>
             </section>
 
