@@ -3,19 +3,24 @@
 Before starting out, it's worth mentioning that R has a steep learning curve compared to other statistical softwares. 
 While there are tons of blog posts as to why you should learn R, I will keep my list quick so if you get discouraged at any point, you can come back to this list and get reinspired before R starts paying you back.
 
-1. The R community is fantastic, check out #rstats on Twitter (this is really my favorite reason)
-2. R will always be free because the people behind it believe in open source principles LINK.
-3. Time spent learning R is time spent learning how computers work, if you learn about R, you are also learning computer programming. Time spent in something like SPSS or SAS does not easily tranfer to other programs.
-4. On r-jobs.com the way they decide to split jobs is jobs that make above and below $100,000.
-5. R is your ticket out of academia, if you need it. 
+1. The R community is fantastic, check out [#rstats](https://twitter.com/search?q=%23rstats&src=typd) on Twitter as well as everyone affiliated with the [TidyVerse](https://www.tidyverse.org/)
+2. R will always be free because the people behind it believe in [open source](https://en.wikipedia.org/wiki/Open-source_software) principles .
+3. Time spent learning R is time spent learning how computers work. If you learn about R, you are also learning computer programming. Time spent in something like SPSS or SAS does not easily tranfer to other programs.
+4. On [r-jobs.com](https://www.r-users.com/#open) the way they decide to split jobs is jobs that make above and below $100,000.
+5. R is your ticket out of academia, if you need it. It's also insane to think people would learn so much about statistics, the hardest part about becoming a data scientist, without learning the software to get you in the door. 
+6. When you make analyses and graphs in R they are very easy to reproduce. You just press 'Run' again.
+7. If you do your data cleaning in R, then each step is documented. There is less chance for human error.
+8. It makes [gorgeous graphs](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html).
+9. There are a lot of ways that R intergrates into other software. This book is written in [bookdown](https://bookdown.org/home/), [my website](http://davidjohnbaker.rbind.io/) is written in [blogdown](https://github.com/rstudio/blogdown), you can also make [interactive data applications](https://shiny.rstudio.com/).
+
 
 ## Getting Started
 
 Since this book is about statistics and R, the introduction to all things R is a bit shorter than other guides.
 If you need help, find a friend (or email the author of this book) and they will get you started.
-The first things you need to do is download R from CRAN, then get the latest version of RStudio.
-RStudio is an IDE that makes working in R a lot easier.
-Do not use R without it.
+The first things you need to do is download [R from CRAN](https://cran.r-project.org/), then get the latest version of [RStudio](https://www.rstudio.com/).
+RStudio is an [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) that makes working in R a lot easier.
+If you use R without RStudio, you are basically a masochist. 
 
 Once you have that, you can start to play around with this.
 
@@ -23,10 +28,17 @@ Once you have that, you can start to play around with this.
 
 At the end a long writing session you normally have to find a place to save that journal article you are working on. 
 You do this by clicking 'Save As' then finding where to stick it and what to call it.
-If you are programming you need to do this right away by saving your script (the what) and setting your working directory (the where).
+If you are programming you need to do this entire act of picking whre you are working right away by saving your script (the what) and setting your working directory (the where).
+This is the most tedious part of starting to learn R, but once you are over this hump, the others will not feel as bad. 
+While these instructions below are meant to be comprehensive, it's much easier to learn this part of the process with someone walking you through the steps.
 
-Once you have a new script set up, now we can start to run the next commands.
-This chapter covers a few basic things
+[WORKING DIRECTORY SET UP GUIDE]
+
+
+## The Basics
+
+With this script set up, we can now start to play around with R!
+This chapter covers a few basic things:
 
 * The rationale behind to writing scripts and code
 * R as Calculator
@@ -37,20 +49,10 @@ This chapter covers a few basic things
 
 The goals of this chapter are to:
 
-
 * Learn Basics of R and RStudio
 * Practice concepts with simple examples
 * Familiarize with vast array of functions
 * Have vocabulary and "R" way to think about problem solving
-
-## Rationale 
-
-Easily reproducible
-Less Human Error in cleaning
-Time invested in programming transfers
-Pretty Graphs
-Open Science
-Huge integration
 
 ## R as Calculator
 
