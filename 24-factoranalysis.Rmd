@@ -1,76 +1,129 @@
 # Factor Analysis
 
-Theory
-Introduction
-PCA is is first foray into exploring latent variables. Idea is to measure a lot of variables, from a few to a shitton. We get all sorts of scores on all these things, too many for regression, so we run a factor analysis. Question then is are there some existing variables that we are measuring with all DVs, not directly, to capture one underlying construct. FA uses matrix algebra to analyze the correlation between variables. We run FA, throw everything into SPPS (R) and see if we get any really big factors. Then end goal is that these three things will eventually explain most of the variance.
+## Theory
 
-PowerPoint, first half will be tons of terms.
+###Introduction
 
-Powerpoint
-Used to uncover latent structures of a set of variables.
+PCA is is first foray into exploring latent variables. 
+Idea is to measure a lot of variables, from a few to a shitton. 
+We get all sorts of scores on all these things, too many for regression, so we run a factor analysis. 
+Question then is are there some existing variables that we are measuring with all DVs, not directly, to capture one underlying construct. 
+FA uses matrix algebra to analyze the correlation between variables. 
+We run FA, throw everything into SPPS (R) and see if we get any really big factors. 
+Then end goal is that these three things will eventually explain most of the variance.
 
-Reduces attribute space from large to small factors. It’s a non-dependent procedure. It does not assume a DV is specified.
+There are a lot of terms associated with factor analysis. 
 
-Factor Analysis Purposes
-Reduce large number of variables to a small number of factors for modeling purposes
-Useful when large number of variables precludes modeling all the measures individually
-Establish that multiple tests measure the same factor
-Gives justification for administering fewer tests
-To validate a scale or index
-Done by demonstrating things that load on same factor
-Drop items which cross-load on more than one factor
-Select a subset of variables from larger set based on which original variables have the highest correlations with the principal component factors
-To create a set of factors to be treated as uncorrelated variables as one approach to handling multicollinearity in such procedures as multiple regression
-Identify clusters of cases/or outliers
-Cluster analysis happens with individuals
-To determine network groups, Q-Mode Factor
-Types of Analysis
-Exploratory Factor Analysis (EFA) * Theory building analysis * Commonly uses an extraction technique as Principal Component Analysis (PCA)
+Reduces attribute space from large to small factors.
+It’s a non-dependent procedure. 
+It does not assume a DV is specified.
 
-Confirmatory Factor Analysis * Theory testing * Not done in SPSS * For some people CFA means Con figural Frequency Analysis * In some CFA is better than EFA (vice versa)
+### Factor Analysis Purposes
 
-Factors and components
-These are dimensions (or latent variables) identified with clusters of variables, as computed using factor analysis Technically speaking, factors (as from principal factor analysis PFA) represents the common variance of variables, excluding unique variance This is a correlation focused approach seeking to reproduce the inter correlation among the variables. Components (as from PCA) reflect both common and unique variance of the variables Maybe be seen as variance focused approach seeking to reproduce both the total variable variance whit all components and to reproduce the correlations.
+There are a variety of reasons you might want to do a factor analysis... 
 
-Quick Notes
-PCA is far more common than PFA. It is common to sue “factors” interchangeable with “components” PCA is used when research purpose is data reduction, reduce data set
+* Reduce large number of variables to a small number of factors for modeling purposes
+* Useful when large number of variables precludes modeling all the measures individually
+* Establish that multiple tests measure the same factor
+* Gives justification for administering fewer tests
+* To validate a scale or index
+* Done by demonstrating things that load on same factor
+* Drop items which cross-load on more than one factor
+* Select a subset of variables from larger set based on which original variables have the highest correlations with the principal component factors
+* To create a set of factors to be treated as uncorrelated variables as one approach to handling multicollinearity in such procedures as multiple regression
+* Identify clusters of cases/or outliers
+* Cluster analysis happens with individuals
+* To determine network groups, Q-Mode Factor
 
-PFA is generally used when the research purpose is to id latent variables which contribute to the common variance of the set of measured variables, excluding variable specific (unique) variance
 
-FA looks at how variance is shared amongst items.
+### Types of Analysis
 
-PCA
-PCA is most common form of FA Seeks linear combo of variable such that the maximum variance is extracted from the variables. It then removes this variance and seeks a second linear combination which explains the max proportion of the remaining variance. This is called the principal axis method and results in orthogonal uncorrelated factors.
+There are two main types of factor analysis *Exploratory Factor Analysis* or *EFA* and *Confirmatory Factor Analysis* or *CFA*.
+With Exploratory Factor Analysis, you are using theories to build some models.
+Often you will use a technique called *Principal Compenent Analysis* or *PCA*  to do this.
+These two are not the same thing! REFERENCE!
+With **CFA** you are testing a theory.
+This cannot be done in SPSS, but we can do it in R.
 
-Canonical factor analysis (what the hell is that?) also called d Rao’s cnonicalf actor is differthmethdo few comping the same model as PCA. Looks for highest Caloocan correlation
 
-Common factor analysis
-AKA Principal factor analysis (PFA) or principal axis factor (PAF), common Is form of FA which seeks the least number of factors which can account for the common variance (correlation) of a set of variables Again is different from PCA which seeks the set of factor switch can account for all the common and unique (specific plus error) variance in a set of variables For the geeks: PFA …..
+#### Factors and Components
+These are dimensions (or latent variables) identified with clusters of variables, as computed using factor analysis,
+Technically speaking, factors (as from Principal Factor Analysis PFA) represents the common variance of variables, excluding unique variance.
+This is a correlation focused approach seeking to reproduce the inter correlation among the variables. 
+Components (as from PCA) reflect both common and unique variance of the variables Maybe be seen as variance focused approach seeking to reproduce both the total variable variance whit all components and to reproduce the correlations.
 
-PCA vs Common Factor Analysis
+PCA is far more common than PFA. 
+It is common to sue “factors” interchangeable with “components” PCA is used when research purpose is data reduction, reduce data set.
+
+Factor Analysis is generally used when the research purpose is to identify latent variables which contribute to the common variance of the set of measured variables, excluding variable specific (unique) variance
+
+Factor Analysis  looks at how variance is shared amongst items.
+
+### PCA
+
+Principal Components Analysis (PCA) is most common form of FA that seeks linear combinations of variable such that the maximum variance is extracted from the variables. 
+It then removes this variance and seeks a second linear combination which explains the maximum proportion of the remaining variance. 
+This is called the principal axis method and results in orthogonal uncorrelated factors.
+
+???????Canonical factor analysis (what the hell is that?) also called d Rao’s canonical factor is different method  few comping the same model as PCA. Looks for highest Caloocan correlation?????
+
+#### Common factor analysis
+
+Principal factor analysis (PFA) or principal axis factor (PAF), common Is form of FA which seeks the least number of factors which can account for the common variance (correlation) of a set of variables Again is different from PCA which seeks the set of factor switch can account for all the common and unique (specific plus error) variance in a set of variables For the geeks: PFA.
+
+#### PCA vs Common Factor Analysis
+
 For most data sets PCA and common factor analysis lead to same thing (Paper!)
 
-PCA is preferred for purpose of data reduction. FA is preferred when the research purpose is detecting data structure or causal modeling. FA is also used in SEM.
+PCA is preferred for purpose of data reduction. 
+FA is preferred when the research purpose is detecting data structure or causal modeling. 
+FA is also used in SEM.
 
 Other Extration Methods
-Image factoring: based on correlation matrix of predicted variables rather than actual variables, where each variable is predicted from the others using multiple regression
 
-Maximum Likelihood factoring * Based on a linear combination of variables to form factors, where the parameter estimates are those most likely to have resulted in the observed correlation matrix, using MLE methods and assuming multivariate normality * Correlations are weighted by each variable’s uniqueness * Generates a chi-square goodness-of-fit test
+##### Image Factoring
 
-Alpha factoring * Based on maximizing the reliability of factors, assuming variables are randomly sampled from a universe of variables * All other methods assume cases to be sampled and variables fixed
+based on correlation matrix of predicted variables rather than actual variables, where each variable is predicted from the others using multiple regression
 
-Unweighted lead squares factoring * Based on minimizing sum of squares …
+##### Maximum Likelihood factoring 
 
-Generalized least squares factoring * Based on minimizing the sum of squared differences between observed and estimated correlation matrices, not counting the diagonal. * Based on adjusting ULS by weighting the correlations inversely according to their uniqueness (more unique variables are weighted less) * GLS also generates a chi-square goodness-of-fit test
+* Based on a linear combination of variables to form factors, where the parameter estimates are those most likely to have resulted in the observed correlation matrix, using MLE methods and assuming multivariate normality 
+* Correlations are weighted by each variable’s uniqueness 
+* Generates a chi-square goodness-of-fit test
 
-Factor Loadings
-Analogous to Pearson’s r, the squared factor loading is the percent of variance in that indicator variable explained by the factor. Also called component loading in PCA. If it’s high we call it an indicator variable, as long as it’s not highly correlated with other variables. To get the percent of variance in all variables accounted for by each factor, add the sum of the squared factor loading for that factor (column ) and divide by the number of variables. Th number of variables equals the sum of their variance as the variance of standard variable is 1. This is the same as dividing the factor’s eigen value by the number of variables.
+##### Alpha factoring 
 
-Communality or \[h^2\]
-This is the squared multiple correlation for the variable as dependent using the factors as predictors The commonality measures the percent of variance in a given variable expand by all the factors JOINTLY and may be interpreted as the RELLIABILITY OF THE INDICATOR.
+* Based on maximizing the reliability of factors, assuming variables are randomly sampled from a universe of variables 
+* All other methods assume cases to be sampled and variables fixed
 
-Low Communality
-When an indicator variable has a low communality, the factor model is not working well for that indicator and possibly it should be removed from the model. Low communalities communalities across the set of variables indicates the variables are little related to each other However communalities must be interpreted in relation to the interpretability of the factors.
+##### Unweighted lead squares factoring 
+
+* Based on minimizing sum of squares …
+
+##### Generalized least squares factoring 
+
+* Based on minimizing the sum of squared differences between observed and estimated correlation matrices, not counting the diagonal. 
+* Based on adjusting ULS by weighting the correlations inversely according to their uniqueness (more unique variables are weighted less) 
+* GLS also generates a chi-square goodness-of-fit test
+
+#### Factor Loadings
+
+Analogous to Pearson’s $R$, the squared factor loading is the percent of variance in that indicator variable explained by the factor. 
+Also called component loading in PCA. 
+If it’s high we call it an indicator variable, as long as it’s not highly correlated with other variables. 
+To get the percent of variance in all variables accounted for by each factor, add the sum of the squared factor loading for that factor (column ) and divide by the number of variables. 
+The number of variables equals the sum of their variance as the variance of standard variable is 1. 
+This is the same as dividing the factor’s eigen value by the number of variables.
+
+#### Communality or $h^2$
+
+This is the squared multiple correlation for the variable as dependent using the factors as predictors.
+The commonality measures the percent of variance in a given variable expand by all the factors JOINTLY and may be interpreted as the RELLIABILITY OF THE INDICATOR.
+
+##### Low Communality
+
+When an indicator variable has a low communality, the factor model is not working well for that indicator and possibly it should be removed from the model. 
+Low communalities communalities across the set of variables indicates the variables are little related to each other However communalities must be interpreted in relation to the interpretability of the factors.
 
 If item has LOW commonality, might want to think about removing that variable. Related in relation to interpreitablity of the factors.
 
@@ -78,123 +131,194 @@ A commonality of .75 seems high but is meaningless unless the factor on which th
 
 What is critical is not the coefficient per se, but rather the extent to which the item plays a role in the interpretation of the factor, though often this role is greater when communally is high.
 
-Suprrious solutions
-If the commonality exceeds 1, there is a supruious solution, which reflect too small a sample or the researcher has too many or two few factors. If it looks too good, it probably is. Every model we come up with in psychology is underspecified.
+##### Suprrious solutions
 
-Eigenvalues
-These are byproduct of of matrix transformations. Eigenvalue for given factor measure the variance in all the variable which is accounted for by that factor. Really what we are doing here is looking at correlations in a lot of different ways. The ration of eigen values = ration of explanatory importance of vectors with respect to the variables.
+If the commonality exceeds 1, there is a supruious solution, which reflect too small a sample or the researcher has too many or two few factors. 
+If it looks too good, it probably is. 
+Every model we come up with in psychology is underspecified.
+
+#### Eigenvalues
+
+These are byproduct of of matrix transformations. 
+Eigenvalue for given factor measure the variance in all the variable which is accounted for by that factor. 
+Really what we are doing here is looking at correlations in a lot of different ways. 
+The ration of eigen values = ration of explanatory importance of vectors with respect to the variables.
 
 The sum of eigen values of one factor over the sum of ALL the eigen values is the explanatory ability of that factor.
 
 If a factor ha a low eigen value then it is contribution little to the explanation of variance in the variables and maybe be ignored as reduction with more important factors.
 
-The eigenvalue is not the % of variance explained! It is a measure of amount of variance in relation to total variance. Since variables are standardized to have mean of 0 and variance of 1, total variance is equal to the number of variables.
+The eigenvalue is not the % of variance explained! 
+It is a measure of amount of variance in relation to total variance. Since variables are standardized to have mean of 0 and variance of 1, total variance is equal to the number of variables.
 
-Criterial for determing the number of factors
-There are no rules, just some pointers
+Criterial for determing the number of factors.
+There are no rules, just some pointers.
+
+##### Selecting Eigen Values
 
 The most important pointer for determining the number of factors is comprehensibility which is not mathematical criterion, these factors have to make sense. You have to be able to explain them at some point to another human being. In most FA you will find that once you get to beyond 2-3-4 factors, it’s hard to think what each of those factors represent. Often you use one or more of the methods below to determine an appropriate range of solutions to investigate.
 
-Kaiser Criterion
-A commons rule of thumb for dropping the least important factor from the analysis in the KI rule Drop all components with eigenvalues under 1.0 The may overestimate or underestimate the true number of factors Considerable simulation study evinced suggest it usually overestimates the true number of factors No recommended when used as the sole cut off criterion for estimated the number of factors.
+##### Kaiser Criterion
 
-Screen Plots
-The cattell scree test plots the components as the X axis and the corresponding eigenvalues as the Y axis. As you move to the right, the eigenvalues drop. When the drop ceases and the curve make an below toward less steep decolien, Cattells scree test says to drop all further comments AFTER the one starting the elbow. This rule is sometimes criticized for begin amenable to research-controlled fudging. That is as picking the elbow as picking the “elbow” can be subjective because the curve has multiple elbows or is a smooth curve, the researcher may be tempted to set the cut-off at the number of factors desired by his or her research agenda. The scree criterion may result in fewer or more factor than the Kaiser criterion.
+A commons rule of thumb for dropping the least important factor from the analysis in the KI rule Drop all components with eigenvalues under 1.0.
+This may overestimate or underestimate the true number of factors. 
+Considerable simulation study evinced suggest it usually overestimates the true number of factors No recommended when used as the sole cut off criterion for estimated the number of factors.
+
+##### Scree Plots
+
+The Cattell scree test plots the components as the X axis and the corresponding eigenvalues as the Y axis. 
+As you move to the right, the eigenvalues drop. 
+When the drop ceases and the curve make an below toward less steep decolien, Cattells scree test says to drop all further comments AFTER the one starting the elbow. 
+This rule is sometimes criticized for begin amenable to research-controlled fudging. 
+That is as picking the elbow as picking the “elbow” can be subjective because the curve has multiple elbows or is a smooth curve, the researcher may be tempted to set the cut-off at the number of factors desired by his or her research agenda. 
+The scree criterion may result in fewer or more factor than the Kaiser criterion.
 
 Find the elbow and delete everything AFTER it.
 
-Parallel Analysis
-New one, often recommended as best method to asses the true number of factors. Selects factors that are greater than random. The actual data are factor analyzed, and separately one does a factor analysis of a matrix of random numbers representing the same number of cases and variables For both actual an d random solutions, the number of factors on the x axis and cumulative eigenvalues on the y axis is plotted When the two lines intersect determines the number of factors to be extracted.
+##### Parallel Analysis
 
-Variance Explained Criteria
-Some researcher just just rule to keep enough factors to account for 90% of variation When the researchers goal emphasis parsimony (explaining with as few factor as possible) the criterion could be as low as 50%
+New one, often recommended as best method to asses the true number of factors. 
+Selects factors that are greater than random. 
+The actual data are factor analyzed, and separately one does a factor analysis of a matrix of random numbers representing the same number of cases and variables For both actual an d random solutions, the number of factors on the x axis and cumulative eigenvalues on the y axis is plotted. 
+When the two lines intersect determines the number of factors to be extracted.
 
-Joliffee Criterion
-Delete all components with eigen values under .7 May restful in twice as many factors as the Kaiser criterion. A less used, liberal rule of them
+##### Variance Explained Criteria
+Some researcher just just rule to keep enough factors to account for 90% of variation When the researchers goal emphasis parsimony (explaining with as few factor as possible) the criterion could be as low as 50%.
 
-Mean Eigen Value
+##### Joliffee Criterion
+
+Delete all components with eigen values under .7.
+May restful in twice as many factors as the Kaiser criterion. 
+A less used, liberal rule of them.
+
+##### Mean Eigen Value
 Use factors whose eigen values are at or above the mean. This strict rule may result in too few factors.
 
-Precautions
-Before dropping a factor below one’s cut-off. Check it’s correlation with the DV. A very small factor can have a large correlation with DV, in which it should not be dropped Problem,: You have to know hat your DV is. As a rule of thumb, factors should have at least three high, interpretable loadings. Fewwer may suggest that he research has asked for too may factors. Want at least three items that that load on each factor.
+##### Precautions
+Before dropping a factor below one’s cut-off. 
+Check it’s correlation with the DV. 
+A very small factor can have a large correlation with DV, in which it should not be dropped Problem. 
+You have to know what your DV is. 
+As a rule of thumb, factors should have at least three high, interpretable loadings. 
+Fewwer may suggest that he research has asked for too may factors. 
+Want at least three items that that load on each factor.
 
-Rotatation
-Serves to make the output more understandable and is usually needed to facilitate the interpretation of factors. If you multiply a matrix by sign and cosines, it rotates it in space and what it does is minimize small correlations and maximizes big ones. Rotation retains all the information, but then just changes it. You are just rotation the matrix of factor loadings.
+### Rotatation
+
+Serves to make the output more understandable and is usually needed to facilitate the interpretation of factors. 
+If you multiply a matrix by sign and cosines, it rotates it in space and what it does is minimize small correlations and maximizes big ones. 
+Rotation retains all the information, but then just changes it. 
+You are just rotation the matrix of factor loadings.
 
 Normally you do rotation after.
 
-The sum of the eigen values is not affected by rotation Rotation will alter the eigenvalues (and percent of variance explained) of particular factors and will change the factor loadings. Since alternative rotations may explain the same variance. This is a problem often cited as a drawback factor. You can get different meanings based on different rotations!
+The sum of the eigen values is not affected by rotation. 
+Rotation will alter the eigenvalues (and percent of variance explained) of particular factors and will change the factor loadings. 
+Since alternative rotations may explain the same variance. 
+This is a problem often cited as a drawback factor. 
+You can get different meanings based on different rotations!
 
-If factor analysis is used, you might want to look for different rotations method to see which lead to the most interpretable factor structure. Realistically, you will often get very similar solutions (at least relatively)
+If factor analysis is used, you might want to look for different rotations method to see which lead to the most interpretable factor structure. 
+Realistically, you will often get very similar solutions (at least relatively).
 
-No rotation is the default in SPSS. The original, unrotated principal components solution maximizes the sum of squared factor loadings, efficiently creating a set of factors which explain as much of the variance in the original variables as possible.
-
-The amount explained is reflected in the sum of the eigenvalues of all factors
-
+No rotation is the default in SPSS. 
+The original, unrotated principal components solution maximizes the sum of squared factor loadings, efficiently creating a set of factors which explain as much of the variance in the original variables as possible.
+The amount explained is reflected in the sum of the eigenvalues of all factors.
 However,unrotated solutions are hard to interpret because variables tend to load on multiple factors. Big problem with not rotating is that variables load on multiple factors.
 
-Varimax Rotation
-An orthogonal rotation of the factor axes to maximize the variance of the squared loadings of a factor (column) on all the variables (rows) in a factor matrix Has the effect of of differentiating the original variables by extracted factor. Each factor will tend to have either large or small loadings of any particular variable. A varimax solution yields results which make it as easy as possible to identify each variable with a single factor. This is the most common rotation option.
+#### Varimax Rotation
+
+An orthogonal rotation of the factor axes to maximize the variance of the squared loadings of a factor (column) on all the variables (rows) in a factor matrix Has the effect of of differentiating the original variables by extracted factor. 
+Each factor will tend to have either large or small loadings of any particular variable. 
+A varimax solution yields results which make it as easy as possible to identify each variable with a single factor. 
+This is the most common rotation option.
 
 Orthogonality assumes that the latent variables are not related to one another, they are independent.
 
-Quartimax Rotation
-An orhtogional alternative which minimizes the number of factors needed to explain each variable. This type of rotation generates a general factor on which most variables are loaded to a high or medium degree. Such a factor structure is usually not helpful to the research purpose. Maximizes loading on one most important factor.
+#### Quartimax Rotation
 
-Equimax Rotation
+An orhtogonal alternative which minimizes the number of factors needed to explain each variable. 
+This type of rotation generates a general factor on which most variables are loaded to a high or medium degree. 
+Such a factor structure is usually not helpful to the research purpose. 
+Maximizes loading on one most important factor.
+
+#### Equimax Rotation
+
 A compromise between equimax and quartimax.
 
-Direct Oblmin
-The standard method when you want a non-orthogonal (oblique) solution As such, factors are allowed to be correlated This is will result in higher eigen values but diminishes interpretation of the factors.
+#### Direct Oblmin
 
-Promax Rotation
+The standard method when you want a non-orthogonal (oblique) solution. 
+As such, factors are allowed to be correlated This is will result in higher eigen values but diminishes interpretation of the factors.
+
+#### Promax Rotation
+
 An alternative non-orthogonal (oblique) rotation method which is computationally faster than than the direct oblimn method ad therefore is sometimes used for very large datasets.
 
-Oblique Rotation
-In oblique rotation you get both a patter matrix and a structure matrix The structure matrix is simply the factor loading matrix as in orthogonal rotation. The pattern matrix, in contrast, contains coefficient which just represents unique contributions. The more factors, the lower the pattern coefficient as a rule since there will e more common contributes to variance explained. For oblique rotation, research looks at both the structure and patter coefficient when attributing a label to a factor.
+#### Oblique Rotation
 
-Assumptions
-Interval data is assumed. Kim and Mueller (1978 b 74-75) note that ordinal data may be sued if it is though that the assignment of ordinal categories other that do not seriously distort the underlying metric scaling
+In oblique rotation you get both a patter matrix and a structure matrix. 
+The structure matrix is simply the factor loading matrix as in orthogonal rotation. 
+The pattern matrix, in contrast, contains coefficient which just represents unique contributions. 
+The more factors, the lower the pattern coefficient as a rule since there will be more common contributes to variance explained. For oblique rotation, research looks at both the structure and patter coefficient when attributing a label to a factor.
 
-Problems wiht Catheorica Variables
-Note that categorical variables with similar splits will necessarily tend to correlate with each other, regardless of their content (see Gorsuch, 1983)
+### Assumptions
+
+Interval data is assumed. 
+Kim and Mueller (1978 b 74-75) note that ordinal data may be used if it is though that the assignment of ordinal categories other that do not seriously distort the underlying metric scaling.
+
+
+### Problems wiht Catheorica Variables
+
+Note that categorical variables with similar splits will necessarily tend to correlate with each other, regardless of their content (see Gorsuch, 1983).
 This is particularly apt to occur when dichotomies are used.
-The correlation will reflect similarity of “difficulty” for items in a testing context, hence such correlated variables are called difficulty factors
-The researcher should examine the factor loadings of categorical variables with care to assess whether common loading reflects a difficulty factor or substantive correlation. * Improper use of dichotomies can result in too many factors.
-Problems with Dichotomous Data
+The correlation will reflect similarity of “difficulty” for items in a testing context, hence such correlated variables are called difficulty factors.
+The researcher should examine the factor loadings of categorical variables with care to assess whether common loading reflects a difficulty factor or substantive correlation. 
+Improper use of dichotomies can result in too many factors.
+
+##### Problems with Dichotomous Data
+
 Dichotomous data tend to yield many factors (by the usual Kaiser criterion), and many variables loaded on these factors (by the usual .40 cutoff), even for randomly generated data.
 
-Valid Imputation of Factor Labels
+#### Valid Imputation of Factor Labels
+
 Factor analysis is notorious for the subjective involved in imputing factor labels from factor loading.
 
-No selection bias/proper specification
+##### No selection bias/proper specification
 The exclusion of relevant variables and inclusion of irrelevant variable in correlation matrix being factored will affect, often substantially, the factors which are uncovered.
 
-No Outliers
-Outlive can impact correlations heavily distorting results. The better your correlations, but better your factor analysis.
+##### No Outliers
+Outlive can impact correlations heavily distorting results. 
+The better your correlations, but better your factor analysis.
 
-Linearity
+##### Linearity
 Same as other tests
 
-Multivariate nomrality
+##### Multivariate nomrality
+
 Ideally also MVN.
 
-Homoscedacity
+##### Homoscedacity
 Since factors are linear function of measured variables, homscedascity of the relationship is assumed. Not considered a critical assumption of factor analysis.
 
-Doing It
-Factory Analysis
-Select and measures variables
-Prepare the correlation matrix
-Extract factors
-Determine Number of Factors
-Rotate factors
-Interpret results
-Selecting and Measuring Variables
-Sample size: T&F recommends at least 300. Number of variables to include, at least 3 measures per factor, preferable 4 or more.
+### Running It 
+
+1. Select and measures variables
+2. Prepare the correlation matrix
+3. Extract factors
+4. Determine Number of Factors
+5. Rotate factors
+6. Interpret results
+7. Selecting and Measuring Variables
+8 Sample size: T&F recommends at least 300. Number of variables to include, at least 3 measures per factor, preferable 4 or more.
+
+#### Breezin'
 
 Factor Extraction
-Extraction is the process by which factors are determined from a larger set of variables. Are multiple factor extraction methods PCA is the most common extraction method. The goal is to extract factors that explain as much variance as possible with s few factors as possible– parsimony!
+
+Extraction is the process by which factors are determined from a larger set of variables. 
+Are multiple factor extraction methods PCA is the most common extraction method. 
+The goal is to extract factors that explain as much variance as possible with s few factors as possible– parsimony!
 
 Determien Number of Factors
 Kaisers? Scree? A priori?
@@ -210,6 +334,7 @@ Interpret from rotation solution Naming Components, Ideally want variable to loa
 
 If one item loads highly on 2, either new rotation or throw it out.
 
+[FIND AND LINK THESE CITATIONS]
 Further Readings…
 Kim, Jae-On and Charles W. Mueller (1978a). Introduction to factor analysis: What it is and how to do it. Thousand Oaks, CA: Sage Publications, Quantitative Applications in the Social Sciences Series, No. 13.
 Kim, Jae-On and Charles W. Mueller (1978b). Factor Analysis: Statistical methods and practical issues. Thousand Oaks, CA: Sage Publications, Quantitative Applications in the Social Sciences Series, No. 14.
