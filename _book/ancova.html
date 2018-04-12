@@ -107,7 +107,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> Setting The Working Directory</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#rationale"><i class="fa fa-check"></i><b>2.3</b> Rationale</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-basics"><i class="fa fa-check"></i><b>2.3</b> The Basics</a></li>
 <li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-as-calculator"><i class="fa fa-check"></i><b>2.4</b> R as Calculator</a></li>
 <li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#data-exploration"><i class="fa fa-check"></i><b>2.5</b> Data Exploration</a></li>
 <li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#indexing"><i class="fa fa-check"></i><b>2.6</b> Indexing</a></li>
@@ -231,7 +231,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="26.0.6" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts"><i class="fa fa-check"></i><b>26.0.6</b> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</a></li>
 <li class="chapter" data-level="26.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#practice-3"><i class="fa fa-check"></i><b>26.1</b> Practice</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a></li>
+<li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
+<li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2</b> Analysis I</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.1</b> Analysis I</a></li>
+</ul></li>
+<li class="chapter" data-level="27.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.3</b> Analysis II</a></li>
+</ul></li>
 <li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
 <li class="chapter" data-level="29" data-path="confirmatory-factor-analysis.html"><a href="confirmatory-factor-analysis.html"><i class="fa fa-check"></i><b>29</b> Confirmatory Factor Analysis</a></li>
 <li class="chapter" data-level="30" data-path="this-is-a-template-file.html"><a href="this-is-a-template-file.html"><i class="fa fa-check"></i><b>30</b> This is a template file</a></li>
@@ -319,9 +325,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)</code></pre></div>
 <pre><code>## Warning: package &#39;data.table&#39; was built under R version 3.4.2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">deadsheep &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;datasets/deadsheep.csv&quot;</span>)
-deadsheep[, Animal <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">as.factor</span>(animal)]
-sheep.model.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep)
-<span class="kw">summary</span>(sheep.model.<span class="dv">1</span>)</code></pre></div>
+deadsheep[, Animal :<span class="er">=</span><span class="st"> </span><span class="kw">as.factor</span>(animal)]
+sheep.model<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness ~<span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep)
+<span class="kw">summary</span>(sheep.model<span class="fl">.1</span>)</code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 ## Animal       2  124.4   62.21   3.165 0.0566 .
 ## Residuals   30  589.6   19.65                 
@@ -331,13 +337,13 @@ sheep.model.<span class="dv">1</span> &lt;-<span class="st"> </span><span class=
 <p>Now since we know that the whole weight of the animal might be confounding our answer (it’s related to the DV of fatness, but not nessecarily related to the type of sheep), let’s run an ANCOVA with carcass weight as a covariate and see if that changes our answer.</p>
 <p>Before we run the ANCOVA, we need to first check that our IV is not significantly related to our CV. We do this by running an ANOVA predicting weigth by animal.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Test IND of IV and CV</span>
-ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep) ## Check CV for IV indep, want non-sig
+ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight ~<span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep) ## Check CV for IV indep, want non-sig
 <span class="kw">summary</span>(ind.sheep) <span class="co"># p=.104</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
 ## Animal       2  14.20   7.102   2.438  0.104
 ## Residuals   30  87.41   2.914</code></pre>
 <p>Here we get<span class="math display">\[ F(2,30) = 2.44, p&gt; .05\]</span> and can move forward. Let’s now run our ANCOVA. Note that R’s default is Type I Sum of Squares, we need to load the <code>car</code> package to give us the correct sum of squares. For further reading on this, check out the Andy Field book on this.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sheepANCOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>Animal <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data=</span>deadsheep)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sheepANCOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness ~<span class="st"> </span>Animal +<span class="st"> </span>weight, <span class="dt">data=</span>deadsheep)
 <span class="kw">library</span>(car)</code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;car&#39;</code></pre>
@@ -386,7 +392,7 @@ ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span
 ## 20.23851 11.89660 16.12870</code></pre>
 <p>We can then note the estimated marginal means here (18.9 for Ewe, 10.53 for Ram, and 14.83 for Wether) are mean values for fatness once the CV of weight has been controlled for.</p>
 <p>Lastly, let’s test the homogenaity of the regression slopes assumption (though we should have done this first!). We do this by running the model with an interaction term included.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hoRS.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>Animal <span class="op">+</span><span class="st"> </span>animal<span class="op">:</span>weight, <span class="dt">data=</span>deadsheep)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hoRS.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness ~<span class="st"> </span>weight +<span class="st"> </span>Animal +<span class="st"> </span>animal:weight, <span class="dt">data=</span>deadsheep)
 <span class="kw">Anova</span>(hoRS.sheep, <span class="dt">type=</span><span class="st">&quot;III&quot;</span>)</code></pre></div>
 <pre><code>## Anova Table (Type III tests)
 ## 
@@ -401,9 +407,9 @@ ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The interaction term is not significant, thus no violation. We can also plot this to see it. All regression lines should be pointing in the same direction when we plot the groups separately.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(deadsheep, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> fatness, <span class="dt">color =</span> Animal)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="kw">ggplot</span>(deadsheep, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> fatness, <span class="dt">color =</span> Animal)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Homogeneity of Regression Slopes&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Weight&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fatness&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <p>If one of these lines would be pointed downwards, we would have an interaction.</p>
