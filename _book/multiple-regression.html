@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="mixed-two-way-anova.html">
+<link rel="prev" href="factorial-designs-with-repeated-measures.html">
 <link rel="next" href="chi-square.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -118,7 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a></li>
-<li class="chapter" data-level="4" data-path="episotomology-of-statistics.html"><a href="episotomology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Episotomology of Statistics</a></li>
+<li class="chapter" data-level="4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Epistemology of Statistics</a></li>
 <li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
 <li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#organizing-data"><i class="fa fa-check"></i><b>5.1.1</b> Organizing Data</a></li>
@@ -172,8 +172,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
 <li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="mixed-two-way-anova.html"><a href="mixed-two-way-anova.html"><i class="fa fa-check"></i><b>16</b> Mixed Two Way ANOVA</a></li>
-<li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a></li>
+<li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
+<li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#equal-variance"><i class="fa fa-check"></i><b>16.1.1</b> Equal Variance</a></li>
+<li class="chapter" data-level="16.1.2" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#simple-main-effects"><i class="fa fa-check"></i><b>16.1.2</b> Simple Main Effects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="17.1" data-path="multiple-regression.html"><a href="multiple-regression.html#conceptual-representation"><i class="fa fa-check"></i><b>17.1</b> Conceptual Representation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="multiple-regression.html"><a href="multiple-regression.html#second-part"><i class="fa fa-check"></i><b>17.1.1</b> Second Part</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="18" data-path="chi-square.html"><a href="chi-square.html"><i class="fa fa-check"></i><b>18</b> Chi-Square</a></li>
 <li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
 <li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
@@ -225,14 +234,144 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="multiple-regression" class="section level1">
 <h1><span class="header-section-number">Chapter 17</span> Multiple Regression</h1>
+<ol style="list-style-type: decimal">
+<li>Multiple regression (and multiple correlation) refers the process of fitting a linear combination of multiple Xvariables to predict scores on Y.</li>
+<li>There are different ways to compute the components of the regression line.</li>
+<li>In multiple regression, we have to the multiple correlation coefficient(R) and its associated coefficient of determination (R2).</li>
+<li>We can test the significance of the individual regression coefficients under the null hypothesis that each is equal to 0.</li>
+</ol>
+<p>Scenario: A researcher is interested in predicting the number of substance abuse relapses in a five year period following entrance into substance abuse treatment. She measured the following data for 120 women upon entry into the treatment program:</p>
+<p>Depression Propensity for substance abuse Daily life stress Amount of social support from close others Perceived social support from close others</p>
+<ul>
+<li>CREATE CORRELATION TABLE</li>
+</ul>
+<p>The slope-intercept form of the equation is</p>
+<div class="figure">
+<img src="img/hicksmr1.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>We fit the best “hyperplane” to the data set by using the least squaresprinciple.</p>
+<div class="figure">
+<img src="img/hicksmr2.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>There are different ways to compute the components of the regression plane.</p>
+<p>Predicting number of relapses (Y) from substance abuse propensity (X1) and daily life stress (X2)</p>
+<div class="figure">
+<img src="img/hicksmr3.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>Standardized coefficients (Beta weights) for two predictors</p>
+<div class="figure">
+<img src="img/hicksmr4.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr5.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr6.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr7.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>R OUTPUT OF REGRESSION</p>
+<div class="figure">
+<img src="img/hicksmr8.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>In multiple regression, we have to the multiple correlation coefficient(R) and its associated coefficient of determination (R2).</p>
+<p>Multiple Ris a correlation coefficient that represents the entire linear combination of predictors, rather than the simple correlation of a given Xvariable with Y.</p>
+<div class="figure">
+<img src="img/hicksmr9.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>Multiple Rranges from 0 to 1 (i.e., cannot be negative). Multiple Ralso represents the correlation between each Yscore and its associated Ŷ score. Multiple R2is the amount of variance in Yshared by the linear combinationof predictors.</p>
+<p>R2 = .42^2 = .176</p>
+<p>Multiple R2can overestimate the true amount of shared variance when there are numerous predictors and a small number of observations, so an adjustment for this problem has been identified:</p>
+<div class="figure">
+<img src="img/hicksmr10.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>Testing for significance.</p>
+<div class="figure">
+<img src="img/hicksmr11.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr12.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div id="conceptual-representation" class="section level2">
+<h2><span class="header-section-number">17.1</span> Conceptual Representation</h2>
+<div class="figure">
+<img src="img/hicksmr13.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr14.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr15.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr16.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr17.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div class="figure">
+<img src="img/hicksmr18.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<div id="second-part" class="section level3">
+<h3><span class="header-section-number">17.1.1</span> Second Part</h3>
+<ol style="list-style-type: decimal">
+<li>Regression diagnostics involve identifying potential outlying observations to help refine the prediction equation.</li>
+<li>Constructing an efficient and valid regression equation requires a consideration of many factors.</li>
+<li>Various selection methods are available for finding the “best” regression model, but each has its own drawbacks.</li>
+</ol>
+<p>Distanceor discrepancyrefers to the error in prediction in the criterion variable. -could be random error, could be incorrectly recorded, couldbe an unusual case that is justified in being thrown out -a ttest on the residuals can be requested, called the Studentized residual, with (N-P-1) degrees of freedom -keep in mind that a ttest is being done for each observation, so a Bonferronicorrection for multiple comparisons is probably a good idea ˆYYe−=</p>
+<p>b.Leverage(often denoted hi) helps to identify outliers based on the predictor variables X1, X2, and so on. -possible values of leverage range from 1/N to 1.0, with a mean of [(P+1)/N] -some recommend carefully inspecting observations with leverage values of [3(P+1)/N] or greater</p>
+<p>Influencecombines distance and leverage for a given observation to ascertain whether that observation markedly changes the regression surface (i.e., the equation). -most common measure is Cook’s D -reflects the change in a regression coefficient if the offending observation were taken out and the regression re-computed -values over 1.0 are highly unusual and merit scrutiny -a more conservative rule of thumb is if Cook’s D &gt; [4/(N –k –1)]</p>
+<div class="figure">
+<img src="img/hicksmr19.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<p>Mahabanolisdistance measures the uniqueness of a given observation based on its value and the mean values for all other cases of the predictors in the model</p>
+<div class="figure">
+<img src="img/hicksmr20.png" alt="mr" />
+<p class="caption">mr</p>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Tolerancerefers to the degree to which one predictor can itself be predicted by the remaining predictors in the model -if the multiple correlation from all other predictors here is RX, then tolerance is the leftover unexplained variance, or -it tells us the degree of overlap among predictors—lower values of tolerance represent potential problems (lower than .20 or so is a flag) -we want the multiple correlation among predictors to be rather low, and therefore tolerance to rather high</p></li>
+<li><p>Variance inflation factor(VIF) is the reciprocal of tolerance and represents how much the standard error of a given predictor coefficient is made larger because of high correlations with other predictors -we want low standard errors for coefficients, and therefore low VIF values (values over 10 or so might cause concern). -if eliminating a predictor variable with high VIF and low tolerance helps to generate a more stable model (i.e., low sampling error), then it may be a good idea to do so</p></li>
+</ol>
+<p>Various selection methods are available for finding the “best” regression model, but each has its own drawbacks. a. The all subsetsmethod essentially requires fitting all possible combinations of predictor variables to see which provides the best R2or that minimizes MSres -one problem with this technique is that it could capitalize on chance -your particular sample may have data points that are not representative of the population b. Backward eliminationinvolves putting all predictors into the model and then removing those that contribute the least to the model -this is done iteratively until we are left with the model that only includes influential predictors</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Stepwiseregression is the opposite of backward elimination, where we add the most influential predictor, then the next most, and so on. -at each step in the process, before adding a new variable, we determine whether any current predictors should be removed on the basis that they no longer make a contribution -selection stops when remaining predictors will not make a contribution -forward selectionprocedures can be used so that previously added predictors are not removed at any future step</li>
+<li>Hierarchical regression is a method used to force the entry of variables in a particular order</li>
+</ol>
+<p>overall, the stepwise method is likely the best, although these methods should be used primarily when trying to create the best prediction, rather than trying to test theory</p>
+<p>EXAMPLE OF STEPWISE REGRESSION IN R</p>
+<p>CAN YOU GET THIS DATASET FROM JH</p>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="mixed-two-way-anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="factorial-designs-with-repeated-measures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="chi-square.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
