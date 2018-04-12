@@ -1,3 +1,0 @@
-# Mixed Two Way ANOVA 
-
-Template file
