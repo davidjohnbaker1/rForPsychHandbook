@@ -16,7 +16,7 @@ In cases where both (or more) factors are repeated measures, each main effect an
 
 In cases where at least one factors us repeated measures and at least one other is between subjects, we have a mixed design. The sources of variation in a two-way mixed design are below:
 
-![fdrm](img/hicksfdrm3.png)
+![fdrm](img/hicksfdrm4.png)
 
 
 A memory psychologist is interested in how false memories are affected by
@@ -36,24 +36,19 @@ of 4, of these missing theme items were called “old” on the memory test. The
 are, therefore, false memories. The question is whether the factors of list length
 and font style at test affect how many of these occur.
 
-![fdrm](img/hicksfdrm3.png)
+![fdrm](img/hicksfdrm5.png)
 
-![fdrm](img/hicksfdrm3.png)
+![fdrm](img/hicksfdrm6.png)
 
 
 In cases where at least one factors us repeated measures and at least one other is between subjects, we have a mixed design. The sources of variation in a two-way mixed design are below:
 
-![fdrm](img/hicksfdrm3.png)
+![fdrm](img/hicksfdrm7.png)
 
-![fdrm](img/hicksfdrm3.png)
+![fdrm](img/hicksfdrm8.png)
 
-![fdrm](img/hicksfdrm3.png)
+![fdrm](img/hicksfdrm9.png)
 
-![fdrm](img/hicksfdrm3.png)
-
-![fdrm](img/hicksfdrm3.png)
-
-![fdrm](img/hicksfdrm3.png)
 
 ## Assumptions of Mixed ANOVA
 
