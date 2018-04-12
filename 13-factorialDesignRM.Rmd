@@ -48,6 +48,9 @@ In cases where at least one factors us repeated measures and at least one other 
 ![fdrm](img/hicksfdrm8.png)
 
 ![fdrm](img/hicksfdrm9.png)
+![fdrm](img/hicksfdrm10.png)
+![fdrm](img/hicksfdrm11.png)
+![fdrm](img/hicksfdrm12.png)
 
 
 ## Assumptions of Mixed ANOVA
