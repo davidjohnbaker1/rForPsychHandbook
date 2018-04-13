@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-12">
+<meta name="date" content="2018-04-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -117,7 +117,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#template-stuff"><i class="fa fa-check"></i><b>2.9.1</b> Template Stuff</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-response-data"><i class="fa fa-check"></i><b>3.1</b> Cleaning Response Data</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-up-gender"><i class="fa fa-check"></i><b>3.1.1</b> Cleaning Up Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.2</b> Merging Data</a></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-univariate-outliers"><i class="fa fa-check"></i><b>3.3</b> Checking for Univariate Outliers</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-multivariate-outliers"><i class="fa fa-check"></i><b>3.3.1</b> Checking for Multivariate Outliers</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-skew-and-kurtosis"><i class="fa fa-check"></i><b>3.3.2</b> Checking for Skew and Kurtosis</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#exporting-data"><i class="fa fa-check"></i><b>3.3.3</b> Exporting Data</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Epistemology of Statistics</a></li>
 <li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
 <li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
@@ -313,42 +323,42 @@ cleanUpPlots &lt;-<span class="st">  </span><span class="kw">theme</span>(<span 
                   <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(),
                   <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())
 
-<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions$uniformData)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Uniform Distribution&quot;</span>) +<span class="st"> </span>cleanUpPlots</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>uniformData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Uniform Distribution&quot;</span>) <span class="op">+</span><span class="st"> </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>Try to run the above code with different arguments in the <code>binwidth</code> argument. You’ll notice that the way you plot the data will actually represent it differntly.</p>
 <p>We can also have <strong>positively skewed</strong> and <strong>negatively skewed</strong> distributions. If a distribution is skewed, it usually means that the <strong>mode</strong> does not equal the <strong>mean</strong>. We’re going to approximate both of these with another one of R’s probability functions.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">positiveSkewData &lt;-<span class="st"> </span><span class="kw">rchisq</span>(<span class="dv">1000</span>,<span class="dv">6</span>) <span class="co"># Chi Square distributions are positively skewed</span>
-negativeSkewData &lt;-<span class="st"> </span>-<span class="st"> </span>positiveSkewData <span class="co"># Flip it!</span>
+negativeSkewData &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>positiveSkewData <span class="co"># Flip it!</span>
 distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(uniformData, positiveSkewData, negativeSkewData)
-<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions$positiveSkewData)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Positive Skew Distribution&quot;</span>) +<span class="st">    </span>cleanUpPlots</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions$negativeSkewData)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Negative Skew Distribution&quot;</span>) +<span class="st">   </span>cleanUpPlots</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>positiveSkewData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Positive Skew Distribution&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>negativeSkewData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Negative Skew Distribution&quot;</span>) <span class="op">+</span><span class="st">   </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-2.png" width="672" /></p>
 <p>The most important distribution in the world of Frequentist statistics is a <strong>normal distribution</strong>. A normal distribution is defined by THIS HERE.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">normalData &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd =</span> <span class="dv">2</span>) <span class="co"># Flip it!</span>
 distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(uniformData, positiveSkewData, negativeSkewData, normalData)
-<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions$normalData)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Normal Distribution&quot;</span>) +<span class="st">    </span>cleanUpPlots</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>normalData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Normal Distribution&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p>And the lastly we can have both <strong>leptokurtic</strong> and <strong>platykurtic</strong> distributions.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leptoData &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd =</span> <span class="dv">2</span>) 
 platyData &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd =</span> <span class="dv">2</span>)
 distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(uniformData, positiveSkewData, negativeSkewData, normalData,leptoData, platyData)
-<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions$leptoData)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Leptokurtic Distribution, FIX ME&quot;</span>) +<span class="st">    </span>cleanUpPlots</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions$platyData)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Platykurtic Distribution, FIX ME&quot;</span>) +<span class="st">    </span>cleanUpPlots</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>leptoData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Leptokurtic Distribution, FIX ME&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>platyData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Platykurtic Distribution, FIX ME&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-2.png" width="672" /></p>
 <p>Generally measurses of <strong>central tendency</strong> are used to characterize the most typical score in a distribution.</p>
 <p>For example we could calculate the <strong>mean</strong> or the <strong>median</strong> of our SAT data. The mean is calculated by adding up all our numbers, designated with the Greek letter Sigma <span class="math inline">\(\Sigma\)</span> then dividing by the amount of numbers we added up, or <span class="math inline">\(n\)</span>. As an equation it would look like this.</p>
 <p><span class="math display">\[\bar{X} = \frac{(\Sigma\ x_i)}{n}\]</span></p>
@@ -356,17 +366,17 @@ distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(u
 <p>The median is defined by finding the middle number. If there is a tie because we have an even set of numbers, we take the mean of the middle two numbers.</p>
 <p>We can do both of these in R as well. Below we can either type in the numbers as you would with a calculator, or use a function in R. Notice that each step when its typed out is saved into an object. By starting to think this way, it will pave the way for writing more elegant code later on.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Typing it out </span>
-our.data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">480</span> +<span class="st"> </span><span class="dv">530</span> +<span class="st"> </span><span class="dv">560</span> +<span class="st"> </span><span class="dv">650</span> +<span class="st"> </span><span class="dv">720</span> +<span class="st"> </span><span class="dv">760</span>)
+our.data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">480</span> <span class="op">+</span><span class="st"> </span><span class="dv">530</span> <span class="op">+</span><span class="st"> </span><span class="dv">560</span> <span class="op">+</span><span class="st"> </span><span class="dv">650</span> <span class="op">+</span><span class="st"> </span><span class="dv">720</span> <span class="op">+</span><span class="st"> </span><span class="dv">760</span>)
 how.many &lt;-<span class="st"> </span><span class="kw">length</span>(our.data)
-our.data/how.many</code></pre></div>
+our.data<span class="op">/</span>how.many</code></pre></div>
 <pre><code>## [1] 3700</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Inbuilt functions</span>
-<span class="kw">mean</span>(satData$SAT)</code></pre></div>
+<span class="kw">mean</span>(satData<span class="op">$</span>SAT)</code></pre></div>
 <pre><code>## [1] 616.6667</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(satData$SAT)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(satData<span class="op">$</span>SAT)</code></pre></div>
 <pre><code>## [1] 605</code></pre>
 <p>Notice here that for adding up the means by hand I could have done what programmers call hard coded the equation in. That would have looked like this.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">our.answer &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">480</span> +<span class="st"> </span><span class="dv">530</span> +<span class="st"> </span><span class="dv">560</span> +<span class="st"> </span><span class="dv">650</span> +<span class="st"> </span><span class="dv">720</span> +<span class="st"> </span><span class="dv">760</span>) /<span class="st"> </span><span class="dv">6</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">our.answer &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">480</span> <span class="op">+</span><span class="st"> </span><span class="dv">530</span> <span class="op">+</span><span class="st"> </span><span class="dv">560</span> <span class="op">+</span><span class="st"> </span><span class="dv">650</span> <span class="op">+</span><span class="st"> </span><span class="dv">720</span> <span class="op">+</span><span class="st"> </span><span class="dv">760</span>) <span class="op">/</span><span class="st"> </span><span class="dv">6</span>
 our.answer</code></pre></div>
 <pre><code>## [1] 616.6667</code></pre>
 <p>The problem with this, is that every time you get a new SAT score you have to both enter the score and update how many scores you are dividing by. Whenever you see a chance to take a shortcut like this, do it! It will save you tons of time in the future.</p>
@@ -383,15 +393,15 @@ our.answer</code></pre></div>
 <div id="measures-of-variability" class="section level3">
 <h3><span class="header-section-number">5.1.4</span> Measures of Variability</h3>
 <p>The <strong>range</strong> is simply the largest score minus the smallest score. It is the crudest measure of variability. In our dataset we would calculate it with the following code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">760</span> -<span class="st"> </span><span class="dv">480</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">760</span> <span class="op">-</span><span class="st"> </span><span class="dv">480</span></code></pre></div>
 <pre><code>## [1] 280</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># OR</span>
-<span class="kw">range</span>(satData$SAT)</code></pre></div>
+<span class="kw">range</span>(satData<span class="op">$</span>SAT)</code></pre></div>
 <pre><code>## [1] 480 760</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(satData$SAT) -<span class="st"> </span><span class="kw">min</span>(satData$SAT)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(satData<span class="op">$</span>SAT) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(satData<span class="op">$</span>SAT)</code></pre></div>
 <pre><code>## [1] 280</code></pre>
 <p>The interquartile rangerepresents the spread between the score at the 75th and 25th percentiles. Boxplots are often used to graphically represent inner 50% of the scores.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span>satData$SAT
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span>satData<span class="op">$</span>SAT
 boxplot.example &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
           <span class="dt">x =</span> <span class="dv">1</span>,
           <span class="dt">y0 =</span> <span class="kw">min</span>(y),
@@ -401,10 +411,10 @@ boxplot.example &lt;-<span class="st"> </span><span class="kw">data.frame</span>
           <span class="dt">y100 =</span> <span class="kw">max</span>(y)
 )
 
-<span class="kw">ggplot</span>(boxplot.example, <span class="kw">aes</span>(x)) +
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Example of Boxplot&quot;</span>) +<span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> y0, <span class="dt">lower =</span> y25, <span class="dt">middle =</span> y50, <span class="dt">upper =</span> y75, <span class="dt">ymax =</span> y100),
+<span class="kw">ggplot</span>(boxplot.example, <span class="kw">aes</span>(x)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Example of Boxplot&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> y0, <span class="dt">lower =</span> y25, <span class="dt">middle =</span> y50, <span class="dt">upper =</span> y75, <span class="dt">ymax =</span> y100),
     <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 <p>The <strong>variance</strong> is essentially the averaged squared deviation around the mean. Now there is a very important distinction that we will get to a bit later on, but that is the difference between a <strong>population</strong> value or <span class="math inline">\(\sigma^2\)</span> and a <strong>sample</strong> variance or <span class="math inline">\(s^2\)</span>. In order to do frequentist statistics, we need to assume that there is some sort of True value that the group we are measuring has and it is a fundamental property of the group! For more on this see CHAPTER 3 and the work of Zoltan Dienes. Somewhere, maybe written on a golden plate in heaven is the actual value of the average weight of a labrador retriever. The problem is we will never have access to that information so we need to estimate it by using a sample. The logic is that if we can truly draw in a random way from our entire population, in this case labrador retrievers, the central limit theroum will give us a good approximation of what that True value will be. Since we want to be clear about when we are talking about the Platonic, True value and the actual sample we collected, we use different Greek notation. The <span class="math inline">\(\sigma^2\)</span> refers to the Platonic value and the <span class="math inline">\(\sigma^2\)</span> is the sample. They are defined as follows:</p>
 <p><span class="math display">\[\sigma^2 = \frac{\Sigma(X_i - \mu)^2}{N}\]</span></p>
 <p><span class="math display">\[s^2 = \frac{\Sigma(X_i - \mu)^2}{n-1}\]</span></p>
@@ -413,14 +423,14 @@ boxplot.example &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <p>Now since these scores are to serve as a represntive <strong>sample</strong> in hopes of getting at the true population value we need to use the formula reflecting the <strong>sample variance</strong> or <span class="math inline">\(s^2\)</span>.</p>
 <p><span class="math display">\[s^2 = \frac{(480-616.7)^2 + . . . + (760 - 616.676)^2}{6-1}\]</span></p>
 <p>Doing this by hand we get an <span class="math inline">\(s^2\)</span> value of 12346.67. Or running it in R, we would use.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(satData$SAT)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(satData<span class="op">$</span>SAT)</code></pre></div>
 <pre><code>## [1] 12346.67</code></pre>
 <p>The <strong>standard deviation</strong> is the square root of the variance of the sample.</p>
 <p><span class="math display">\[s = \sqrt\frac{\Sigma(X_i - \mu)^2}{n-1}\]</span></p>
 <p>And since we know <span class="math inline">\(s^2\)</span> from above, we can shorten this to</p>
 <p><span class="math display">\[s = \sqrt{s^2} = \sqrt{12345.67} = 111.12\]</span></p>
 <p>Or run it in R and get</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(satData$SAT)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(satData<span class="op">$</span>SAT)</code></pre></div>
 <pre><code>## [1] 111.1156</code></pre>
 <p><strong>Standard scores</strong> represent the distance of raw scores form their mean in standard deviation units.</p>
 <p><span class="math display">\[z = \frac{x_i - \bar{X}}{s}\]</span></p>
@@ -480,29 +490,29 @@ boxplot.example &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 ballet_median &lt;-<span class="st"> </span><span class="kw">median</span>(ballet)
 ballet_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(ballet)</code></pre></div>
 <p>Now we can use these values to do our math!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((ballet -<span class="st"> </span>ballet_mean)^<span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3837.111</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((ballet -<span class="st"> </span>ballet_median)^<span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_median)<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3864</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Then having R do the final work for us</span>
-<span class="kw">sum</span>((ballet -<span class="st"> </span>ballet_mean)^<span class="dv">2</span>) &gt;<span class="st"> </span><span class="kw">sum</span>((ballet -<span class="st"> </span>ballet_median)^<span class="dv">2</span>)</code></pre></div>
+<span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">^</span><span class="dv">2</span>) <span class="op">&gt;</span><span class="st"> </span><span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_median)<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>What are the standardized (z) scores for the raw scores 73, 99, and 66? If you know the population mean and the sd, you can calulate a z score using the formula <span class="math display">\[z =  \frac{x_i - \bar{X}}{s}\]</span></p>
 <p>Or in our case</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">73</span> -<span class="st"> </span>ballet_mean)/<span class="st"> </span>ballet_sd</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">73</span> <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">/</span><span class="st"> </span>ballet_sd</code></pre></div>
 <pre><code>## [1] -0.2514541</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">99</span> -<span class="st"> </span>ballet_mean)/<span class="st"> </span>ballet_sd</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">99</span> <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">/</span><span class="st"> </span>ballet_sd</code></pre></div>
 <pre><code>## [1] 1.479142</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">66</span> -<span class="st"> </span>ballet_mean)/<span class="st"> </span>ballet_sd</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">66</span> <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">/</span><span class="st"> </span>ballet_sd</code></pre></div>
 <pre><code>## [1] -0.7173837</code></pre>
 <p>What proportion of scores exceeds a raw score of 73?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">73</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
 <pre><code>## [1] 0.4007315</code></pre>
 <p>To get the other side of the probability we can remember that we can treat the line above as an object!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> -<span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">73</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">73</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
 <pre><code>## [1] 0.5992685</code></pre>
 <p>What proportion of scores lies between the raw scores of 75 and 100? Let’s be clever for this one and just put the two equations together for this one. Or if you want, you could save them into objects.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">100</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd) -<span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">75</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">100</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">75</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
 <pre><code>## [1] 0.4860093</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">76</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
 <pre><code>## [1] 0.479356</code></pre>
@@ -510,7 +520,7 @@ ballet_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(ballet)</code
 <p><span class="math display">\[z =  \frac{x_i - \bar{X}}{s}\]</span></p>
 <p>or with a bit of basic algerbra</p>
 <p><span class="math display">\[x_i = (z * s) + \bar{X}\]</span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(.<span class="dv">05</span> *<span class="st"> </span>ballet_sd) +<span class="st"> </span>ballet_mean</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(.<span class="dv">05</span> <span class="op">*</span><span class="st"> </span>ballet_sd) <span class="op">+</span><span class="st"> </span>ballet_mean</code></pre></div>
 <pre><code>## [1] 77.52896</code></pre>
 <p>Between what raw scores does the middle 60% of the distribution lie?</p>
 <p>Lastly, we then need to find first what z scores map on 30% on either side of the disribution, then convert those z scores to raw scores on our data using the z score formula.</p>

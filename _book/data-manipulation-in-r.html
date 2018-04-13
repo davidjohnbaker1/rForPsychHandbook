@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-12">
+<meta name="date" content="2018-04-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -117,7 +117,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#template-stuff"><i class="fa fa-check"></i><b>2.9.1</b> Template Stuff</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-response-data"><i class="fa fa-check"></i><b>3.1</b> Cleaning Response Data</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-up-gender"><i class="fa fa-check"></i><b>3.1.1</b> Cleaning Up Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.2</b> Merging Data</a></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-univariate-outliers"><i class="fa fa-check"></i><b>3.3</b> Checking for Univariate Outliers</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-multivariate-outliers"><i class="fa fa-check"></i><b>3.3.1</b> Checking for Multivariate Outliers</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-skew-and-kurtosis"><i class="fa fa-check"></i><b>3.3.2</b> Checking for Skew and Kurtosis</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#exporting-data"><i class="fa fa-check"></i><b>3.3.3</b> Exporting Data</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Epistemology of Statistics</a></li>
 <li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
 <li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
@@ -274,285 +284,929 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-manipulation-in-r" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Data Manipulation in R</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># #======================================================================================================</span>
-<span class="co"># # LSUserRs Data Cleaning Template (Title Your Script)</span>
-<span class="co"># # Say a couple of the things that it does here. Who wrote it?</span>
-<span class="co"># # When was the last edit? What does it do? Does it work with any data type?</span>
-<span class="co"># # Rubber duck this as much as possible because you won&#39;t remember</span>
-<span class="co"># # what you did in 6 months. Especially if you come up with something clever.</span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # TRY YOUR BEST TO NOT JUST COPY AND PASTE CODE, GOOGLE WHAT YOU WANT, GET FAMILIAR WITH A FUNCTION&#39;S</span>
-<span class="co"># # ARGUMENTS AND EMBRACE YOUR INNER NERD AND READ THE DOCUMENTATION!! </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Import Libraries </span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # Load all libraries at the start of your script, remember they have to be installed first! </span>
-<span class="co"># library(stringr)</span>
-<span class="co"># library(data.table)</span>
-<span class="co"># library(psych)</span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Set up your working directory</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Load in your data</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # After telling R where to look in your computer/dropbox/google drive/R Project grab what you need!</span>
-<span class="co"># # Make sure to load in both datasets as we will want them both in our analysis.</span>
-<span class="co"># # We also want to make sure to clean both datasets as we are going. </span>
-<span class="co"># experiment.data &lt;- read.csv(&quot;datasets/Demographic_Data.csv&quot;)</span>
-<span class="co"># item.level.data &lt;- read.csv(&quot;datasets/ItemLevelData.csv&quot;)</span>
-<span class="co"># </span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Inspect the structure of your data</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # R is going to do its best to guess what kind of data each of the columns of your spreadsheet are.</span>
-<span class="co"># # Sometimes it thinks things are lists (especially if importing from SPSS)</span>
-<span class="co"># # Go through each variable as you would with other programs and make sure you set it to what </span>
-<span class="co"># # you think will be most useful later. The big thing to check here is categorical variables, and</span>
-<span class="co"># # if you see any sort of string/character variables.</span>
-<span class="co"># </span>
-<span class="co"># # View(experiment.data) # Looks OK on surface levels.... </span>
-<span class="co"># str(experiment.data) # Check to see if R guessed correctly on data types</span>
-<span class="co"># </span>
-<span class="co"># # Using read.csv() R had a couple of bad guesses on variables we might need.</span>
-<span class="co"># # We will have to reassign the variable types or else we&#39;ll run into trouble later.</span>
-<span class="co"># # In R we use Factor for grouping and analysis, best practice is to not set it as that</span>
-<span class="co"># # until you are OK with the format. It&#39;s easist to manipulate a character or string.</span>
-<span class="co"># </span>
-<span class="co"># experiment.data$inst &lt;- as.character(experiment.data$inst)</span>
-<span class="co"># experiment.data$Gender &lt;- as.character(experiment.data$Gender)</span>
-<span class="co"># experiment.data$Major &lt;- as.character(experiment.data$Major)</span>
-<span class="co"># experiment.data$Minor &lt;- as.character(experiment.data$Minor)</span>
-<span class="co"># experiment.data$BeginTrain &lt;- as.character(experiment.data$BeginTrain)</span>
-<span class="co"># experiment.data$AbsPitch &lt;- as.character(experiment.data$AbsPitch)</span>
-<span class="co"># experiment.data$Live12Mo &lt;- as.numeric(experiment.data$Live12Mo)</span>
-<span class="co"># experiment.data$ActListenMin &lt;- as.character(experiment.data$ActListenMin)</span>
-<span class="co"># </span>
-<span class="co"># str(experiment.data) # Notice how that our character columns now have &quot; &quot; around them.</span>
-<span class="co"># </span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Check for Import Errors </span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # Use a combination of the names(), View(), table(), is.na(), and complete.cases() to get a brief summary of what is </span>
-<span class="co"># # going on in your data set to be sure there were minimal import errors and your data looks like</span>
-<span class="co"># # you want it to. It might also be worth plottting some variables and use some common sense to find mistakes.</span>
-<span class="co"># # Are there any participants with 999 as their subject number? Negative values where there shouldn&#39;t be? </span>
-<span class="co"># # If there are, note them and fix these before starting any sort of statistical screening! </span>
-<span class="co"># </span>
-<span class="co"># table(complete.cases(experiment.data)) # Not all observations have everything! </span>
-<span class="co"># complete.cases(experiment.data)</span>
-<span class="co"># table(is.na(experiment.data))</span>
-<span class="co"># </span>
-<span class="co"># # Gotta decide what to do about it!!</span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Cleaning Free Text Response Data</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # In your data cleaning before you might have noticed that participants were able to freely respond </span>
-<span class="co"># # with whatever gender they wanted. Most data look to fall within the normal binary, but the computer</span>
-<span class="co"># # needs things to be exactly the same before making an easy split? </span>
-<span class="co"># # What would be the laziest, most effecient way to fix the gender column? What format does the variable</span>
-<span class="co"># # have to be in order to make the changes that you need? </span>
-<span class="co"># # When you have it figured out, make sure to run the code from top to bottom to make sure things go in </span>
-<span class="co"># # the right order!!! As we are not dealing with huge amounts of data, the table() function will help out.</span>
-<span class="co"># </span>
-<span class="co"># # Let&#39;s now take a look at some of these problem ones</span>
-<span class="co"># # Why, for example is Begin Training not working? Print the variable to see.</span>
-<span class="co"># </span>
-<span class="co"># experiment.data$BeginTrain</span>
-<span class="co"># </span>
-<span class="co"># # Some people didn&#39;t respond, one person decided to tell us what grade they started.</span>
-<span class="co"># # There are 2 ways to go about fixing this. We could &quot;hardcode&quot; the problem if this </span>
-<span class="co"># # is the only time we will do this analysis on this dataset or we could try to write a</span>
-<span class="co"># # line of code that doesn&#39;t care what exact position the error is.</span>
-<span class="co"># # On line 250 in this object is the thing that needs swapping out.</span>
-<span class="co"># # We can access it with R&#39;s indexing. Counting from index we see it&#39;s in line 250.</span>
-<span class="co"># </span>
-<span class="co"># experiment.data$BeginTrain[250]</span>
-<span class="co"># </span>
-<span class="co"># # Quick, ask yourself why we don&#39;t use the comma here?! </span>
-<span class="co"># # If you were set on using the comma, what would you change? </span>
-<span class="co"># # Ok, now let&#39;s swap in the value we want with &lt;-</span>
-<span class="co"># # Remember we are putting a value into a character operator so it has to have &quot;&quot; </span>
-<span class="co"># </span>
-<span class="co"># experiment.data$BeginTrain[250] &lt;- &quot;12&quot;</span>
-<span class="co"># experiment.data$BeginTrain </span>
-<span class="co"># </span>
-<span class="co"># # Nice, no more text data, but what if it&#39;s not always in 250?</span>
-<span class="co"># # For example, what do we do with all these blank spaces?</span>
-<span class="co"># # Let&#39;s use R&#39;s inbuilt ifelse() function to go through this vector and swap</span>
-<span class="co"># # out what we want! </span>
-<span class="co"># </span>
-<span class="co"># ifelse(experiment.data$BeginTrain == &quot;&quot;,&quot;0&quot;,experiment.data$BeginTrain)</span>
-<span class="co"># </span>
-<span class="co"># # This works by going through each entry and doing the conditional on the value!</span>
-<span class="co"># # Let&#39;s now write over our old column and in the same step make everything a number.</span>
-<span class="co"># experiment.data$BeginTrain &lt;- as.numeric(ifelse(experiment.data$BeginTrain == &quot;&quot;,&quot;0&quot;,experiment.data$BeginTrain))</span>
-<span class="co"># </span>
-<span class="co"># #Tah Dah!!</span>
-<span class="co"># experiment.data$BeginTrain</span>
-<span class="co"># </span>
-<span class="co"># # Let&#39;s now clean up the Gender column, first let&#39;s look at it</span>
-<span class="co"># experiment.data$Gender # Are there any common trends?</span>
-<span class="co"># </span>
-<span class="co"># table(experiment.data$Gender)</span>
-<span class="co"># </span>
-<span class="co"># # Pretty much two answers, how do we make them all say one thing?</span>
-<span class="co"># # Let&#39;s use the stringr package for this. Import it up top.</span>
-<span class="co"># </span>
-<span class="co"># # Clean Gender</span>
-<span class="co"># </span>
-<span class="co"># experiment.data$Gender &lt;- str_to_lower(experiment.data$Gender)</span>
-<span class="co"># experiment.data$Gender &lt;- str_replace(experiment.data$Gender,&quot;^.*f.*$&quot;,&quot;Female&quot;)</span>
-<span class="co"># experiment.data$Gender &lt;- str_replace(experiment.data$Gender,&quot;^m.*$&quot;,&quot;Male&quot;)</span>
-<span class="co"># experiment.data$Gender &lt;- str_replace(experiment.data$Gender,&quot;^country$&quot;,&quot;No Response&quot;)</span>
-<span class="co"># experiment.data$Gender &lt;- str_replace(experiment.data$Gender,&quot;&quot;,&quot;No Response&quot;)</span>
-<span class="co"># experiment.data$Gender[30] &lt;- &quot;No Response&quot; #Something Might Be Up w this datapoint?</span>
-<span class="co"># </span>
-<span class="co"># experiment.data$Gender &lt;- as.factor(experiment.data$Gender)</span>
-<span class="co"># </span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # Can we do same thing for AP? </span>
-<span class="co"># experiment.data$AbsPitch</span>
-<span class="co"># experiment.data$AbsPitch &lt;- str_to_lower(experiment.data$AbsPitch)</span>
-<span class="co"># experiment.data$AbsPitch &lt;- str_replace(experiment.data$AbsPitch,&quot;^.*n.*$&quot;,&quot;no&quot;)</span>
-<span class="co"># experiment.data$AbsPitch[30] &lt;- &quot;no&quot;</span>
-<span class="co"># experiment.data$AbsPitch &lt;- as.factor(experiment.data$AbsPitch)</span>
-<span class="co"># table(experiment.data$AbsPitch)</span>
-<span class="co"># </span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Merging Data</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # Often we will have data from other spreadsheets we want to attach such as demographic data </span>
-<span class="co"># # to behavioral responses. Using the data.table functionality, let&#39;s merge our two csv </span>
-<span class="co"># # files together so that we have every variable accessible to us for this analysis. </span>
-<span class="co"># # Note I like to work with the data.table package, though there are other ways to do this!</span>
-<span class="co"># </span>
-<span class="co"># # In order to do this, we need 1 shared column between the two datasets.</span>
-<span class="co"># # For most psychology cases, this is probably going to be a participant ID number.</span>
-<span class="co"># # Note that for this to work, you need the columns to have an exact match of name!</span>
-<span class="co"># # First let&#39;s check that they are the same!!</span>
-<span class="co"># names(experiment.data)</span>
-<span class="co"># names(item.level.data)</span>
-<span class="co"># </span>
-<span class="co"># # First off our subject ID columns are not the same. Let&#39;s swap that.</span>
-<span class="co"># setnames(item.level.data,&quot;tmp.dat.subject.1.&quot;,&quot;SubjectNo&quot;)</span>
-<span class="co"># setnames(experiment.data,&quot;Sub&quot;,&quot;SubjectNo&quot;) # Make this clearer!!! </span>
-<span class="co"># </span>
-<span class="co"># # If you need to do more than 1, use the c() operator! </span>
-<span class="co"># # Now if we look at this column, it&#39;s all messe up. </span>
-<span class="co"># # The code below fixes it, if you want to learn more about regex, check it out</span>
-<span class="co"># # if not, just skip below.</span>
-<span class="co"># </span>
-<span class="co"># item.level.data$SubjectNo &lt;- str_replace_all(string = item.level.data$SubjectNo, pattern = &quot;.csv&quot;, replacement = &quot;&quot;)</span>
-<span class="co"># item.level.data$SubjectNo &lt;- str_replace_all(string = item.level.data$SubjectNo, pattern = &quot;C&quot;, replacement = &quot;&quot;)</span>
-<span class="co"># item.level.data$SubjectNo &lt;- str_replace_all(string = item.level.data$SubjectNo, pattern = &quot;M&quot;, replacement = &quot;&quot;)</span>
-<span class="co"># item.level.data$SubjectNo &lt;- str_replace_all(string = item.level.data$SubjectNo, pattern = &quot;CM&quot;, replacement = &quot;&quot;)</span>
-<span class="co"># item.level.data$SubjectNo &lt;- as.numeric(item.level.data$SubjectNo)</span>
-<span class="co"># </span>
-<span class="co"># # Let&#39;s just quickly check to see if all the subject numbers make sense</span>
-<span class="co"># hist(experiment.data$SubjectNo) # Cause for alarm! Negative values and placeholders!</span>
-<span class="co"># </span>
-<span class="co"># # Drop those </span>
-<span class="co"># experiment.data &lt;- experiment.data[experiment.data$SubjectNo &gt; 0 &amp; experiment.data$SubjectNo &lt; 1000,]</span>
-<span class="co"># </span>
-<span class="co"># # Note this works because the SubjectNo variable is numeric </span>
-<span class="co"># hist(experiment.data$SubjectNo)</span>
-<span class="co"># hist(item.level.data$SubjectNo)</span>
-<span class="co"># </span>
-<span class="co"># # Ok, finally we merge our datasets. What we are doing here is called an &quot;inner join&quot;</span>
-<span class="co"># # Here we willkeep all of the ROWS of the dataset in the middle of the command </span>
-<span class="co"># # Note we need to swap over our key to be a character value.</span>
-<span class="co"># item.level.data &lt;- data.table(item.level.data)</span>
-<span class="co"># experiment.data &lt;- data.table(experiment.data)</span>
-<span class="co"># </span>
-<span class="co"># item.level.data</span>
-<span class="co"># </span>
-<span class="co"># exp.data &lt;- item.level.data[experiment.data, on=&quot;SubjectNo&quot;]</span>
-<span class="co"># </span>
-<span class="co"># exp.data</span>
-<span class="co"># </span>
-<span class="co"># # View(exp.data) # Use View to hover over column number</span>
-<span class="co"># </span>
-<span class="co"># # Let&#39;s reorganize our columns so individual stuff is at the back</span>
-<span class="co"># # We could do this with data.table, but it&#39;s a different syntax so let&#39;s swap back</span>
-<span class="co"># # Normally you try to stick to minimal switching, but we&#39;re just taking </span>
-<span class="co"># # a big tour du R right now and learning to think </span>
-<span class="co"># exp.data &lt;- data.frame(exp.data)</span>
-<span class="co"># exp.data &lt;- exp.data[,c(1,40:100,2:39)]</span>
-<span class="co"># View(exp.data)</span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Checking for Univariate Outliers</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # For this example, let&#39;s imagine a univariate outlier is one with a zscore</span>
-<span class="co"># # greater than 3. While we could write a bit of code to look for this, let&#39;s use </span>
-<span class="co"># # the pairs.panels() function in the psych pacakge to just get used to looking at our data</span>
-<span class="co"># # The function is not the biggest fan of huge datasets, so let&#39;s index our </span>
-<span class="co"># # dataset to only grab what we need. Try to change the values and look </span>
-<span class="co"># # at variables of interest. </span>
-<span class="co"># </span>
-<span class="co"># pairs.panels(exp.data[,2:7], lm = TRUE)</span>
-<span class="co"># </span>
-<span class="co"># # But of course we need to look at numbers in terms of their zscores!</span>
-<span class="co"># # Let&#39;s first standardize our entire dataset using the apply function</span>
-<span class="co"># # Note we only can do this on numeric values! </span>
-<span class="co"># </span>
-<span class="co"># # The apply function takes 3 argument</span>
-<span class="co"># # The first is what you want to manipulate, the second is if it&#39;s rows 1 or columns 2</span>
-<span class="co"># # (remeber this because it&#39;s always rows then columns!), and the function.</span>
-<span class="co"># # You can even write your own (though we&#39;ll get to functions later)</span>
-<span class="co"># gmsi.z.scores &lt;- apply(exp.data[2:7],2,scale)</span>
-<span class="co"># </span>
-<span class="co"># exp.data.with.z &lt;- cbind(exp.data, gmsi.z.scores)</span>
-<span class="co"># </span>
-<span class="co"># # Now we can index this to find values above whatever theshold we want!</span>
-<span class="co"># </span>
-<span class="co"># table(gmsi.z.scores &gt; 2)</span>
-<span class="co"># gmsi.z.indexer &lt;- gmsi.z.scores &gt; 2</span>
-<span class="co"># gmsi.z.scores[gmsi.z.indexer] # See what they are, find them , decide to get rid of</span>
-<span class="co"># </span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Checking for Multivariate Outliers</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # A bit tricker, I leanred how to do this off a blog post.</span>
-<span class="co"># gmsi.responses &lt;- exp.data[,c(63:100)]</span>
-<span class="co"># </span>
-<span class="co"># mahal &lt;- mahalanobis(gmsi.responses,</span>
-<span class="co">#                      colMeans(gmsi.responses, na.rm = TRUE), </span>
-<span class="co">#                      cov(gmsi.responses, </span>
-<span class="co">#                          use = &quot;pairwise.complete.obs&quot;))                    ## Create Distance Measures</span>
-<span class="co"># </span>
-<span class="co"># cutoff &lt;- qchisq(.999, ncol(gmsi.responses))                                ## Create cutoff object .001 signifiance and DF = obs</span>
-<span class="co"># summary(mahal &lt; cutoff)                                                     ## 11 Subjects greater than 70 cutoff </span>
-<span class="co"># </span>
-<span class="co"># # Add On Variables </span>
-<span class="co"># exp.data$mahal &lt;- mahal</span>
-<span class="co"># exp.data &lt;- data.table(exp.data) # To use easier indexer, needs data.table </span>
-<span class="co"># exp.data[exp.data$mahal &lt; cutoff]</span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Checking for Skew and Kurtosis </span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># apply(gmsi.responses, 2, skew)</span>
-<span class="co"># apply(gmsi.responses, 2 , kurtosi)</span>
-<span class="co"># </span>
-<span class="co"># #======================================================================================================</span>
-<span class="co"># # Exporting Data</span>
-<span class="co"># #--------------------------------------------------</span>
-<span class="co"># # It&#39;s best practice to separate your cleaning and your analysis into separate scripts.</span>
-<span class="co"># # Export the dataset you have into a new csv file into a directory that would make sense to </span>
-<span class="co"># # someone who has never seen your project before. </span>
-<span class="co"># </span>
-<span class="co"># write.csv(exp.data,&quot;My_Experiment_Data.csv&quot;)</span>
-<span class="co"># #======================================================================================================</span></code></pre></div>
+<p>This chapter will take you through a brief walk through of cleaning some data in R. When starting out with R, it’s not important that you memorize every command and learn every line, but rather that you start to think about how a computer programmer would solve a question (you!) rather than get an undergrad RA to fix it by hand.</p>
+<p>The first thing that you want to do to any script is to put a header on it. It should cover a few things such as</p>
+<ul>
+<li>A title</li>
+<li>Who wrote the script?</li>
+<li>When did you edit it last?</li>
+<li>What does it do?</li>
+<li>How does it work?</li>
+<li>Does it take anything in specific?</li>
+</ul>
+<p>The more information you can provide, the better. Remember that 6-Moth-From-You now is going to be either your best or worst collaborator.</p>
+<p>Each script in R out to follow a general pattern. First list out some information about it, then load in your libraries, and then set your working directory and load your data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># Import Libraries </span>
+ <span class="co">#--------------------------------------------------</span>
+ <span class="co"># Load all libraries at the start of your script, remember they have to be installed first! </span>
+ <span class="kw">library</span>(stringr)</code></pre></div>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.4.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(data.table)</code></pre></div>
+<pre><code>## Warning: package &#39;data.table&#39; was built under R version 3.4.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(psych)</code></pre></div>
+<p>Next thing you would do is set your working directory and load in your data. Note here that you need to tell R exactly where to look!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make sure to load in both datasets as we will want them both in our analysis.</span>
+<span class="co"># We also want to make sure to clean both datasets as we are going. </span>
+experiment.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/Demographic_Data.csv&quot;</span>)
+item.level.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/ItemLevelData.csv&quot;</span>)</code></pre></div>
+<p>You can also import data using RStudio’s ‘Import Data’ function in the top right corner.</p>
+<p>[PICTURE OF THAT HERE]</p>
+<p>If you do do that, make sure to add in any of the libraries and code in your script that is printed out below in RStudio’s consle!</p>
+<p>Next you should familiarize yourself with what your data looks like. Not only do you have to be cautious of the shape of your data (wide vs. long), but there are a few different types of data that R uses in its functionality.</p>
+<p>Looking at the dataset from this experiment, we see lots of different types of data listed. R did its best to guess what ‘kind’ of data each one is, but sometimes you have to change data types.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(experiment.data) <span class="co"># Check to see if R guessed correctly on data types</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    251 obs. of  67 variables:
+##  $ Sub               : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ ACTIVE            : int  38 37 39 33 48 47 55 42 36 36 ...
+##  $ PERCEPTUAL        : int  47 47 49 42 57 55 60 61 43 36 ...
+##  $ MUSICAL           : int  28 16 21 26 7 8 46 39 19 24 ...
+##  $ SINGING           : int  33 22 40 19 24 24 45 25 29 28 ...
+##  $ EMOTIONS          : int  39 32 30 34 35 36 42 41 33 24 ...
+##  $ GENERAL           : int  75 67 82 68 60 65 118 86 69 68 ...
+##  $ inst              : Factor w/ 70 levels &quot;&quot;,&quot;air drums&quot;,..: 9 4 67 46 28 36 36 36 48 28 ...
+##  $ Age               : int  29 22 19 23 23 19 19 21 19 21 ...
+##  $ Gender            : Factor w/ 13 levels &quot;&quot;,&quot;COUNTRY&quot;,&quot;f&quot;,..: 6 6 6 12 12 4 6 4 12 10 ...
+##  $ Major             : Factor w/ 147 levels &quot;&quot;,&quot;AGRIBUSINESS&quot;,..: 24 126 38 88 67 79 95 17 143 47 ...
+##  $ Minor             : Factor w/ 65 levels &quot;&quot;,&quot; Economics&quot;,..: 29 NA 50 NA 4 NA NA NA NA 39 ...
+##  $ SchoolUGorG       : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ MuscMajMinor      : int  1 1 1 1 1 1 2 1 1 1 ...
+##  $ BeginTrain        : Factor w/ 20 levels &quot;&quot;,&quot;10&quot;,&quot;11&quot;,&quot;12&quot;,..: 20 2 2 3 1 1 19 16 4 16 ...
+##  $ AbsPitch          : Factor w/ 7 levels &quot;&quot;,&quot;no&quot;,&quot;No&quot;,&quot;NO&quot;,..: 4 2 4 4 4 4 2 4 4 2 ...
+##  $ YearsPrac         : int  4 1 3 7 0 0 11 7 2 6 ...
+##  $ PeakPrac          : int  5 2 1 1 0 0 3 2 2 1 ...
+##  $ Live12Mo          : Factor w/ 23 levels &quot;&quot;,&quot;0&quot;,&quot;1&quot;,&quot;10&quot;,..: 9 15 3 2 20 9 17 12 14 18 ...
+##  $ TheoryTrain       : int  4 0 0 0 0 0 4 4 0 0 ...
+##  $ FormalYrs         : int  4 1 3 7 0 0 11 8 2 2 ...
+##  $ NoOfInst          : int  1 0 1 2 0 0 5 1 1 0 ...
+##  $ ActListenMin      : Factor w/ 34 levels &quot;&quot;,&quot;0&quot;,&quot;1&quot;,&quot;10&quot;,..: 30 30 9 24 5 30 9 24 24 22 ...
+##  $ SubjectNo         : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ SubRaven          : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ RavenB1           : int  10 7 3 10 7 6 8 8 4 3 ...
+##  $ RavenB2           : int  8 10 7 10 8 10 9 10 6 3 ...
+##  $ RavenB3           : int  10 6 7 11 5 6 8 8 5 3 ...
+##  $ RavenTotal        : int  28 23 17 31 20 22 25 26 15 9 ...
+##  $ OspanSub          : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ OspanAccError     : int  8 7 7 1 2 12 4 8 5 37 ...
+##  $ OspanMathError    : int  12 12 7 2 2 15 4 8 8 37 ...
+##  $ OspanAbsoluteScore: int  29 20 48 68 33 20 68 36 16 14 ...
+##  $ OspanPartialScore : int  47 41 65 73 50 44 70 64 30 23 ...
+##  $ OspanB1           : int  21 11 21 25 17 14 25 19 10 8 ...
+##  $ OspanB2           : int  14 18 23 23 16 17 20 24 11 6 ...
+##  $ OspanB3           : int  12 12 21 25 17 13 25 21 9 9 ...
+##  $ OspanSpeedErrTot  : int  4 5 0 1 0 3 0 0 3 0 ...
+##  $ SymSub            : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ SymAccErrTot      : int  1 4 2 1 0 4 2 3 2 23 ...
+##  $ SymSpeedErrTot    : int  0 1 0 0 0 1 0 0 0 0 ...
+##  $ SspanAbsScore     : int  10 15 21 27 15 9 30 24 12 18 ...
+##  $ SspanPartiaScore  : int  19 29 34 34 26 25 38 30 18 24 ...
+##  $ SspanB1           : int  8 11 10 13 8 9 13 7 8 8 ...
+##  $ SspanB2           : int  4 13 13 10 8 10 14 14 4 7 ...
+##  $ SspanB3           : int  7 5 11 11 10 6 11 9 6 9 ...
+##  $ SymmErrTot        : int  1 5 2 1 0 5 2 3 2 23 ...
+##  $ ToneSub           : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ ToneAccErrTot     : int  8 5 8 1 4 7 3 6 3 36 ...
+##  $ ToneMathErrTot    : int  9 5 8 2 5 10 5 6 6 38 ...
+##  $ TspanAbsScore     : int  9 21 27 37 10 4 23 14 3 0 ...
+##  $ TspanPartScore    : int  36 47 55 63 31 34 58 48 37 26 ...
+##  $ TspanB1           : int  13 14 17 20 8 9 20 12 9 9 ...
+##  $ TspanB2           : int  6 19 21 22 9 12 19 18 12 5 ...
+##  $ TspanB3           : int  17 14 17 21 14 13 19 18 16 12 ...
+##  $ ToneSpeedErrTot   : int  1 0 0 1 1 3 2 0 3 2 ...
+##  $ BeatSub           : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ BeatTotal         : int  11 10 14 13 14 10 14 11 7 12 ...
+##  $ BeatAcc           : num  0.61 0.56 0.78 0.72 0.78 0.56 0.78 0.61 0.39 0.67 ...
+##  $ MelodicSub        : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ MelodicTot        : int  7 7 6 10 5 5 6 7 7 7 ...
+##  $ MelodicAcc        : num  0.54 0.54 0.46 0.77 0.38 0.38 0.46 0.54 0.54 0.54 ...
+##  $ Native            : int  1 1 1 1 1 1 1 2 1 1 ...
+##  $ Paid              : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ jv_NoGMSI         : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ jv_nonNative      : int  0 0 0 0 0 0 0 1 0 0 ...
+##  $ jv_noOspan        : int  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
+<p>Using <code>read.csv()</code> with its default setting, R had a couple of bad guesses on variables we might need. We will have to reassign the variable types or else we’ll run into trouble later. In R we use factor for grouping and analysis, best practice is to not set it as that until you are OK with the format. It’s easist to manipulate a character or string. There are much more elegant ways to do this, but just to make a point, I’ve gone through and fixed each one manually.</p>
+<p>Notice how the output of <code>str()</code> has changed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>inst &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>inst)
+experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Gender)
+experiment.data<span class="op">$</span>Major &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Major)
+experiment.data<span class="op">$</span>Minor &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Minor)
+experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>BeginTrain)
+experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>AbsPitch)
+experiment.data<span class="op">$</span>Live12Mo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(experiment.data<span class="op">$</span>Live12Mo)
+experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>ActListenMin)
 
+<span class="kw">str</span>(experiment.data) <span class="co"># Notice how that our character columns now have &quot; &quot; around them.</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    251 obs. of  67 variables:
+##  $ Sub               : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ ACTIVE            : int  38 37 39 33 48 47 55 42 36 36 ...
+##  $ PERCEPTUAL        : int  47 47 49 42 57 55 60 61 43 36 ...
+##  $ MUSICAL           : int  28 16 21 26 7 8 46 39 19 24 ...
+##  $ SINGING           : int  33 22 40 19 24 24 45 25 29 28 ...
+##  $ EMOTIONS          : int  39 32 30 34 35 36 42 41 33 24 ...
+##  $ GENERAL           : int  75 67 82 68 60 65 118 86 69 68 ...
+##  $ inst              : chr  &quot;clarinet&quot; &quot;bass&quot; &quot;Voice&quot; &quot;saxophone&quot; ...
+##  $ Age               : int  29 22 19 23 23 19 19 21 19 21 ...
+##  $ Gender            : chr  &quot;FEMALE&quot; &quot;FEMALE&quot; &quot;FEMALE&quot; &quot;MALE&quot; ...
+##  $ Major             : chr  &quot;BUSINESS MANAGEMENT&quot; &quot;psychology&quot; &quot;COMMUNICATION STUDIES&quot; &quot;Mechanical Engineering&quot; ...
+##  $ Minor             : chr  &quot;HUMAN RESOURCE MANAGEMENT&quot; NA &quot;SOCIAL WORK&quot; NA ...
+##  $ SchoolUGorG       : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ MuscMajMinor      : int  1 1 1 1 1 1 2 1 1 1 ...
+##  $ BeginTrain        : chr  &quot;9&quot; &quot;10&quot; &quot;10&quot; &quot;11&quot; ...
+##  $ AbsPitch          : chr  &quot;NO&quot; &quot;no&quot; &quot;NO&quot; &quot;NO&quot; ...
+##  $ YearsPrac         : int  4 1 3 7 0 0 11 7 2 6 ...
+##  $ PeakPrac          : int  5 2 1 1 0 0 3 2 2 1 ...
+##  $ Live12Mo          : num  9 15 3 2 20 9 17 12 14 18 ...
+##  $ TheoryTrain       : int  4 0 0 0 0 0 4 4 0 0 ...
+##  $ FormalYrs         : int  4 1 3 7 0 0 11 8 2 2 ...
+##  $ NoOfInst          : int  1 0 1 2 0 0 5 1 1 0 ...
+##  $ ActListenMin      : chr  &quot;60&quot; &quot;60&quot; &quot;180&quot; &quot;45&quot; ...
+##  $ SubjectNo         : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ SubRaven          : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ RavenB1           : int  10 7 3 10 7 6 8 8 4 3 ...
+##  $ RavenB2           : int  8 10 7 10 8 10 9 10 6 3 ...
+##  $ RavenB3           : int  10 6 7 11 5 6 8 8 5 3 ...
+##  $ RavenTotal        : int  28 23 17 31 20 22 25 26 15 9 ...
+##  $ OspanSub          : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ OspanAccError     : int  8 7 7 1 2 12 4 8 5 37 ...
+##  $ OspanMathError    : int  12 12 7 2 2 15 4 8 8 37 ...
+##  $ OspanAbsoluteScore: int  29 20 48 68 33 20 68 36 16 14 ...
+##  $ OspanPartialScore : int  47 41 65 73 50 44 70 64 30 23 ...
+##  $ OspanB1           : int  21 11 21 25 17 14 25 19 10 8 ...
+##  $ OspanB2           : int  14 18 23 23 16 17 20 24 11 6 ...
+##  $ OspanB3           : int  12 12 21 25 17 13 25 21 9 9 ...
+##  $ OspanSpeedErrTot  : int  4 5 0 1 0 3 0 0 3 0 ...
+##  $ SymSub            : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ SymAccErrTot      : int  1 4 2 1 0 4 2 3 2 23 ...
+##  $ SymSpeedErrTot    : int  0 1 0 0 0 1 0 0 0 0 ...
+##  $ SspanAbsScore     : int  10 15 21 27 15 9 30 24 12 18 ...
+##  $ SspanPartiaScore  : int  19 29 34 34 26 25 38 30 18 24 ...
+##  $ SspanB1           : int  8 11 10 13 8 9 13 7 8 8 ...
+##  $ SspanB2           : int  4 13 13 10 8 10 14 14 4 7 ...
+##  $ SspanB3           : int  7 5 11 11 10 6 11 9 6 9 ...
+##  $ SymmErrTot        : int  1 5 2 1 0 5 2 3 2 23 ...
+##  $ ToneSub           : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ ToneAccErrTot     : int  8 5 8 1 4 7 3 6 3 36 ...
+##  $ ToneMathErrTot    : int  9 5 8 2 5 10 5 6 6 38 ...
+##  $ TspanAbsScore     : int  9 21 27 37 10 4 23 14 3 0 ...
+##  $ TspanPartScore    : int  36 47 55 63 31 34 58 48 37 26 ...
+##  $ TspanB1           : int  13 14 17 20 8 9 20 12 9 9 ...
+##  $ TspanB2           : int  6 19 21 22 9 12 19 18 12 5 ...
+##  $ TspanB3           : int  17 14 17 21 14 13 19 18 16 12 ...
+##  $ ToneSpeedErrTot   : int  1 0 0 1 1 3 2 0 3 2 ...
+##  $ BeatSub           : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ BeatTotal         : int  11 10 14 13 14 10 14 11 7 12 ...
+##  $ BeatAcc           : num  0.61 0.56 0.78 0.72 0.78 0.56 0.78 0.61 0.39 0.67 ...
+##  $ MelodicSub        : int  10 11 12 13 14 15 16 17 18 19 ...
+##  $ MelodicTot        : int  7 7 6 10 5 5 6 7 7 7 ...
+##  $ MelodicAcc        : num  0.54 0.54 0.46 0.77 0.38 0.38 0.46 0.54 0.54 0.54 ...
+##  $ Native            : int  1 1 1 1 1 1 1 2 1 1 ...
+##  $ Paid              : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ jv_NoGMSI         : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ jv_nonNative      : int  0 0 0 0 0 0 0 1 0 0 ...
+##  $ jv_noOspan        : int  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
+<p>The next thing we’d want to check in our data cleaning is for any sort of import errors. We can use combinations of the functions <code>names()</code>,<code>table()</code>, <code>is.na()</code>, and <code>complete.cases()</code> to get a brief summary of what is missing. You could also use R’s plotting funcitonality to see if there are any participants with weird subject numbers or maybe negative values where there should not be. If you find any problems, code in the solution in R! Resist the urge to fix it in the Excel file!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Check for Import Errors </span>
+<span class="kw">table</span>(<span class="kw">complete.cases</span>(experiment.data)) <span class="co"># Not all observations have everything! </span></code></pre></div>
+<pre><code>## 
+## FALSE  TRUE 
+##    74   177</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complete.cases</span>(experiment.data)</code></pre></div>
+<pre><code>##   [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
+##  [12] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE
+##  [23]  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE
+##  [34] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE
+##  [45]  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE
+##  [56] FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE
+##  [67] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+##  [78] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE
+##  [89] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+## [100]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+## [111]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [122]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [133]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [144]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [155]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [166]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [177]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
+## [188]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [199]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [210]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [221]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+## [232]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [243]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">is.na</span>(experiment.data))</code></pre></div>
+<pre><code>## 
+## FALSE  TRUE 
+## 16723    94</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Gotta decide what to do about it!!</span></code></pre></div>
+<p>Later we’ll cover how to change individual cases, but as I will note, you will want to avoid hard coding in any fixes if you can. Let’s first look at how we might fix a messy gender problem.</p>
+<div id="cleaning-response-data" class="section level2">
+<h2><span class="header-section-number">3.1</span> Cleaning Response Data</h2>
+<p>In your data cleaning before you might have noticed that participants were able to freely respond with whatever gender they wanted. Most data look to fall within the normal binary, but the computer needs things to be exactly the same before making an easy split? What would be the laziest, most effecient way to fix the gender column? What format does the variable have to be in order to make the changes that you need? When you have it figured out, make sure to run the code from top to bottom to make sure things go in the right order!!! As we are not dealing with huge amounts of data, the table() function will help out.</p>
+<p>Let’s now take a look at some of these problem ones Why, for example is Begin Training not working? Print the variable to see.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain</code></pre></div>
+<pre><code>##   [1] &quot;9&quot;         &quot;10&quot;        &quot;10&quot;        &quot;11&quot;        &quot;&quot;         
+##   [6] &quot;&quot;          &quot;8&quot;         &quot;6&quot;         &quot;12&quot;        &quot;6&quot;        
+##  [11] &quot;&quot;          &quot;&quot;          &quot;10&quot;        &quot;&quot;          &quot;7&quot;        
+##  [16] &quot;16&quot;        &quot;10&quot;        &quot;18&quot;        &quot;15&quot;        &quot;7&quot;        
+##  [21] &quot;8&quot;         &quot;10&quot;        &quot;11&quot;        &quot;8&quot;         &quot;12&quot;       
+##  [26] &quot;6&quot;         &quot;&quot;          &quot;17&quot;        &quot;&quot;          &quot;&quot;         
+##  [31] &quot;10&quot;        &quot;15&quot;        &quot;15&quot;        &quot;8&quot;         &quot;6&quot;        
+##  [36] &quot;13&quot;        &quot;16&quot;        &quot;&quot;          &quot;7&quot;         &quot;7&quot;        
+##  [41] &quot;10&quot;        &quot;&quot;          &quot;12&quot;        &quot;5&quot;         &quot;11&quot;       
+##  [46] &quot;9&quot;         &quot;&quot;          &quot;21&quot;        &quot;&quot;          &quot;16&quot;       
+##  [51] &quot;17&quot;        &quot;11&quot;        &quot;&quot;          &quot;13&quot;        &quot;&quot;         
+##  [56] &quot;15&quot;        &quot;6&quot;         &quot;15&quot;        &quot;9&quot;         &quot;16&quot;       
+##  [61] &quot;10&quot;        &quot;18&quot;        &quot;&quot;          &quot;11&quot;        &quot;9&quot;        
+##  [66] &quot;12&quot;        &quot;10&quot;        &quot;4&quot;         &quot;&quot;          &quot;9&quot;        
+##  [71] &quot;9&quot;         &quot;&quot;          &quot;14&quot;        &quot;11&quot;        &quot;10&quot;       
+##  [76] &quot;7&quot;         &quot;&quot;          &quot;17&quot;        &quot;9&quot;         &quot;16&quot;       
+##  [81] &quot;7&quot;         &quot;7&quot;         &quot;5&quot;         &quot;&quot;          &quot;&quot;         
+##  [86] &quot;10&quot;        &quot;10&quot;        &quot;9&quot;         &quot;14&quot;        &quot;17&quot;       
+##  [91] &quot;11&quot;        &quot;&quot;          &quot;&quot;          &quot;12&quot;        &quot;6&quot;        
+##  [96] &quot;14&quot;        &quot;8&quot;         &quot;11&quot;        &quot;&quot;          &quot;&quot;         
+## [101] &quot;12&quot;        &quot;6&quot;         &quot;10&quot;        &quot;14&quot;        &quot;8&quot;        
+## [106] &quot;13&quot;        &quot;12&quot;        &quot;8&quot;         &quot;11&quot;        &quot;8&quot;        
+## [111] &quot;14&quot;        &quot;11&quot;        &quot;8&quot;         &quot;&quot;          &quot;&quot;         
+## [116] &quot;10&quot;        &quot;13&quot;        &quot;13&quot;        &quot;5&quot;         &quot;15&quot;       
+## [121] &quot;&quot;          &quot;11&quot;        &quot;8&quot;         &quot;12&quot;        &quot;10&quot;       
+## [126] &quot;9&quot;         &quot;6&quot;         &quot;7&quot;         &quot;10&quot;        &quot;6&quot;        
+## [131] &quot;8&quot;         &quot;&quot;          &quot;16&quot;        &quot;&quot;          &quot;&quot;         
+## [136] &quot;&quot;          &quot;11&quot;        &quot;12&quot;        &quot;7&quot;         &quot;&quot;         
+## [141] &quot;4&quot;         &quot;7&quot;         &quot;7&quot;         &quot;&quot;          &quot;10&quot;       
+## [146] &quot;10&quot;        &quot;12&quot;        &quot;10&quot;        &quot;&quot;          &quot;12&quot;       
+## [151] &quot;12&quot;        &quot;6&quot;         &quot;14&quot;        &quot;7&quot;         &quot;&quot;         
+## [156] &quot;6&quot;         &quot;18&quot;        &quot;8&quot;         &quot;12&quot;        &quot;15&quot;       
+## [161] &quot;13&quot;        &quot;&quot;          &quot;10&quot;        &quot;11&quot;        &quot;10&quot;       
+## [166] &quot;13&quot;        &quot;8&quot;         &quot;&quot;          &quot;6&quot;         &quot;8&quot;        
+## [171] &quot;8&quot;         &quot;&quot;          &quot;9&quot;         &quot;13&quot;        &quot;&quot;         
+## [176] &quot;16&quot;        &quot;10&quot;        &quot;9&quot;         &quot;10&quot;        &quot;5&quot;        
+## [181] &quot;11&quot;        &quot;&quot;          &quot;15&quot;        &quot;11&quot;        &quot;13&quot;       
+## [186] &quot;14&quot;        &quot;11&quot;        &quot;2&quot;         &quot;12&quot;        &quot;11&quot;       
+## [191] &quot;8&quot;         &quot;13&quot;        &quot;8&quot;         &quot;9&quot;         &quot;12&quot;       
+## [196] &quot;9&quot;         &quot;7&quot;         &quot;12&quot;        &quot;9&quot;         &quot;8&quot;        
+## [201] &quot;9&quot;         &quot;6&quot;         &quot;11&quot;        &quot;11&quot;        &quot;9&quot;        
+## [206] &quot;10&quot;        &quot;12&quot;        &quot;12&quot;        &quot;10&quot;        &quot;6&quot;        
+## [211] &quot;9&quot;         &quot;14&quot;        &quot;5&quot;         &quot;11&quot;        &quot;12&quot;       
+## [216] &quot;8&quot;         &quot;9&quot;         &quot;11&quot;        &quot;5&quot;         &quot;13&quot;       
+## [221] &quot;10&quot;        &quot;11&quot;        &quot;9&quot;         &quot;9&quot;         &quot;10&quot;       
+## [226] &quot;5&quot;         &quot;8&quot;         &quot;10&quot;        &quot;7&quot;         &quot;10&quot;       
+## [231] &quot;12&quot;        &quot;10&quot;        &quot;7&quot;         &quot;13&quot;        &quot;11&quot;       
+## [236] &quot;11&quot;        &quot;10&quot;        &quot;9&quot;         &quot;8&quot;         &quot;12&quot;       
+## [241] &quot;11&quot;        &quot;7&quot;         &quot;10&quot;        &quot;12&quot;        &quot;29&quot;       
+## [246] &quot;5&quot;         &quot;13&quot;        &quot;9&quot;         &quot;9&quot;         &quot;7th grade&quot;
+## [251] &quot;8&quot;</code></pre>
+<p>Some people didn’t respond, one person decided to tell us what grade they started. There are 2 ways to go about fixing this. We could “hardcode” the problem if this is the only time we will do this analysis on this dataset or we could try to write a line of code that doesn’t care what exact position the error is. On line 250 in this object is the thing that needs swapping out. We can access it with R’s indexing. Counting from index we see it’s in line 250.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>]</code></pre></div>
+<pre><code>## [1] &quot;7th grade&quot;</code></pre>
+<p>Quick, ask yourself why we don’t use the comma here?! If you were set on using the comma, what would you change? Ok, now let’s swap in the value we want with &lt;- Remember we are putting a value into a character operator so it has to have “”</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>] &lt;-<span class="st"> &quot;12&quot;</span>
+experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
+<pre><code>##   [1] &quot;9&quot;  &quot;10&quot; &quot;10&quot; &quot;11&quot; &quot;&quot;   &quot;&quot;   &quot;8&quot;  &quot;6&quot;  &quot;12&quot; &quot;6&quot;  &quot;&quot;   &quot;&quot;   &quot;10&quot; &quot;&quot;  
+##  [15] &quot;7&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;15&quot; &quot;7&quot;  &quot;8&quot;  &quot;10&quot; &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;6&quot;  &quot;&quot;   &quot;17&quot;
+##  [29] &quot;&quot;   &quot;&quot;   &quot;10&quot; &quot;15&quot; &quot;15&quot; &quot;8&quot;  &quot;6&quot;  &quot;13&quot; &quot;16&quot; &quot;&quot;   &quot;7&quot;  &quot;7&quot;  &quot;10&quot; &quot;&quot;  
+##  [43] &quot;12&quot; &quot;5&quot;  &quot;11&quot; &quot;9&quot;  &quot;&quot;   &quot;21&quot; &quot;&quot;   &quot;16&quot; &quot;17&quot; &quot;11&quot; &quot;&quot;   &quot;13&quot; &quot;&quot;   &quot;15&quot;
+##  [57] &quot;6&quot;  &quot;15&quot; &quot;9&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;&quot;   &quot;11&quot; &quot;9&quot;  &quot;12&quot; &quot;10&quot; &quot;4&quot;  &quot;&quot;   &quot;9&quot; 
+##  [71] &quot;9&quot;  &quot;&quot;   &quot;14&quot; &quot;11&quot; &quot;10&quot; &quot;7&quot;  &quot;&quot;   &quot;17&quot; &quot;9&quot;  &quot;16&quot; &quot;7&quot;  &quot;7&quot;  &quot;5&quot;  &quot;&quot;  
+##  [85] &quot;&quot;   &quot;10&quot; &quot;10&quot; &quot;9&quot;  &quot;14&quot; &quot;17&quot; &quot;11&quot; &quot;&quot;   &quot;&quot;   &quot;12&quot; &quot;6&quot;  &quot;14&quot; &quot;8&quot;  &quot;11&quot;
+##  [99] &quot;&quot;   &quot;&quot;   &quot;12&quot; &quot;6&quot;  &quot;10&quot; &quot;14&quot; &quot;8&quot;  &quot;13&quot; &quot;12&quot; &quot;8&quot;  &quot;11&quot; &quot;8&quot;  &quot;14&quot; &quot;11&quot;
+## [113] &quot;8&quot;  &quot;&quot;   &quot;&quot;   &quot;10&quot; &quot;13&quot; &quot;13&quot; &quot;5&quot;  &quot;15&quot; &quot;&quot;   &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;10&quot; &quot;9&quot; 
+## [127] &quot;6&quot;  &quot;7&quot;  &quot;10&quot; &quot;6&quot;  &quot;8&quot;  &quot;&quot;   &quot;16&quot; &quot;&quot;   &quot;&quot;   &quot;&quot;   &quot;11&quot; &quot;12&quot; &quot;7&quot;  &quot;&quot;  
+## [141] &quot;4&quot;  &quot;7&quot;  &quot;7&quot;  &quot;&quot;   &quot;10&quot; &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;&quot;   &quot;12&quot; &quot;12&quot; &quot;6&quot;  &quot;14&quot; &quot;7&quot; 
+## [155] &quot;&quot;   &quot;6&quot;  &quot;18&quot; &quot;8&quot;  &quot;12&quot; &quot;15&quot; &quot;13&quot; &quot;&quot;   &quot;10&quot; &quot;11&quot; &quot;10&quot; &quot;13&quot; &quot;8&quot;  &quot;&quot;  
+## [169] &quot;6&quot;  &quot;8&quot;  &quot;8&quot;  &quot;&quot;   &quot;9&quot;  &quot;13&quot; &quot;&quot;   &quot;16&quot; &quot;10&quot; &quot;9&quot;  &quot;10&quot; &quot;5&quot;  &quot;11&quot; &quot;&quot;  
+## [183] &quot;15&quot; &quot;11&quot; &quot;13&quot; &quot;14&quot; &quot;11&quot; &quot;2&quot;  &quot;12&quot; &quot;11&quot; &quot;8&quot;  &quot;13&quot; &quot;8&quot;  &quot;9&quot;  &quot;12&quot; &quot;9&quot; 
+## [197] &quot;7&quot;  &quot;12&quot; &quot;9&quot;  &quot;8&quot;  &quot;9&quot;  &quot;6&quot;  &quot;11&quot; &quot;11&quot; &quot;9&quot;  &quot;10&quot; &quot;12&quot; &quot;12&quot; &quot;10&quot; &quot;6&quot; 
+## [211] &quot;9&quot;  &quot;14&quot; &quot;5&quot;  &quot;11&quot; &quot;12&quot; &quot;8&quot;  &quot;9&quot;  &quot;11&quot; &quot;5&quot;  &quot;13&quot; &quot;10&quot; &quot;11&quot; &quot;9&quot;  &quot;9&quot; 
+## [225] &quot;10&quot; &quot;5&quot;  &quot;8&quot;  &quot;10&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;7&quot;  &quot;13&quot; &quot;11&quot; &quot;11&quot; &quot;10&quot; &quot;9&quot; 
+## [239] &quot;8&quot;  &quot;12&quot; &quot;11&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;29&quot; &quot;5&quot;  &quot;13&quot; &quot;9&quot;  &quot;9&quot;  &quot;12&quot; &quot;8&quot;</code></pre>
+<p>Nice, no more text data, but what if it’s not always in 250? For example, what do we do with all these blank spaces? Let’s use R’s inbuilt ifelse() function to go through this vector and swap out what we want!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain)</code></pre></div>
+<pre><code>##   [1] &quot;9&quot;  &quot;10&quot; &quot;10&quot; &quot;11&quot; &quot;0&quot;  &quot;0&quot;  &quot;8&quot;  &quot;6&quot;  &quot;12&quot; &quot;6&quot;  &quot;0&quot;  &quot;0&quot;  &quot;10&quot; &quot;0&quot; 
+##  [15] &quot;7&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;15&quot; &quot;7&quot;  &quot;8&quot;  &quot;10&quot; &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;6&quot;  &quot;0&quot;  &quot;17&quot;
+##  [29] &quot;0&quot;  &quot;0&quot;  &quot;10&quot; &quot;15&quot; &quot;15&quot; &quot;8&quot;  &quot;6&quot;  &quot;13&quot; &quot;16&quot; &quot;0&quot;  &quot;7&quot;  &quot;7&quot;  &quot;10&quot; &quot;0&quot; 
+##  [43] &quot;12&quot; &quot;5&quot;  &quot;11&quot; &quot;9&quot;  &quot;0&quot;  &quot;21&quot; &quot;0&quot;  &quot;16&quot; &quot;17&quot; &quot;11&quot; &quot;0&quot;  &quot;13&quot; &quot;0&quot;  &quot;15&quot;
+##  [57] &quot;6&quot;  &quot;15&quot; &quot;9&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;0&quot;  &quot;11&quot; &quot;9&quot;  &quot;12&quot; &quot;10&quot; &quot;4&quot;  &quot;0&quot;  &quot;9&quot; 
+##  [71] &quot;9&quot;  &quot;0&quot;  &quot;14&quot; &quot;11&quot; &quot;10&quot; &quot;7&quot;  &quot;0&quot;  &quot;17&quot; &quot;9&quot;  &quot;16&quot; &quot;7&quot;  &quot;7&quot;  &quot;5&quot;  &quot;0&quot; 
+##  [85] &quot;0&quot;  &quot;10&quot; &quot;10&quot; &quot;9&quot;  &quot;14&quot; &quot;17&quot; &quot;11&quot; &quot;0&quot;  &quot;0&quot;  &quot;12&quot; &quot;6&quot;  &quot;14&quot; &quot;8&quot;  &quot;11&quot;
+##  [99] &quot;0&quot;  &quot;0&quot;  &quot;12&quot; &quot;6&quot;  &quot;10&quot; &quot;14&quot; &quot;8&quot;  &quot;13&quot; &quot;12&quot; &quot;8&quot;  &quot;11&quot; &quot;8&quot;  &quot;14&quot; &quot;11&quot;
+## [113] &quot;8&quot;  &quot;0&quot;  &quot;0&quot;  &quot;10&quot; &quot;13&quot; &quot;13&quot; &quot;5&quot;  &quot;15&quot; &quot;0&quot;  &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;10&quot; &quot;9&quot; 
+## [127] &quot;6&quot;  &quot;7&quot;  &quot;10&quot; &quot;6&quot;  &quot;8&quot;  &quot;0&quot;  &quot;16&quot; &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;11&quot; &quot;12&quot; &quot;7&quot;  &quot;0&quot; 
+## [141] &quot;4&quot;  &quot;7&quot;  &quot;7&quot;  &quot;0&quot;  &quot;10&quot; &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;0&quot;  &quot;12&quot; &quot;12&quot; &quot;6&quot;  &quot;14&quot; &quot;7&quot; 
+## [155] &quot;0&quot;  &quot;6&quot;  &quot;18&quot; &quot;8&quot;  &quot;12&quot; &quot;15&quot; &quot;13&quot; &quot;0&quot;  &quot;10&quot; &quot;11&quot; &quot;10&quot; &quot;13&quot; &quot;8&quot;  &quot;0&quot; 
+## [169] &quot;6&quot;  &quot;8&quot;  &quot;8&quot;  &quot;0&quot;  &quot;9&quot;  &quot;13&quot; &quot;0&quot;  &quot;16&quot; &quot;10&quot; &quot;9&quot;  &quot;10&quot; &quot;5&quot;  &quot;11&quot; &quot;0&quot; 
+## [183] &quot;15&quot; &quot;11&quot; &quot;13&quot; &quot;14&quot; &quot;11&quot; &quot;2&quot;  &quot;12&quot; &quot;11&quot; &quot;8&quot;  &quot;13&quot; &quot;8&quot;  &quot;9&quot;  &quot;12&quot; &quot;9&quot; 
+## [197] &quot;7&quot;  &quot;12&quot; &quot;9&quot;  &quot;8&quot;  &quot;9&quot;  &quot;6&quot;  &quot;11&quot; &quot;11&quot; &quot;9&quot;  &quot;10&quot; &quot;12&quot; &quot;12&quot; &quot;10&quot; &quot;6&quot; 
+## [211] &quot;9&quot;  &quot;14&quot; &quot;5&quot;  &quot;11&quot; &quot;12&quot; &quot;8&quot;  &quot;9&quot;  &quot;11&quot; &quot;5&quot;  &quot;13&quot; &quot;10&quot; &quot;11&quot; &quot;9&quot;  &quot;9&quot; 
+## [225] &quot;10&quot; &quot;5&quot;  &quot;8&quot;  &quot;10&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;7&quot;  &quot;13&quot; &quot;11&quot; &quot;11&quot; &quot;10&quot; &quot;9&quot; 
+## [239] &quot;8&quot;  &quot;12&quot; &quot;11&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;29&quot; &quot;5&quot;  &quot;13&quot; &quot;9&quot;  &quot;9&quot;  &quot;12&quot; &quot;8&quot;</code></pre>
+<p>This works by going through each entry and doing the conditional on the value! Let’s now write over our old column and in the same step make everything a number.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain))</code></pre></div>
+<p>And Alas!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain</code></pre></div>
+<pre><code>##   [1]  9 10 10 11  0  0  8  6 12  6  0  0 10  0  7 16 10 18 15  7  8 10 11
+##  [24]  8 12  6  0 17  0  0 10 15 15  8  6 13 16  0  7  7 10  0 12  5 11  9
+##  [47]  0 21  0 16 17 11  0 13  0 15  6 15  9 16 10 18  0 11  9 12 10  4  0
+##  [70]  9  9  0 14 11 10  7  0 17  9 16  7  7  5  0  0 10 10  9 14 17 11  0
+##  [93]  0 12  6 14  8 11  0  0 12  6 10 14  8 13 12  8 11  8 14 11  8  0  0
+## [116] 10 13 13  5 15  0 11  8 12 10  9  6  7 10  6  8  0 16  0  0  0 11 12
+## [139]  7  0  4  7  7  0 10 10 12 10  0 12 12  6 14  7  0  6 18  8 12 15 13
+## [162]  0 10 11 10 13  8  0  6  8  8  0  9 13  0 16 10  9 10  5 11  0 15 11
+## [185] 13 14 11  2 12 11  8 13  8  9 12  9  7 12  9  8  9  6 11 11  9 10 12
+## [208] 12 10  6  9 14  5 11 12  8  9 11  5 13 10 11  9  9 10  5  8 10  7 10
+## [231] 12 10  7 13 11 11 10  9  8 12 11  7 10 12 29  5 13  9  9 12  8</code></pre>
+<p>Let’s now clean up the Gender column, first let’s look at it</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>Gender <span class="co"># Are there any common trends?</span></code></pre></div>
+<pre><code>##   [1] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;    &quot;female&quot;  &quot;FEMALE&quot; 
+##   [8] &quot;female&quot;  &quot;MALE&quot;    &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+##  [15] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+##  [22] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot; 
+##  [29] &quot;FEMALE&quot;  &quot;&quot;        &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;female&quot;  &quot;female&quot;  &quot;FEMALE&quot; 
+##  [36] &quot;female &quot; &quot;female&quot;  &quot;Female&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;   
+##  [43] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;female&quot; 
+##  [50] &quot;MALE&quot;    &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot; 
+##  [57] &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;female&quot;  &quot;FEMALE&quot;  NA       
+##  [64] &quot;Male&quot;    &quot;Female&quot;  &quot;MALE&quot;    &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+##  [71] &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;    &quot;female&quot;  &quot;FEMALE&quot; 
+##  [78] &quot;female&quot;  &quot;FEMALE&quot;  &quot;female &quot; &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+##  [85] &quot;FEMALE&quot;  &quot;female&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot; 
+##  [92] &quot;m&quot;       &quot;female&quot;  &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;Female&quot;  &quot;female&quot; 
+##  [99] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;female&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;   
+## [106] &quot;male&quot;    &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;female&quot;  &quot;female&quot;  &quot;female&quot;  &quot;Male&quot;   
+## [113] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;Male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+## [120] &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot; 
+## [127] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;Female&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;female&quot;  &quot;female&quot; 
+## [134] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+## [141] &quot;MALE&quot;    &quot;Male&quot;    &quot;FEMALE&quot;  &quot;female&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot; 
+## [148] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;male&quot;    &quot;FEMALE&quot; 
+## [155] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;   
+## [162] &quot;FEMALE&quot;  &quot;female&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;f&quot;       &quot;FEMALE&quot; 
+## [169] &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;male&quot;    &quot;Male&quot;    &quot;FEMALE&quot;  &quot;MALE &quot;   &quot;female &quot;
+## [176] &quot;female&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;female&quot;  &quot;FEMALE&quot;  &quot;COUNTRY&quot;
+## [183] &quot;MALE&quot;    &quot;MALE&quot;    &quot;female&quot;  &quot;male&quot;    &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;MALE&quot;   
+## [190] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;Female&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;   
+## [197] &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;Male&quot;    &quot;MALE&quot;   
+## [204] &quot;MALE&quot;    &quot;MALE&quot;    &quot;MALE&quot;    &quot;MALE&quot;    &quot;Male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+## [211] &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;female&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;MALE&quot;   
+## [218] &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot; 
+## [225] &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+## [232] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
+## [239] &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;   
+## [246] &quot;FEMALE&quot;  &quot;M&quot;       &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(experiment.data<span class="op">$</span>Gender)</code></pre></div>
+<pre><code>## 
+##         COUNTRY       f  female  Female  FEMALE female        m       M 
+##       1       1       1      24       5     137       3       1       1 
+##    male    Male    MALE   MALE  
+##       9       7      59       1</code></pre>
+<div id="cleaning-up-gender" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Cleaning Up Gender</h3>
+<p>Pretty much two answers, how do we make them all say one thing? <!-- Let's use the stringr package for this. Import it up top. --></p>
+<!-- ```{r} -->
+<!-- experiment.data$Gender <- str_to_lower(experiment.data$Gender) -->
+<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"^.*f.*$","Female") -->
+<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"^m.*$","Male") -->
+<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"^country$","No Response") -->
+<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"","No Response") -->
+<!-- experiment.data$Gender[30] <- "No Response" #Something Might Be Up w this datapoint? -->
+<!-- experiment.data$Gender <- as.factor(experiment.data$Gender) -->
+<!-- #-------------------------------------------------- -->
+<!-- # Can we do same thing for AP?  -->
+<!-- experiment.data$AbsPitch -->
+<!-- experiment.data$AbsPitch <- str_to_lower(experiment.data$AbsPitch) -->
+<!-- experiment.data$AbsPitch <- str_replace(experiment.data$AbsPitch,"^.*n.*$","no") -->
+<!-- experiment.data$AbsPitch[30] <- "no" -->
+<!-- experiment.data$AbsPitch <- as.factor(experiment.data$AbsPitch) -->
+<!-- table(experiment.data$AbsPitch) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="merging-data" class="section level2">
+<h2><span class="header-section-number">3.2</span> Merging Data</h2>
+<p>Often we will have data from other spreadsheets we want to attach such as demographic data to behavioral responses. Using the <code>data.table</code> functionality, let’s merge our two csv files together so that we have every variable accessible to us for this analysis. Note I like to work with the <code>data.table</code> package, though there are other ways to do this!</p>
+<p>In order to do this, we need 1 shared column between the two datasets. For most psychology cases, this is probably going to be a participant ID number. Note that for this to work, you need the columns to have an exact match of name! First let’s check that they are the same!!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(experiment.data)</code></pre></div>
+<pre><code>##  [1] &quot;Sub&quot;                &quot;ACTIVE&quot;             &quot;PERCEPTUAL&quot;        
+##  [4] &quot;MUSICAL&quot;            &quot;SINGING&quot;            &quot;EMOTIONS&quot;          
+##  [7] &quot;GENERAL&quot;            &quot;inst&quot;               &quot;Age&quot;               
+## [10] &quot;Gender&quot;             &quot;Major&quot;              &quot;Minor&quot;             
+## [13] &quot;SchoolUGorG&quot;        &quot;MuscMajMinor&quot;       &quot;BeginTrain&quot;        
+## [16] &quot;AbsPitch&quot;           &quot;YearsPrac&quot;          &quot;PeakPrac&quot;          
+## [19] &quot;Live12Mo&quot;           &quot;TheoryTrain&quot;        &quot;FormalYrs&quot;         
+## [22] &quot;NoOfInst&quot;           &quot;ActListenMin&quot;       &quot;SubjectNo&quot;         
+## [25] &quot;SubRaven&quot;           &quot;RavenB1&quot;            &quot;RavenB2&quot;           
+## [28] &quot;RavenB3&quot;            &quot;RavenTotal&quot;         &quot;OspanSub&quot;          
+## [31] &quot;OspanAccError&quot;      &quot;OspanMathError&quot;     &quot;OspanAbsoluteScore&quot;
+## [34] &quot;OspanPartialScore&quot;  &quot;OspanB1&quot;            &quot;OspanB2&quot;           
+## [37] &quot;OspanB3&quot;            &quot;OspanSpeedErrTot&quot;   &quot;SymSub&quot;            
+## [40] &quot;SymAccErrTot&quot;       &quot;SymSpeedErrTot&quot;     &quot;SspanAbsScore&quot;     
+## [43] &quot;SspanPartiaScore&quot;   &quot;SspanB1&quot;            &quot;SspanB2&quot;           
+## [46] &quot;SspanB3&quot;            &quot;SymmErrTot&quot;         &quot;ToneSub&quot;           
+## [49] &quot;ToneAccErrTot&quot;      &quot;ToneMathErrTot&quot;     &quot;TspanAbsScore&quot;     
+## [52] &quot;TspanPartScore&quot;     &quot;TspanB1&quot;            &quot;TspanB2&quot;           
+## [55] &quot;TspanB3&quot;            &quot;ToneSpeedErrTot&quot;    &quot;BeatSub&quot;           
+## [58] &quot;BeatTotal&quot;          &quot;BeatAcc&quot;            &quot;MelodicSub&quot;        
+## [61] &quot;MelodicTot&quot;         &quot;MelodicAcc&quot;         &quot;Native&quot;            
+## [64] &quot;Paid&quot;               &quot;jv_NoGMSI&quot;          &quot;jv_nonNative&quot;      
+## [67] &quot;jv_noOspan&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(item.level.data)</code></pre></div>
+<pre><code>##  [1] &quot;tmp.dat.subject.1.&quot; &quot;X1&quot;                 &quot;X2&quot;                
+##  [4] &quot;X3&quot;                 &quot;X4&quot;                 &quot;X5&quot;                
+##  [7] &quot;X6&quot;                 &quot;X7&quot;                 &quot;X8&quot;                
+## [10] &quot;X9&quot;                 &quot;X10&quot;                &quot;X11&quot;               
+## [13] &quot;X12&quot;                &quot;X13&quot;                &quot;X14&quot;               
+## [16] &quot;X15&quot;                &quot;X16&quot;                &quot;X17&quot;               
+## [19] &quot;X18&quot;                &quot;X19&quot;                &quot;X20&quot;               
+## [22] &quot;X21&quot;                &quot;X22&quot;                &quot;X23&quot;               
+## [25] &quot;X24&quot;                &quot;X25&quot;                &quot;X26&quot;               
+## [28] &quot;X27&quot;                &quot;X28&quot;                &quot;X29&quot;               
+## [31] &quot;X30&quot;                &quot;X31&quot;                &quot;X32&quot;               
+## [34] &quot;X33&quot;                &quot;X34&quot;                &quot;X35&quot;               
+## [37] &quot;X36&quot;                &quot;X37&quot;                &quot;X38&quot;</code></pre>
+<p>First off our subject ID columns are not the same. Let’s swap that.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setnames</span>(item.level.data,<span class="st">&quot;tmp.dat.subject.1.&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>)
+<span class="kw">setnames</span>(experiment.data,<span class="st">&quot;Sub&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>) <span class="co"># Make this clearer!!! </span></code></pre></div>
+<p>If you need to do more than 1, use the c() operator! Now if we look at this column, it’s all messe up. The code below fixes it, if you want to learn more about regex, check it out if not, just skip below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;C&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;CM&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(item.level.data<span class="op">$</span>SubjectNo)</code></pre></div>
+<p>Let’s just quickly check to see if all the subject numbers make sense</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo) <span class="co"># Cause for alarm! Negative values and placeholders!</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Notice that the variable of <code>SubjectNo</code> has negative values and placeholders! We can use R’s indexing function to find these entries.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop those </span>
+experiment.data &lt;-<span class="st"> </span>experiment.data[experiment.data<span class="op">$</span>SubjectNo <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>experiment.data<span class="op">$</span>SubjectNo <span class="op">&lt;</span><span class="st"> </span><span class="dv">1000</span>,]</code></pre></div>
+<p>Note this works because the SubjectNo variable is numeric</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(item.level.data<span class="op">$</span>SubjectNo)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-35-2.png" width="672" /></p>
+<p>Ok, finally we merge our datasets. What we are doing here is called an “inner join” Here we will keep all of the ROWS of the dataset in the middle of the command Note we need to swap over our key to be a character value.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item.level.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(item.level.data)
+experiment.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(experiment.data)
+
+item.level.data</code></pre></div>
+<pre><code>##      SubjectNo X1 X2 X3 X4 X5 X6 X7 X8 X9 X10 X11 X12 X13 X14 X15 X16 X17
+##   1:       100  2  1  5  4  1  5  5  1  4   5   7   1   5   4   3   5   6
+##   2:       101  7  5  7  7  3  7  7  4  7   2   6   4   5   5   5   4   6
+##   3:       102  4  2  5  4  3  7  4  5  3   4   6   3   2   4   4   5   2
+##   4:       103  5  7  7  5  5  7  7  5  7   6   7   2   5   6   5   4   4
+##   5:       104  2  1  1  2  1  4  1  5  3   5   6   2   5   6   6   6   1
+##  ---                                                                     
+## 246:        95  3  2  6  5  3  2  3  3  4   2   6   6   5   6   6   6   3
+## 247:        96  5  1  3  5  5  5  6  5  3   5   6   4   2   5   5   5   1
+## 248:        97  5  2  4  4  2  3  5  4  2   5   6   4   3   5   5   3   6
+## 249:        98  6  2  7  7  6  7  5  3  4   4   7   6   6   6   6   6   7
+## 250:        99  5  4  5  5  6  7  7  4  7   2   4   5   2   5   5   4   1
+##      X18 X19 X20 X21 X22 X23 X24 X25 X26 X27 X28 X29 X30 X31 X32 X33 X34
+##   1:   2   2   2   3   3   3   4   2   2   7   2   5   5   2   1   6   7
+##   2:   6   2   1   3   5   1   1   2   3   4   2   4   3   3   2   7   7
+##   3:   4   2   1   2   6   4   3   2   2   2   1   2   3   2   2   5   6
+##   4:   4   2   1   1   1   3   3   1   1   2   1   5   1   5   4   7   3
+##   5:   5   1   1   1   1   1   1   1   3   2   1   1   5   7   5   1   6
+##  ---                                                                    
+## 246:   6   2   2   1   1   1   1   1   6   6   3   6   6   2   2   2   6
+## 247:   6   1   1   1   1   1   1   1   2   6   1   1   6   6   5   2   6
+## 248:   5   6   7   3   5   1   5   2   2   5   2   2   4   5   3   5   6
+## 249:   7   6   3   7   5   4   4   2   6   6   5   7   7   7   3   6   7
+## 250:   5   1   1   2   3   1   1   1   6   5   2   2   3   7   6   6   7
+##      X35 X36 X37 X38
+##   1:   7   2   4   7
+##   2:   7   4   6   7
+##   3:   7   5   5   7
+##   4:   7   7   7   7
+##   5:   6   3   5   7
+##  ---                
+## 246:   6   5   5   5
+## 247:   7   2   5   6
+## 248:   5   5   4   5
+## 249:   7   5   6   7
+## 250:   7   2   6   7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exp.data &lt;-<span class="st"> </span>item.level.data[experiment.data, on=<span class="st">&quot;SubjectNo&quot;</span>]
+
+exp.data</code></pre></div>
+<pre><code>##      SubjectNo X1 X2 X3 X4 X5 X6 X7 X8 X9 X10 X11 X12 X13 X14 X15 X16 X17
+##   1:        10  2  2  5  6  5  4  7  3  4   6   7   4   6   6   5   4   4
+##   2:        11  4  2  4  5  2  5  6  5  4   6   6   3   6   5   5   5   5
+##   3:        12  4  2  6  5  2  6  5  2  7   6   6   5   3   6   6   6   6
+##   4:        13  5  2  3  7  2  5  5  1  3   4   6   2   4   6   6   5   3
+##   5:        14  6  1  6  6  5  6  6  6  6   7   7   6   6   6   6   7   6
+##  ---                                                                     
+## 245:       363  6  1  5  2  1  7  2  2  1   7   6   3   5   6   6   6   7
+## 246:       364  5  3  6  4  3  6  4  4  6   7   5   6   6   6   6   7   7
+## 247:       365  3  1  5  2  1  5  5  2  1   6   6   6   5   6   5   6   5
+## 248:       366  5  3  5  4  2  5  5  3  3   5   6   5   6   5   6   6   5
+## 249:       367  7  5  7  7  7  6  6  7  7   7   7   6   7   6   7   7   5
+##      X18 X19 X20 X21 X22 X23 X24 X25 X26 X27 X28 X29 X30 X31 X32 X33 X34
+##   1:   5   2   1   5   7   6   5   2   4   6   4   3   4   6   5   7   7
+##   2:   6   2   2   2   5   1   3   1   4   5   2   2   2   5   2   5   5
+##   3:   5   4   2   4   3   1   5   2   7   6   5   6   6   6   4   5   6
+##   4:   6   3   4   6   3   1   6   3   5   5   2   2   2   2   1   6   6
+##   5:   6   1   1   1   1   1   1   1   3   1   5   1   2   6   6   7   7
+##  ---                                                                    
+## 245:   6   7   2   6   5   1   6   2   6   7   7   6   5   2   1   5   6
+## 246:   4   7   6   7   5   4   6   3   5   7   6   1   7   6   5   5   6
+## 247:   6   6   3   6   3   1   6   2   3   4   2   4   4   2   2   6   6
+## 248:   6   5   4   5   3   1   5   3   5   6   4   5   3   4   3   5   6
+## 249:   6   7   7   7   7   6   6   3   4   7   6   6   2   6   3   7   7
+##      X35 X36 X37 X38 ACTIVE PERCEPTUAL MUSICAL SINGING EMOTIONS GENERAL
+##   1:   6   6   6   7     38         47      28      33       39      75
+##   2:   6   5   5   6     37         47      16      22       32      67
+##   3:   7   2   4   6     39         49      21      40       30      82
+##   4:   7   5   5   5     33         42      26      19       34      68
+##   5:   6   6   7   2     48         57       7      24       35      60
+##  ---                                                                   
+## 245:   6   5   7   6     27         52      29      34       35      88
+## 246:   6   5   6   7     41         54      38      37       35      96
+## 247:   5   3   6   6     25         51      27      21       32      61
+## 248:   6   5   7   5     35         50      26      30       34      82
+## 249:   7   6   7   7     59         58      43      34       41     103
+##           inst Age Gender                             Major
+##   1:  clarinet  29 FEMALE               BUSINESS MANAGEMENT
+##   2:      bass  22 FEMALE                        psychology
+##   3:     Voice  19 FEMALE             COMMUNICATION STUDIES
+##   4: saxophone  23   MALE            Mechanical Engineering
+##   5:      none  23   MALE         Interdisciplinary Studies
+##  ---                                                       
+## 245:     voice  21      M                        psychology
+## 246:     voice  22 FEMALE Psychology and English Literature
+## 247:     flute  22 FEMALE                        PSYCHOLOGY
+## 248: saxophone  21 FEMALE                        psychology
+## 249:   Bassoon  23 FEMALE               Bassoon Performance
+##                          Minor SchoolUGorG MuscMajMinor BeginTrain
+##   1: HUMAN RESOURCE MANAGEMENT           1            1          9
+##   2:                        NA           1            1         10
+##   3:               SOCIAL WORK           1            1         10
+##   4:                        NA           1            1         11
+##   5:              Anthropology           1            1          0
+##  ---                                                              
+## 245:                                     1            1         13
+## 246:                 Sociology           1            1          9
+## 247:                 CHEMISTRY           1            1          9
+## 248:                   theatre           1            1         12
+## 249:                                     2            2          8
+##      AbsPitch YearsPrac PeakPrac Live12Mo TheoryTrain FormalYrs NoOfInst
+##   1:       NO         4        5        9           4         4        1
+##   2:       no         1        2       15           0         1        0
+##   3:       NO         3        1        3           0         3        1
+##   4:       NO         7        1        2           0         7        2
+##   5:       NO         0        0       20           0         0        0
+##  ---                                                                    
+## 245:       NO         9        2        3           0         9        1
+## 246:       NO        14        2       12           2         8        2
+## 247:       NO         8        1        3           0         9        1
+## 248:       no         4        1        9           0         3        2
+## 249:       NO        12        5       16           6         9        2
+##      ActListenMin i.SubjectNo SubRaven RavenB1 RavenB2 RavenB3 RavenTotal
+##   1:           60          10       10      10       8      10         28
+##   2:           60          11       11       7      10       6         23
+##   3:          180          12       12       3       7       7         17
+##   4:           45          13       13      10      10      11         31
+##   5:          120          14       14       7       8       5         20
+##  ---                                                                     
+## 245:            6         363      363       6       7       6         19
+## 246:          160         364      364       7       8       8         23
+## 247:           10         365      365      10      10       9         29
+## 248:           35         366      366      10       7       9         26
+## 249:          240         367      367       7       6       6         19
+##      OspanSub OspanAccError OspanMathError OspanAbsoluteScore
+##   1:       10             8             12                 29
+##   2:       11             7             12                 20
+##   3:       12             7              7                 48
+##   4:       13             1              2                 68
+##   5:       14             2              2                 33
+##  ---                                                         
+## 245:      363             2              4                 18
+## 246:      364             1              1                 68
+## 247:      365             2              8                  4
+## 248:      366             4              7                 38
+## 249:      367             1              2                 54
+##      OspanPartialScore OspanB1 OspanB2 OspanB3 OspanSpeedErrTot SymSub
+##   1:                47      21      14      12                4     10
+##   2:                41      11      18      12                5     11
+##   3:                65      21      23      21                0     12
+##   4:                73      25      23      25                1     13
+##   5:                50      17      16      17                0     14
+##  ---                                                                  
+## 245:                28      11       8       9                2    363
+## 246:                72      22      25      25                0    364
+## 247:                21      10       5       6                6    365
+## 248:                58      22      18      18                3    366
+## 249:                66      25      22      19                1    367
+##      SymAccErrTot SymSpeedErrTot SspanAbsScore SspanPartiaScore SspanB1
+##   1:            1              0            10               19       8
+##   2:            4              1            15               29      11
+##   3:            2              0            21               34      10
+##   4:            1              0            27               34      13
+##   5:            0              0            15               26       8
+##  ---                                                                   
+## 245:            0              0             7               21       8
+## 246:            0              0            32               38      14
+## 247:            0              0            18               28       9
+## 248:            2              1            33               40      14
+## 249:            2              0            17               28      10
+##      SspanB2 SspanB3 SymmErrTot ToneSub ToneAccErrTot ToneMathErrTot
+##   1:       4       7          1      10             8              9
+##   2:      13       5          5      11             5              5
+##   3:      13      11          2      12             8              8
+##   4:      10      11          1      13             1              2
+##   5:       8      10          0      14             4              5
+##  ---                                                                
+## 245:       7       6          0     363             7              8
+## 246:      13      11          0     364             3              5
+## 247:       8      11          0     365             3              4
+## 248:      13      13          3     366             6              9
+## 249:      10       8          2     367             2              2
+##      TspanAbsScore TspanPartScore TspanB1 TspanB2 TspanB3 ToneSpeedErrTot
+##   1:             9             36      13       6      17               1
+##   2:            21             47      14      19      14               0
+##   3:            27             55      17      21      17               0
+##   4:            37             63      20      22      21               1
+##   5:            10             31       8       9      14               1
+##  ---                                                                     
+## 245:             6             37      15      13       9               1
+## 246:            55             67      22      24      21               2
+## 247:            21             38       9      13      16               1
+## 248:            32             56      17      16      23               3
+## 249:            58             67      23      23      21               0
+##      BeatSub BeatTotal BeatAcc MelodicSub MelodicTot MelodicAcc Native
+##   1:      10        11    0.61         10          7       0.54      1
+##   2:      11        10    0.56         11          7       0.54      1
+##   3:      12        14    0.78         12          6       0.46      1
+##   4:      13        13    0.72         13         10       0.77      1
+##   5:      14        14    0.78         14          5       0.38      1
+##  ---                                                                  
+## 245:     363        16    0.89        363          7       0.54      1
+## 246:     364        11    0.61        364          7       0.54      1
+## 247:     365        10    0.56        365         10       0.77      1
+## 248:     366         9    0.50        366          9       0.69      1
+## 249:     367        12    0.67        367          9       0.69      1
+##      Paid jv_NoGMSI jv_nonNative jv_noOspan
+##   1:    1         0            0          0
+##   2:    1         0            0          0
+##   3:    1         0            0          0
+##   4:    1         0            0          0
+##   5:    1         0            0          0
+##  ---                                       
+## 245:    2         0            0          0
+## 246:    2         0            0          0
+## 247:    2         0            0          0
+## 248:    2         0            0          0
+## 249:    2         0            0          0</code></pre>
+<p>Let’s reorganize our columns so individual stuff is at the back We could do this with data.table, but it’s a different syntax so let’s swap back Normally you try to stick to minimal switching, but we’re just taking a big tour du R right now and learning to think</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exp.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(exp.data)
+exp.data &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">39</span>)]</code></pre></div>
+</div>
+<div id="checking-for-univariate-outliers" class="section level2">
+<h2><span class="header-section-number">3.3</span> Checking for Univariate Outliers</h2>
+<p>For this example, let’s imagine a univariate outlier is one with a zscore greater than 3. While we could write a bit of code to look for this, let’s use the pairs.panels() function in the psych pacakge to just get used to looking at our data The function is not the biggest fan of huge datasets, so let’s index our dataset to only grab what we need. Try to change the values and look at variables of interest.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs.panels</span>(exp.data[,<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>], <span class="dt">lm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>But of course we need to look at numbers in terms of their zscores! Let’s first standardize our entire dataset using the apply function Note we only can do this on numeric values!</p>
+<p>The apply function takes 3 argument The first is what you want to manipulate, the second is if it’s rows 1 or columns 2 (remeber this because it’s always rows then columns!), and the function. You can even write your own (though we’ll get to functions later)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.scores &lt;-<span class="st"> </span><span class="kw">apply</span>(exp.data[<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>],<span class="dv">2</span>,scale)
+
+exp.data.with.z &lt;-<span class="st"> </span><span class="kw">cbind</span>(exp.data, gmsi.z.scores)
+
+<span class="co">#Now we can index this to find values above whatever theshold we want!</span>
+
+<span class="kw">table</span>(gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## 
+## FALSE  TRUE 
+##  1487     6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.indexer &lt;-<span class="st"> </span>gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>
+gmsi.z.scores[gmsi.z.indexer] <span class="co"># See what they are, find them , decide to get rid of</span></code></pre></div>
+<pre><code>## [1]       NA 2.053441 2.053441 2.142711 2.016431 2.142711 2.142711</code></pre>
+<div id="checking-for-multivariate-outliers" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Checking for Multivariate Outliers</h3>
+<p>A bit tricker, I leanred how to do this off a blog post.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.responses &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">63</span><span class="op">:</span><span class="dv">100</span>)]
+
+mahal &lt;-<span class="st"> </span><span class="kw">mahalanobis</span>(gmsi.responses,
+                     <span class="kw">colMeans</span>(gmsi.responses, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), 
+                     <span class="kw">cov</span>(gmsi.responses, 
+                         <span class="dt">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>))                    ## Create Distance Measures
+
+cutoff &lt;-<span class="st"> </span><span class="kw">qchisq</span>(.<span class="dv">999</span>, <span class="kw">ncol</span>(gmsi.responses))                                ## Create cutoff object .001 signifiance and DF = obs
+<span class="kw">summary</span>(mahal <span class="op">&lt;</span><span class="st"> </span>cutoff)                                                     ## 11 Subjects greater than 70 cutoff </code></pre></div>
+<pre><code>##    Mode   FALSE    TRUE 
+## logical      11     238</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add On Variables </span>
+exp.data<span class="op">$</span>mahal &lt;-<span class="st"> </span>mahal
+exp.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(exp.data) <span class="co"># To use easier indexer, needs data.table </span>
+exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><span class="st"> </span>cutoff]</code></pre></div>
+<pre><code>##      SubjectNo ACTIVE PERCEPTUAL MUSICAL SINGING EMOTIONS GENERAL
+##   1:        10     38         47      28      33       39      75
+##   2:        11     37         47      16      22       32      67
+##   3:        12     39         49      21      40       30      82
+##   4:        13     33         42      26      19       34      68
+##   5:        15     47         55       8      24       36      65
+##  ---                                                             
+## 234:       363     27         52      29      34       35      88
+## 235:       364     41         54      38      37       35      96
+## 236:       365     25         51      27      21       32      61
+## 237:       366     35         50      26      30       34      82
+## 238:       367     59         58      43      34       41     103
+##           inst Age Gender                             Major
+##   1:  clarinet  29 FEMALE               BUSINESS MANAGEMENT
+##   2:      bass  22 FEMALE                        psychology
+##   3:     Voice  19 FEMALE             COMMUNICATION STUDIES
+##   4: saxophone  23   MALE            Mechanical Engineering
+##   5:     piano  19 female                         marketing
+##  ---                                                       
+## 234:     voice  21      M                        psychology
+## 235:     voice  22 FEMALE Psychology and English Literature
+## 236:     flute  22 FEMALE                        PSYCHOLOGY
+## 237: saxophone  21 FEMALE                        psychology
+## 238:   Bassoon  23 FEMALE               Bassoon Performance
+##                          Minor SchoolUGorG MuscMajMinor BeginTrain
+##   1: HUMAN RESOURCE MANAGEMENT           1            1          9
+##   2:                        NA           1            1         10
+##   3:               SOCIAL WORK           1            1         10
+##   4:                        NA           1            1         11
+##   5:                        NA           1            1          0
+##  ---                                                              
+## 234:                                     1            1         13
+## 235:                 Sociology           1            1          9
+## 236:                 CHEMISTRY           1            1          9
+## 237:                   theatre           1            1         12
+## 238:                                     2            2          8
+##      AbsPitch YearsPrac PeakPrac Live12Mo TheoryTrain FormalYrs NoOfInst
+##   1:       NO         4        5        9           4         4        1
+##   2:       no         1        2       15           0         1        0
+##   3:       NO         3        1        3           0         3        1
+##   4:       NO         7        1        2           0         7        2
+##   5:       NO         0        0        9           0         0        0
+##  ---                                                                    
+## 234:       NO         9        2        3           0         9        1
+## 235:       NO        14        2       12           2         8        2
+## 236:       NO         8        1        3           0         9        1
+## 237:       no         4        1        9           0         3        2
+## 238:       NO        12        5       16           6         9        2
+##      ActListenMin i.SubjectNo SubRaven RavenB1 RavenB2 RavenB3 RavenTotal
+##   1:           60          10       10      10       8      10         28
+##   2:           60          11       11       7      10       6         23
+##   3:          180          12       12       3       7       7         17
+##   4:           45          13       13      10      10      11         31
+##   5:           60          15       15       6      10       6         22
+##  ---                                                                     
+## 234:            6         363      363       6       7       6         19
+## 235:          160         364      364       7       8       8         23
+## 236:           10         365      365      10      10       9         29
+## 237:           35         366      366      10       7       9         26
+## 238:          240         367      367       7       6       6         19
+##      OspanSub OspanAccError OspanMathError OspanAbsoluteScore
+##   1:       10             8             12                 29
+##   2:       11             7             12                 20
+##   3:       12             7              7                 48
+##   4:       13             1              2                 68
+##   5:       15            12             15                 20
+##  ---                                                         
+## 234:      363             2              4                 18
+## 235:      364             1              1                 68
+## 236:      365             2              8                  4
+## 237:      366             4              7                 38
+## 238:      367             1              2                 54
+##      OspanPartialScore OspanB1 OspanB2 OspanB3 OspanSpeedErrTot SymSub
+##   1:                47      21      14      12                4     10
+##   2:                41      11      18      12                5     11
+##   3:                65      21      23      21                0     12
+##   4:                73      25      23      25                1     13
+##   5:                44      14      17      13                3     15
+##  ---                                                                  
+## 234:                28      11       8       9                2    363
+## 235:                72      22      25      25                0    364
+## 236:                21      10       5       6                6    365
+## 237:                58      22      18      18                3    366
+## 238:                66      25      22      19                1    367
+##      SymAccErrTot SymSpeedErrTot SspanAbsScore SspanPartiaScore SspanB1
+##   1:            1              0            10               19       8
+##   2:            4              1            15               29      11
+##   3:            2              0            21               34      10
+##   4:            1              0            27               34      13
+##   5:            4              1             9               25       9
+##  ---                                                                   
+## 234:            0              0             7               21       8
+## 235:            0              0            32               38      14
+## 236:            0              0            18               28       9
+## 237:            2              1            33               40      14
+## 238:            2              0            17               28      10
+##      SspanB2 SspanB3 SymmErrTot ToneSub ToneAccErrTot ToneMathErrTot
+##   1:       4       7          1      10             8              9
+##   2:      13       5          5      11             5              5
+##   3:      13      11          2      12             8              8
+##   4:      10      11          1      13             1              2
+##   5:      10       6          5      15             7             10
+##  ---                                                                
+## 234:       7       6          0     363             7              8
+## 235:      13      11          0     364             3              5
+## 236:       8      11          0     365             3              4
+## 237:      13      13          3     366             6              9
+## 238:      10       8          2     367             2              2
+##      TspanAbsScore TspanPartScore TspanB1 TspanB2 TspanB3 ToneSpeedErrTot
+##   1:             9             36      13       6      17               1
+##   2:            21             47      14      19      14               0
+##   3:            27             55      17      21      17               0
+##   4:            37             63      20      22      21               1
+##   5:             4             34       9      12      13               3
+##  ---                                                                     
+## 234:             6             37      15      13       9               1
+## 235:            55             67      22      24      21               2
+## 236:            21             38       9      13      16               1
+## 237:            32             56      17      16      23               3
+## 238:            58             67      23      23      21               0
+##      BeatSub BeatTotal BeatAcc MelodicSub MelodicTot MelodicAcc X1 X2 X3
+##   1:      10        11    0.61         10          7       0.54  2  2  5
+##   2:      11        10    0.56         11          7       0.54  4  2  4
+##   3:      12        14    0.78         12          6       0.46  4  2  6
+##   4:      13        13    0.72         13         10       0.77  5  2  3
+##   5:      15        10    0.56         15          5       0.38  7  2  5
+##  ---                                                                    
+## 234:     363        16    0.89        363          7       0.54  6  1  5
+## 235:     364        11    0.61        364          7       0.54  5  3  6
+## 236:     365        10    0.56        365         10       0.77  3  1  5
+## 237:     366         9    0.50        366          9       0.69  5  3  5
+## 238:     367        12    0.67        367          9       0.69  7  5  7
+##      X4 X5 X6 X7 X8 X9 X10 X11 X12 X13 X14 X15 X16 X17 X18 X19 X20 X21 X22
+##   1:  6  5  4  7  3  4   6   7   4   6   6   5   4   4   5   2   1   5   7
+##   2:  5  2  5  6  5  4   6   6   3   6   5   5   5   5   6   2   2   2   5
+##   3:  5  2  6  5  2  7   6   6   5   3   6   6   6   6   5   4   2   4   3
+##   4:  7  2  5  5  1  3   4   6   2   4   6   6   5   3   6   3   4   6   3
+##   5:  7  5  7  7  3  4   7   7   3   5   6   7   7   7   6   2   1   1   1
+##  ---                                                                      
+## 234:  2  1  7  2  2  1   7   6   3   5   6   6   6   7   6   7   2   6   5
+## 235:  4  3  6  4  4  6   7   5   6   6   6   6   7   7   4   7   6   7   5
+## 236:  2  1  5  5  2  1   6   6   6   5   6   5   6   5   6   6   3   6   3
+## 237:  4  2  5  5  3  3   5   6   5   6   5   6   6   5   6   5   4   5   3
+## 238:  7  7  6  6  7  7   7   7   6   7   6   7   7   5   6   7   7   7   7
+##      X23 X24 X25 X26 X27 X28 X29 X30 X31 X32 X33 X34 X35 X36 X37 X38
+##   1:   6   5   2   4   6   4   3   4   6   5   7   7   6   6   6   7
+##   2:   1   3   1   4   5   2   2   2   5   2   5   5   6   5   5   6
+##   3:   1   5   2   7   6   5   6   6   6   4   5   6   7   2   4   6
+##   4:   1   6   3   5   5   2   2   2   2   1   6   6   7   5   5   5
+##   5:   1   1   1   1   7   3   1   1   6   5   5   7   7   5   5   7
+##  ---                                                                
+## 234:   1   6   2   6   7   7   6   5   2   1   5   6   6   5   7   6
+## 235:   4   6   3   5   7   6   1   7   6   5   5   6   6   5   6   7
+## 236:   1   6   2   3   4   2   4   4   2   2   6   6   5   3   6   6
+## 237:   1   5   3   5   6   4   5   3   4   3   5   6   6   5   7   5
+## 238:   6   6   3   4   7   6   6   2   6   3   7   7   7   6   7   7
+##         mahal
+##   1: 51.21448
+##   2: 25.99414
+##   3: 29.78012
+##   4: 49.15429
+##   5: 43.12685
+##  ---         
+## 234: 58.63224
+## 235: 35.67417
+## 236: 34.53619
+## 237: 17.72908
+## 238: 20.60059</code></pre>
+</div>
+<div id="checking-for-skew-and-kurtosis" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Checking for Skew and Kurtosis</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(gmsi.responses, <span class="dv">2</span>, skew)</code></pre></div>
+<pre><code>##           X1           X2           X3           X4           X5 
+## -0.751959493  0.403676499 -1.078653410 -0.813983811  0.067614732 
+##           X6           X7           X8           X9          X10 
+## -1.133338356 -1.056888584  0.003114209  0.174997119 -1.251450954 
+##          X11          X12          X13          X14          X15 
+## -1.209870193 -0.643154118 -1.046476716 -1.023134965 -1.512836098 
+##          X16          X17          X18          X19          X20 
+## -0.918246164 -0.549121749 -0.931025766 -0.607086647 -0.009797227 
+##          X21          X22          X23          X24          X25 
+## -0.324554196 -0.342355019  0.502388714 -0.404073175  1.103530636 
+##          X26          X27          X28          X29          X30 
+## -0.419299836 -1.204955610 -0.411695100 -0.409111747 -0.082358311 
+##          X31          X32          X33          X34          X35 
+## -1.037773224  0.068284056 -1.083784471 -1.825310783 -1.693280548 
+##          X36          X37          X38 
+## -0.651012271 -1.218176414 -2.364635137</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(gmsi.responses, <span class="dv">2</span> , kurtosi)</code></pre></div>
+<pre><code>##          X1          X2          X3          X4          X5          X6 
+## -0.27214952 -0.83327603  1.14629947  0.02931285 -1.30675305  0.83305054 
+##          X7          X8          X9         X10         X11         X12 
+##  1.36849018 -0.92937707 -0.69656989  1.58298149  2.00805464 -0.58320443 
+##         X13         X14         X15         X16         X17         X18 
+##  0.49964877  1.30350514  2.47139233  0.56622834 -0.89787441  0.80425156 
+##         X19         X20         X21         X22         X23         X24 
+## -1.18236897 -1.67596746 -1.49414255 -1.24558633 -1.41680710 -1.30953622 
+##         X25         X26         X27         X28         X29         X30 
+##  0.42141756 -0.69749482  0.73800105 -1.08494701 -0.90943305 -1.31818613 
+##         X31         X32         X33         X34         X35         X36 
+##  0.86327735 -1.00536155  0.46640336  4.08373503  4.90078751 -0.09764595 
+##         X37         X38 
+##  2.04104393  9.60389299</code></pre>
+</div>
+<div id="exporting-data" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Exporting Data</h3>
+<p>It’s best practice to separate your cleaning and your analysis into separate scripts. Export the dataset you have into a new csv file into a directory that would make sense to someone who has never seen your project before.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(exp.data,<span class="st">&quot;datasets/My_Experiment_Data.csv&quot;</span>)</code></pre></div>
+
+</div>
+</div>
 </div>
             </section>
 
