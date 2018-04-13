@@ -10,7 +10,8 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 
 ## To Do List
 
-* [ ] Add in all content from 4111 and 7111 Notes, Slides, Homework
+* [ ] Fix problem with gender cleaning in data cleaning chapter
+* [X] Add in all content from 4111 and 7111 Notes, Slides, Homework
 * [ ] Add in narrative with R structure
 * [ ] Swap all plots to be made with ggplot2
 
