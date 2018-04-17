@@ -4,12 +4,13 @@
 
 ###Introduction
 
-PCA is is first foray into exploring latent variables. 
-Idea is to measure a lot of variables, from a few to a shitton. 
+Factor analysis is used to uncover the latent structure of a set of variables.
+It reduces attribute space from a larger number of variables to a smaller number of factors and as such is a "non-dependent" procedure, meaning there is no outcome variable with this statistical procedure.
+
 We get all sorts of scores on all these things, too many for regression, so we run a factor analysis. 
 Question then is are there some existing variables that we are measuring with all DVs, not directly, to capture one underlying construct. 
 FA uses matrix algebra to analyze the correlation between variables. 
-We run FA, throw everything into SPPS (R) and see if we get any really big factors. 
+We run FA, throw everything into R and see if we get any really big factors. 
 Then end goal is that these three things will eventually explain most of the variance.
 
 There are a lot of terms associated with factor analysis. 
@@ -38,15 +39,15 @@ There are a variety of reasons you might want to do a factor analysis...
 
 ### Types of Analysis
 
-There are two main types of factor analysis *Exploratory Factor Analysis* or *EFA* and *Confirmatory Factor Analysis* or *CFA*.
+There are two main types of factor analysis **Exploratory Factor Analysis** or **EFA** and **Confirmatory Factor Analysis** or **CFA**.
 With Exploratory Factor Analysis, you are using theories to build some models.
 Often you will use a technique called *Principal Compenent Analysis* or *PCA*  to do this.
-These two are not the same thing! REFERENCE!
+These two are not the same thing!
+The Andy Field book provides a brief description about the differences between the two, and some articles like Dombrowski, 2017 will go into detail about differences between using PCA or Factor Analysis based on if a latent variable is thought to be present.
 With **CFA** you are testing a theory.
-This cannot be done in SPSS, but we can do it in R.
-
 
 #### Factors and Components
+
 These are dimensions (or latent variables) identified with clusters of variables, as computed using factor analysis,
 Technically speaking, factors (as from Principal Factor Analysis PFA) represents the common variance of variables, excluding unique variance.
 This is a correlation focused approach seeking to reproduce the inter correlation among the variables. 
@@ -341,8 +342,9 @@ Kim, Jae-On and Charles W. Mueller (1978b). Factor Analysis: Statistical methods
 Kline, Rex B. (1998). Principles and practice of structural equation modeling. NY: Guilford Press. Covers confirmatory factor analysis using SEM techniques. See esp. Ch. 7.
 Lance, Charles E, Marcus M. Butts, and Lawrence C. Michels (2006). The sources of four commonly reported cutoff criteria: What did they really say? Organizational Research Methods 9(2): 202-220. Discusses Kaiser and other criteria for selecting number of factors.
 
+## Practice
 
-##Data Preparation 
+### Data Preparation 
 
 Load in data, clean it.
 
@@ -362,7 +364,7 @@ KMO(fa7111matrix)
 cortest.bartlett(fa7111matrix,n=369)
 ```
 
-##Analysis I
+### Analysis I
 
 Look at all factor model 
 
@@ -378,7 +380,7 @@ twoFactor7111 <- fa(fa7111matrix,nfactors=2,rotate="varimax")
 twoFactor7111$loadings
 ```
 
-###Analysis I
+### Analysis I
 
 Using the criterion that items should load at least .4 on one factor and less than .3 on another factor, the following items were sorted out of the initial factor analysis.
 Taken together, these items seem to load on a factor that I would deem as patriarchal. 
@@ -420,8 +422,7 @@ And the following items loaded on the second factor and given the high loadings 
 * 36  tender           0.711 B
 * 45  gentle           0.702 B
 
-####Interpretation
-
+#### Interpretation
 
 Interpret the meaning of the two factors (make up a story one or two paragraphs long based on which variable load heaviest on which factors). In other words, does factor one seem to capture some underlying characteristic of the variables, and does factor two seem to capture some different underlying characteristic of the variables. To make your task easier, I have listed the variable labels and the items to which they refer below.
 
@@ -436,11 +437,11 @@ While this again is not claiming any sort of value judgment, or making a is/ough
 
 
 
-##Analysis II
+###Analysis II
 
 Since I used the suggested criterion of factors loading above .4 on one factor an less than .3 on the other, I decided to remove items that did not adhere to those loadings.
 
-####Instructions
+#####Instructions
 
 Delete these variables from the analysis, and re-run the factor analysis (eigenvalues over 2.0).  What effects did this have on your results (for example, look at variance explained among other things)?
 
@@ -458,7 +459,7 @@ removed_all_2$loadings
 
 After removing the items that did not load on to the big variables, the amount of variance explained went up, as did the individual factor loadings. 
 
-####Instructions
+#####Instructions
 
 Re-run the factor analysis one more time, this time, set eigenvalues to be over 1.0. What effects did this have on your results (for example, how many factors are there now compared to your 2nd and 3rd runs, also look at variance explained among other things)?
 

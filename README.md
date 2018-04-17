@@ -15,42 +15,98 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 * [ ] Add in narrative with R structure
 * [ ] Swap all plots to be made with ggplot2
 
-## Chapter Structure
+## Chapter Structure And Progress
 
-### Baker Intro Materials 
+### Content Added  
 
-* Introduction to R
-* Data Cleaning and Manipulation
-* Epistomology of Statistics 
+* [X] introductionToR
+* [X] dataCleaningManipulation
+* [ ] epistomologyStatistics
+* [X] descriptiveZscoresCentral
+* [X] samplingDistributions
+* [X] hypothesisTesting
+* [X] powereffect
+* [X] correlation
+* [X] Regression
+* [X] matchedTTest
+* [X] oneWayAnova
+* [X] multipleComparisons
+* [X] factorialANOVA
+* [X] rmanova
+* [X] factorialDesignRM
+* [X] multipleRegression
+* [X] chisquare
+* [ ] nonParametric
+* [ ] advancedDataCleaning
+* [X] advancedMultipleRegression
+* [ ] logisticRegression
+* [ ] mediationModeration
+* [X] ancova
+* [ ] manovoa
+* [X] rmmanovoa
+* [X] factoranalysis
+* [ ] mixedEffectsModels
+* [X] latentVariableCFA
 
-### Hicks 4111
 
-* Descriptive Statistics, z Scores, Central Limit, Normal Distribution, Hypothesis Testing
-* Data transformation, One sample t and z tests, Confidence Intervals
-* Power and Effect Size
-* Correlation and Regression
-* Matched t test
-* One way ANOVA
-* Multiple Comparisions
-* Two and Three way ANOVA, Interactions and Simple Effects
-* Repeated Measures ANOVA
-* Mixed Two Way ANOVA
-* Multiple Regression
-* Chi Square Tests
-* Non-Parametric Tests
+### Narrative
 
-### Harman 7111
+* [X] introductionToR
+* [X] dataCleaningManipulation
+* [ ] epistomologyStatistics
+* [X] descriptiveZscoresCentral
+* [ ] samplingDistributions
+* [ ] hypothesisTesting
+* [ ] powereffect
+* [ ] correlation
+* [ ] Regression
+* [ ] matchedTTest
+* [ ] oneWayAnova
+* [ ] multipleComparisons
+* [ ] factorialANOVA
+* [ ] rmanova
+* [ ] factorialDesignRM
+* [ ] multipleRegression
+* [ ] chisquare
+* [ ] nonParametric
+* [ ] advancedDataCleaning
+* [ ] advancedMultipleRegression
+* [ ] logisticRegression
+* [ ] mediationModeration
+* [ ] ancova
+* [ ] manovoa
+* [ ] rmmanovoa
+* [ ] factoranalysis
+* [ ] mixedEffectsModels
+* [ ] latentVariableCFA
 
-* Advanced Data Screening 
-* Advanced Multiple Regression
-* Logistic Regression
-* Mediation and Moderation
-* ANCOVA
-* MANOVA 
-* Repeated Measures MANOVA (Profile Analysis?)
-* Factor Analysis and Principal Components Analysis
+### Analysis in R
 
-### Advanced
-
-* Mixed Effects Models
-* CFA / Latent Variable Modeling
+* [X] introductionToR
+* [X] dataCleaningManipulation
+* [ ] epistomologyStatistics
+* [X] descriptiveZscoresCentral
+* [ ] samplingDistributions
+* [ ] hypothesisTesting
+* [ ] powereffect
+* [ ] correlation
+* [ ] Regression
+* [ ] matchedTTest
+* [ ] oneWayAnova
+* [ ] multipleComparisons
+* [ ] factorialANOVA
+* [ ] rmanova
+* [ ] factorialDesignRM
+* [ ] multipleRegression
+* [ ] chisquare
+* [ ] nonParametric
+* [ ] advancedDataCleaning
+* [ ] advancedMultipleRegression
+* [ ] logisticRegression
+* [ ] mediationModeration
+* [ ] ancova
+* [ ] manovoa
+* [ ] rmmanovoa
+* [ ] factoranalysis
+* [ ] mixedEffectsModels
+* [ ] latentVariableCFA

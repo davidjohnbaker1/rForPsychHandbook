@@ -1,6 +1,5 @@
 # Descriptive Statistics, z Scores, Central Limit
 
-
 ## Descriptive Statistics and the Normal Distribution
 
 ### Organizing Data

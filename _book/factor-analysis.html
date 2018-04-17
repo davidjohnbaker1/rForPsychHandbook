@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-16">
+<meta name="date" content="2018-04-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -252,11 +252,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
 <li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
 </ul></li>
-<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="27.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.3</b> Analysis I</a><ul>
-<li class="chapter" data-level="27.3.1" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.3.1</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-4"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
 </ul></li>
-<li class="chapter" data-level="27.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.4</b> Analysis II</a></li>
 </ul></li>
 <li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
 <li class="chapter" data-level="29" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html"><i class="fa fa-check"></i><b>29</b> Latent Variable Modeling – Path, SEM, CFA</a><ul>
@@ -303,7 +304,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">27.1</span> Theory</h2>
 <div id="introduction" class="section level3">
 <h3><span class="header-section-number">27.1.1</span> Introduction</h3>
-<p>PCA is is first foray into exploring latent variables. Idea is to measure a lot of variables, from a few to a shitton. We get all sorts of scores on all these things, too many for regression, so we run a factor analysis. Question then is are there some existing variables that we are measuring with all DVs, not directly, to capture one underlying construct. FA uses matrix algebra to analyze the correlation between variables. We run FA, throw everything into SPPS (R) and see if we get any really big factors. Then end goal is that these three things will eventually explain most of the variance.</p>
+<p>Factor analysis is used to uncover the latent structure of a set of variables. It reduces attribute space from a larger number of variables to a smaller number of factors and as such is a “non-dependent” procedure, meaning there is no outcome variable with this statistical procedure.</p>
+<p>We get all sorts of scores on all these things, too many for regression, so we run a factor analysis. Question then is are there some existing variables that we are measuring with all DVs, not directly, to capture one underlying construct. FA uses matrix algebra to analyze the correlation between variables. We run FA, throw everything into R and see if we get any really big factors. Then end goal is that these three things will eventually explain most of the variance.</p>
 <p>There are a lot of terms associated with factor analysis.</p>
 <p>Reduces attribute space from large to small factors. It’s a non-dependent procedure. It does not assume a DV is specified.</p>
 </div>
@@ -327,7 +329,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="types-of-analysis" class="section level3">
 <h3><span class="header-section-number">27.1.3</span> Types of Analysis</h3>
-<p>There are two main types of factor analysis <em>Exploratory Factor Analysis</em> or <em>EFA</em> and <em>Confirmatory Factor Analysis</em> or <em>CFA</em>. With Exploratory Factor Analysis, you are using theories to build some models. Often you will use a technique called <em>Principal Compenent Analysis</em> or <em>PCA</em> to do this. These two are not the same thing! REFERENCE! With <strong>CFA</strong> you are testing a theory. This cannot be done in SPSS, but we can do it in R.</p>
+<p>There are two main types of factor analysis <strong>Exploratory Factor Analysis</strong> or <strong>EFA</strong> and <strong>Confirmatory Factor Analysis</strong> or <strong>CFA</strong>. With Exploratory Factor Analysis, you are using theories to build some models. Often you will use a technique called <em>Principal Compenent Analysis</em> or <em>PCA</em> to do this. These two are not the same thing! The Andy Field book provides a brief description about the differences between the two, and some articles like Dombrowski, 2017 will go into detail about differences between using PCA or Factor Analysis based on if a latent variable is thought to be present. With <strong>CFA</strong> you are testing a theory.</p>
 <div id="factors-and-components" class="section level4">
 <h4><span class="header-section-number">27.1.3.1</span> Factors and Components</h4>
 <p>These are dimensions (or latent variables) identified with clusters of variables, as computed using factor analysis, Technically speaking, factors (as from Principal Factor Analysis PFA) represents the common variance of variables, excluding unique variance. This is a correlation focused approach seeking to reproduce the inter correlation among the variables. Components (as from PCA) reflect both common and unique variance of the variables Maybe be seen as variance focused approach seeking to reproduce both the total variable variance whit all components and to reproduce the correlations.</p>
@@ -537,8 +539,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 </div>
-<div id="data-preparation" class="section level2">
-<h2><span class="header-section-number">27.2</span> Data Preparation</h2>
+<div id="practice-4" class="section level2">
+<h2><span class="header-section-number">27.2</span> Practice</h2>
+<div id="data-preparation" class="section level3">
+<h3><span class="header-section-number">27.2.1</span> Data Preparation</h3>
 <p>Load in data, clean it.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(psych)
 <span class="kw">require</span>(MASS)</code></pre></div>
@@ -577,8 +581,8 @@ fa7111matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(fa7
 ## $df
 ## [1] 990</code></pre>
 </div>
-<div id="analysis-i" class="section level2">
-<h2><span class="header-section-number">27.3</span> Analysis I</h2>
+<div id="analysis-i" class="section level3">
+<h3><span class="header-section-number">27.2.2</span> Analysis I</h3>
 <p>Look at all factor model</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">allFactor7111 &lt;-<span class="st"> </span><span class="kw">fa</span>(fa7111matrix,<span class="dt">nfactors=</span><span class="dv">45</span>,<span class="dt">rotate=</span><span class="st">&quot;none&quot;</span>)
 <span class="kw">plot</span>(allFactor7111<span class="op">$</span>values)</code></pre></div>
@@ -639,8 +643,9 @@ twoFactor7111<span class="op">$</span>loadings</code></pre></div>
 ## SS loadings    6.060 5.189
 ## Proportion Var 0.135 0.115
 ## Cumulative Var 0.135 0.250</code></pre>
+</div>
 <div id="analysis-i-1" class="section level3">
-<h3><span class="header-section-number">27.3.1</span> Analysis I</h3>
+<h3><span class="header-section-number">27.2.3</span> Analysis I</h3>
 <p>Using the criterion that items should load at least .4 on one factor and less than .3 on another factor, the following items were sorted out of the initial factor analysis. Taken together, these items seem to load on a factor that I would deem as patriarchal.</p>
 <ul>
 <li>3 reliant 0.452 0.123 A</li>
@@ -681,18 +686,17 @@ twoFactor7111<span class="op">$</span>loadings</code></pre></div>
 <li>45 gentle 0.702 B</li>
 </ul>
 <div id="interpretation" class="section level4">
-<h4><span class="header-section-number">27.3.1.1</span> Interpretation</h4>
+<h4><span class="header-section-number">27.2.3.1</span> Interpretation</h4>
 <p>Interpret the meaning of the two factors (make up a story one or two paragraphs long based on which variable load heaviest on which factors). In other words, does factor one seem to capture some underlying characteristic of the variables, and does factor two seem to capture some different underlying characteristic of the variables. To make your task easier, I have listed the variable labels and the items to which they refer below.</p>
 <p>I think the two characteristics here exemplify two qualities that pertain to gender roles that people are assumed to take in the public discourse. On one hand, the first factor has tons of items that seem like they would describe individuals that exemplify traditional patriarchal values (ala Butler, hooks). People who are able to identify with those types of values seem to benefit from societies that are based around power structures where it’s advantageous to be able to be on top of the competition in a very alpha-male-ish kind of way. That is not to say these qualities are intrinsically good or bad, but they seem to be the types of values that are valued by more conservative, traditional cultures and seen as strong desirable characteristics.</p>
 <p>The second factor seems to load more on things that you would ascribe to matriarchal culture. Here you have a lot of the words that would traditionally be associated with motherhood. While this again is not claiming any sort of value judgment, or making a is/ought fallacy, I think most people would agree (especially in older generations) that the words in the second factor tend to be more associated with values that women in society are expected to adhere to and when they step outside of those bounds, are looked on as abnormal.</p>
 </div>
 </div>
-</div>
-<div id="analysis-ii" class="section level2">
-<h2><span class="header-section-number">27.4</span> Analysis II</h2>
+<div id="analysis-ii" class="section level3">
+<h3><span class="header-section-number">27.2.4</span> Analysis II</h3>
 <p>Since I used the suggested criterion of factors loading above .4 on one factor an less than .3 on the other, I decided to remove items that did not adhere to those loadings.</p>
-<div id="instructions" class="section level4">
-<h4><span class="header-section-number">27.4.0.1</span> Instructions</h4>
+<div id="instructions" class="section level5">
+<h5><span class="header-section-number">27.2.4.0.1</span> Instructions</h5>
 <p>Delete these variables from the analysis, and re-run the factor analysis (eigenvalues over 2.0). What effects did this have on your results (for example, look at variance explained among other things)?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Removal of Items</span>
 removed_fa7111data &lt;-<span class="st"> </span>fa7111data[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">23</span>,<span class="dv">25</span>,<span class="dv">27</span>,<span class="dv">29</span>,<span class="dv">31</span>,<span class="dv">38</span>,<span class="dv">40</span>,<span class="dv">42</span>,<span class="dv">43</span>,<span class="dv">44</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">32</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>,<span class="dv">36</span>,<span class="dv">45</span>)]
@@ -780,8 +784,8 @@ removed_all_<span class="dv">2</span><span class="op">$</span>loadings</code></p
 ## Cumulative Var 0.160 0.306</code></pre>
 <p>After removing the items that did not load on to the big variables, the amount of variance explained went up, as did the individual factor loadings.</p>
 </div>
-<div id="instructions-1" class="section level4">
-<h4><span class="header-section-number">27.4.0.2</span> Instructions</h4>
+<div id="instructions-1" class="section level5">
+<h5><span class="header-section-number">27.2.4.0.2</span> Instructions</h5>
 <p>Re-run the factor analysis one more time, this time, set eigenvalues to be over 1.0. What effects did this have on your results (for example, how many factors are there now compared to your 2nd and 3rd runs, also look at variance explained among other things)?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#removed_all &lt;- fa(removed_fa7111matrix, nfactors = 32, rotate=&quot;none&quot;)</span>
 <span class="kw">plot</span>(removed_all<span class="op">$</span>values) <span class="co"># Run Two factor model</span></code></pre></div>
@@ -830,6 +834,7 @@ removed_all_<span class="fl">2.1</span><span class="op">$</span>loadings</code><
 ## Cumulative Var 0.112 0.213 0.297 0.362 0.414</code></pre>
 <p>Now that we have five factors, the amount of total variance explained goes down and the factors as they are do not seem to make much sense. The earlier interpretation of the data seemed to be much clearer.</p>
 
+</div>
 </div>
 </div>
 </div>

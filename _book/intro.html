@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-16">
+<meta name="date" content="2018-04-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -252,11 +252,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
 <li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
 </ul></li>
-<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2</b> Data Preparation</a></li>
-<li class="chapter" data-level="27.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.3</b> Analysis I</a><ul>
-<li class="chapter" data-level="27.3.1" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.3.1</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-4"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
 </ul></li>
-<li class="chapter" data-level="27.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.4</b> Analysis II</a></li>
 </ul></li>
 <li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
 <li class="chapter" data-level="29" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html"><i class="fa fa-check"></i><b>29</b> Latent Variable Modeling – Path, SEM, CFA</a><ul>
@@ -299,17 +300,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Introduction to R</h1>
-<p>Before starting out, it’s worth mentioning that R has a steep learning curve compared to other statistical softwares. While there are tons of blog posts as to why you should learn R, I will keep my list quick so if you get discouraged at any point, you can come back to this list and get reinspired before R starts paying you back.</p>
+<p>Before starting out, it’s worth mentioning that R has a steep learning curve compared to other statistical softwares. While there are tons of blog posts as to why you should learn R, I will keep my list quick so if you get discouraged at any point, you can come back to this list and get re-inspired before R starts paying you back.</p>
 <ol style="list-style-type: decimal">
 <li>The R community is fantastic, check out <a href="https://twitter.com/search?q=%23rstats&amp;src=typd">#rstats</a> on Twitter as well as everyone affiliated with the <a href="https://www.tidyverse.org/">TidyVerse</a></li>
 <li>R will always be free because the people behind it believe in <a href="https://en.wikipedia.org/wiki/Open-source_software">open source</a> principles .</li>
-<li>Time spent learning R is time spent learning how computers work. If you learn about R, you are also learning computer programming. Time spent in something like SPSS or SAS does not easily tranfer to other programs.</li>
+<li>Time spent learning R is time spent learning how computers work. If you learn about R, you are also learning computer programming. Time spent in something like SPSS or SAS does not easily transfer to other programs.</li>
 <li>On <a href="https://www.r-users.com/#open">r-jobs.com</a> the way they decide to split jobs is jobs that make above and below $100,000.</li>
 <li>R is your ticket out of academia, if you need it. It’s also insane to think people would learn so much about statistics, the hardest part about becoming a data scientist, without learning the software to get you in the door.</li>
 <li>When you make analyses and graphs in R they are very easy to reproduce. You just press ‘Run’ again.</li>
 <li>If you do your data cleaning in R, then each step is documented. There is less chance for human error.</li>
 <li>It makes <a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">gorgeous graphs</a>.</li>
-<li>There are a lot of ways that R intergrates into other software. This book is written in <a href="https://bookdown.org/home/">bookdown</a>, <a href="http://davidjohnbaker.rbind.io/">my website</a> is written in <a href="https://github.com/rstudio/blogdown">blogdown</a>, you can also make <a href="https://shiny.rstudio.com/">interactive data applications</a>.</li>
+<li>There are a lot of ways that R integrates into other software. This book is written in <a href="https://bookdown.org/home/">bookdown</a>, <a href="http://davidjohnbaker.rbind.io/">my website</a> is written in <a href="https://github.com/rstudio/blogdown">blogdown</a>, you can also make <a href="https://shiny.rstudio.com/">interactive data applications</a>.</li>
 </ol>
 <div id="getting-started" class="section level2">
 <h2><span class="header-section-number">2.1</span> Getting Started</h2>
@@ -318,7 +319,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="setting-the-working-directory" class="section level2">
 <h2><span class="header-section-number">2.2</span> Setting The Working Directory</h2>
-<p>At the end a long writing session you normally have to find a place to save that journal article you are working on. You do this by clicking ‘Save As’ then finding where to stick it and what to call it. If you are programming you need to do this entire act of picking whre you are working right away by saving your script (the what) and setting your working directory (the where). This is the most tedious part of starting to learn R, but once you are over this hump, the others will not feel as bad. While these instructions below are meant to be comprehensive, it’s much easier to learn this part of the process with someone walking you through the steps.</p>
+<p>At the end a long writing session you normally have to find a place to save that journal article you are working on. You do this by clicking ‘Save As’ then finding where to stick it and what to call it. If you are programming you need to do this entire act of picking where you are working right away by saving your script (the what) and setting your working directory (the where). This is the most tedious part of starting to learn R, but once you are over this hump, the others will not feel as bad. While these instructions below are meant to be comprehensive, it’s much easier to learn this part of the process with someone walking you through the steps.</p>
 <p>[WORKING DIRECTORY SET UP GUIDE]</p>
 </div>
 <div id="the-basics" class="section level2">
