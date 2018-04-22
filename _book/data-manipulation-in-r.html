@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-21">
+<meta name="date" content="2018-04-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -339,15 +339,15 @@ item.level.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<
 ##  $ SINGING           : int  33 22 40 19 24 24 45 25 29 28 ...
 ##  $ EMOTIONS          : int  39 32 30 34 35 36 42 41 33 24 ...
 ##  $ GENERAL           : int  75 67 82 68 60 65 118 86 69 68 ...
-##  $ inst              : Factor w/ 70 levels &quot;&quot;,&quot;air drums&quot;,..: 9 4 67 46 28 36 36 36 48 28 ...
+##  $ inst              : Factor w/ 70 levels &quot;&quot;,&quot;Bass Drum&quot;,..: 45 43 38 62 52 57 57 57 26 52 ...
 ##  $ Age               : int  29 22 19 23 23 19 19 21 19 21 ...
-##  $ Gender            : Factor w/ 13 levels &quot;&quot;,&quot;COUNTRY&quot;,&quot;f&quot;,..: 6 6 6 12 12 4 6 4 12 10 ...
-##  $ Major             : Factor w/ 147 levels &quot;&quot;,&quot;AGRIBUSINESS&quot;,..: 24 126 38 88 67 79 95 17 143 47 ...
-##  $ Minor             : Factor w/ 65 levels &quot;&quot;,&quot; Economics&quot;,..: 29 NA 50 NA 4 NA NA NA NA 39 ...
+##  $ Gender            : Factor w/ 13 levels &quot;&quot;,&quot;COUNTRY&quot;,&quot;FEMALE&quot;,..: 3 3 3 6 6 10 3 10 6 13 ...
+##  $ Major             : Factor w/ 147 levels &quot;&quot;,&quot;AGRIBUSINESS&quot;,..: 14 144 29 84 62 135 86 19 121 129 ...
+##  $ Minor             : Factor w/ 65 levels &quot;&quot;,&quot; Economics&quot;,..: 24 NA 42 NA 5 NA NA NA NA 61 ...
 ##  $ SchoolUGorG       : int  1 1 1 1 1 1 1 1 1 1 ...
 ##  $ MuscMajMinor      : int  1 1 1 1 1 1 2 1 1 1 ...
 ##  $ BeginTrain        : Factor w/ 20 levels &quot;&quot;,&quot;10&quot;,&quot;11&quot;,&quot;12&quot;,..: 20 2 2 3 1 1 19 16 4 16 ...
-##  $ AbsPitch          : Factor w/ 7 levels &quot;&quot;,&quot;no&quot;,&quot;No&quot;,&quot;NO&quot;,..: 4 2 4 4 4 4 2 4 4 2 ...
+##  $ AbsPitch          : Factor w/ 7 levels &quot;&quot;,&quot;NO&quot;,&quot;No&quot;,&quot;Non&quot;,..: 2 6 2 2 2 2 6 2 2 6 ...
 ##  $ YearsPrac         : int  4 1 3 7 0 0 11 7 2 6 ...
 ##  $ PeakPrac          : int  5 2 1 1 0 0 3 2 2 1 ...
 ##  $ Live12Mo          : Factor w/ 23 levels &quot;&quot;,&quot;0&quot;,&quot;1&quot;,&quot;10&quot;,..: 9 15 3 2 20 9 17 12 14 18 ...
@@ -401,14 +401,14 @@ item.level.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<
 ##  $ jv_noOspan        : int  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
 <p>Using <code>read.csv()</code> with its default setting, R had a couple of bad guesses on variables we might need. We will have to reassign the variable types or else we’ll run into trouble later. In R we use factor for grouping and analysis, best practice is to not set it as that until you are OK with the format. It’s easist to manipulate a character or string. There are much more elegant ways to do this, but just to make a point, I’ve gone through and fixed each one manually.</p>
 <p>Notice how the output of <code>str()</code> has changed.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>inst &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>inst)
-experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Gender)
-experiment.data<span class="op">$</span>Major &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Major)
-experiment.data<span class="op">$</span>Minor &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Minor)
-experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>BeginTrain)
-experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>AbsPitch)
-experiment.data<span class="op">$</span>Live12Mo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(experiment.data<span class="op">$</span>Live12Mo)
-experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>ActListenMin)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data$inst &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data$inst)
+experiment.data$Gender &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data$Gender)
+experiment.data$Major &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data$Major)
+experiment.data$Minor &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data$Minor)
+experiment.data$BeginTrain &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data$BeginTrain)
+experiment.data$AbsPitch &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data$AbsPitch)
+experiment.data$Live12Mo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(experiment.data$Live12Mo)
+experiment.data$ActListenMin &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data$ActListenMin)
 
 <span class="kw">str</span>(experiment.data) <span class="co"># Notice how that our character columns now have &quot; &quot; around them.</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    251 obs. of  67 variables:
@@ -519,7 +519,7 @@ experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </sp
 <h2><span class="header-section-number">3.1</span> Cleaning Response Data</h2>
 <p>In your data cleaning before you might have noticed that participants were able to freely respond with whatever gender they wanted. Most data look to fall within the normal binary, but the computer needs things to be exactly the same before making an easy split? What would be the laziest, most effecient way to fix the gender column? What format does the variable have to be in order to make the changes that you need? When you have it figured out, make sure to run the code from top to bottom to make sure things go in the right order!!! As we are not dealing with huge amounts of data, the table() function will help out.</p>
 <p>Let’s now take a look at some of these problem ones Why, for example is Begin Training not working? Print the variable to see.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data$BeginTrain</code></pre></div>
 <pre><code>##   [1] &quot;9&quot;         &quot;10&quot;        &quot;10&quot;        &quot;11&quot;        &quot;&quot;         
 ##   [6] &quot;&quot;          &quot;8&quot;         &quot;6&quot;         &quot;12&quot;        &quot;6&quot;        
 ##  [11] &quot;&quot;          &quot;&quot;          &quot;10&quot;        &quot;&quot;          &quot;7&quot;        
@@ -572,11 +572,11 @@ experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </sp
 ## [246] &quot;5&quot;         &quot;13&quot;        &quot;9&quot;         &quot;9&quot;         &quot;7th grade&quot;
 ## [251] &quot;8&quot;</code></pre>
 <p>Some people didn’t respond, one person decided to tell us what grade they started. There are 2 ways to go about fixing this. We could “hardcode” the problem if this is the only time we will do this analysis on this dataset or we could try to write a line of code that doesn’t care what exact position the error is. On line 250 in this object is the thing that needs swapping out. We can access it with R’s indexing. Counting from index we see it’s in line 250.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> experiment.data$BeginTrain[<span class="dv">250</span>]</code></pre></div>
 <pre><code>## [1] &quot;7th grade&quot;</code></pre>
 <p>Quick, ask yourself why we don’t use the comma here?! If you were set on using the comma, what would you change? Ok, now let’s swap in the value we want with &lt;- Remember we are putting a value into a character operator so it has to have “”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>] &lt;-<span class="st"> &quot;12&quot;</span>
-experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data$BeginTrain[<span class="dv">250</span>] &lt;-<span class="st"> &quot;12&quot;</span>
+experiment.data$BeginTrain </code></pre></div>
 <pre><code>##   [1] &quot;9&quot;  &quot;10&quot; &quot;10&quot; &quot;11&quot; &quot;&quot;   &quot;&quot;   &quot;8&quot;  &quot;6&quot;  &quot;12&quot; &quot;6&quot;  &quot;&quot;   &quot;&quot;   &quot;10&quot; &quot;&quot;  
 ##  [15] &quot;7&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;15&quot; &quot;7&quot;  &quot;8&quot;  &quot;10&quot; &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;6&quot;  &quot;&quot;   &quot;17&quot;
 ##  [29] &quot;&quot;   &quot;&quot;   &quot;10&quot; &quot;15&quot; &quot;15&quot; &quot;8&quot;  &quot;6&quot;  &quot;13&quot; &quot;16&quot; &quot;&quot;   &quot;7&quot;  &quot;7&quot;  &quot;10&quot; &quot;&quot;  
@@ -596,7 +596,7 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [225] &quot;10&quot; &quot;5&quot;  &quot;8&quot;  &quot;10&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;7&quot;  &quot;13&quot; &quot;11&quot; &quot;11&quot; &quot;10&quot; &quot;9&quot; 
 ## [239] &quot;8&quot;  &quot;12&quot; &quot;11&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;29&quot; &quot;5&quot;  &quot;13&quot; &quot;9&quot;  &quot;9&quot;  &quot;12&quot; &quot;8&quot;</code></pre>
 <p>Nice, no more text data, but what if it’s not always in 250? For example, what do we do with all these blank spaces? Let’s use R’s inbuilt ifelse() function to go through this vector and swap out what we want!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(experiment.data$BeginTrain ==<span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data$BeginTrain)</code></pre></div>
 <pre><code>##   [1] &quot;9&quot;  &quot;10&quot; &quot;10&quot; &quot;11&quot; &quot;0&quot;  &quot;0&quot;  &quot;8&quot;  &quot;6&quot;  &quot;12&quot; &quot;6&quot;  &quot;0&quot;  &quot;0&quot;  &quot;10&quot; &quot;0&quot; 
 ##  [15] &quot;7&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;15&quot; &quot;7&quot;  &quot;8&quot;  &quot;10&quot; &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;6&quot;  &quot;0&quot;  &quot;17&quot;
 ##  [29] &quot;0&quot;  &quot;0&quot;  &quot;10&quot; &quot;15&quot; &quot;15&quot; &quot;8&quot;  &quot;6&quot;  &quot;13&quot; &quot;16&quot; &quot;0&quot;  &quot;7&quot;  &quot;7&quot;  &quot;10&quot; &quot;0&quot; 
@@ -616,9 +616,9 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [225] &quot;10&quot; &quot;5&quot;  &quot;8&quot;  &quot;10&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;7&quot;  &quot;13&quot; &quot;11&quot; &quot;11&quot; &quot;10&quot; &quot;9&quot; 
 ## [239] &quot;8&quot;  &quot;12&quot; &quot;11&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;29&quot; &quot;5&quot;  &quot;13&quot; &quot;9&quot;  &quot;9&quot;  &quot;12&quot; &quot;8&quot;</code></pre>
 <p>This works by going through each entry and doing the conditional on the value! Let’s now write over our old column and in the same step make everything a number.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data$BeginTrain &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(experiment.data$BeginTrain ==<span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data$BeginTrain))</code></pre></div>
 <p>And Alas!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data$BeginTrain</code></pre></div>
 <pre><code>##   [1]  9 10 10 11  0  0  8  6 12  6  0  0 10  0  7 16 10 18 15  7  8 10 11
 ##  [24]  8 12  6  0 17  0  0 10 15 15  8  6 13 16  0  7  7 10  0 12  5 11  9
 ##  [47]  0 21  0 16 17 11  0 13  0 15  6 15  9 16 10 18  0 11  9 12 10  4  0
@@ -631,7 +631,7 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [208] 12 10  6  9 14  5 11 12  8  9 11  5 13 10 11  9  9 10  5  8 10  7 10
 ## [231] 12 10  7 13 11 11 10  9  8 12 11  7 10 12 29  5 13  9  9 12  8</code></pre>
 <p>Let’s now clean up the Gender column, first let’s look at it</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>Gender <span class="co"># Are there any common trends?</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data$Gender <span class="co"># Are there any common trends?</span></code></pre></div>
 <pre><code>##   [1] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;    &quot;female&quot;  &quot;FEMALE&quot; 
 ##   [8] &quot;female&quot;  &quot;MALE&quot;    &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
 ##  [15] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
@@ -668,12 +668,12 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [232] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
 ## [239] &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;   
 ## [246] &quot;FEMALE&quot;  &quot;M&quot;       &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(experiment.data<span class="op">$</span>Gender)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(experiment.data$Gender)</code></pre></div>
 <pre><code>## 
-##         COUNTRY       f  female  Female  FEMALE female        m       M 
-##       1       1       1      24       5     137       3       1       1 
-##    male    Male    MALE   MALE  
-##       9       7      59       1</code></pre>
+##         COUNTRY  FEMALE  Female       M    MALE   MALE     Male       f 
+##       1       1     137       5       1      59       1       7       1 
+##  female female        m    male 
+##      24       3       1       9</code></pre>
 <div id="cleaning-up-gender" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Cleaning Up Gender</h3>
 <p>Pretty much two answers, how do we make them all say one thing? <!-- Let's use the stringr package for this. Import it up top. --></p>
@@ -742,21 +742,21 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setnames</span>(item.level.data,<span class="st">&quot;tmp.dat.subject.1.&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>)
 <span class="kw">setnames</span>(experiment.data,<span class="st">&quot;Sub&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>) <span class="co"># Make this clearer!!! </span></code></pre></div>
 <p>If you need to do more than 1, use the c() operator! Now if we look at this column, it’s all messe up. The code below fixes it, if you want to learn more about regex, check it out if not, just skip below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;C&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;CM&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(item.level.data<span class="op">$</span>SubjectNo)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item.level.data$SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data$SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data$SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data$SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;C&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data$SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data$SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data$SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data$SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;CM&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
+item.level.data$SubjectNo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(item.level.data$SubjectNo)</code></pre></div>
 <p>Let’s just quickly check to see if all the subject numbers make sense</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo) <span class="co"># Cause for alarm! Negative values and placeholders!</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data$SubjectNo) <span class="co"># Cause for alarm! Negative values and placeholders!</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>Notice that the variable of <code>SubjectNo</code> has negative values and placeholders! We can use R’s indexing function to find these entries.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop those </span>
-experiment.data &lt;-<span class="st"> </span>experiment.data[experiment.data<span class="op">$</span>SubjectNo <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>experiment.data<span class="op">$</span>SubjectNo <span class="op">&lt;</span><span class="st"> </span><span class="dv">1000</span>,]</code></pre></div>
+experiment.data &lt;-<span class="st"> </span>experiment.data[experiment.data$SubjectNo &gt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>experiment.data$SubjectNo &lt;<span class="st"> </span><span class="dv">1000</span>,]</code></pre></div>
 <p>Note this works because the SubjectNo variable is numeric</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data$SubjectNo)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(item.level.data<span class="op">$</span>SubjectNo)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(item.level.data$SubjectNo)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-35-2.png" width="672" /></p>
 <p>Ok, finally we merge our datasets. What we are doing here is called an “inner join” Here we will keep all of the ROWS of the dataset in the middle of the command Note we need to swap over our key to be a character value.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item.level.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(item.level.data)
@@ -972,32 +972,32 @@ exp.data</code></pre></div>
 ## 249:    2         0            0          0</code></pre>
 <p>Let’s reorganize our columns so individual stuff is at the back We could do this with data.table, but it’s a different syntax so let’s swap back Normally you try to stick to minimal switching, but we’re just taking a big tour du R right now and learning to think</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exp.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(exp.data)
-exp.data &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">39</span>)]</code></pre></div>
+exp.data &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">40</span>:<span class="dv">100</span>,<span class="dv">2</span>:<span class="dv">39</span>)]</code></pre></div>
 </div>
 <div id="checking-for-univariate-outliers" class="section level2">
 <h2><span class="header-section-number">3.3</span> Checking for Univariate Outliers</h2>
 <p>For this example, let’s imagine a univariate outlier is one with a zscore greater than 3. While we could write a bit of code to look for this, let’s use the pairs.panels() function in the psych pacakge to just get used to looking at our data The function is not the biggest fan of huge datasets, so let’s index our dataset to only grab what we need. Try to change the values and look at variables of interest.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs.panels</span>(exp.data[,<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>], <span class="dt">lm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs.panels</span>(exp.data[,<span class="dv">2</span>:<span class="dv">7</span>], <span class="dt">lm =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p>But of course we need to look at numbers in terms of their zscores! Let’s first standardize our entire dataset using the apply function Note we only can do this on numeric values!</p>
 <p>The apply function takes 3 argument The first is what you want to manipulate, the second is if it’s rows 1 or columns 2 (remeber this because it’s always rows then columns!), and the function. You can even write your own (though we’ll get to functions later)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.scores &lt;-<span class="st"> </span><span class="kw">apply</span>(exp.data[<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>],<span class="dv">2</span>,scale)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.scores &lt;-<span class="st"> </span><span class="kw">apply</span>(exp.data[<span class="dv">2</span>:<span class="dv">7</span>],<span class="dv">2</span>,scale)
 
 exp.data.with.z &lt;-<span class="st"> </span><span class="kw">cbind</span>(exp.data, gmsi.z.scores)
 
 <span class="co">#Now we can index this to find values above whatever theshold we want!</span>
 
-<span class="kw">table</span>(gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<span class="kw">table</span>(gmsi.z.scores &gt;<span class="st"> </span><span class="dv">2</span>)</code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ##  1487     6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.indexer &lt;-<span class="st"> </span>gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.indexer &lt;-<span class="st"> </span>gmsi.z.scores &gt;<span class="st"> </span><span class="dv">2</span>
 gmsi.z.scores[gmsi.z.indexer] <span class="co"># See what they are, find them , decide to get rid of</span></code></pre></div>
 <pre><code>## [1]       NA 2.053441 2.053441 2.142711 2.016431 2.142711 2.142711</code></pre>
 <div id="checking-for-multivariate-outliers" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Checking for Multivariate Outliers</h3>
 <p>A bit tricker, I leanred how to do this off a blog post.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.responses &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">63</span><span class="op">:</span><span class="dv">100</span>)]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.responses &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">63</span>:<span class="dv">100</span>)]
 
 mahal &lt;-<span class="st"> </span><span class="kw">mahalanobis</span>(gmsi.responses,
                      <span class="kw">colMeans</span>(gmsi.responses, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), 
@@ -1005,13 +1005,13 @@ mahal &lt;-<span class="st"> </span><span class="kw">mahalanobis</span>(gmsi.res
                          <span class="dt">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>))                    ## Create Distance Measures
 
 cutoff &lt;-<span class="st"> </span><span class="kw">qchisq</span>(.<span class="dv">999</span>, <span class="kw">ncol</span>(gmsi.responses))                                ## Create cutoff object .001 signifiance and DF = obs
-<span class="kw">summary</span>(mahal <span class="op">&lt;</span><span class="st"> </span>cutoff)                                                     ## 11 Subjects greater than 70 cutoff </code></pre></div>
+<span class="kw">summary</span>(mahal &lt;<span class="st"> </span>cutoff)                                                     ## 11 Subjects greater than 70 cutoff </code></pre></div>
 <pre><code>##    Mode   FALSE    TRUE 
 ## logical      11     238</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add On Variables </span>
-exp.data<span class="op">$</span>mahal &lt;-<span class="st"> </span>mahal
+exp.data$mahal &lt;-<span class="st"> </span>mahal
 exp.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(exp.data) <span class="co"># To use easier indexer, needs data.table </span>
-exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><span class="st"> </span>cutoff]</code></pre></div>
+exp.data[exp.data$mahal &lt;<span class="st"> </span>cutoff]</code></pre></div>
 <pre><code>##      SubjectNo ACTIVE PERCEPTUAL MUSICAL SINGING EMOTIONS GENERAL
 ##   1:        10     38         47      28      33       39      75
 ##   2:        11     37         47      16      22       32      67

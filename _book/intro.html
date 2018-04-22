@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-21">
+<meta name="date" content="2018-04-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -303,7 +303,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Before starting out, it’s worth mentioning that R has a steep learning curve compared to other statistical softwares. While there are tons of blog posts as to why you should learn R, I will keep my list quick so if you get discouraged at any point, you can come back to this list and get re-inspired before R starts paying you back.</p>
 <ol style="list-style-type: decimal">
 <li>The R community is fantastic, check out <a href="https://twitter.com/search?q=%23rstats&amp;src=typd">#rstats</a> on Twitter as well as everyone affiliated with the <a href="https://www.tidyverse.org/">TidyVerse</a></li>
-<li>R will always be free because the people behind it believe in <a href="https://en.wikipedia.org/wiki/Open-source_software">open source</a> principles .</li>
+<li>R will always be free because the people behind it believe in <a href="https://en.wikipedia.org/wiki/Open-source_software">open source</a> principles.</li>
 <li>Time spent learning R is time spent learning how computers work. If you learn about R, you are also learning computer programming. Time spent in something like SPSS or SAS does not easily transfer to other programs.</li>
 <li>On <a href="https://www.r-users.com/#open">r-jobs.com</a> the way they decide to split jobs is jobs that make above and below $100,000.</li>
 <li>R is your ticket out of academia, if you need it. It’s also insane to think people would learn so much about statistics, the hardest part about becoming a data scientist, without learning the software to get you in the door.</li>
@@ -311,6 +311,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>If you do your data cleaning in R, then each step is documented. There is less chance for human error.</li>
 <li>It makes <a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">gorgeous graphs</a>.</li>
 <li>There are a lot of ways that R integrates into other software. This book is written in <a href="https://bookdown.org/home/">bookdown</a>, <a href="http://davidjohnbaker.rbind.io/">my website</a> is written in <a href="https://github.com/rstudio/blogdown">blogdown</a>, you can also make <a href="https://shiny.rstudio.com/">interactive data applications</a>.</li>
+<li>It’s kind of fun.</li>
 </ol>
 <div id="getting-started" class="section level2">
 <h2><span class="header-section-number">2.1</span> Getting Started</h2>
@@ -344,35 +345,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-as-calculator" class="section level2">
 <h2><span class="header-section-number">2.4</span> R as Calculator</h2>
 <p>The Console of R is where all the action happens. You can use it just like you would use a calculator. Try to do some basic math operations in it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> -<span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> <span class="op">/</span><span class="st"> </span><span class="dv">4</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> /<span class="st"> </span><span class="dv">4</span></code></pre></div>
 <pre><code>## [1] 2.5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">9</span> <span class="op">*</span><span class="st"> </span><span class="dv">200</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">9</span> *<span class="st"> </span><span class="dv">200</span></code></pre></div>
 <pre><code>## [1] 1800</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">81</span>)</code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> &gt;<span class="st"> </span><span class="dv">4</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span><span class="dv">1</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &lt;<span class="st"> </span>-<span class="dv">1</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>You don’t always want to print your output and retype it in. Idea is to be very lazy (efficient).</p>
 <p>Save some math to an object with the &lt;- operator, then manipulate that.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">foo &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span>
-foo <span class="op">*</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">foo &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span><span class="dv">3</span>
+foo *<span class="st"> </span><span class="dv">6</span></code></pre></div>
 <pre><code>## [1] 36</code></pre>
 <p>Notice what has popped up in your environment in RStudio!</p>
 <p>Let’s get more efficient.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">3</span>)</code></pre></div>
 <p>talk about the c function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool <span class="op">*</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool *<span class="st"> </span><span class="dv">3</span></code></pre></div>
 <pre><code>##  [1]  6  3 12 15 18 21  9  6 12 15  9</code></pre>
 <p>Or this</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool <span class="op">-</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool -<span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>##  [1]  0 -1  2  3  4  5  1  0  2  3  1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool &lt;<span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>##  [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(yearsInGradSchool)</code></pre></div>
 <pre><code>## [1] 3.818182</code></pre>
@@ -457,7 +458,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 ##                 
 ## </code></pre>
 <p>Accessing individual ‘columns’ is done with the $ operator</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Sepal.Length</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris$Sepal.Length</code></pre></div>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
 ##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
 ##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
@@ -469,9 +470,9 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 ## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
 <p>Can you use this to plot the different numeric values against each other?</p>
 <p>What would the follow commands do?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="kw">scale</span>(iris<span class="op">$</span>Sepal.Length))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="kw">scale</span>(iris$Sepal.Length))</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Sepal.Length.scale &lt;-<span class="st"> </span><span class="kw">scale</span>(iris<span class="op">$</span>Sepal.Length)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris$Sepal.Length.scale &lt;-<span class="st"> </span><span class="kw">scale</span>(iris$Sepal.Length)</code></pre></div>
 </div>
 <div id="indexing" class="section level2">
 <h2><span class="header-section-number">2.6</span> Indexing</h2>
@@ -511,7 +512,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 ## [139] virginica  virginica  virginica  virginica  virginica  virginica 
 ## [145] virginica  virginica  virginica  virginica  virginica  virginica 
 ## Levels: setosa versicolor virginica</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[iris<span class="op">$</span>Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>,]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[iris$Sepal.Length &lt;<span class="st"> </span><span class="dv">5</span>,]</code></pre></div>
 <pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 ## 2            4.9         3.0          1.4         0.2     setosa
 ## 3            4.7         3.2          1.3         0.2     setosa
@@ -558,7 +559,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 ## 48           -1.501490
 ## 58           -1.139200
 ## 107          -1.139200</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[,<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">4</span>)]</code></pre></div>
 <pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width
 ## 1            5.1         3.5          1.4         0.2
 ## 2            4.9         3.0          1.4         0.2
@@ -710,7 +711,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 ## 148          6.5         3.0          5.2         2.0
 ## 149          6.2         3.4          5.4         2.3
 ## 150          5.9         3.0          5.1         1.8</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>),<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">5</span>)]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>),<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">5</span>)]</code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Species
 ## 1          5.1         3.5          1.4  setosa
 ## 2          4.9         3.0          1.4  setosa
@@ -719,7 +720,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 ## 5          5.0         3.6          1.4  setosa
 ## 6          5.4         3.9          1.7  setosa
 ## 8          5.0         3.4          1.5  setosa</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Setosas &lt;-<span class="st"> </span>iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>,]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Setosas &lt;-<span class="st"> </span>iris[iris$Species ==<span class="st"> &quot;setosa&quot;</span>,]</code></pre></div>
 <p>This could be an entire lecture by itself!!!</p>
 </div>
 <div id="whirlwind-tour-of-r" class="section level2">
@@ -742,7 +743,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
                  <span class="dt">color =</span> Species), 
        <span class="dt">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,
        <span class="dt">ylab =</span> <span class="st">&quot;Sepal Width&quot;</span>,
-       <span class="dt">main =</span> <span class="st">&quot;My Plot&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+       <span class="dt">main =</span> <span class="st">&quot;My Plot&quot;</span>) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Or stuff for data exploration</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)</code></pre></div>
@@ -788,7 +789,7 @@ Figure 2.1: Here is a nice figure!
 </p>
 </div>
 <p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">2.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">2.1</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
   <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
   <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
 )</code></pre></div>

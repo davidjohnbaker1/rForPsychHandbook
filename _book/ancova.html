@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-21">
+<meta name="date" content="2018-04-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -360,9 +360,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Let’s first run an ANOVA to see if fatness differs between animal type.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
 deadsheep &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;datasets/deadsheep.csv&quot;</span>)
-deadsheep[, Animal <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">as.factor</span>(animal)]
-sheep.model.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep)
-<span class="kw">summary</span>(sheep.model.<span class="dv">1</span>)</code></pre></div>
+deadsheep[, Animal :<span class="er">=</span><span class="st"> </span><span class="kw">as.factor</span>(animal)]
+sheep.model<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness ~<span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep)
+<span class="kw">summary</span>(sheep.model<span class="fl">.1</span>)</code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 ## Animal       2  124.4   62.21   3.165 0.0566 .
 ## Residuals   30  589.6   19.65                 
@@ -372,13 +372,13 @@ sheep.model.<span class="dv">1</span> &lt;-<span class="st"> </span><span class=
 <p>Now since we know that the whole weight of the animal might be confounding our answer (it’s related to the DV of fatness, but not nessecarily related to the type of sheep), let’s run an ANCOVA with carcass weight as a covariate and see if that changes our answer.</p>
 <p>Before we run the ANCOVA, we need to first check that our IV is not significantly related to our CV. We do this by running an ANOVA predicting weigth by animal.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Test IND of IV and CV</span>
-ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep) ## Check CV for IV indep, want non-sig
+ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight ~<span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep) ## Check CV for IV indep, want non-sig
 <span class="kw">summary</span>(ind.sheep) <span class="co"># p=.104</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
 ## Animal       2  14.20   7.102   2.438  0.104
 ## Residuals   30  87.41   2.914</code></pre>
 <p>Here we get<span class="math display">\[ F(2,30) = 2.44, p&gt; .05\]</span> and can move forward. Let’s now run our ANCOVA. Note that R’s default is Type I Sum of Squares, we need to load the <code>car</code> package to give us the correct sum of squares. For further reading on this, check out the Andy Field book on this.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sheepANCOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>Animal <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data=</span>deadsheep)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sheepANCOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness ~<span class="st"> </span>Animal +<span class="st"> </span>weight, <span class="dt">data=</span>deadsheep)
 <span class="kw">library</span>(car)</code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;car&#39;</code></pre>
@@ -427,7 +427,7 @@ ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span
 ## 20.23851 11.89660 16.12870</code></pre>
 <p>We can then note the estimated marginal means here (18.9 for Ewe, 10.53 for Ram, and 14.83 for Wether) are mean values for fatness once the CV of weight has been controlled for.</p>
 <p>Lastly, let’s test the homogenaity of the regression slopes assumption (though we should have done this first!). We do this by running the model with an interaction term included.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hoRS.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>Animal <span class="op">+</span><span class="st"> </span>animal<span class="op">:</span>weight, <span class="dt">data=</span>deadsheep)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hoRS.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness ~<span class="st"> </span>weight +<span class="st"> </span>Animal +<span class="st"> </span>animal:weight, <span class="dt">data=</span>deadsheep)
 <span class="kw">Anova</span>(hoRS.sheep, <span class="dt">type=</span><span class="st">&quot;III&quot;</span>)</code></pre></div>
 <pre><code>## Anova Table (Type III tests)
 ## 
@@ -442,9 +442,9 @@ ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The interaction term is not significant, thus no violation. We can also plot this to see it. All regression lines should be pointing in the same direction when we plot the groups separately.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(deadsheep, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> fatness, <span class="dt">color =</span> Animal)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="kw">ggplot</span>(deadsheep, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> fatness, <span class="dt">color =</span> Animal)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Homogeneity of Regression Slopes&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Weight&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fatness&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 <p>If one of these lines would be pointed downwards, we would have an interaction.</p>

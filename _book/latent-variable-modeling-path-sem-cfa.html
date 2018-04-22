@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-21">
+<meta name="date" content="2018-04-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -544,9 +544,9 @@ beaujean.fit &lt;-<span class="st"> </span><span class="kw">sem</span>(beaujean.
 ##     ind               0.036    0.012    2.984    0.003</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Reporting results
 <span class="kw">library</span>(xtable)
-<span class="kw">xtable</span>(<span class="kw">parameterEstimates</span>(regression.fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">5</span><span class="op">:</span><span class="dv">6</span>,<span class="dv">12</span>)], <span class="dt">caption=</span><span class="st">&quot;Example Table Using </span><span class="ch">\\</span><span class="st">texttt{xtable()} Function.&quot;</span>)</code></pre></div>
+<span class="kw">xtable</span>(<span class="kw">parameterEstimates</span>(regression.fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)[,<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">5</span>:<span class="dv">6</span>,<span class="dv">12</span>)], <span class="dt">caption=</span><span class="st">&quot;Example Table Using </span><span class="ch">\\</span><span class="st">texttt{xtable()} Function.&quot;</span>)</code></pre></div>
 <pre><code>## % latex table generated in R 3.4.1 by xtable 1.8-2 package
-## % Sat Apr 21 11:25:36 2018
+## % Sun Apr 22 10:07:33 2018
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rlllrrr}
@@ -712,7 +712,7 @@ wisc4.fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class=
 ##     g                 6.648    0.564   11.788    0.000    1.000    1.000</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If you put standardized=TRUE it gives BOTH standardized and unstandardized values</span>
 <span class="co"># Estimate column is the raw scores with marker variable to scale LV </span>
-<span class="co"># </span><span class="al">NOTE</span><span class="co"> THERE ARE TWO TYPES OF STANDARDIZED SCORES</span>
+<span class="co"># NOTE THERE ARE TWO TYPES OF STANDARDIZED SCORES</span>
 <span class="co"># 1. Std.lv Standardizes LV, but leaves MV in RAW</span>
 <span class="co"># 2. Std.all Standardizes both LV and MV!!</span>
 <span class="kw">parameterEstimates</span>(wisc4.fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span><span class="ot">FALSE</span>)</code></pre></div>
@@ -772,7 +772,7 @@ wisc4.fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class=
 ## Picture.Concepts 
 ##                0</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Transform Model Implied Covarianes to correlations</span>
-wisc4Fit.cov &lt;-<span class="st"> </span><span class="kw">fitted</span>(wisc4.fit)<span class="op">$</span>cov
+wisc4Fit.cov &lt;-<span class="st"> </span><span class="kw">fitted</span>(wisc4.fit)$cov
 wisc4Fit.cor &lt;-<span class="st"> </span><span class="kw">cov2cor</span>(wisc4.cov)
 
 <span class="co">#Original Correlations </span>

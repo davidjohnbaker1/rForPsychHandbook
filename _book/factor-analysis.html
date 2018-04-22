@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-21">
+<meta name="date" content="2018-04-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -585,11 +585,11 @@ fa7111matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(fa7
 <h3><span class="header-section-number">27.2.2</span> Analysis I</h3>
 <p>Look at all factor model</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">allFactor7111 &lt;-<span class="st"> </span><span class="kw">fa</span>(fa7111matrix,<span class="dt">nfactors=</span><span class="dv">45</span>,<span class="dt">rotate=</span><span class="st">&quot;none&quot;</span>)
-<span class="kw">plot</span>(allFactor7111<span class="op">$</span>values)</code></pre></div>
+<span class="kw">plot</span>(allFactor7111$values)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <p>Do a 2 factor analysis with rotation</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">twoFactor7111 &lt;-<span class="st"> </span><span class="kw">fa</span>(fa7111matrix,<span class="dt">nfactors=</span><span class="dv">2</span>,<span class="dt">rotate=</span><span class="st">&quot;varimax&quot;</span>)
-twoFactor7111<span class="op">$</span>loadings</code></pre></div>
+twoFactor7111$loadings</code></pre></div>
 <pre><code>## 
 ## Loadings:
 ##          MR1    MR2   
@@ -738,10 +738,10 @@ removed_fa7111data &lt;-<span class="st"> </span>fa7111data[,<span class="kw">c<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_fa7111matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(removed_fa7111data)
 <span class="co">#View(removed_fa7111matrix)</span>
 removed_all &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">32</span>, <span class="dt">rotate=</span><span class="st">&quot;none&quot;</span>)
-<span class="kw">plot</span>(removed_all<span class="op">$</span>values) <span class="co"># Run Two factor model</span></code></pre></div>
+<span class="kw">plot</span>(removed_all$values) <span class="co"># Run Two factor model</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">2</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
-removed_all_<span class="dv">2</span><span class="op">$</span>loadings</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_2 &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">2</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
+removed_all_2$loadings</code></pre></div>
 <pre><code>## 
 ## Loadings:
 ##          MR1    MR2   
@@ -788,10 +788,10 @@ removed_all_<span class="dv">2</span><span class="op">$</span>loadings</code></p
 <h5><span class="header-section-number">27.2.4.0.2</span> Instructions</h5>
 <p>Re-run the factor analysis one more time, this time, set eigenvalues to be over 1.0. What effects did this have on your results (for example, how many factors are there now compared to your 2nd and 3rd runs, also look at variance explained among other things)?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#removed_all &lt;- fa(removed_fa7111matrix, nfactors = 32, rotate=&quot;none&quot;)</span>
-<span class="kw">plot</span>(removed_all<span class="op">$</span>values) <span class="co"># Run Two factor model</span></code></pre></div>
+<span class="kw">plot</span>(removed_all$values) <span class="co"># Run Two factor model</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_<span class="fl">2.1</span> &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
-removed_all_<span class="fl">2.1</span><span class="op">$</span>loadings</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_2<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
+removed_all_2<span class="fl">.1</span>$loadings</code></pre></div>
 <pre><code>## 
 ## Loadings:
 ##          MR1    MR2    MR3    MR4    MR5   
