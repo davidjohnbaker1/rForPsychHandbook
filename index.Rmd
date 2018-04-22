@@ -1,4 +1,4 @@
---- 
+  --- 
 title: "R for Psych Handbook"
 author: "David John Baker"
 date: "`r Sys.Date()`"

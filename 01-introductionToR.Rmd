@@ -4,7 +4,7 @@ Before starting out, it's worth mentioning that R has a steep learning curve com
 While there are tons of blog posts as to why you should learn R, I will keep my list quick so if you get discouraged at any point, you can come back to this list and get re-inspired before R starts paying you back.
 
 1. The R community is fantastic, check out [#rstats](https://twitter.com/search?q=%23rstats&src=typd) on Twitter as well as everyone affiliated with the [TidyVerse](https://www.tidyverse.org/)
-2. R will always be free because the people behind it believe in [open source](https://en.wikipedia.org/wiki/Open-source_software) principles .
+2. R will always be free because the people behind it believe in [open source](https://en.wikipedia.org/wiki/Open-source_software) principles.
 3. Time spent learning R is time spent learning how computers work. If you learn about R, you are also learning computer programming. Time spent in something like SPSS or SAS does not easily transfer to other programs.
 4. On [r-jobs.com](https://www.r-users.com/#open) the way they decide to split jobs is jobs that make above and below $100,000.
 5. R is your ticket out of academia, if you need it. It's also insane to think people would learn so much about statistics, the hardest part about becoming a data scientist, without learning the software to get you in the door. 
@@ -12,6 +12,7 @@ While there are tons of blog posts as to why you should learn R, I will keep my 
 7. If you do your data cleaning in R, then each step is documented. There is less chance for human error.
 8. It makes [gorgeous graphs](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html).
 9. There are a lot of ways that R integrates into other software. This book is written in [bookdown](https://bookdown.org/home/), [my website](http://davidjohnbaker.rbind.io/) is written in [blogdown](https://github.com/rstudio/blogdown), you can also make [interactive data applications](https://shiny.rstudio.com/).
+10. It's kind of fun. 
 
 
 ## Getting Started
