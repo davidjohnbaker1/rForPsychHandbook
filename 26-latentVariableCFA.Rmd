@@ -95,6 +95,7 @@ The same benefits apply (intra model comparision vs interpretability).
 To do path modeling in R, this book will use the ```lavaan``` package.
 Note lavaan means ''LAtenent VAriable ANalysis''.
 To make a latent variable model in R, you need to specify two things
+
 * Specify the path model 
 * Analyze!
 
