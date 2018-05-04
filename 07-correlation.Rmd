@@ -1,92 +1,148 @@
-# Correlation and Regression
+# Correlation
 
-1.
-Statistical correlation simply refers to the notion that two variables are related to one another—when one varies, the other varies in a predictable manner. There are typically two ways to understand the nature of a correlation: visually and numerically.
-2.
-There are multiple ways to understand and, therefore, calculate the Pearson correlation coefficient.
-3.
-Relying on Pearson’s rto describe a relationship assumes that certain conditions have been met.
-4.
-Other factors may impact how one interprets the linear correlation.
-5.
-Testing the “significance” of the correlation coefficient.
-6.
-There is a correlation coefficient to deal with ordinal variables, or those measured by ranks.
+Statistical correlation simply refers to the notion that two variables are related to one another.
+The ideas is that when one varies, the other varies in a predictable manner. 
+There are typically two ways to understand the nature of a correlation:
+  * Visually  
+  * Numerically
 
-The variables are represented in the abstract as Xand Y.
-b.Scatterplotsare figures that represent a pairof scores for each individual, one score for each measured variable. The pattern of the scatter indicates the nature of the relationship.
+In order to get a better understanding about correlations, in this chapter we are going to learn how to calculate Pearson's correlation coeffecient.
+After calculating Perason's $r$, we'll then talk a bit more about the assumptions correlation, what factors can impact linear correlation, and how to test the "significance" of a correlation coeffecient. 
+Lastly we will talk about other types of correlation coefficients that deal with ordinal variables, or those measured by ranks.
 
-![Hicks](img/hickscor1.png)
+Many people have seen a **scatterplot** before like the one shown below.
 
-![Hicks](img/hickscor2.png)
+```{r}
+library(ggplot2)
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point() +
+  labs(title = "Example of a Scatterplot", x = "Sepal Length", y = "Sepal Width")
 
-![Hicks](img/hickscor3.png)
+```
+On the horizontal axis (or x axis), one variable is plotted and then each corresponding score on the x axis is plotted against its respective value on the vertical axis (or y axis).
+The pattern that the variables show can indicate the nature of the relationship between the two variables.
+From the pattern above there appears to be a *positive* relationship between the length of an iris's sepal and its width.
+The relationship is positive because one variable increases, so does the other.
+If the variables were to share a negative relationship we would see a trend where scores would move from the top left down until the bottom right like this plot below.
 
-The statistical representation of the correlation was developed by Karl Pearson and is called the Pearson product-moment correlation coefficient, or r.
+```{r}
+ggplot(mtcars, aes(x = mpg , y = hp)) + geom_point() +
+  labs(title = "Example of Negative Relationship", x = "Miles Per Gallon", y = "Horsepower")
 
-i. r varies from -1 to 1.
-ii. The strength, or magnitude, of the relationship increases as
-distance from 0 increases.
-iii.The sign of the correlation represents the direction, or slopeof
-the relationship.
+```
 
-![Hicks](img/hickscor3.png)
+[EXAMPLES OF NO RELATIONSHIP, CURVILINEAR?]
 
+We can describe both the strength and direction of each of these relationships by using Karl Pearson's **Pearson's Product-Moment Correlation Coeffecient** or $r$.
+$r$ has three main properties
+  * $r$ varies from -1 to 1
+  * The strength, or magnitude, of the relationship increases as distance from 0 increases.
+  * The sign of the correlation represents the direction, or slope of the relationship.
 
-A graduate student samples 50 college professors in social sciences at the same university who have been there for at least 10 years. She measures them on a number of characteristics: average quality of their instruction, average quality of their courses, number of publications, and number of citations by other authors. Is there a relationship between the number of publications and number of citations?
+In order to explore how $r$ works, we are going to focus on an example where a graduate student samples 50 college professors in social sciences at the same university who have been there for at least 10 years. 
+She measures them on a number of characteristics: average quality of their instruction, average quality of their courses, number of publications, and number of citations by other authors. 
+She wants to know if there is there a relationship between the number of publications and number of citations?
 
-![Hicks](img/hickscor4.png)
+Let's enter our data in.
 
-![Hicks](img/hickscor5.png)
+```{r}
+# Create Data
+yearsTeaching <- c(0,14,1,1,11,3,16,1,13,1,0,7,49)
+numberOfPublications <- c(0,90,2,32,53,12,108,4,82,19,0,51,274)
+publicationData <- as.data.frame(cbind(yearsTeaching,numberOfPublications))
 
+ggplot(publicationData, aes(x = yearsTeaching, y = numberOfPublications)) + geom_point() +
+  labs(main = "Publication Data", x = "Years Teaching", y = "Number of Publications")
+  
+```
 
-## Calculating Person C
+Now on to the calculations!
 
+## Calculating Person's r
 
+Using the data from above, the first way we are going to calculate $r$ is to use the cross products.
+The cross producets represent the multiplication of X and Y represented on standardized scores.
+We can use the following two formulas:
 
-One method is to examine the cross-products, which represent the
-multiplication of Xand Y, usually on a standard scores. The result is
-the standard score formula:
+$$r_{xy} = \frac{\Sigma z_X z_Y}{N}$$
 
-![Hicks](img/hickscor6.png)
+$$z = \frac{X = \mu}{\sigma}$$
 
-Note these formulas (e.g., z-score) use population characteristics
-This approach is very tedious, and does not make sense unless you
-already have the z-scores calculated for some reason.
+Note these formulas (e.g., z-score) use population characteristics and that this approach is very tedious.
+It also does not make sense unless you already have the z-scores calculated for some reason.
 
-![Hicks](img/hickscor7.png)
+Since we want to have a better idea of these formulas, let's break it down.
+What we are solving for is $r_{XY}$ which is Pearson's $r$.
+The little $X$ and $Y$ indicates that the $r$ there is representing the relationship between those two variables.
+This might seem obvious, but once you start looking at bigger datasets where you have more than two varaiblse, this notation is nice to keep track of what each $r$ represents.
 
-The deviation score formulais a computational formula that relies on
-using deviations from respective means:
+Now the top part of our equation is $\Sigma z_X z_Y$.
+The $\Sigma$ means we need to perform a summation (add them all up!) the products of each set pair of $z$ scores.
+So in order to do this, let's first get the z scores from each of our variables.
 
-![Hicks](img/hickscor8.png)
+```{r}
+zYearsTeaching <- scale(publicationData$yearsTeaching)
+zYearsTeaching
+zNoOfPublications <- scale(publicationData$numberOfPublications)
+zNoOfPublications
+```
+Now that we have the $z$ scores of our data, we then need to multiply them by each other.
 
-There is a raw score, computational formula that bypasses the need to
-calculate deviations from each mean:
+```{r}
+zCorrelationProductSummation <- sum(zYearsTeaching * zNoOfPublications)
+```
 
-![Hicks](img/hickscor9.png)
+We've now done the top part of the equation.
+All that is left to do is now divide by number of observations we have.
+Note here that we **could** hardcode this is in knowing that we only have 13 observations, but if we were get to more data, we wouldn't want to have to update that every time!
+In order to get around this problem, let's make R count how many variables we have, then divide by that with the ```nrow()`` function.
+
+```{r}
+zCorrelationProductSummation / nrow(publicationData)
+```
+
+And then we can then check that what we did is correct with R's ```cor()``` function.
+
+[Add in R correlation function?]
+
+The $r = .91$ in this example!
+We have a very strong positive correlation between years teaching and number of publications.
+
+Of course we are not always going to want to convert our scores to z scores and calculate it.
+For that, you might want to use the actual raw scores in your calculation.
+The deviation score formula is a computational formula that relies on using deviations from respective means:
+
+$$r_{XY} = \frac{\Sigma(X-\bar{X})(Y-\bar{Y})}{\sqrt\Sigma (X-\bar{X})^2\Sigma(Y-\bar{Y})^2} = \frac{\Sigma(X-\bar{X})(Y-\bar{Y})}{\sqrt{SS_{X}SS_{Y}}}$$
+
+Or you could use the formula that uses the raw score, which bypasses the need to calculate the deviations from each mean:
+
+$$r_{XY} = \frac{N\Sigma XY - \Sigma X \Sigma Y}{\sqrt{[ N \Sigma X^2 -(\Sigma X)^2] [N \Sigma Y^2 - (\Sigma Y)^2}] }$$
 
 Finally, we can use the covarianceto compute the correlation.
 
 Covariance is the average sum of the cross-products of deviations:
 
-![Hicks](img/hickscor9a.png)
+$s_{XY} = \frac{\Sigma (X - \bar{X})(Y - \bar{Y})}{N - 1}$
 
 Dividing this number by the cross-product of the unbiased sample
 standard deviations produces:
 
-![Hicks](img/hickscor10.png)
+$$r_{XY} = \frac{S_{XY}}{S_X S_y}$$
+
 
 ### Assumptions
 
-a. The scores are pairs—the same set of individuals needs to contribute both scores.
-b.Because the mean and variance are used to compute r, the variables need to be measured on an interval or ratio scale.
-c.Xand Yare normally distributed.
-d.The observations were randomly sampled.
-e.The relationship between the variables is linear, rather than curvilinear. Values of rare uninterpretable (and are underestimates) for curvilinear relationships.
+All correlations require a certain set of assumptions:
 
-If the rangeon one or both variables is restricted(i.e., the group is very homogeneous on Xand/or Y), then the value of rtends to become smaller.
+1. The scores are pairs—the same set of individuals needs to contribute both scores.
+2. Because the mean and variance are used to compute r, the variables need to be measured on an interval or ratio scale.
+3. X and Y are normally distributed.
+4. The observations were randomly sampled.
+5.The relationship between the variables is linear, rather than curvilinear. Values of rare uninterpretable (and are underestimates) for curvilinear relationships.
+6. If the range on one or both variables is restricted (i.e., the group is very homogeneous on X and/or Y), then the value of rtends to become smaller.
+
 Theoretically, the correlation can get bigger with range restriction, although this is VERY rare with moderate-to-large sample sizes.
+
+[DB LEFT OFF HERE]
 
 ![Hicks](img/hickscor11.png)
 

@@ -160,9 +160,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#capture-percentage"><i class="fa fa-check"></i><b>8.2.1</b> Capture Percentage</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html"><i class="fa fa-check"></i><b>9</b> Correlation and Regression</a><ul>
-<li class="chapter" data-level="9.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#calculating-person-c"><i class="fa fa-check"></i><b>9.1</b> Calculating Person C</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="9" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>9</b> Correlation</a><ul>
+<li class="chapter" data-level="9.1" data-path="correlation.html"><a href="correlation.html#calculating-persons-r"><i class="fa fa-check"></i><b>9.1</b> Calculating Person’s r</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="correlation.html"><a href="correlation.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
@@ -591,7 +591,7 @@ fa7111matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(fa7
 <p>Look at all factor model</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">allFactor7111 &lt;-<span class="st"> </span><span class="kw">fa</span>(fa7111matrix,<span class="dt">nfactors=</span><span class="dv">45</span>,<span class="dt">rotate=</span><span class="st">&quot;none&quot;</span>)
 <span class="kw">plot</span>(allFactor7111<span class="op">$</span>values)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
 <p>Do a 2 factor analysis with rotation</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">twoFactor7111 &lt;-<span class="st"> </span><span class="kw">fa</span>(fa7111matrix,<span class="dt">nfactors=</span><span class="dv">2</span>,<span class="dt">rotate=</span><span class="st">&quot;varimax&quot;</span>)
 twoFactor7111<span class="op">$</span>loadings</code></pre></div>
@@ -744,7 +744,7 @@ removed_fa7111data &lt;-<span class="st"> </span>fa7111data[,<span class="kw">c<
 <span class="co">#View(removed_fa7111matrix)</span>
 removed_all &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">32</span>, <span class="dt">rotate=</span><span class="st">&quot;none&quot;</span>)
 <span class="kw">plot</span>(removed_all<span class="op">$</span>values) <span class="co"># Run Two factor model</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">2</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
 removed_all_<span class="dv">2</span><span class="op">$</span>loadings</code></pre></div>
 <pre><code>## 
@@ -794,7 +794,7 @@ removed_all_<span class="dv">2</span><span class="op">$</span>loadings</code></p
 <p>Re-run the factor analysis one more time, this time, set eigenvalues to be over 1.0. What effects did this have on your results (for example, how many factors are there now compared to your 2nd and 3rd runs, also look at variance explained among other things)?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#removed_all &lt;- fa(removed_fa7111matrix, nfactors = 32, rotate=&quot;none&quot;)</span>
 <span class="kw">plot</span>(removed_all<span class="op">$</span>values) <span class="co"># Run Two factor model</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_<span class="fl">2.1</span> &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
 removed_all_<span class="fl">2.1</span><span class="op">$</span>loadings</code></pre></div>
 <pre><code>## 
