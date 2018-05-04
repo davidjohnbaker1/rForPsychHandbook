@@ -83,3 +83,56 @@ groups from the grand mean, versus population SD within a group
 ![rma](img/hicksrma19.png)
 ![rma](img/hicksrma20.png)
 
+## DB Notes 
+
+Just like regular ANOVA, but now have the assumption of spherecity.
+
+Compound symmetery -- variances across conditions are equal and covariances between pairs of conditions are equal. 
+Don't need this as much in RMANOVA.
+Spherecity is differences in variation.
+You do this with Mauchley's test of sphereicity.
+
+If you violate spherecity, come back here.
+Can do Greehouse Geisser correction or the Huynh-Feldt corection.
+
+### AF Example
+
+```{r}
+participant <- c("P1","P2","P3","P4","P5","P6","P7","P8")
+stick_insect <- c(8,9,6,5,8,7,10,12)
+kangaroo_testicle <- c(7,5,2,3,4,5,2,6)
+fish_eye <- c(1,2,3,1,5,6,7,8)
+witch_grub <- c(6,5,8,9,8,7,2,1)
+bush <- as.data.frame(cbind(participant, stick_insect, kangaroo_testicle, fish_eye, witch_grub))
+```
+
+Though needs to be long for RMANOVA
+
+```{r}
+library(reshape)
+longBush <- melt(bush,   id = "participant", measured = c("stick_insect", "kangaroo_testicle","fish_eye","witch_grub"))
+names(longBush) <- c("Participant","Animal","Retch")
+
+longBush$Animal <- factor(longBush$Animal, labels = c("Stick Insect","Kangaroo","Fish Eye", "Witch"))
+longBush
+```
+
+```{r}
+
+PartsVWhole <- c(1,-1,-1,1)
+TestVEye <- c(0,-1,1,0)
+SticVGrub <- c(-1,0,0,1)
+contrasts(longBush$Animal)<-cbind(PartsVWhole,TestVEye,SticVGrub)
+longBush$Animal
+```
+
+Running It 
+
+THIS IS BROKEN
+
+```{r}
+library(ez)
+str(longBush)
+#bushModel <- ezANOVA(data = longBush, dv = .(Retch), wid = .(Participant), within = .(Animal), detailed = TRUE, type = 3)
+
+```
