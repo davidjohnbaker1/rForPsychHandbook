@@ -1,0 +1,15 @@
+# Epistemology of Statistics
+
+Provide summary here of Dienes book.
+Just want to note a bit on the history of p values (there is split in world) and note example of probability coming from the fundamental nature of the object itself, or as a product of observation.
+
+Could just just jump straight into things, but I think having a bit of familiarity with the philosophy of it all actually really helps.
+
+## Karl Popper
+
+## R.A. Fisher
+
+## Neyman-Pearson
+
+## Bayes
+

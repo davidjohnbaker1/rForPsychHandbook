@@ -1,3 +1,0 @@
-#Epistemology of Statistics
-
-We describe our methods in this chapter.

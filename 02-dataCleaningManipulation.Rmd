@@ -6,7 +6,7 @@ When starting out with R, it's not important that you memorize every command and
 The first thing that you want to do to any script is to put a header on it.
 It should cover a few things such as 
 
-* A title
+* A Title
 * Who wrote the script? 
 * When did you edit it last?
 * What does it do?
@@ -14,15 +14,13 @@ It should cover a few things such as
 * Does it take anything in specific?
 
 The more information you can provide, the better.
-Remember that 6-Moth-From-You now is going to be either your best or worst collaborator.
+Remember that 6-Month-From-You now is going to be either your best or worst collaborator.
 
 Each script in R out to follow a general pattern.
 First list out some information about it, then load in your libraries, and then set your working directory and load your data.
 
 ```{r}
  # Import Libraries 
- #--------------------------------------------------
- # Load all libraries at the start of your script, remember they have to be installed first! 
  library(stringr)
  library(data.table)
  library(psych)
@@ -40,7 +38,7 @@ item.level.data <- read.csv("datasets/ItemLevelData.csv")
 
 You can also import data using RStudio's 'Import Data' function in the top right corner.
 
-[PICTURE OF THAT HERE]
+![Import Data via RStudio's GUI](img/importdatagui.png)
 
 If you do do that, make sure to add in any of the libraries and code in your script that is printed out below in RStudio's consle!
 
@@ -119,7 +117,7 @@ On line 250 in this object is the thing that needs swapping out.
 We can access it with R's indexing. Counting from index we see it's in line 250.
 
 ```{r}
- experiment.data$BeginTrain[250]
+experiment.data$BeginTrain[250]
 ```
 
 Quick, ask yourself why we don't use the comma here?! 
@@ -160,28 +158,31 @@ table(experiment.data$Gender)
 ```
 
 ### Cleaning Up Gender
+
 Pretty much two answers, how do we make them all say one thing?
-<!-- Let's use the stringr package for this. Import it up top. -->
+Let's use the stringr package for this. Import it up top.
 
-<!-- ```{r} -->
-<!-- experiment.data$Gender <- str_to_lower(experiment.data$Gender) -->
-<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"^.*f.*$","Female") -->
-<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"^m.*$","Male") -->
-<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"^country$","No Response") -->
-<!-- experiment.data$Gender <- str_replace(experiment.data$Gender,"","No Response") -->
-<!-- experiment.data$Gender[30] <- "No Response" #Something Might Be Up w this datapoint? -->
+```{r}
+experiment.data$Gender <- str_to_lower(experiment.data$Gender)
+experiment.data$Gender <- str_replace(experiment.data$Gender,"^.*f.*$","Female")
+experiment.data$Gender <- str_replace(experiment.data$Gender,"^m.*$","Male")
+experiment.data$Gender <- str_replace(experiment.data$Gender,"^country$","No Response")
 
-<!-- experiment.data$Gender <- as.factor(experiment.data$Gender) -->
+experiment.data$Gender[30] <- "No Response" #Something Might Be Up w this datapoint?
+experiment.data$Gender[63] <- "No Response" #Something Might Be Up w this datapoint?
 
-<!-- #-------------------------------------------------- -->
-<!-- # Can we do same thing for AP?  -->
-<!-- experiment.data$AbsPitch -->
-<!-- experiment.data$AbsPitch <- str_to_lower(experiment.data$AbsPitch) -->
-<!-- experiment.data$AbsPitch <- str_replace(experiment.data$AbsPitch,"^.*n.*$","no") -->
-<!-- experiment.data$AbsPitch[30] <- "no" -->
-<!-- experiment.data$AbsPitch <- as.factor(experiment.data$AbsPitch) -->
-<!-- table(experiment.data$AbsPitch) -->
-<!-- ``` -->
+experiment.data$Gender <- as.factor(experiment.data$Gender)
+table(experiment.data$Gender)
+
+#--------------------------------------------------
+# Can we do same thing for AP?
+experiment.data$AbsPitch
+experiment.data$AbsPitch <- str_to_lower(experiment.data$AbsPitch)
+experiment.data$AbsPitch <- str_replace(experiment.data$AbsPitch,"^.*n.*$","no")
+experiment.data$AbsPitch[30] <- "no"
+experiment.data$AbsPitch <- as.factor(experiment.data$AbsPitch)
+table(experiment.data$AbsPitch)
+```
 
 ## Merging Data
 
@@ -203,6 +204,8 @@ names(item.level.data)
 First off our subject ID columns are not the same. Let's swap that.
 
 ```{r}
+names(item.level.data)
+names(experiment.data)
 setnames(item.level.data,"tmp.dat.subject.1.","SubjectNo")
 setnames(experiment.data,"Sub","SubjectNo") # Make this clearer!!! 
 ```

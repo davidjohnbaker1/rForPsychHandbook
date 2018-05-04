@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R for Psych Handbook</title>
   <meta name="description" content="A handbook for psychologists at LSU to get started with R and Statistics.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="R for Psych Handbook" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-04-23">
+<meta name="date" content="2018-05-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -106,7 +106,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> Setting The Working Directory</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#a-note-on-setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> A Note on Setting the Working Directory</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-basics"><i class="fa fa-check"></i><b>2.3</b> The Basics</a></li>
 <li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-as-calculator"><i class="fa fa-check"></i><b>2.4</b> R as Calculator</a></li>
 <li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#data-exploration"><i class="fa fa-check"></i><b>2.5</b> Data Exploration</a></li>
@@ -318,10 +318,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Since this book is about statistics and R, the introduction to all things R is a bit shorter than other guides. If you need help, find a friend (or email the author of this book) and they will get you started. The first things you need to do is download <a href="https://cran.r-project.org/">R from CRAN</a>, then get the latest version of <a href="https://www.rstudio.com/">RStudio</a>. RStudio is an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">IDE</a> that makes working in R a lot easier. If you use R without RStudio, you are basically a masochist.</p>
 <p>Once you have that, you can start to play around with this.</p>
 </div>
-<div id="setting-the-working-directory" class="section level2">
-<h2><span class="header-section-number">2.2</span> Setting The Working Directory</h2>
-<p>At the end a long writing session you normally have to find a place to save that journal article you are working on. You do this by clicking ‘Save As’ then finding where to stick it and what to call it. If you are programming you need to do this entire act of picking where you are working right away by saving your script (the what) and setting your working directory (the where). This is the most tedious part of starting to learn R, but once you are over this hump, the others will not feel as bad. While these instructions below are meant to be comprehensive, it’s much easier to learn this part of the process with someone walking you through the steps.</p>
-<p>[WORKING DIRECTORY SET UP GUIDE]</p>
+<div id="a-note-on-setting-the-working-directory" class="section level2">
+<h2><span class="header-section-number">2.2</span> A Note on Setting the Working Directory</h2>
+<p>At the end a long writing session you normally have to find a place to save that journal article you are working on. You do this by clicking ‘Save As’ then finding where to stick it and what to call it. If you are programming you need to do this entire act of picking where you are working right away by saving your script (the what) and setting your working directory (the where). After running a couple of “teach yourself R” sessions, I have found that this concept is one of the most tedious parts of starting to learn R, but once you are over this hump, the others will not feel as bad. While these instructions below are meant to be comprehensive, it’s much easier to learn this part of the process with someone walking you through the steps.</p>
+<p>When you first open R, it’s good to get in the habit of seeing where your working directory is set to. If RStudio is set on it’s default settings, there should be a little line right above the console just like the image below.</p>
+<p>[IMAGE HERE]</p>
+<p>This whole book exists in a folder that lives in the projects folder on my Desktop. If you’re not familiar with how your computer is set up, it’s worth checking out an explanation or having someone walk you through the hierarchy your computer’s directories.</p>
+<p>Once you have an basic understanding of this, you can find where you are in R by using the <code>getwd()</code> function. If you need to change your working directory at any point, the function is <code>setwd()</code>. While it might seem a bit tedious to have to think about things like this right away, by setting up analysis projects in a clean, and organized way you are going to be saving yourself hours in the future.</p>
+<p>So with that, open up a new R script, and for your first line set your working directory to a folder where you are going to want to work out of.</p>
 </div>
 <div id="the-basics" class="section level2">
 <h2><span class="header-section-number">2.3</span> The Basics</h2>
@@ -367,7 +371,7 @@ foo <span class="op">*</span><span class="st"> </span><span class="dv">6</span><
 <p>Notice what has popped up in your environment in RStudio!</p>
 <p>Let’s get more efficient.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">3</span>)</code></pre></div>
-<p>talk about the c function.</p>
+<p>talk about the <code>c()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yearsInGradSchool <span class="op">*</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
 <pre><code>##  [1]  6  3 12 15 18 21  9  6 12 15  9</code></pre>
 <p>Or this</p>
@@ -457,7 +461,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 ##                 
 ##                 
 ## </code></pre>
-<p>Accessing individual ‘columns’ is done with the $ operator</p>
+<p>Accessing individual ‘columns’ is done with the <code>$</code> operator</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris<span class="op">$</span>Sepal.Length</code></pre></div>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
 ##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
@@ -747,6 +751,7 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Or stuff for data exploration</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)</code></pre></div>
+<pre><code>## Warning: package &#39;psych&#39; was built under R version 3.4.4</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;psych&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:ggplot2&#39;:
@@ -758,23 +763,22 @@ gradData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(yearsI
 <div id="functions-for-psychologists" class="section level2">
 <h2><span class="header-section-number">2.8</span> Functions for Psychologists</h2>
 <ul>
-<li>nlme() and lme4() for Multilevel Modeling</li>
-<li>lavaan() for Latent Variable Analysis</li>
-<li>ezAnova() for ANOVA based testing; the anova() function does model comparisons</li>
+<li><code>nlme()</code> and <code>lme4()</code> for Multilevel Modeling</li>
+<li><code>lavaan()</code> for Latent Variable Analysis</li>
+<li><code>ezAnova()</code> for ANOVA based testing; the anova() function does model comparisons</li>
 <li>profileR for Repeated Measures MANOVA</li>
-<li>glm() and lm() for linear models</li>
-<li>caret() for Machine Learning</li>
+<li><code>glm()</code> and <code>lm()</code> for linear models</li>
+<li><code>caret()</code> for Machine Learning</li>
 </ul>
 </div>
 <div id="resources" class="section level2">
 <h2><span class="header-section-number">2.9</span> Resources</h2>
-<p>LINK THESE IN</p>
 <ul>
 <li>swirl</li>
-<li>stackoverflow.com</li>
+<li><a href="www.stackoverflow.com">stackoverflow.com</a></li>
 <li>Twitter</li>
 <li>Your peers</li>
-<li>R Community is fantastic (tidyverse!!!)</li>
+<li>R Community</li>
 </ul>
 <div id="template-stuff" class="section level3">
 <h3><span class="header-section-number">2.9.1</span> Template Stuff</h3>
@@ -1006,10 +1010,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1033,9 +1038,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

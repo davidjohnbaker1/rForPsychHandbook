@@ -25,16 +25,27 @@ If you use R without RStudio, you are basically a masochist.
 
 Once you have that, you can start to play around with this.
 
-##Setting The Working Directory
+## A Note on Setting the Working Directory
 
 At the end a long writing session you normally have to find a place to save that journal article you are working on. 
 You do this by clicking 'Save As' then finding where to stick it and what to call it.
 If you are programming you need to do this entire act of picking where you are working right away by saving your script (the what) and setting your working directory (the where).
-This is the most tedious part of starting to learn R, but once you are over this hump, the others will not feel as bad. 
+After running a couple of "teach yourself R" sessions, I have found that this concept is one of the most tedious parts of starting to learn R, but once you are over this hump, the others will not feel as bad. 
 While these instructions below are meant to be comprehensive, it's much easier to learn this part of the process with someone walking you through the steps.
 
-[WORKING DIRECTORY SET UP GUIDE]
+When you first open R, it's good to get in the habit of seeing where your working directory is set to.
+If RStudio is set on it's default settings, there should be a little line right above the console just like the image below.
 
+![Current Working Directory Location](img/setwdinr.png)
+
+This whole book exists in a folder that lives in the projects folder on my Desktop.
+If you're not familiar with how your computer is set up, it's worth checking out an explanation or having someone walk you through the hierarchy your computer's directories.
+
+Once you have an basic understanding of this, you can find where you are in R by using the ```getwd()``` function.
+If you need to change your working directory at any point, the function is ```setwd()```.
+While it might seem a bit tedious to have to think about things like this right away, by setting up analysis projects in a clean, and organized way you are going to be saving yourself hours in the future. 
+
+So with that, open up a new R script, and for your first line set your working directory to a folder where you are going to want to work out of. 
 
 ## The Basics
 
@@ -90,7 +101,7 @@ Let's get more efficient.
 yearsInGradSchool <- c(2,1,4,5,6,7,3,2,4,5,3)
 ```
 
-talk about the c function.
+talk about the ```c()``` function.
 
 ```{r}
 yearsInGradSchool * 3
@@ -151,7 +162,7 @@ class(iris)
 summary(iris)
 ```
 
-Accessing individual 'columns' is done with the $ operator
+Accessing individual 'columns' is done with the ```$``` operator
 
 ```{r}
 iris$Sepal.Length
@@ -168,7 +179,6 @@ iris$Sepal.Length.scale <- scale(iris$Sepal.Length)
 ```
 
 ## Indexing
-
 
 Let's combine logical indexing with creating new objects.
 
@@ -222,22 +232,20 @@ pairs.panels(iris)
 
 ## Functions for Psychologists
 
-* nlme() and lme4() for Multilevel Modeling
-* lavaan() for Latent Variable Analysis
-* ezAnova() for ANOVA based testing; the anova() function does model comparisons
+* ```nlme()``` and ```lme4()``` for Multilevel Modeling
+* ```lavaan()``` for Latent Variable Analysis
+* ```ezAnova()``` for ANOVA based testing; the anova() function does model comparisons
 * profileR for Repeated Measures MANOVA
-* glm() and lm() for linear models
-* caret() for Machine Learning
+* ```glm()``` and ```lm()``` for linear models
+* ```caret()``` for Machine Learning
 
 ## Resources
 
-LINK THESE IN
-
 * swirl
-* stackoverflow.com
+* [stackoverflow.com](www.stackoverflow.com)
 * Twitter
 * Your peers
-* R Community is fantastic (tidyverse!!!)
+* R Community
 
 ### Template Stuff
 You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).

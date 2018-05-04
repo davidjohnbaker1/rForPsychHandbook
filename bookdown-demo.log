@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  9 APR 2018 09:30
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  4 MAY 2018 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -914,25 +914,30 @@ Chapter 1.
 ]
 Chapter 2.
 [7]
+File: img/setwdinr.png Graphic file (type QTm)
+<use  "img/setwdinr.png" > [8]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 292.
-[8]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 355.
+[9]
 File: bookdown-demo_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type
  QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-8-1.pdf" > [9]
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-8-1.pdf" > [10]
 File: bookdown-demo_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-11-1.pdf" > [10] [11]
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-11-1.pdf" >
+Underfull \vbox (badness 6927) has occurred while \output is active []
+
+[11] [12]
 File: bookdown-demo_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-14-1.pdf" > [12] [13] [14
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-14-1.pdf" > [13] [14] [15
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[15]
+[16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[16] [17]
+[17] [18]
 File: bookdown-demo_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (typ
 e QTm)
 <use  "bookdown-demo_files/figure-latex/unnamed-chunk-16-1.pdf" >
@@ -941,14 +946,13 @@ e QTm)
 <use  "bookdown-demo_files/figure-latex/unnamed-chunk-17-1.pdf" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[18]
-
-LaTeX Warning: Reference `methods' on page 19 undefined on input line 1086.
-
 [19]
+
+LaTeX Warning: Reference `methods' on page 20 undefined on input line 1151.
+
 File: bookdown-demo_files/figure-latex/nice-fig-1.pdf Graphic file (type QTm)
-<use  "bookdown-demo_files/figure-latex/nice-fig-1.pdf" >
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 1125
+<use  "bookdown-demo_files/figure-latex/nice-fig-1.pdf" > [20]
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 1190
 .
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -957,130 +961,190 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmr' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 1125
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 1190
 .
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 112
-5.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 119
+0.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 112
-5.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 119
+0.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1125.
+(Font)              <10> on input line 1190.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1125.
+(Font)              <7> on input line 1190.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 1125.
-LaTeX Font Info:    Try loading font information for U+msa on input line 1125.
+(Font)              <5> on input line 1190.
+LaTeX Font Info:    Try loading font information for U+msa on input line 1190.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 1125.
+LaTeX Font Info:    Try loading font information for U+msb on input line 1190.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 
-Package natbib Warning: Citation `R-bookdown' on page 20 undefined on input lin
-e 1157.
+Package natbib Warning: Citation `R-bookdown' on page 21 undefined on input lin
+e 1222.
 
 
-Package natbib Warning: Citation `xie2015' on page 20 undefined on input line 1
-158.
+Package natbib Warning: Citation `xie2015' on page 21 undefined on input line 1
+223.
 
-[20] [21] [22
+[21] [22]
+Chapter 3.
+File: img/importdatagui.png Graphic file (type QTm)
+<use  "img/importdatagui.png" > [23
 
 ]
-Chapter 3.
-[23]
-Underfull \vbox (badness 10000) detected at line 1443
+Overfull \hbox (34.24498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ inst              : Factor w/ 70 levels "","air drums",
+..: 9 4 67 46 28 36 36 36 48 28 ...[] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1443
+Overfull \hbox (23.74498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ Gender            : Factor w/ 13 levels "","COUNTRY","f
+",..: 6 6 6 12 12 4 6 4 12 10 ...[] 
+ []
+
+
+Overfull \hbox (76.24498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ Major             : Factor w/ 147 levels "","AGRIBUSINE
+SS",..: 24 126 38 88 67 79 95 17 143 47 ...[] 
+ []
+
+
+Overfull \hbox (44.74498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ Minor             : Factor w/ 65 levels ""," Economics"
+,..: 29 NA 50 NA 4 NA NA NA NA 39 ...[] 
+ []
+
+
+Overfull \hbox (28.99498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ BeginTrain        : Factor w/ 20 levels "","10","11","1
+2",..: 20 2 2 3 1 1 19 16 4 16 ...[] 
+ []
+
+
+Overfull \hbox (2.74498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ AbsPitch          : Factor w/ 7 levels "","no","No","NO
+",..: 4 2 4 4 4 4 2 4 4 2 ...[] 
+ []
+
+
+Overfull \hbox (28.99498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ Live12Mo          : Factor w/ 23 levels "","0","1","10"
+,..: 9 15 3 2 20 9 17 12 14 18 ...[] 
+ []
+
+
+Overfull \hbox (34.24498pt too wide) in paragraph at lines 1395--1395
+[]\TU/lmtt/m/n/10 ##  $ ActListenMin      : Factor w/ 34 levels "","0","1","10"
+,..: 30 30 9 24 5 30 9 24 24 22 ...[] 
  []
 
 [24]
-Underfull \vbox (badness 10000) detected at line 1443
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1443
+Underfull \vbox (badness 1331) detected at line 1420
  []
 
 [25]
-Underfull \vbox (badness 10000) detected at line 1443
+Overfull \hbox (149.74498pt too wide) in paragraph at lines 1491--1491
+[]\TU/lmtt/m/n/10 ##  $ Major             : chr  "BUSINESS MANAGEMENT" "psychol
+ogy" "COMMUNICATION STUDIES" "Mechanical Engineering" ...[] 
  []
 
-
-Underfull \vbox (badness 10000) detected at line 1443
- []
-
-[26]
-Underfull \vbox (badness 10000) detected at line 1443
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1443
- []
-
-[27] [28]
-Chapter 4.
-[29
-
-] [30
-
-]
-Chapter 5.
-[31]
-File: bookdown-demo_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (typ
+[26] [27] [28] [29] [30] [31] [32] [33]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-20-1.pdf" > [32]
-File: bookdown-demo_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (typ
-e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-21-1.pdf" >
-File: bookdown-demo_files/figure-latex/unnamed-chunk-21-2.pdf Graphic file (typ
-e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-21-2.pdf" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[33]
-File: bookdown-demo_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (typ
-e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-22-1.pdf" >
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-34-1.pdf" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [34]
-File: bookdown-demo_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (typ
+File: bookdown-demo_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-23-1.pdf" >
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-36-1.pdf" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [35]
-File: bookdown-demo_files/figure-latex/unnamed-chunk-23-2.pdf Graphic file (typ
+File: bookdown-demo_files/figure-latex/unnamed-chunk-36-2.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-23-2.pdf" >
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-36-2.pdf" > [36] [37]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[36] [37] [38]
-File: bookdown-demo_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (typ
+[38]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[40]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-39-1.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-27-1.pdf" > [39] [40]
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-39-1.pdf" > [41] [42]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[44] [45] [46]
+Chapter 4.
+[47
+
+] [48
+
+]
+Chapter 5.
+[49]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (typ
+e QTm)
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-45-1.pdf" > [50]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (typ
+e QTm)
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-46-1.pdf" >
+File: bookdown-demo_files/figure-latex/unnamed-chunk-46-2.pdf Graphic file (typ
+e QTm)
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-46-2.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[51]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (typ
+e QTm)
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-47-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[52]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (typ
+e QTm)
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-48-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[53]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-48-2.pdf Graphic file (typ
+e QTm)
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-48-2.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[54] [55] [56]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-52-1.pdf Graphic file (typ
+e QTm)
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-52-1.pdf" > [57] [58]
 File: img/hickszscores1.png Graphic file (type QTm)
 <use  "img/hickszscores1.png" >
 File: img/hickszscores2.png Graphic file (type QTm)
 <use  "img/hickszscores2.png" >
-Overfull \hbox (292.75612pt too wide) in paragraph at lines 1910--1912
+Overfull \hbox (292.75612pt too wide) in paragraph at lines 3112--3114
 []\TU/lmr/m/n/10 We could also calculate the area between two z scores as shown
  here. [] 
  []
@@ -1088,11 +1152,11 @@ Overfull \hbox (292.75612pt too wide) in paragraph at lines 1910--1912
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[41]
+[59]
 File: img/hickszscores3.png Graphic file (type QTm)
 <use  "img/hickszscores3.png" >
 File: img/hickszscores4.png Graphic file (type QTm)
-<use  "img/hickszscores4.png" > [42] [43] [44] [45] [46
+<use  "img/hickszscores4.png" > [60] [61] [62] [63] [64
 
 ]
 Chapter 6.
@@ -1100,26 +1164,26 @@ File: img/hickssampling1.png Graphic file (type QTm)
 <use  "img/hickssampling1.png" >
 File: img/hickssampling2.png Graphic file (type QTm)
 <use  "img/hickssampling2.png" >
-Overfull \hbox (132.83604pt too wide) in paragraph at lines 2199--2205
+Overfull \hbox (132.83604pt too wide) in paragraph at lines 3401--3407
 \TU/lmr/m/n/10 tion via our random sampling. [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[47]
+[65]
 ! Missing { inserted.
 <to be read again> 
                    \gdef 
-l.2215 \[\frac{\sigma}{\sqrt{n}}= \sigma_\bar{X}
+l.3417 \[\frac{\sigma}{\sqrt{n}}= \sigma_\bar{X}
                                                 \] 
 Here is how much of TeX's memory you used:
- 21950 strings out of 493005
- 400785 string characters out of 6134596
- 555796 words of memory out of 5000000
- 25666 multiletter control sequences out of 15000+600000
+ 21970 strings out of 493005
+ 401346 string characters out of 6134596
+ 535446 words of memory out of 5000000
+ 25680 multiletter control sequences out of 15000+600000
  16383 words of font info for 47 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 41i,8n,68p,10411b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,8n,68p,10411b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bookdown-demo.pdf (47 pages).
+Output written on bookdown-demo.pdf (65 pages).
