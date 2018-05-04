@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  4 MAY 2018 10:05
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  4 MAY 2018 10:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1144,7 +1144,7 @@ File: img/hickszscores1.png Graphic file (type QTm)
 <use  "img/hickszscores1.png" >
 File: img/hickszscores2.png Graphic file (type QTm)
 <use  "img/hickszscores2.png" >
-Overfull \hbox (292.75612pt too wide) in paragraph at lines 3112--3114
+Overfull \hbox (292.75612pt too wide) in paragraph at lines 3126--3128
 []\TU/lmr/m/n/10 We could also calculate the area between two z scores as shown
  here. [] 
  []
@@ -1164,7 +1164,7 @@ File: img/hickssampling1.png Graphic file (type QTm)
 <use  "img/hickssampling1.png" >
 File: img/hickssampling2.png Graphic file (type QTm)
 <use  "img/hickssampling2.png" >
-Overfull \hbox (132.83604pt too wide) in paragraph at lines 3401--3407
+Overfull \hbox (132.83604pt too wide) in paragraph at lines 3415--3421
 \TU/lmr/m/n/10 tion via our random sampling. [] 
  []
 
@@ -1175,12 +1175,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ! Missing { inserted.
 <to be read again> 
                    \gdef 
-l.3417 \[\frac{\sigma}{\sqrt{n}}= \sigma_\bar{X}
+l.3431 \[\frac{\sigma}{\sqrt{n}}= \sigma_\bar{X}
                                                 \] 
 Here is how much of TeX's memory you used:
  21970 strings out of 493005
- 401346 string characters out of 6134596
- 535446 words of memory out of 5000000
+ 401356 string characters out of 6134596
+ 535475 words of memory out of 5000000
  25680 multiletter control sequences out of 15000+600000
  16383 words of font info for 47 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

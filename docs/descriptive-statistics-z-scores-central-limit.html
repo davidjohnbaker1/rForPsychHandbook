@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Psych Handbook</title>
+  <meta name="description" content="A handbook for psychologists at LSU to get started with R and Statistics.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Psych Handbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Psych Handbook" />
+  
+  <meta name="twitter:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  
+
+<meta name="author" content="David John Baker">
+
+
+<meta name="date" content="2018-05-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="epistemology-of-statistics.html">
+<link rel="next" href="sampling-distributions.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Psych Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#a-note-on-setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> A Note on Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-basics"><i class="fa fa-check"></i><b>2.3</b> The Basics</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-as-calculator"><i class="fa fa-check"></i><b>2.4</b> R as Calculator</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#data-exploration"><i class="fa fa-check"></i><b>2.5</b> Data Exploration</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#indexing"><i class="fa fa-check"></i><b>2.6</b> Indexing</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#whirlwind-tour-of-r"><i class="fa fa-check"></i><b>2.7</b> Whirlwind Tour of R</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#functions-for-psychologists"><i class="fa fa-check"></i><b>2.8</b> Functions for Psychologists</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#resources"><i class="fa fa-check"></i><b>2.9</b> Resources</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#template-stuff"><i class="fa fa-check"></i><b>2.9.1</b> Template Stuff</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-response-data"><i class="fa fa-check"></i><b>3.1</b> Cleaning Response Data</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-up-gender"><i class="fa fa-check"></i><b>3.1.1</b> Cleaning Up Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.2</b> Merging Data</a></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-univariate-outliers"><i class="fa fa-check"></i><b>3.3</b> Checking for Univariate Outliers</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-multivariate-outliers"><i class="fa fa-check"></i><b>3.3.1</b> Checking for Multivariate Outliers</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-skew-and-kurtosis"><i class="fa fa-check"></i><b>3.3.2</b> Checking for Skew and Kurtosis</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#exporting-data"><i class="fa fa-check"></i><b>3.3.3</b> Exporting Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Epistemology of Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#karl-popper"><i class="fa fa-check"></i><b>4.1</b> Karl Popper</a></li>
+<li class="chapter" data-level="4.2" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#r.a.-fisher"><i class="fa fa-check"></i><b>4.2</b> R.A. Fisher</a></li>
+<li class="chapter" data-level="4.3" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#neyman-pearson"><i class="fa fa-check"></i><b>4.3</b> Neyman-Pearson</a></li>
+<li class="chapter" data-level="4.4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#bayes"><i class="fa fa-check"></i><b>4.4</b> Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
+<li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#organizing-data"><i class="fa fa-check"></i><b>5.1.1</b> Organizing Data</a></li>
+<li class="chapter" data-level="5.1.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#shape-of-data"><i class="fa fa-check"></i><b>5.1.2</b> Shape of Data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#important-considerations-for-central-tendency"><i class="fa fa-check"></i><b>5.1.3</b> Important Considerations for Central Tendency</a></li>
+<li class="chapter" data-level="5.1.4" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#measures-of-variability"><i class="fa fa-check"></i><b>5.1.4</b> Measures of Variability</a></li>
+<li class="chapter" data-level="5.1.5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#properties-of-z-scores"><i class="fa fa-check"></i><b>5.1.5</b> Properties of z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#practice"><i class="fa fa-check"></i><b>5.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>7</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#steps-of-hypothesis-testing"><i class="fa fa-check"></i><b>7.1</b> Steps of Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#other-important-considerations."><i class="fa fa-check"></i><b>7.1.1</b> Other important considerations.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#two-sample"><i class="fa fa-check"></i><b>7.2</b> Two Sample</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html"><i class="fa fa-check"></i><b>8</b> Power, Confidence Intervals, Effect Size Measures</a><ul>
+<li class="chapter" data-level="8.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#power"><i class="fa fa-check"></i><b>8.1</b> Power</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#test-equations"><i class="fa fa-check"></i><b>8.1.1</b> Test Equations</a></li>
+<li class="chapter" data-level="8.1.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#factors-of-power"><i class="fa fa-check"></i><b>8.1.2</b> Factors of Power</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#confidence-ientervals"><i class="fa fa-check"></i><b>8.2</b> Confidence Ientervals</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#capture-percentage"><i class="fa fa-check"></i><b>8.2.1</b> Capture Percentage</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html"><i class="fa fa-check"></i><b>9</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="9.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#calculating-person-c"><i class="fa fa-check"></i><b>9.1</b> Calculating Person C</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
+<li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
+<li class="chapter" data-level="11.1" data-path="matched-t-test.html"><a href="matched-t-test.html#theory"><i class="fa fa-check"></i><b>11.1</b> Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>12</b> One Way ANOVA</a><ul>
+<li class="chapter" data-level="12.0.1" data-path="one-way-anova.html"><a href="one-way-anova.html#assumptions-of-anova"><i class="fa fa-check"></i><b>12.0.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="12.0.2" data-path="one-way-anova.html"><a href="one-way-anova.html#practice-1"><i class="fa fa-check"></i><b>12.0.2</b> Practice</a></li>
+<li class="chapter" data-level="12.1" data-path="one-way-anova.html"><a href="one-way-anova.html#effect-size-measures"><i class="fa fa-check"></i><b>12.1</b> Effect Size Measures</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html"><i class="fa fa-check"></i><b>13</b> Multiple Comparisons</a><ul>
+<li class="chapter" data-level="13.1" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html#trend-analysis"><i class="fa fa-check"></i><b>13.1</b> Trend analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="factorial-anova.html"><a href="factorial-anova.html"><i class="fa fa-check"></i><b>14</b> Factorial Anova</a><ul>
+<li class="chapter" data-level="14.1" data-path="factorial-anova.html"><a href="factorial-anova.html#assumptions-of-anova-1"><i class="fa fa-check"></i><b>14.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="14.2" data-path="factorial-anova.html"><a href="factorial-anova.html#power-and-sample-size-estimatoin"><i class="fa fa-check"></i><b>14.2</b> Power and Sample Size Estimatoin</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="factorial-anova.html"><a href="factorial-anova.html#three-way-factorial"><i class="fa fa-check"></i><b>14.2.1</b> Three Way Factorial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
+<li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
+<li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
+<li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#equal-variance"><i class="fa fa-check"></i><b>16.1.1</b> Equal Variance</a></li>
+<li class="chapter" data-level="16.1.2" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#simple-main-effects"><i class="fa fa-check"></i><b>16.1.2</b> Simple Main Effects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="17.1" data-path="multiple-regression.html"><a href="multiple-regression.html#conceptual-representation"><i class="fa fa-check"></i><b>17.1</b> Conceptual Representation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="multiple-regression.html"><a href="multiple-regression.html#second-part"><i class="fa fa-check"></i><b>17.1.1</b> Second Part</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="chi-square.html"><a href="chi-square.html"><i class="fa fa-check"></i><b>18</b> Chi-Square</a></li>
+<li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
+<li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
+<li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introduction-to-multiple-regression"><i class="fa fa-check"></i><b>21.1</b> Introduction to Multiple Regression</a></li>
+<li class="chapter" data-level="21.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#basics-of-multiple-regression"><i class="fa fa-check"></i><b>21.2</b> Basics of Multiple Regression</a></li>
+<li class="chapter" data-level="21.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#types-of-multiple-regression"><i class="fa fa-check"></i><b>21.3</b> Types of Multiple Regression</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#standard-multiple-regression"><i class="fa fa-check"></i><b>21.3.1</b> Standard Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#sequential-multiple-regression"><i class="fa fa-check"></i><b>21.3.2</b> Sequential Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#statistical-or-stepwise-multiple-regression"><i class="fa fa-check"></i><b>21.3.3</b> Statistical or Stepwise Multiple Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>21.4</b> Interpretation of Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#model-summary"><i class="fa fa-check"></i><b>21.4.1</b> Model Summary</a></li>
+<li class="chapter" data-level="21.4.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#anova"><i class="fa fa-check"></i><b>21.4.2</b> ANOVA</a></li>
+<li class="chapter" data-level="21.4.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#coefficients"><i class="fa fa-check"></i><b>21.4.3</b> Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.5</b> OLD MEDIATION MODERATION</a></li>
+<li class="chapter" data-level="21.6" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introductory-ramble"><i class="fa fa-check"></i><b>21.6</b> Introductory Ramble</a></li>
+<li class="chapter" data-level="21.7" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>21.7</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="21.7.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#spss-notes"><i class="fa fa-check"></i><b>21.7.1</b> SPSS Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="21.8" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#surpressor-variables"><i class="fa fa-check"></i><b>21.8</b> Surpressor Variables</a></li>
+<li class="chapter" data-level="21.9" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation-and-mediation"><i class="fa fa-check"></i><b>21.9</b> Moderation and Mediation</a><ul>
+<li class="chapter" data-level="21.9.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation"><i class="fa fa-check"></i><b>21.9.1</b> Moderation</a></li>
+</ul></li>
+<li class="chapter" data-level="21.10" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#centering"><i class="fa fa-check"></i><b>21.10</b> Centering</a></li>
+<li class="chapter" data-level="21.11" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#mediation"><i class="fa fa-check"></i><b>21.11</b> Mediation</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
+<li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
+<li class="chapter" data-level="24" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>24</b> ANCOVA</a><ul>
+<li class="chapter" data-level="24.1" data-path="ancova.html"><a href="ancova.html#theory-1"><i class="fa fa-check"></i><b>24.1</b> Theory</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="ancova.html"><a href="ancova.html#reducing-noise"><i class="fa fa-check"></i><b>24.1.1</b> Reducing Noise</a></li>
+<li class="chapter" data-level="24.1.2" data-path="ancova.html"><a href="ancova.html#assumptions-of-anova-2"><i class="fa fa-check"></i><b>24.1.2</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="24.1.3" data-path="ancova.html"><a href="ancova.html#best-practice"><i class="fa fa-check"></i><b>24.1.3</b> Best Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="ancova.html"><a href="ancova.html#practice-2"><i class="fa fa-check"></i><b>24.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="manova.html"><a href="manova.html"><i class="fa fa-check"></i><b>25</b> MANOVA</a></li>
+<li class="chapter" data-level="26" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html"><i class="fa fa-check"></i><b>26</b> Repeated Measures ANOVA</a><ul>
+<li class="chapter" data-level="26.0.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#null-hypothesis"><i class="fa fa-check"></i><b>26.0.1</b> Null Hypothesis</a></li>
+<li class="chapter" data-level="26.0.2" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#strength-of-association"><i class="fa fa-check"></i><b>26.0.2</b> Strength of association</a></li>
+<li class="chapter" data-level="26.0.3" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#limitation"><i class="fa fa-check"></i><b>26.0.3</b> Limitation</a></li>
+<li class="chapter" data-level="26.0.4" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#doubly-repeated-manova"><i class="fa fa-check"></i><b>26.0.4</b> Doubly Repeated MANOVA</a></li>
+<li class="chapter" data-level="26.0.5" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#post-tests"><i class="fa fa-check"></i><b>26.0.5</b> Post Tests</a></li>
+<li class="chapter" data-level="26.0.6" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts"><i class="fa fa-check"></i><b>26.0.6</b> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</a></li>
+<li class="chapter" data-level="26.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#practice-3"><i class="fa fa-check"></i><b>26.1</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
+<li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#theory-2"><i class="fa fa-check"></i><b>27.1</b> Theory</a><ul>
+<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#introduction"><i class="fa fa-check"></i><b>27.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.2</b> Factor Analysis Purposes</a></li>
+<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.3</b> Types of Analysis</a></li>
+<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.4</b> PCA</a></li>
+<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.5</b> Rotatation</a></li>
+<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.6</b> Assumptions</a></li>
+<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
+<li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
+</ul></li>
+<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-4"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
+<li class="chapter" data-level="29" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html"><i class="fa fa-check"></i><b>29</b> Latent Variable Modeling – Path, SEM, CFA</a><ul>
+<li class="chapter" data-level="29.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#path-analysis"><i class="fa fa-check"></i><b>29.1</b> Path Analysis</a><ul>
+<li class="chapter" data-level="29.1.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background"><i class="fa fa-check"></i><b>29.1.1</b> Background</a></li>
+<li class="chapter" data-level="29.1.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#getting-numeric"><i class="fa fa-check"></i><b>29.1.2</b> Getting Numeric</a></li>
+<li class="chapter" data-level="29.1.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-in-r"><i class="fa fa-check"></i><b>29.1.3</b> Doing It in R</a></li>
+<li class="chapter" data-level="29.1.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#an-example-in-r"><i class="fa fa-check"></i><b>29.1.4</b> An Example In R</a></li>
+<li class="chapter" data-level="29.1.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#indirect-effects"><i class="fa fa-check"></i><b>29.1.5</b> Indirect Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#basic-latent-variable-models-sem"><i class="fa fa-check"></i><b>29.2</b> Basic Latent Variable Models , SEM</a><ul>
+<li class="chapter" data-level="29.2.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background-1"><i class="fa fa-check"></i><b>29.2.1</b> Background</a></li>
+<li class="chapter" data-level="29.2.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#latent-variable-models"><i class="fa fa-check"></i><b>29.2.2</b> Latent Variable Models</a></li>
+<li class="chapter" data-level="29.2.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-with-two-latent-variables-in-r"><i class="fa fa-check"></i><b>29.2.3</b> Doing it With Two Latent Variables in R</a></li>
+<li class="chapter" data-level="29.2.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-sem-in-r"><i class="fa fa-check"></i><b>29.2.4</b> Doing SEM in R</a></li>
+<li class="chapter" data-level="29.2.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#reporting-results"><i class="fa fa-check"></i><b>29.2.5</b> Reporting Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="this-is-a-template-file.html"><a href="this-is-a-template-file.html"><i class="fa fa-check"></i><b>30</b> This is a template file</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Psych Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="descriptive-statistics-z-scores-central-limit" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Descriptive Statistics, z Scores, Central Limit</h1>
+<div id="descriptive-statistics-and-the-normal-distribution" class="section level2">
+<h2><span class="header-section-number">5.1</span> Descriptive Statistics and the Normal Distribution</h2>
+<div id="organizing-data" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Organizing Data</h3>
+<p>Descriptive statistics are traditionally used to summarize data from observed samples. Most often, sample data are organized into distributions of information based on ascending scores. For example, we might have a table with some SAT-Verbal scores from a few different students. Before going on to think about this, also take note that the shape of this data (though very minimal) is in the tidy format. According to Hadley Wickham on the <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">tidyr CRAN page</a> for data to be tidy it must have the following properties:</p>
+<ol style="list-style-type: decimal">
+<li>Each variable forms a column.</li>
+<li>Each observation forms a row.</li>
+<li>Each type of observational unit forms a table.</li>
+</ol>
+<p>This isn’t very important right now, but once you get to more complex designs, it will be good to have had thought about this before.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">student &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)
+SAT &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">480</span>,<span class="dv">530</span>,<span class="dv">560</span>,<span class="dv">650</span>,<span class="dv">720</span>,<span class="dv">760</span>)
+satData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(student,SAT)
+satData</code></pre></div>
+<pre><code>##   student SAT
+## 1       1 480
+## 2       2 530
+## 3       3 560
+## 4       4 650
+## 5       5 720
+## 6       6 760</code></pre>
+</div>
+<div id="shape-of-data" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Shape of Data</h3>
+<p>When visualized, data can take on a variety of shapes. Below are a few of the shapes you might come across when analyzing data.</p>
+<p>The first, and probably least likely distribution you will find is the <strong>uniform</strong> or <strong>rectangular distribution</strong>. We can create this plot and the others by using the <a href="https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions#Uniform_distribution">distribution functions</a> from R’s functionality. In each case we are going to take 1,000 samples from 0 to 1. We’ll plot everything using <code>ggplot2</code> so we can also get used to using it for our packages.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">set.seed</span>(<span class="dv">666</span>)
+uniformData &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n=</span><span class="dv">1000</span>, <span class="dt">min=</span><span class="dv">0</span>, <span class="dt">max=</span><span class="dv">100</span>)
+distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(uniformData)
+
+<span class="co"># Make variable to remove ggplot elements </span>
+cleanUpPlots &lt;-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(),
+                  <span class="dt">axis.text.x=</span><span class="kw">element_blank</span>(),
+                  <span class="dt">axis.ticks.x=</span><span class="kw">element_blank</span>(),
+                  <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(),
+                  <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())
+
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>uniformData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Uniform Distribution&quot;</span>) <span class="op">+</span><span class="st"> </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p>Try to run the above code with different arguments in the <code>binwidth</code> argument. You’ll notice that the way you plot the data will actually represent it differntly.</p>
+<p>We can also have <strong>positively skewed</strong> and <strong>negatively skewed</strong> distributions. If a distribution is skewed, it usually means that the <strong>mode</strong> does not equal the <strong>mean</strong>. We’re going to approximate both of these with another one of R’s probability functions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">positiveSkewData &lt;-<span class="st"> </span><span class="kw">rchisq</span>(<span class="dv">1000</span>,<span class="dv">6</span>) <span class="co"># Chi Square distributions are positively skewed</span>
+negativeSkewData &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>positiveSkewData <span class="co"># Flip it!</span>
+distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(uniformData, positiveSkewData, negativeSkewData)
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>positiveSkewData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Positive Skew Distribution&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>negativeSkewData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Negative Skew Distribution&quot;</span>) <span class="op">+</span><span class="st">   </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-2.png" width="672" /></p>
+<p>The most important distribution in the world of Frequentist statistics is a <strong>normal distribution</strong>. A normal distribution is defined by THIS HERE.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">normalData &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd =</span> <span class="dv">2</span>) <span class="co"># Flip it!</span>
+distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(uniformData, positiveSkewData, negativeSkewData, normalData)
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>normalData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Normal Distribution&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p>And the lastly we can have both <strong>leptokurtic</strong> and <strong>platykurtic</strong> distributions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leptoData &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd =</span> <span class="dv">2</span>) 
+platyData &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd =</span> <span class="dv">2</span>)
+distributions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(uniformData, positiveSkewData, negativeSkewData, normalData,leptoData, platyData)
+<span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>leptoData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Leptokurtic Distribution, FIX ME&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(distributions, <span class="kw">aes</span>(distributions<span class="op">$</span>platyData)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Independent Variable&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Platykurtic Distribution, FIX ME&quot;</span>) <span class="op">+</span><span class="st">    </span>cleanUpPlots</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-48-2.png" width="672" /></p>
+<p>Generally measurses of <strong>central tendency</strong> are used to characterize the most typical score in a distribution.</p>
+<p>For example we could calculate the <strong>mean</strong> or the <strong>median</strong> of our SAT data. The mean is calculated by adding up all our numbers, designated with the Greek letter Sigma <span class="math inline">\(\Sigma\)</span> then dividing by the amount of numbers we added up, or <span class="math inline">\(n\)</span>. As an equation it would look like this.</p>
+<p><span class="math display">\[\bar{X} = \frac{(\Sigma\ x_i)}{n}\]</span></p>
+<p>Take a second to talk yourself through that so later you will start to feel more comfortable with more complex equational notation. Some people find it helpful to just try to say the equation in plain English. In this case it would be the mean, or <span class="math inline">\(\bar{x}\)</span> is defined as or equal to what happens when you add up <span class="math inline">\(\Sigma\)</span> every single value <span class="math inline">\(x\)</span> that you have going up to <span class="math inline">\(i\)</span>, then divide all those numbers by the amount of numbers you have, or <span class="math inline">\(n\)</span>.</p>
+<p>The median is defined by finding the middle number. If there is a tie because we have an even set of numbers, we take the mean of the middle two numbers.</p>
+<p>We can do both of these in R as well. Below we can either type in the numbers as you would with a calculator, or use a function in R. Notice that each step when its typed out is saved into an object. By starting to think this way, it will pave the way for writing more elegant code later on.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Typing it out </span>
+our.data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">480</span> <span class="op">+</span><span class="st"> </span><span class="dv">530</span> <span class="op">+</span><span class="st"> </span><span class="dv">560</span> <span class="op">+</span><span class="st"> </span><span class="dv">650</span> <span class="op">+</span><span class="st"> </span><span class="dv">720</span> <span class="op">+</span><span class="st"> </span><span class="dv">760</span>)
+how.many &lt;-<span class="st"> </span><span class="kw">length</span>(our.data)
+our.data<span class="op">/</span>how.many</code></pre></div>
+<pre><code>## [1] 3700</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Inbuilt functions</span>
+<span class="kw">mean</span>(satData<span class="op">$</span>SAT)</code></pre></div>
+<pre><code>## [1] 616.6667</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(satData<span class="op">$</span>SAT)</code></pre></div>
+<pre><code>## [1] 605</code></pre>
+<p>Notice here that for adding up the means by hand I could have done what programmers call hard coded the equation in. That would have looked like this.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">our.answer &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">480</span> <span class="op">+</span><span class="st"> </span><span class="dv">530</span> <span class="op">+</span><span class="st"> </span><span class="dv">560</span> <span class="op">+</span><span class="st"> </span><span class="dv">650</span> <span class="op">+</span><span class="st"> </span><span class="dv">720</span> <span class="op">+</span><span class="st"> </span><span class="dv">760</span>) <span class="op">/</span><span class="st"> </span><span class="dv">6</span>
+our.answer</code></pre></div>
+<pre><code>## [1] 616.6667</code></pre>
+<p>The problem with this, is that every time you get a new SAT score you have to both enter the score and update how many scores you are dividing by. Whenever you see a chance to take a shortcut like this, do it! It will save you tons of time in the future.</p>
+</div>
+<div id="important-considerations-for-central-tendency" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Important Considerations for Central Tendency</h3>
+<p>There are three big considerations to think about when choosing numbers to represent your data.</p>
+<ol style="list-style-type: decimal">
+<li>The mode is the most variable from sample to sample; the mean is the least variable</li>
+<li>The mean is the most sensitive to extreme scores; e.g., skewed distributions</li>
+<li>The mean is the most frequently used measure because <em>The sum of the deviations around the mean is 0 </em>The sum of the squared deviations is the smallest around the mean, rather than the mode or median; this is known as the least squares principle</li>
+</ol>
+</div>
+<div id="measures-of-variability" class="section level3">
+<h3><span class="header-section-number">5.1.4</span> Measures of Variability</h3>
+<p>The <strong>range</strong> is simply the largest score minus the smallest score. It is the crudest measure of variability. In our dataset we would calculate it with the following code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">760</span> <span class="op">-</span><span class="st"> </span><span class="dv">480</span></code></pre></div>
+<pre><code>## [1] 280</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># OR</span>
+<span class="kw">range</span>(satData<span class="op">$</span>SAT)</code></pre></div>
+<pre><code>## [1] 480 760</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(satData<span class="op">$</span>SAT) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(satData<span class="op">$</span>SAT)</code></pre></div>
+<pre><code>## [1] 280</code></pre>
+<p>The interquartile rangerepresents the spread between the score at the 75th and 25th percentiles. Boxplots are often used to graphically represent inner 50% of the scores.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span>satData<span class="op">$</span>SAT
+boxplot.example &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+          <span class="dt">x =</span> <span class="dv">1</span>,
+          <span class="dt">y0 =</span> <span class="kw">min</span>(y),
+          <span class="dt">y25 =</span> <span class="kw">quantile</span>(y, <span class="fl">0.25</span>),
+          <span class="dt">y50 =</span> <span class="kw">median</span>(y),
+          <span class="dt">y75 =</span> <span class="kw">quantile</span>(y, <span class="fl">0.75</span>),
+          <span class="dt">y100 =</span> <span class="kw">max</span>(y)
+)
+
+<span class="kw">ggplot</span>(boxplot.example, <span class="kw">aes</span>(x)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Example of Boxplot&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> y0, <span class="dt">lower =</span> y25, <span class="dt">middle =</span> y50, <span class="dt">upper =</span> y75, <span class="dt">ymax =</span> y100),
+    <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p>The <strong>variance</strong> is essentially the averaged squared deviation around the mean. Now there is a very important distinction that we will get to a bit later on, but that is the difference between a <strong>population</strong> value or <span class="math inline">\(\sigma^2\)</span> and a <strong>sample</strong> variance or <span class="math inline">\(s^2\)</span>. In order to do frequentist statistics, we need to assume that there is some sort of True value that the group we are measuring has and it is a fundamental property of the group! For more on this see CHAPTER 3 and the work of Zoltan Dienes. Somewhere, maybe written on a golden plate in heaven is the actual value of the average weight of a labrador retriever. The problem is we will never have access to that information so we need to estimate it by using a sample. The logic is that if we can truly draw in a random way from our entire population, in this case labrador retrievers, the central limit theroum will give us a good approximation of what that True value will be. Since we want to be clear about when we are talking about the Platonic, True value and the actual sample we collected, we use different Greek notation. The <span class="math inline">\(\sigma^2\)</span> refers to the Platonic value and the <span class="math inline">\(\sigma^2\)</span> is the sample. They are defined as follows:</p>
+<p><span class="math display">\[\sigma^2 = \frac{\Sigma(X_i - \mu)^2}{N}\]</span></p>
+<p><span class="math display">\[s^2 = \frac{\Sigma(X_i - \mu)^2}{n-1}\]</span></p>
+<p>Note here that each of these formulas needs a mean. In the population equation that is defined as <span class="math inline">\(\mu\)</span> and in samples we used <span class="math inline">\(\bar{X}\)</span>.</p>
+<p>In our case with the SAT scores, we are wanting to know the True value of the SAT scores of whatever population our six students are theorized to come from. To do the calulations below we need to know the mean which we calcualted above to be 616.67.</p>
+<p>Now since these scores are to serve as a represntive <strong>sample</strong> in hopes of getting at the true population value we need to use the formula reflecting the <strong>sample variance</strong> or <span class="math inline">\(s^2\)</span>.</p>
+<p><span class="math display">\[s^2 = \frac{(480-616.7)^2 + . . . + (760 - 616.676)^2}{6-1}\]</span></p>
+<p>Doing this by hand we get an <span class="math inline">\(s^2\)</span> value of 12346.67. Or running it in R, we would use.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(satData<span class="op">$</span>SAT)</code></pre></div>
+<pre><code>## [1] 12346.67</code></pre>
+<p>The <strong>standard deviation</strong> is the square root of the variance of the sample.</p>
+<p><span class="math display">\[s = \sqrt\frac{\Sigma(X_i - \mu)^2}{n-1}\]</span></p>
+<p>And since we know <span class="math inline">\(s^2\)</span> from above, we can shorten this to</p>
+<p><span class="math display">\[s = \sqrt{s^2} = \sqrt{12345.67} = 111.12\]</span></p>
+<p>Or run it in R and get</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(satData<span class="op">$</span>SAT)</code></pre></div>
+<pre><code>## [1] 111.1156</code></pre>
+<p><strong>Standard scores</strong> represent the distance of raw scores form their mean in standard deviation units.</p>
+<p><span class="math display">\[z = \frac{x_i - \bar{X}}{s}\]</span></p>
+<p>So if we needed to find the <span class="math inline">\(z\)</span> score or standardized score for someone who got a 560 on their SAT we could compute the following.</p>
+<p><span class="math display">\[z_{560} = \frac{560 - 616.67}{111.12} = -0.51\]</span></p>
+<p>Interpreted in-context, this would mean that if you scored a 560 on the SAT, based on our sample (which we think helps us get at the True popuation value), you would be scoring about less than 1 standard deviation (the unit of z) below the average.</p>
+</div>
+<div id="properties-of-z-scores" class="section level3">
+<h3><span class="header-section-number">5.1.5</span> Properties of z Scores</h3>
+<p>Z scores are defined by having having three separte properties:</p>
+<ol style="list-style-type: decimal">
+<li>The standardized distribution preserves the shape of the original raw score distribution</li>
+<li>The mean of the standardized distribution is always 0</li>
+<li>The variance &amp; standard deviation are always 1</li>
+</ol>
+<p>Many of the variables in behavioral sciences are distributed normally. In addition, the basis for parametric inferential statistics is based on the normal distribution.</p>
+<p>The normal distribution is unimodal, symmetrical, bell shaped, with a maximum height at the mean. The normal distribution is continuous and additionallythe normal distribution is asymptotic to the X axis—it never actually touches the X axis and theoretically goes on to infinity.</p>
+<p>The normal distribution is really a family of distributions defined by all possible combinations of means <span class="math inline">\(\mu\)</span> and standard deviations <span class="math inline">\(\sigma\)</span>. We can use the standardized normal distribution to find areas of probability under the curve.</p>
+<p>With a normal distribution, there is always a fixed area under the curve which we take the reflect the probability of getting a score when sampling from a population.</p>
+<p>For example if we go 1 z unit (1 SD) away from the mean we find 34% of the total area of the curve there. If you then extend that out to the negative side, you then encapsulate 68% of the distribution. This would translate to a scenario where if you were to get a score at random from the distribution, 68% of the time you would get a score between 1 and -1 SD units from your mean.</p>
+<p>This process can be extended as seen in the figure below.</p>
+<div class="figure">
+<img src="img/hickszscores1.png" alt="z Scores and Areas Under the Curve" />
+<p class="caption">z Scores and Areas Under the Curve</p>
+</div>
+<p>We could also calculate the area between two z scores as shown here. <img src="img/hickszscores2.png" alt="z Scores and Areas Under the Curve" /></p>
+<p>And we could also look at how much area under the distribution exists beyond two standard deviations beyond the mean.</p>
+<div class="figure">
+<img src="img/hickszscores3.png" alt="z Scores and Areas Under the Curve" />
+<p class="caption">z Scores and Areas Under the Curve</p>
+</div>
+<p>Or we could pick any z score values and find the area under the mean!</p>
+<div class="figure">
+<img src="img/hickszscores4.png" alt="z Scores and Areas Under the Curve" />
+<p class="caption">z Scores and Areas Under the Curve</p>
+</div>
+</div>
+</div>
+<div id="practice" class="section level2">
+<h2><span class="header-section-number">5.2</span> Practice</h2>
+<p>We can now start to put this to use. Here are some past homework examples.</p>
+<p>During tryouts, a sample of ballet dancers were rated on their athletic ability andoverall knowledge of the art. Below are the ratings for each dancer (a score above 75 percent means that the dancer will join the troupe</p>
+<p>83, 98, 45, 69, 52, 94, 82, 74, 71, 83, 62, 85, 90, 97, 61, 74, 74, 88</p>
+<p>Let’s put them into R so we can use answer a few questions about our data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ballet &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">83</span>, <span class="dv">98</span>, <span class="dv">45</span>, <span class="dv">69</span>, <span class="dv">52</span>, <span class="dv">94</span>, <span class="dv">82</span>, <span class="dv">74</span>, <span class="dv">71</span>, <span class="dv">83</span>, <span class="dv">62</span>, <span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">97</span>, <span class="dv">61</span>, <span class="dv">74</span>, <span class="dv">74</span>, <span class="dv">88</span>)</code></pre></div>
+<p>What is the median percentage?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(ballet)</code></pre></div>
+<pre><code>## [1] 78</code></pre>
+<p>What is the mean percentage?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(ballet)</code></pre></div>
+<pre><code>## [1] 76.77778</code></pre>
+<p>What is the standard deviation for the sample (assume we don’t know any population characteristics)?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(ballet)</code></pre></div>
+<pre><code>## [1] 15.02373</code></pre>
+<p>Demonstrate the least squares principle by showing that the sum of squares (SS) around the mean is smaller than the sum of squares around the median (remember to show your work for each).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ballet_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(ballet)
+ballet_median &lt;-<span class="st"> </span><span class="kw">median</span>(ballet)
+ballet_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(ballet)</code></pre></div>
+<p>Now we can use these values to do our math!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3837.111</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_median)<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3864</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Then having R do the final work for us</span>
+<span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">^</span><span class="dv">2</span>) <span class="op">&gt;</span><span class="st"> </span><span class="kw">sum</span>((ballet <span class="op">-</span><span class="st"> </span>ballet_median)<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>What are the standardized (z) scores for the raw scores 73, 99, and 66? If you know the population mean and the sd, you can calulate a z score using the formula <span class="math display">\[z =  \frac{x_i - \bar{X}}{s}\]</span></p>
+<p>Or in our case</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">73</span> <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">/</span><span class="st"> </span>ballet_sd</code></pre></div>
+<pre><code>## [1] -0.2514541</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">99</span> <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">/</span><span class="st"> </span>ballet_sd</code></pre></div>
+<pre><code>## [1] 1.479142</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">66</span> <span class="op">-</span><span class="st"> </span>ballet_mean)<span class="op">/</span><span class="st"> </span>ballet_sd</code></pre></div>
+<pre><code>## [1] -0.7173837</code></pre>
+<p>What proportion of scores exceeds a raw score of 73?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">73</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
+<pre><code>## [1] 0.4007315</code></pre>
+<p>To get the other side of the probability we can remember that we can treat the line above as an object!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">73</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
+<pre><code>## [1] 0.5992685</code></pre>
+<p>What proportion of scores lies between the raw scores of 75 and 100? Let’s be clever for this one and just put the two equations together for this one. Or if you want, you could save them into objects.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">100</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">75</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
+<pre><code>## [1] 0.4860093</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dt">q =</span> <span class="dv">76</span>, <span class="dt">mean =</span> ballet_mean, <span class="dt">sd =</span>  ballet_sd)</code></pre></div>
+<pre><code>## [1] 0.479356</code></pre>
+<p>What raw score represents the 55thpercentile? To find out what raw score represents a percentile we can go back and use the formula from above, just rearranged a bit.</p>
+<p><span class="math display">\[z =  \frac{x_i - \bar{X}}{s}\]</span></p>
+<p>or with a bit of basic algerbra</p>
+<p><span class="math display">\[x_i = (z * s) + \bar{X}\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(.<span class="dv">05</span> <span class="op">*</span><span class="st"> </span>ballet_sd) <span class="op">+</span><span class="st"> </span>ballet_mean</code></pre></div>
+<pre><code>## [1] 77.52896</code></pre>
+<p>Between what raw scores does the middle 60% of the distribution lie?</p>
+<p>Lastly, we then need to find first what z scores map on 30% on either side of the disribution, then convert those z scores to raw scores on our data using the z score formula.</p>
+<p>First we find the z score associated with what is 30% left and right of the mean (it will be the same number, only negative). In this case, it is +/-.84.</p>
+<p>With that established, we then first solve for x</p>
+<p><span class="math display">\[-0.84 = \frac{x - 76.78}{15.02}\]</span></p>
+<p>Giving us a value of 64.1 And we do it again with the positive number.</p>
+<p><span class="math display">\[0.84 = \frac{x - 76.78}{15.02}\]</span> Resulting in 89.547.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="epistemology-of-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sampling-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-descriptiveZscoresCentral.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Psych Handbook</title>
+  <meta name="description" content="A handbook for psychologists at LSU to get started with R and Statistics.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Psych Handbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Psych Handbook" />
+  
+  <meta name="twitter:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  
+
+<meta name="author" content="David John Baker">
+
+
+<meta name="date" content="2018-05-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="mixed-effects-models.html">
+<link rel="next" href="this-is-a-template-file.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Psych Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#a-note-on-setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> A Note on Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-basics"><i class="fa fa-check"></i><b>2.3</b> The Basics</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-as-calculator"><i class="fa fa-check"></i><b>2.4</b> R as Calculator</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#data-exploration"><i class="fa fa-check"></i><b>2.5</b> Data Exploration</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#indexing"><i class="fa fa-check"></i><b>2.6</b> Indexing</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#whirlwind-tour-of-r"><i class="fa fa-check"></i><b>2.7</b> Whirlwind Tour of R</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#functions-for-psychologists"><i class="fa fa-check"></i><b>2.8</b> Functions for Psychologists</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#resources"><i class="fa fa-check"></i><b>2.9</b> Resources</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#template-stuff"><i class="fa fa-check"></i><b>2.9.1</b> Template Stuff</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-response-data"><i class="fa fa-check"></i><b>3.1</b> Cleaning Response Data</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-up-gender"><i class="fa fa-check"></i><b>3.1.1</b> Cleaning Up Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.2</b> Merging Data</a></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-univariate-outliers"><i class="fa fa-check"></i><b>3.3</b> Checking for Univariate Outliers</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-multivariate-outliers"><i class="fa fa-check"></i><b>3.3.1</b> Checking for Multivariate Outliers</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-skew-and-kurtosis"><i class="fa fa-check"></i><b>3.3.2</b> Checking for Skew and Kurtosis</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#exporting-data"><i class="fa fa-check"></i><b>3.3.3</b> Exporting Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Epistemology of Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#karl-popper"><i class="fa fa-check"></i><b>4.1</b> Karl Popper</a></li>
+<li class="chapter" data-level="4.2" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#r.a.-fisher"><i class="fa fa-check"></i><b>4.2</b> R.A. Fisher</a></li>
+<li class="chapter" data-level="4.3" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#neyman-pearson"><i class="fa fa-check"></i><b>4.3</b> Neyman-Pearson</a></li>
+<li class="chapter" data-level="4.4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#bayes"><i class="fa fa-check"></i><b>4.4</b> Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
+<li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#organizing-data"><i class="fa fa-check"></i><b>5.1.1</b> Organizing Data</a></li>
+<li class="chapter" data-level="5.1.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#shape-of-data"><i class="fa fa-check"></i><b>5.1.2</b> Shape of Data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#important-considerations-for-central-tendency"><i class="fa fa-check"></i><b>5.1.3</b> Important Considerations for Central Tendency</a></li>
+<li class="chapter" data-level="5.1.4" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#measures-of-variability"><i class="fa fa-check"></i><b>5.1.4</b> Measures of Variability</a></li>
+<li class="chapter" data-level="5.1.5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#properties-of-z-scores"><i class="fa fa-check"></i><b>5.1.5</b> Properties of z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#practice"><i class="fa fa-check"></i><b>5.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>7</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#steps-of-hypothesis-testing"><i class="fa fa-check"></i><b>7.1</b> Steps of Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#other-important-considerations."><i class="fa fa-check"></i><b>7.1.1</b> Other important considerations.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#two-sample"><i class="fa fa-check"></i><b>7.2</b> Two Sample</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html"><i class="fa fa-check"></i><b>8</b> Power, Confidence Intervals, Effect Size Measures</a><ul>
+<li class="chapter" data-level="8.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#power"><i class="fa fa-check"></i><b>8.1</b> Power</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#test-equations"><i class="fa fa-check"></i><b>8.1.1</b> Test Equations</a></li>
+<li class="chapter" data-level="8.1.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#factors-of-power"><i class="fa fa-check"></i><b>8.1.2</b> Factors of Power</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#confidence-ientervals"><i class="fa fa-check"></i><b>8.2</b> Confidence Ientervals</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#capture-percentage"><i class="fa fa-check"></i><b>8.2.1</b> Capture Percentage</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html"><i class="fa fa-check"></i><b>9</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="9.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#calculating-person-c"><i class="fa fa-check"></i><b>9.1</b> Calculating Person C</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
+<li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
+<li class="chapter" data-level="11.1" data-path="matched-t-test.html"><a href="matched-t-test.html#theory"><i class="fa fa-check"></i><b>11.1</b> Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>12</b> One Way ANOVA</a><ul>
+<li class="chapter" data-level="12.0.1" data-path="one-way-anova.html"><a href="one-way-anova.html#assumptions-of-anova"><i class="fa fa-check"></i><b>12.0.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="12.0.2" data-path="one-way-anova.html"><a href="one-way-anova.html#practice-1"><i class="fa fa-check"></i><b>12.0.2</b> Practice</a></li>
+<li class="chapter" data-level="12.1" data-path="one-way-anova.html"><a href="one-way-anova.html#effect-size-measures"><i class="fa fa-check"></i><b>12.1</b> Effect Size Measures</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html"><i class="fa fa-check"></i><b>13</b> Multiple Comparisons</a><ul>
+<li class="chapter" data-level="13.1" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html#trend-analysis"><i class="fa fa-check"></i><b>13.1</b> Trend analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="factorial-anova.html"><a href="factorial-anova.html"><i class="fa fa-check"></i><b>14</b> Factorial Anova</a><ul>
+<li class="chapter" data-level="14.1" data-path="factorial-anova.html"><a href="factorial-anova.html#assumptions-of-anova-1"><i class="fa fa-check"></i><b>14.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="14.2" data-path="factorial-anova.html"><a href="factorial-anova.html#power-and-sample-size-estimatoin"><i class="fa fa-check"></i><b>14.2</b> Power and Sample Size Estimatoin</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="factorial-anova.html"><a href="factorial-anova.html#three-way-factorial"><i class="fa fa-check"></i><b>14.2.1</b> Three Way Factorial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
+<li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
+<li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
+<li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#equal-variance"><i class="fa fa-check"></i><b>16.1.1</b> Equal Variance</a></li>
+<li class="chapter" data-level="16.1.2" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#simple-main-effects"><i class="fa fa-check"></i><b>16.1.2</b> Simple Main Effects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="17.1" data-path="multiple-regression.html"><a href="multiple-regression.html#conceptual-representation"><i class="fa fa-check"></i><b>17.1</b> Conceptual Representation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="multiple-regression.html"><a href="multiple-regression.html#second-part"><i class="fa fa-check"></i><b>17.1.1</b> Second Part</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="chi-square.html"><a href="chi-square.html"><i class="fa fa-check"></i><b>18</b> Chi-Square</a></li>
+<li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
+<li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
+<li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introduction-to-multiple-regression"><i class="fa fa-check"></i><b>21.1</b> Introduction to Multiple Regression</a></li>
+<li class="chapter" data-level="21.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#basics-of-multiple-regression"><i class="fa fa-check"></i><b>21.2</b> Basics of Multiple Regression</a></li>
+<li class="chapter" data-level="21.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#types-of-multiple-regression"><i class="fa fa-check"></i><b>21.3</b> Types of Multiple Regression</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#standard-multiple-regression"><i class="fa fa-check"></i><b>21.3.1</b> Standard Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#sequential-multiple-regression"><i class="fa fa-check"></i><b>21.3.2</b> Sequential Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#statistical-or-stepwise-multiple-regression"><i class="fa fa-check"></i><b>21.3.3</b> Statistical or Stepwise Multiple Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>21.4</b> Interpretation of Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#model-summary"><i class="fa fa-check"></i><b>21.4.1</b> Model Summary</a></li>
+<li class="chapter" data-level="21.4.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#anova"><i class="fa fa-check"></i><b>21.4.2</b> ANOVA</a></li>
+<li class="chapter" data-level="21.4.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#coefficients"><i class="fa fa-check"></i><b>21.4.3</b> Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.5</b> OLD MEDIATION MODERATION</a></li>
+<li class="chapter" data-level="21.6" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introductory-ramble"><i class="fa fa-check"></i><b>21.6</b> Introductory Ramble</a></li>
+<li class="chapter" data-level="21.7" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>21.7</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="21.7.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#spss-notes"><i class="fa fa-check"></i><b>21.7.1</b> SPSS Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="21.8" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#surpressor-variables"><i class="fa fa-check"></i><b>21.8</b> Surpressor Variables</a></li>
+<li class="chapter" data-level="21.9" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation-and-mediation"><i class="fa fa-check"></i><b>21.9</b> Moderation and Mediation</a><ul>
+<li class="chapter" data-level="21.9.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation"><i class="fa fa-check"></i><b>21.9.1</b> Moderation</a></li>
+</ul></li>
+<li class="chapter" data-level="21.10" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#centering"><i class="fa fa-check"></i><b>21.10</b> Centering</a></li>
+<li class="chapter" data-level="21.11" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#mediation"><i class="fa fa-check"></i><b>21.11</b> Mediation</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
+<li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
+<li class="chapter" data-level="24" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>24</b> ANCOVA</a><ul>
+<li class="chapter" data-level="24.1" data-path="ancova.html"><a href="ancova.html#theory-1"><i class="fa fa-check"></i><b>24.1</b> Theory</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="ancova.html"><a href="ancova.html#reducing-noise"><i class="fa fa-check"></i><b>24.1.1</b> Reducing Noise</a></li>
+<li class="chapter" data-level="24.1.2" data-path="ancova.html"><a href="ancova.html#assumptions-of-anova-2"><i class="fa fa-check"></i><b>24.1.2</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="24.1.3" data-path="ancova.html"><a href="ancova.html#best-practice"><i class="fa fa-check"></i><b>24.1.3</b> Best Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="ancova.html"><a href="ancova.html#practice-2"><i class="fa fa-check"></i><b>24.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="manova.html"><a href="manova.html"><i class="fa fa-check"></i><b>25</b> MANOVA</a></li>
+<li class="chapter" data-level="26" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html"><i class="fa fa-check"></i><b>26</b> Repeated Measures ANOVA</a><ul>
+<li class="chapter" data-level="26.0.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#null-hypothesis"><i class="fa fa-check"></i><b>26.0.1</b> Null Hypothesis</a></li>
+<li class="chapter" data-level="26.0.2" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#strength-of-association"><i class="fa fa-check"></i><b>26.0.2</b> Strength of association</a></li>
+<li class="chapter" data-level="26.0.3" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#limitation"><i class="fa fa-check"></i><b>26.0.3</b> Limitation</a></li>
+<li class="chapter" data-level="26.0.4" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#doubly-repeated-manova"><i class="fa fa-check"></i><b>26.0.4</b> Doubly Repeated MANOVA</a></li>
+<li class="chapter" data-level="26.0.5" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#post-tests"><i class="fa fa-check"></i><b>26.0.5</b> Post Tests</a></li>
+<li class="chapter" data-level="26.0.6" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts"><i class="fa fa-check"></i><b>26.0.6</b> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</a></li>
+<li class="chapter" data-level="26.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#practice-3"><i class="fa fa-check"></i><b>26.1</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
+<li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#theory-2"><i class="fa fa-check"></i><b>27.1</b> Theory</a><ul>
+<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#introduction"><i class="fa fa-check"></i><b>27.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.2</b> Factor Analysis Purposes</a></li>
+<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.3</b> Types of Analysis</a></li>
+<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.4</b> PCA</a></li>
+<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.5</b> Rotatation</a></li>
+<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.6</b> Assumptions</a></li>
+<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
+<li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
+</ul></li>
+<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-4"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
+<li class="chapter" data-level="29" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html"><i class="fa fa-check"></i><b>29</b> Latent Variable Modeling – Path, SEM, CFA</a><ul>
+<li class="chapter" data-level="29.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#path-analysis"><i class="fa fa-check"></i><b>29.1</b> Path Analysis</a><ul>
+<li class="chapter" data-level="29.1.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background"><i class="fa fa-check"></i><b>29.1.1</b> Background</a></li>
+<li class="chapter" data-level="29.1.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#getting-numeric"><i class="fa fa-check"></i><b>29.1.2</b> Getting Numeric</a></li>
+<li class="chapter" data-level="29.1.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-in-r"><i class="fa fa-check"></i><b>29.1.3</b> Doing It in R</a></li>
+<li class="chapter" data-level="29.1.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#an-example-in-r"><i class="fa fa-check"></i><b>29.1.4</b> An Example In R</a></li>
+<li class="chapter" data-level="29.1.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#indirect-effects"><i class="fa fa-check"></i><b>29.1.5</b> Indirect Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#basic-latent-variable-models-sem"><i class="fa fa-check"></i><b>29.2</b> Basic Latent Variable Models , SEM</a><ul>
+<li class="chapter" data-level="29.2.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background-1"><i class="fa fa-check"></i><b>29.2.1</b> Background</a></li>
+<li class="chapter" data-level="29.2.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#latent-variable-models"><i class="fa fa-check"></i><b>29.2.2</b> Latent Variable Models</a></li>
+<li class="chapter" data-level="29.2.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-with-two-latent-variables-in-r"><i class="fa fa-check"></i><b>29.2.3</b> Doing it With Two Latent Variables in R</a></li>
+<li class="chapter" data-level="29.2.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-sem-in-r"><i class="fa fa-check"></i><b>29.2.4</b> Doing SEM in R</a></li>
+<li class="chapter" data-level="29.2.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#reporting-results"><i class="fa fa-check"></i><b>29.2.5</b> Reporting Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="this-is-a-template-file.html"><a href="this-is-a-template-file.html"><i class="fa fa-check"></i><b>30</b> This is a template file</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Psych Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="latent-variable-modeling-path-sem-cfa" class="section level1">
+<h1><span class="header-section-number">Chapter 29</span> Latent Variable Modeling – Path, SEM, CFA</h1>
+<p>Material in this chapter is directly lifted from <a href="https://books.google.com/books/about/Latent_Variable_Modeling_Using_R.html?id=7hmLAwAAQBAJ&amp;printsec=frontcover&amp;source=kp_read_button#v=onepage&amp;q&amp;f=false">Latent Variable Modeling Using R</a>.</p>
+<div id="path-analysis" class="section level2">
+<h2><span class="header-section-number">29.1</span> Path Analysis</h2>
+<div id="background" class="section level3">
+<h3><span class="header-section-number">29.1.1</span> Background</h3>
+<div id="basic-representation" class="section level4">
+<h4><span class="header-section-number">29.1.1.1</span> Basic Representation</h4>
+<div class="figure">
+<img src="img/beaupath1.png" alt="Beau" />
+<p class="caption">Beau</p>
+</div>
+<p>A <strong>path</strong> model is a graphic representation of what we are trying to model. In a path model, there are two types of variables</p>
+<ul>
+<li>Exogenous : without direct cause AKA IVs</li>
+<li>Endogenous: with direct cause AKA DVs</li>
+</ul>
+<p>In the figure below, the Xs are exogenous and the Ys are endogenous</p>
+<div class="figure">
+<img src="img/beaupath2.png" alt="Beau" />
+<p class="caption">Beau</p>
+</div>
+<p>If a an arrow has a single head, it means it is causing a relationship. If there is a double headed arrow, it means that the relationship is a correlation and there is some sort of covariance.</p>
+<p>All important relationships are assumed to be present in a path model. If you do not show the relationship, it is assumed not to exist.</p>
+<p>Our predicted value, or endogenous variable, or Y, always has an error term with it. Just like you would imagine with any other type of model.</p>
+<p>Note that your error terms with the predicted or endogenous variables are never connected to bi-directional arrows. Their error terms on the other hand, can be! This is important because sometimes your error terms will share a certain amount of co-variation. This is indicated by having the double arrow on either side of the errors. The author shows that in a figure like the one below.</p>
+<div class="figure">
+<img src="img/beaupath3.png" alt="Beau" />
+<p class="caption">Beau</p>
+</div>
+<p>As seen above, we use the coefficient <em>c</em> to talk bout the relationship between two variables (in this case, X and Y) after removing the effect of W.</p>
+<p>What we are doing now as we depart from things like regression analysis, is look at things beyond <strong>manifest</strong> variables (things you can see like height or age and get a good number on) and move towards looking at <strong>latent</strong> variables. We can’t directly observe latent variables, but we assume for them to be there.</p>
+<p>You will sometimes seen path diagrams displayed differently, but as far as this book is concerned, all relationships will be made explicit in the path diagram.</p>
+</div>
+<div id="tracing-rules" class="section level4">
+<h4><span class="header-section-number">29.1.1.2</span> Tracing Rules</h4>
+<p>Sewall <strong>Wright</strong> was a genetecist who came up with the rules on how to derive our values for path analysis. <strong>What we are doing is estimating the coovariance between two variables by summing the appropriate connecting paths</strong>. If you have a basic model (no means ELABORATE HERE LATER WHEN YOU GET IT!), there are only a few rules</p>
+<ul>
+<li>Trace all paths between two variables (or a variable back to itself), multiplying all the coeffecients along a given path</li>
+<li>You can start by going backwards along a single (directional!) arrow head, but once you start going forward along these arrows you can no longer go backwards.</li>
+<li>No loops! You can not go through the same variable once for a given path.</li>
+<li>At maximum, there can be one double sided arrow in a path.</li>
+<li>After tracing all paths for a given relationship, sum all the paths</li>
+</ul>
+<p>The basic idea with these rules is that you need to look at each variable and try to get from your exogenous (IV) to your endogenous (DV) every way you can, without breaking the rules. So to get from your first X1 to Y, you can either go</p>
+<ul>
+<li>Directly there via <strong>a</strong></li>
+<li>Jump over via <strong>e</strong>, then through X3 to C to Y1</li>
+<li>Jump over via <strong>d</strong>, then through <strong>b</strong></li>
+<li>This results in saying from <span class="math inline">\(X1\)</span> to <span class="math inline">\(Y\)</span>, notated 0_1Y = <strong>a</strong> + <strong>ec</strong> + <strong>db</strong></li>
+<li>You then do this for the other exogenous variables</li>
+</ul>
+<p>Note that we also have to consider the covariance of Y with itself. Since we can go backwards on a one directional arrow, we can go back to X1 via <strong>a</strong>, but then have to go back (Why?!) and the same for <strong>z</strong>, our residual. Then if we add all three up, we get the amount of our endogenous variable’s variance explained by in X1, X2, X3 (the <span class="math inline">\(R^2\)</span>) and <strong>z</strong> is what is left over. IS THIS KIND OF LIKE A SUM OF SQUARES TOTAL VARIANCE?!</p>
+</div>
+</div>
+<div id="getting-numeric" class="section level3">
+<h3><span class="header-section-number">29.1.2</span> Getting Numeric</h3>
+<p>So now we know how these things work, what we then want to do is see what happens when we look at putting numbers inside of them. * Step 1: Look at the correlations (double headed arrows) that we know from our correlation matrix * Step 2: Do clever algebra knowing you have three values and three related equations to derive your missing values. SO FUCKING COOL! * Step 3: Now you know all the path values, you just need to figure out the residual. * Step 4: See the book for the exact math of it</p>
+<div id="path-coeffecients" class="section level4">
+<h4><span class="header-section-number">29.1.2.1</span> Path Coeffecients</h4>
+<p>So the values with the double arrow heads we know are correlation coeffecients. But those are not the same as single arrow heads! These single headed arrow values are standardized partial regression coeffecients or <strong>path coeffecients</strong>. Note the two important parts of this definitions: standardized and partial. Standardized means it refers to values on <em>z</em> scores. Partial means they are values for after the effects of other variables have been controlled for.</p>
+<p>Note that this is <em>just like regression standard vs unstandardized</em> in that you can convert standardized to non. The same benefits apply (intra model comparision vs interpretability).</p>
+</div>
+</div>
+<div id="doing-it-in-r" class="section level3">
+<h3><span class="header-section-number">29.1.3</span> Doing It in R</h3>
+<p>To do path modeling in R, this book will use the <code>lavaan</code> package. Note lavaan means ‘’LAtenent VAriable ANalysis’’. To make a latent variable model in R, you need to specify two things</p>
+<ul>
+<li>Specify the path model</li>
+<li>Analyze!</li>
+</ul>
+<p>Take a second and look at the given R syntax and the path model that it is showing. The author walks us through this…</p>
+<p>Note the top line is the model definition and you have to put it as a string see the ’ ! We then put C and D as outcomes with their associated paths.</p>
+<div class="figure">
+<img src="img/beaupath3.png" alt="beat" />
+<p class="caption">beat</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(lavaan)</code></pre></div>
+<pre><code>## This is lavaan 0.5-23.1097</code></pre>
+<pre><code>## lavaan is BETA software! Please report any bugs.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lavaan&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:psych&#39;:
+## 
+##     cor2cov</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> example.model &lt;-<span class="st"> &#39;</span>
+<span class="st"> C ~ y*B + w*A</span>
+<span class="st"> D ~ z*C + x*A</span>
+<span class="st"> #Optional Label of Residual Variance</span>
+<span class="st"> C~~C_Resid*C</span>
+<span class="st"> #Optional Label of Residual Variance</span>
+<span class="st"> D~~D_Resid*D</span>
+<span class="st"> &#39;</span> </code></pre></div>
+<p>Once you set this model, then you can do either a cfa() or sem() call to the model.</p>
+<p>Below is a cheat sheet for lavaan’s syntax:</p>
+<div class="figure">
+<img src="img/beaupath4.png" alt="Path" />
+<p class="caption">Path</p>
+</div>
+<div id="more-syntax" class="section level4">
+<h4><span class="header-section-number">29.1.3.1</span> More Syntax</h4>
+<p>You can enter either the raw data, or the covariance matrix in R with lavaan.</p>
+<ul>
+<li>Raw data = data argument</li>
+<li>Covariance Matrix = sample.cov, with this you also get option for input a mean vector with sample.mean()</li>
+</ul>
+<pre><code>example.fit &lt;- sem(example.model, data=example.data)
+example.fit &lt;- sem(example.model, sample.cov = example.cov, sample.nobs =500)</code></pre>
+<p>The default option with lavaan is normal-theory maximum likelihood.</p>
+<p>Once you designate a model using either the syntax</p>
+<p>Then you just (like everything in R) need to call the summary function on it. With the summary() function you get</p>
+<ul>
+<li>Note if parameter estimations converged</li>
+<li>Sample Size</li>
+<li>Estimator</li>
+<li>fit statistic with df and p value</li>
+<li>Unstandardized parameter values</li>
+<li>The parameter estimates’ standard error</li>
+<li>The ratio of parameter estimates and their standard errors (Wald statistic)</li>
+<li>P value for Wald statistic</li>
+</ul>
+<p>You can change the arguments if you want to get other types of values for the model.</p>
+</div>
+</div>
+<div id="an-example-in-r" class="section level3">
+<h3><span class="header-section-number">29.1.4</span> An Example In R</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#--------------------------------------------------</span>
+## Make Data
+regression.cor &lt;-<span class="st"> </span><span class="kw">lav_matrix_lower2full</span>(<span class="kw">c</span>(<span class="dv">1</span>,.<span class="dv">2</span>,<span class="dv">1</span>,.<span class="dv">24</span>,.<span class="dv">3</span>,<span class="dv">1</span>,.<span class="dv">7</span>,.<span class="dv">8</span>,.<span class="dv">3</span>,<span class="dv">1</span>))
+<span class="kw">colnames</span>(regression.cor) &lt;-<span class="st"> </span><span class="kw">row.names</span>(regression.cor) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X1&quot;</span>,<span class="st">&quot;X2&quot;</span>,<span class="st">&quot;X3&quot;</span>,<span class="st">&quot;Y&quot;</span>)
+regression.cor</code></pre></div>
+<pre><code>##      X1  X2   X3   Y
+## X1 1.00 0.2 0.24 0.7
+## X2 0.20 1.0 0.30 0.8
+## X3 0.24 0.3 1.00 0.3
+## Y  0.70 0.8 0.30 1.0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Specifiy Path Model 
+regression.model &lt;-<span class="st"> &#39;</span>
+<span class="st">#Structural Model for Y</span>
+<span class="st">Y ~ a*X1 + b*X2 + c*X3</span>
+<span class="st">#Label Residual Variance for Y </span>
+<span class="st">Y ~~ z*Y</span>
+<span class="st">&#39;</span>
+
+## Estimate Parameters with sem() and n = 1000
+
+regression.fit &lt;-<span class="st"> </span><span class="kw">sem</span>(regression.model, <span class="dt">sample.cov =</span> regression.cor, <span class="dt">sample.nobs =</span> <span class="dv">1000</span>)
+<span class="kw">summary</span>(regression.fit, <span class="dt">rsquare=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## lavaan (0.5-23.1097) converged normally after  25 iterations
+## 
+##   Number of observations                          1000
+## 
+##   Estimator                                         ML
+##   Minimum Function Test Statistic                0.000
+##   Degrees of freedom                                 0
+##   Minimum Function Value               0.0000000000000
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   Y ~                                                 
+##     X1         (a)    0.571    0.008   74.539    0.000
+##     X2         (b)    0.700    0.008   89.724    0.000
+##     X3         (c)   -0.047    0.008   -5.980    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .Y          (z)    0.054    0.002   22.361    0.000
+## 
+## R-Square:
+##                    Estimate
+##     Y                 0.946</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#--------------------------------------------------</span></code></pre></div>
+</div>
+<div id="indirect-effects" class="section level3">
+<h3><span class="header-section-number">29.1.5</span> Indirect Effects</h3>
+<p>The examples above are concerned with one variables direct effect on another. An an indirect effect is an effect a variable has on another variable when going through one other variable.</p>
+<p>Here we have an example of an indirect effect. The figure show that years in school directly affects salary as shown with the direct arrow path ‘’a’‘. The model also supposes that cognitive ability can indirectly affect salary, but cognitive ability is affected by number of years in school. The indirect influence is a compound effect. You can use the tracing rules to see that it’s possible to go via’‘b’‘and’‘c’’ to get to salary.</p>
+<div id="example-with-indirect-effects" class="section level4">
+<h4><span class="header-section-number">29.1.5.1</span> Example with Indirect Effects</h4>
+<p>The data to estimate this model are given here with the parameter values and the covariances.</p>
+<div class="figure">
+<img src="img/beaupath5.png" alt="beau" />
+<p class="caption">beau</p>
+</div>
+<p>All of this data is put together and analyzed in the code below.</p>
+<div class="figure">
+<img src="img/beaupath6.png" alt="beau" />
+<p class="caption">beau</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Indirect Model </span>
+
+<span class="co"># Make Data</span>
+beaujean.cov &lt;-<span class="st"> </span><span class="kw">lav_matrix_lower2full</span>(<span class="kw">c</span>(<span class="fl">648.07</span>,<span class="fl">30.05</span>,<span class="fl">8.64</span>,<span class="fl">140.18</span>,<span class="fl">25.57</span>,<span class="fl">233.21</span>))
+<span class="kw">colnames</span>(beaujean.cov) &lt;-<span class="st"> </span><span class="kw">row.names</span>(beaujean.cov) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;salary&quot;</span>,<span class="st">&quot;school&quot;</span>,<span class="st">&quot;iq&quot;</span>)
+beaujean.cov</code></pre></div>
+<pre><code>##        salary school     iq
+## salary 648.07  30.05 140.18
+## school  30.05   8.64  25.57
+## iq     140.18  25.57 233.21</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Specifiy Path Model </span>
+
+beaujean.model &lt;-<span class="st"> &#39;</span>
+<span class="st">salary ~ a*school + c*iq</span>
+<span class="st">school ~ b*iq</span>
+<span class="st">ind:= b*c</span>
+<span class="st">&#39;</span>
+
+<span class="co"># Estimate Parameters </span>
+
+beaujean.fit &lt;-<span class="st"> </span><span class="kw">sem</span>(beaujean.model, <span class="dt">sample.cov =</span> beaujean.cov, <span class="dt">sample.nobs =</span> <span class="dv">300</span>)
+
+<span class="kw">summary</span>(beaujean.fit)</code></pre></div>
+<pre><code>## lavaan (0.5-23.1097) converged normally after  23 iterations
+## 
+##   Number of observations                           300
+## 
+##   Estimator                                         ML
+##   Minimum Function Test Statistic                0.000
+##   Degrees of freedom                                 0
+##   Minimum Function Value               0.0000000000000
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Standard Errors                             Standard
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   salary ~                                            
+##     school     (a)    2.515    0.549    4.585    0.000
+##     iq         (c)    0.325    0.106    3.081    0.002
+##   school ~                                            
+##     iq         (b)    0.110    0.009   12.005    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .salary          525.129   42.877   12.247    0.000
+##    .school            5.817    0.475   12.247    0.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##     ind               0.036    0.012    2.984    0.003</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Reporting results
+<span class="kw">library</span>(xtable)
+<span class="kw">xtable</span>(<span class="kw">parameterEstimates</span>(regression.fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>)[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">5</span><span class="op">:</span><span class="dv">6</span>,<span class="dv">12</span>)], <span class="dt">caption=</span><span class="st">&quot;Example Table Using </span><span class="ch">\\</span><span class="st">texttt{xtable()} Function.&quot;</span>)</code></pre></div>
+<pre><code>## % latex table generated in R 3.4.1 by xtable 1.8-2 package
+## % Fri May  4 10:30:50 2018
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{rlllrrr}
+##   \hline
+##  &amp; lhs &amp; op &amp; rhs &amp; est &amp; se &amp; std.all \\ 
+##   \hline
+## 1 &amp; Y &amp; \~{} &amp; X1 &amp; 0.57 &amp; 0.01 &amp; 0.57 \\ 
+##   2 &amp; Y &amp; \~{} &amp; X2 &amp; 0.70 &amp; 0.01 &amp; 0.70 \\ 
+##   3 &amp; Y &amp; \~{} &amp; X3 &amp; -0.05 &amp; 0.01 &amp; -0.05 \\ 
+##   4 &amp; Y &amp; \~{}\~{} &amp; Y &amp; 0.05 &amp; 0.00 &amp; 0.05 \\ 
+##   5 &amp; X1 &amp; \~{}\~{} &amp; X1 &amp; 1.00 &amp; 0.00 &amp; 1.00 \\ 
+##   6 &amp; X1 &amp; \~{}\~{} &amp; X2 &amp; 0.20 &amp; 0.00 &amp; 0.20 \\ 
+##   7 &amp; X1 &amp; \~{}\~{} &amp; X3 &amp; 0.24 &amp; 0.00 &amp; 0.24 \\ 
+##   8 &amp; X2 &amp; \~{}\~{} &amp; X2 &amp; 1.00 &amp; 0.00 &amp; 1.00 \\ 
+##   9 &amp; X2 &amp; \~{}\~{} &amp; X3 &amp; 0.30 &amp; 0.00 &amp; 0.30 \\ 
+##   10 &amp; X3 &amp; \~{}\~{} &amp; X3 &amp; 1.00 &amp; 0.00 &amp; 1.00 \\ 
+##    \hline
+## \end{tabular}
+## \caption{Example Table Using \texttt{xtable()} Function.} 
+## \end{table}</code></pre>
+</div>
+</div>
+</div>
+<div id="basic-latent-variable-models-sem" class="section level2">
+<h2><span class="header-section-number">29.2</span> Basic Latent Variable Models , SEM</h2>
+<div id="background-1" class="section level3">
+<h3><span class="header-section-number">29.2.1</span> Background</h3>
+<p>The big umbrella term for the statistical models that use a <strong>structural model</strong> and a <strong>latent variable</strong> model are <strong>structural equation models</strong>’’ or <strong>SEM</strong>s.</p>
+<p>Reiterating for my own sake, we have two main parts * The Structural Model: Regression-like relationship between variables * The Latent Variable Model: Creates the latent variable structure</p>
+<p>If there is latent variable model is analyzed without a structural model it is often called <strong>Confirmatory Factor Analysis</strong> or <strong>CFA</strong>. If you don’t even have a hypothesized latent variable structure, then you have <strong>Exploratory Factor Analysis</strong>‘’’ or <strong>EFA</strong>. Note that when we say factor in factor analysis, that is synonymous with the idea of latent variable. The way in which all of the variables relate to one another can be seen in the chart below.</p>
+<div class="figure">
+<img src="img/beaupath7.png" alt="img" />
+<p class="caption">img</p>
+</div>
+</div>
+<div id="latent-variable-models" class="section level3">
+<h3><span class="header-section-number">29.2.2</span> Latent Variable Models</h3>
+<div class="figure">
+<img src="img/beaupath8.png" alt="img" />
+<p class="caption">img</p>
+</div>
+<p>There are two types of latent variables * Reflective: Thought to cause other variables to covary * Formative: Are result of other variables’ covariation (like regression)</p>
+<p>This book/wiki will focus primarily on reflective (variables cause others to covary). The point of using a reflective model is to understand the structure that caused the manifest variables to act like they do. These manifest variables that have an effect on the latent variables are also called <strong>indicator variables</strong>. The idea behind the whole thing is that there is a variable latent (badumch) driving the way that each indicator variable acts.</p>
+<p>In the chapter before we had a latent variable, but it was the error term. In the whole mess of numbers the LV was an unobserved value that had a significant amount of influence one of the observed variables. But since it was an error term, it was technically measured differently than how we normally go about measuring LVs.</p>
+<p>The big idea behind LVM is that behind the one big thing you are measuring, there are a few small LVs that you can observe at an individual level. First have a peek at the idea behind <strong>g</strong>, or intelligence.<br />
+We see the big thing <em>g</em> at the top of it, and five MV (manifest variables) or indicator variables. Based on how the indicator variables interact, we can have an idea of what is going on with <em>g</em>.</p>
+<div class="figure">
+<img src="img/beaupath9.png" alt="beau" />
+<p class="caption">beau</p>
+</div>
+<p>**So the idea with LV modeling is that a way to identify or confirm the number of LVs that are producing the manifest variables to act the way they are*.**</p>
+<p>One measure of influence that the latent variable has on the manifest variables is the <strong>factor loading</strong>. You can think of these factor loadings like regression or path coefficients. There is another term called <strong>structure coefficient</strong>’’. A structure coefficient is the <strong>correlation</strong> between the model’s MV and the LV. Now if you only have one LV, like the figure above, these are the same things. If you have more than one LV, these are different (unless somehow all your values are not correlated with each other).</p>
+<p>If you look above again at the figure all <em>a</em>, <em>b</em>,<em>c</em>, <em>d</em>, and <em>e</em> are factor loadings. They show the relationship between the LV and the MV.</p>
+<p>Now being super clever again, you can get something kind of like an <span class="math inline">\(R^2\)</span> value for for each MV using the path rules described in the previous chapter. That R^2-y value is the <strong>communality</strong> of the variable. The opposite of communality is uniqueness. <strong>Uniqueness</strong> is the amount of of variance in the MV not accounted for by the LV.</p>
+<p>A good example to demonstrate this is by looking at the Information manifest variable above. Since you are intersted in that variable, you can go up the path to <em>g</em> via <em>a</em>, then since you can’t go anywhere else (no double headed arrows), then you can slide back down <em>a</em>, follow the rules that you have to multiple your paths, and then that value of <em>a</em> x <em>a</em> is the amount of variance in <em>g</em> explained in information.</p>
+<div id="identification-of-latent-variable-models" class="section level4">
+<h4><span class="header-section-number">29.2.2.1</span> Identification of Latent Variable Models</h4>
+<p>LV modeling questions come down to one big question: &gt; Is there enough <strong>non-redundant</strong> information in the data to be able to estimate the required parameters <strong>uniquely</strong>?</p>
+<p>This is not a problem with regression models because the number of parameters to estimate exactly equals the amount of non-redundant information. If that is confusing (it was to me the first time), then just think that the amount of non-redundant information in the data as the number of non-redudant variances/covariances in the dataset.</p>
+<p>We run into a bit of a problem with LVM because models can be 1. Just identified 2. Underidentified: more parameter to estimate than non-redudant information, creates error messages with lavaan 3. Overidentified: More MVs than you need to get at the LVs that are there, does create model fit</p>
+<p>Degrees of freedom in LVM are the number of non-redundant pieces of information in the data subtract the amount of parameters to estimate.</p>
+<p>The following is a list of rules of thumbs to get you to a good model, since hitting it right on the head is really hard.</p>
+<div id="number-of-indicator-variables" class="section level5">
+<h5><span class="header-section-number">29.2.2.1.1</span> Number of Indicator Variables</h5>
+<p>The big goal is to have at least 4 indicator variables for each latent variable in the model, hoping desperately that none of their error variance covary.</p>
+<p>Even if you don’t have that, you can hope for at least 4 conditions as long as you get <strong>one</strong> of these.</p>
+<ol style="list-style-type: decimal">
+<li>At least 3 indicator variables with no error covariance</li>
+<li>The LV has at least 2 indicators with non-covarying error variances and the indicator’s variables’ loadings are set equal to each other</li>
+<li>The LV has one indicator, the directional paths are set to one, and the error variance is fixed to some value</li>
+</ol>
+<ul>
+<li>The fixed value is either 0.0 meaning indicator variables has perfect reliability OR</li>
+<li>Something about reliability and variances &lt;— DON’T GET THIS!!</li>
+</ul>
+</div>
+<div id="latent-variable-scales" class="section level5">
+<h5><span class="header-section-number">29.2.2.1.2</span> Latent Variable Scales</h5>
+<p>Since LVs are not observable, they are measured an abstract scale. Because of this, the numbers we use to measure things is constrained by setting one of the parameter estimates. Normally we set one of these parameter values one of three ways 1. Standardized Latent Variable: Put LV’s variance to 1, if you then standardize indicator variables, interpret all like regression 2. Marker Variable: Single Factor loading for each LV constrained to arbitrary value , the one that is set to 1 is the <strong>marker variable</strong> 3. Effects Coding: Estimates all loadings, constrains number of loadings for given LV to 1</p>
+</div>
+<div id="other-conditions" class="section level5">
+<h5><span class="header-section-number">29.2.2.1.3</span> Other Conditions</h5>
+<ol style="list-style-type: decimal">
+<li>If you have more than one LV in model… for each PAIR of the LVs</li>
+</ol>
+<ul>
+<li>Each LV needs one indicator variable that has no error co-variance with other LVs (solely responsible for variance in LV?)</li>
+<li>Covariance of Pairs of LVs is constrained to a specific value 2.For every indicator variable, there is at least one other indicator variable (same or different LV) to whom the error variances DO NOT covary.</li>
+</ul>
+</div>
+<div id="empirical-underidentification" class="section level5">
+<h5><span class="header-section-number">29.2.2.1.4</span> Empirical Underidentification</h5>
+<p>You get underidentificaiton if one of the parameters is not equal to 0. If the error is greater than 0 you have too much information with too little of parameters. Now if one of the errors equals 0, then what happens is that the model then requires estimating two separate LVs.</p>
+<div class="figure">
+<img src="img/beaupath10.png" alt="ASDF" />
+<p class="caption">ASDF</p>
+</div>
+<p>==Doing it With One Latent Variable in R==</p>
+<p>Data:</p>
+<div class="figure">
+<img src="img/beaupath11.png" alt="Data" />
+<p class="caption">Data</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lavaan)
+<span class="co">#convert vector of correlations into matrix</span>
+wisc4.cor &lt;-<span class="st"> </span><span class="kw">lav_matrix_lower2full</span>(<span class="kw">c</span>(<span class="dv">1</span>,.<span class="dv">72</span>,<span class="dv">1</span>,.<span class="dv">64</span>,.<span class="dv">63</span>,<span class="dv">1</span>,.<span class="dv">51</span>,.<span class="dv">48</span>,.<span class="dv">37</span>,<span class="dv">1</span>,.<span class="dv">37</span>,.<span class="dv">38</span>,.<span class="dv">38</span>,.<span class="dv">38</span>,<span class="dv">1</span>))
+<span class="kw">colnames</span>(wisc4.cor) &lt;-<span class="st"> </span><span class="kw">rownames</span>(wisc4.cor) &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;Information&quot;</span>,
+  <span class="st">&quot;Similarities&quot;</span>,
+  <span class="st">&quot;Word.Reasoning&quot;</span>,
+  <span class="st">&quot;Matrix.Reasoning&quot;</span>,
+  <span class="st">&quot;Picture.Concepts&quot;</span>)
+<span class="co">#Enter SDs </span>
+wisc4.sd &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.01</span>, <span class="fl">3.03</span>,<span class="fl">2.99</span>,<span class="fl">2.89</span>,<span class="fl">2.98</span>)
+<span class="kw">names</span>(wisc4.sd) &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;Information&quot;</span>,
+  <span class="st">&quot;Similarities&quot;</span>,
+  <span class="st">&quot;Word.Reasoning&quot;</span>,
+  <span class="st">&quot;Matrix.Reasoning&quot;</span>,
+  <span class="st">&quot;Picture.Concepts&quot;</span>) 
+## Make correlations CVs via info from SD
+wisc4.cov &lt;-<span class="st"> </span><span class="kw">cor2cov</span>(wisc4.cor,wisc4.sd)
+<span class="co">#Designate Model </span>
+wisc4.model &lt;-<span class="st"> &#39;</span>
+<span class="st">g =~ a*Information + b*Similarities + c*Word.Reasoning + d*Matrix.Reasoning + e*Picture.Concepts</span>
+<span class="st">&#39;</span>
+wisc4.fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class="dt">model =</span> wisc4.model,<span class="dt">sample.cov =</span> wisc4.cov,<span class="dt">sample.nobs =</span> <span class="dv">550</span>, <span class="dt">std.lv=</span><span class="ot">FALSE</span>)
+<span class="co"># First two above are model and data </span>
+<span class="co"># Second says how big is your sample size</span>
+<span class="co"># Standard with lavaan is use first LV as indicator, which is redundant with std.lv=FALSE</span>
+<span class="co"># If you put it as TRUE it scales &#39;&#39;g&#39;&#39; by standardizing it, estimate all loadings w SD of LV = 1</span>
+<span class="kw">summary</span>(wisc4.fit, <span class="dt">standardized=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## lavaan (0.5-23.1097) converged normally after  30 iterations
+## 
+##   Number of observations                           550
+## 
+##   Estimator                                         ML
+##   Minimum Function Test Statistic               26.775
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.000
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   g =~                                                                  
+##     Informatin (a)    1.000                               2.578    0.857
+##     Similarits (b)    0.985    0.045   21.708    0.000    2.541    0.839
+##     Word.Rsnng (c)    0.860    0.045   18.952    0.000    2.217    0.742
+##     Mtrx.Rsnng (d)    0.647    0.047   13.896    0.000    1.669    0.578
+##     Pctr.Cncpt (e)    0.542    0.050   10.937    0.000    1.398    0.470
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Information       2.395    0.250    9.587    0.000    2.395    0.265
+##    .Similarities      2.709    0.258   10.482    0.000    2.709    0.296
+##    .Word.Reasoning    4.009    0.295   13.600    0.000    4.009    0.449
+##    .Matrix.Reasnng    5.551    0.360   15.400    0.000    5.551    0.666
+##    .Picture.Cncpts    6.909    0.434   15.922    0.000    6.909    0.779
+##     g                 6.648    0.564   11.788    0.000    1.000    1.000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If you put standardized=TRUE it gives BOTH standardized and unstandardized values</span>
+<span class="co"># Estimate column is the raw scores with marker variable to scale LV </span>
+<span class="co"># </span><span class="al">NOTE</span><span class="co"> THERE ARE TWO TYPES OF STANDARDIZED SCORES</span>
+<span class="co"># 1. Std.lv Standardizes LV, but leaves MV in RAW</span>
+<span class="co"># 2. Std.all Standardizes both LV and MV!!</span>
+<span class="kw">parameterEstimates</span>(wisc4.fit, <span class="dt">standardized =</span> <span class="ot">TRUE</span>, <span class="dt">ci =</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>##                 lhs op              rhs label   est    se      z pvalue
+## 1                 g =~      Information     a 1.000 0.000     NA     NA
+## 2                 g =~     Similarities     b 0.985 0.045 21.708      0
+## 3                 g =~   Word.Reasoning     c 0.860 0.045 18.952      0
+## 4                 g =~ Matrix.Reasoning     d 0.647 0.047 13.896      0
+## 5                 g =~ Picture.Concepts     e 0.542 0.050 10.937      0
+## 6       Information ~~      Information       2.395 0.250  9.587      0
+## 7      Similarities ~~     Similarities       2.709 0.258 10.482      0
+## 8    Word.Reasoning ~~   Word.Reasoning       4.009 0.295 13.600      0
+## 9  Matrix.Reasoning ~~ Matrix.Reasoning       5.551 0.360 15.400      0
+## 10 Picture.Concepts ~~ Picture.Concepts       6.909 0.434 15.922      0
+## 11                g ~~                g       6.648 0.564 11.788      0
+##    std.lv std.all std.nox
+## 1   2.578   0.857   0.857
+## 2   2.541   0.839   0.839
+## 3   2.217   0.742   0.742
+## 4   1.669   0.578   0.578
+## 5   1.398   0.470   0.470
+## 6   2.395   0.265   0.265
+## 7   2.709   0.296   0.296
+## 8   4.009   0.449   0.449
+## 9   5.551   0.666   0.666
+## 10  6.909   0.779   0.779
+## 11  1.000   1.000   1.000</code></pre>
+<p>Note above that we define the LV of <em>g</em> using all five subsets of the WISC subtests. Now we estimate the parameters with the <code>cfa()</code> function, as seen above.</p>
+<div class="figure">
+<img src="img/beaupath12.png" alt="Data" />
+<p class="caption">Data</p>
+</div>
+<p>Note the top part of the summary output lets you know if you put your model in correctly.</p>
+<div class="figure">
+<img src="img/beaupath13.png" alt="Data" />
+<p class="caption">Data</p>
+</div>
+<p>Note that lavaan does not produce communality estimates. Though you can calculate them using the trace rules. You could figure out communality for the Information variable</p>
+<p><span class="math display">\[ a x 1 x a = a^2 = 0.86^2 = 0.74\]</span></p>
+<p>Thus uniqueness is</p>
+<p><span class="math display">\[ 1- a^2 = 1 - 0.86^2 = 0.26\]</span></p>
+<p>In addition to communality, you can use tracing rules and standardized parameter estimates to calculated the correlations implied by the model’s parameter estimates which you can then compare to the actual correlations you used in the original model. For example you could look at the relationship between Information and Similarities. If you go way up to Figure 3.3 you can see the only way you can get from one to the other is going through ‘’<em>a</em>’ to ‘’<em>b</em>’‘, so you multiply your’‘<em>ab</em>’’ loadings <span class="math inline">\((0.86)(0.84) = 0.72\)</span>. This number almost exactly matches our correlation from the raw data!</p>
+<p>You can then use the <code>fitted()</code> function in lavaan to to get all the model implied-covariances. Taken from the book…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Model-Implied Covariances </span>
+<span class="kw">fitted</span>(wisc4.fit)</code></pre></div>
+<pre><code>## $cov
+##                  Infrmt Smlrts Wrd.Rs Mtrx.R Pctr.C
+## Information      9.044                             
+## Similarities     6.551  9.164                      
+## Word.Reasoning   5.716  5.633  8.924               
+## Matrix.Reasoning 4.303  4.241  3.700  8.337        
+## Picture.Concepts 3.606  3.553  3.100  2.334  8.864 
+## 
+## $mean
+##      Information     Similarities   Word.Reasoning Matrix.Reasoning 
+##                0                0                0                0 
+## Picture.Concepts 
+##                0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Transform Model Implied Covarianes to correlations</span>
+wisc4Fit.cov &lt;-<span class="st"> </span><span class="kw">fitted</span>(wisc4.fit)<span class="op">$</span>cov
+wisc4Fit.cor &lt;-<span class="st"> </span><span class="kw">cov2cor</span>(wisc4.cov)
+
+<span class="co">#Original Correlations </span>
+wisc4.cor</code></pre></div>
+<pre><code>##                  Information Similarities Word.Reasoning Matrix.Reasoning
+## Information             1.00         0.72           0.64             0.51
+## Similarities            0.72         1.00           0.63             0.48
+## Word.Reasoning          0.64         0.63           1.00             0.37
+## Matrix.Reasoning        0.51         0.48           0.37             1.00
+## Picture.Concepts        0.37         0.38           0.38             0.38
+##                  Picture.Concepts
+## Information                  0.37
+## Similarities                 0.38
+## Word.Reasoning               0.38
+## Matrix.Reasoning             0.38
+## Picture.Concepts             1.00</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Residual Correlations </span>
+<span class="kw">residuals</span>(wisc4.fit, <span class="dt">type =</span> <span class="st">&quot;cor&quot;</span>)</code></pre></div>
+<pre><code>## $type
+## [1] &quot;cor.bollen&quot;
+## 
+## $cor
+##                  Infrmt Smlrts Wrd.Rs Mtrx.R Pctr.C
+## Information       0.000                            
+## Similarities      0.000  0.000                     
+## Word.Reasoning    0.004  0.007  0.000              
+## Matrix.Reasoning  0.014 -0.005 -0.059  0.000       
+## Picture.Concepts -0.033 -0.014  0.031  0.109  0.000
+## 
+## $mean
+##      Information     Similarities   Word.Reasoning Matrix.Reasoning 
+##                0                0                0                0 
+## Picture.Concepts 
+##                0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fitMeasures</span>(wisc4.fit)</code></pre></div>
+<pre><code>##                npar                fmin               chisq 
+##              10.000               0.024              26.775 
+##                  df              pvalue      baseline.chisq 
+##               5.000               0.000            1073.427 
+##         baseline.df     baseline.pvalue                 cfi 
+##              10.000               0.000               0.980 
+##                 tli                nnfi                 rfi 
+##               0.959               0.959               0.950 
+##                 nfi                pnfi                 ifi 
+##               0.975               0.488               0.980 
+##                 rni                logl   unrestricted.logl 
+##               0.980           -6378.678           -6365.291 
+##                 aic                 bic              ntotal 
+##           12777.357           12820.456             550.000 
+##                bic2               rmsea      rmsea.ci.lower 
+##           12788.712               0.089               0.058 
+##      rmsea.ci.upper        rmsea.pvalue                 rmr 
+##               0.123               0.022               0.298 
+##          rmr_nomean                srmr        srmr_bentler 
+##               0.298               0.034               0.034 
+## srmr_bentler_nomean         srmr_bollen  srmr_bollen_nomean 
+##               0.034               0.034               0.034 
+##          srmr_mplus   srmr_mplus_nomean               cn_05 
+##               0.034               0.034             228.408 
+##               cn_01                 gfi                agfi 
+##             310.899               0.982               0.947 
+##                pgfi                 mfi                ecvi 
+##               0.327               0.980               0.085</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">modificationIndices</span>(wisc4.fit) <span class="co">#see how to improve!   </span></code></pre></div>
+<pre><code>##                 lhs op              rhs     mi    epc sepc.lv sepc.all
+## 12      Information ~~     Similarities  0.010  0.034   0.034    0.004
+## 13      Information ~~   Word.Reasoning  0.279  0.147   0.147    0.016
+## 14      Information ~~ Matrix.Reasoning  1.447  0.280   0.280    0.032
+## 15      Information ~~ Picture.Concepts  5.493 -0.565  -0.565   -0.063
+## 16     Similarities ~~   Word.Reasoning  0.791  0.242   0.242    0.027
+## 17     Similarities ~~ Matrix.Reasoning  0.147 -0.089  -0.089   -0.010
+## 18     Similarities ~~ Picture.Concepts  0.838 -0.223  -0.223   -0.025
+## 19   Word.Reasoning ~~ Matrix.Reasoning  8.931 -0.710  -0.710   -0.082
+## 20   Word.Reasoning ~~ Picture.Concepts  2.029  0.365   0.365    0.041
+## 21 Matrix.Reasoning ~~ Picture.Concepts 14.157  1.058   1.058    0.123
+##    sepc.nox
+## 12    0.004
+## 13    0.016
+## 14    0.032
+## 15   -0.063
+## 16    0.027
+## 17   -0.010
+## 18   -0.025
+## 19   -0.082
+## 20    0.041
+## 21    0.123</code></pre>
+</div>
+</div>
+<div id="alternative-latent-variable-scaling" class="section level4">
+<h4><span class="header-section-number">29.2.2.2</span> Alternative Latent Variable Scaling</h4>
+<p>So before we fit our model with lavaan’s default marker variable method. We can also do it with the standardized LV and the effects-coding method of LV scaling.</p>
+<p>See the code below on how to do this!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Marker Variable </span>
+wisc4.model.Std &lt;-<span class="st"> &#39;</span>
+<span class="st">g =~ NA*Information + a*Information + b*Similarities + c*Word.Reasoning + d*Matrix.Reasoning + e*Picture.Concepts</span>
+
+<span class="st"># constrain LV Variance to 1 </span>
+<span class="st">g~~1*g</span>
+<span class="st">&#39;</span>
+wisc4.fit.Std &lt;-<span class="st"> </span><span class="kw">cfa</span>(wisc4.model.Std, <span class="dt">sample.cov =</span> wisc4.cov, <span class="dt">sample.nobs =</span> <span class="dv">550</span>)
+
+<span class="co"># AND </span>
+
+wisc4.model.effects &lt;-<span class="st"> &#39;</span>
+<span class="st">g =~ NA*Information + a*Information + b*Similarities + c*Word.Reasoning + d*Matrix.Reasoning + e*Picture.Concepts</span>
+
+<span class="st">#Constrain Loadings Sums To One </span>
+<span class="st">a + b + c + d + e == 5</span>
+<span class="st">&#39;</span> 
+wisc4.fit.effects &lt;-<span class="st"> </span><span class="kw">cfa</span>(wisc4.model.effects,<span class="dt">sample.cov =</span> wisc4.cov, <span class="dt">sample.nobs =</span> <span class="dv">550</span>)</code></pre></div>
+</div>
+</div>
+<div id="doing-it-with-two-latent-variables-in-r" class="section level3">
+<h3><span class="header-section-number">29.2.3</span> Doing it With Two Latent Variables in R</h3>
+<p>Let’s say we wanted to split our theorized <em>g</em> into two different LVs representing Verbal Comprehension and Fluid Reasoning.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wisc4.model2 &lt;-<span class="st"> &#39;</span>
+<span class="st">V =~ a*Information + b*Similarities + c*Word.Reasoning</span>
+<span class="st">F =~ d*Matrix.Reasoning + e*Picture.Concepts</span>
+<span class="st">V~~f*F</span>
+<span class="st">&#39;</span>
+
+wisc4.fit2 &lt;-<span class="st"> </span><span class="kw">cfa</span>(wisc4.model2,<span class="dt">sample.cov =</span> wisc4.cov, <span class="dt">sample.nobs =</span> <span class="dv">550</span>)</code></pre></div>
+<p>Data R Code is Modeling :</p>
+<div class="figure">
+<img src="img/beaupath14.png" alt="Data" />
+<p class="caption">Data</p>
+</div>
+<div class="figure">
+<img src="img/beaupath15.png" alt="Data" />
+<p class="caption">Data</p>
+</div>
+</div>
+<div id="doing-sem-in-r" class="section level3">
+<h3><span class="header-section-number">29.2.4</span> Doing SEM in R</h3>
+<p>SEM = LVM + Path Analysis. Here we think Fluid Reasoning has a direct influence on Verbal Comprehension LV.</p>
+<p>To use <code>sem()</code> in R, we need to use both LV operators (=~) and regression operators ( ~).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##SEM 
+wisc4.SEM.model &lt;-<span class="st"> &#39;</span>
+<span class="st">#Define Latent Variables, just like above!</span>
+<span class="st">V =~ a*Information + b*Similarities + c*Word.Reasoning</span>
+<span class="st">F =~ d*Matrix.Reasoning + e*Picture.Concepts</span>
+<span class="st"># Define Structural Relations</span>
+<span class="st">V~k*F</span>
+<span class="st">&#39;</span> 
+
+wisc4.SEM.fit &lt;-<span class="st"> </span><span class="kw">sem</span>(wisc4.SEM.model, <span class="dt">sample.cov =</span> wisc4.cov, <span class="dt">sample.nobs =</span> <span class="dv">550</span>)
+<span class="kw">summary</span>(wisc4.SEM.fit, <span class="dt">standardized=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## lavaan (0.5-23.1097) converged normally after  39 iterations
+## 
+##   Number of observations                           550
+## 
+##   Estimator                                         ML
+##   Minimum Function Test Statistic               12.687
+##   Degrees of freedom                                 4
+##   P-value (Chi-square)                           0.013
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   V =~                                                                  
+##     Informatin (a)    1.000                               2.587    0.860
+##     Similarits (b)    0.984    0.046   21.625    0.000    2.545    0.841
+##     Word.Rsnng (c)    0.858    0.045   18.958    0.000    2.219    0.743
+##   F =~                                                                  
+##     Mtrx.Rsnng (d)    1.000                               1.989    0.689
+##     Pctr.Cncpt (e)    0.825    0.085    9.747    0.000    1.642    0.552
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   V ~                                                                   
+##     F          (k)    1.070    0.114    9.376    0.000    0.823    0.823
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .Information       2.352    0.253    9.295    0.000    2.352    0.260
+##    .Similarities      2.685    0.261   10.282    0.000    2.685    0.293
+##    .Word.Reasoning    4.000    0.295   13.555    0.000    4.000    0.448
+##    .Matrix.Reasnng    4.380    0.458    9.557    0.000    4.380    0.525
+##    .Picture.Cncpts    6.168    0.451   13.673    0.000    6.168    0.696
+##    .V                 2.164    0.485    4.464    0.000    0.323    0.323
+##     F                 3.957    0.569    6.960    0.000    1.000    1.000</code></pre>
+<p>Note that in the output we have both a latent and a regression section. If you look at the picture below of what we are modeling, note that Verbal Comprehension in Endogenous (aka not measureable directly!), it’s reported variance is the error variance! AKA the variance not explained by Fluid Reasoning.</p>
+<div class="figure">
+<img src="img/beaupath16.png" alt="Data" />
+<p class="caption">Data</p>
+</div>
+</div>
+<div id="reporting-results" class="section level3">
+<h3><span class="header-section-number">29.2.5</span> Reporting Results</h3>
+<p>Should include</p>
+<ol style="list-style-type: decimal">
+<li>A theoretical and empirical justification for the hypothesized model</li>
+<li>Complete descriptions of how LVMs were specified</li>
+<li>Description of Sample</li>
+<li>Type of Data used with descriptive stats</li>
+<li>Tests of Assumptions</li>
+<li>How Missing data was handled</li>
+<li>Software used</li>
+<li>Measured and criteria used to fit model</li>
+<li>Alteration made to the model</li>
+</ol>
+<p>Tables should have * Parameter estimates * Standard Errors * Standardized versions of the final model * Other significant models that were fit * Path Model</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mixed-effects-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="this-is-a-template-file.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/26-latentVariableCFA.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

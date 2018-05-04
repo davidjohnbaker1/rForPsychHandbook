@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Psych Handbook</title>
+  <meta name="description" content="A handbook for psychologists at LSU to get started with R and Statistics.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Psych Handbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Psych Handbook" />
+  
+  <meta name="twitter:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  
+
+<meta name="author" content="David John Baker">
+
+
+<meta name="date" content="2018-05-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="repeated-measures-anova-1.html">
+<link rel="next" href="mixed-effects-models.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Psych Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#a-note-on-setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> A Note on Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-basics"><i class="fa fa-check"></i><b>2.3</b> The Basics</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-as-calculator"><i class="fa fa-check"></i><b>2.4</b> R as Calculator</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#data-exploration"><i class="fa fa-check"></i><b>2.5</b> Data Exploration</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#indexing"><i class="fa fa-check"></i><b>2.6</b> Indexing</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#whirlwind-tour-of-r"><i class="fa fa-check"></i><b>2.7</b> Whirlwind Tour of R</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#functions-for-psychologists"><i class="fa fa-check"></i><b>2.8</b> Functions for Psychologists</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#resources"><i class="fa fa-check"></i><b>2.9</b> Resources</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#template-stuff"><i class="fa fa-check"></i><b>2.9.1</b> Template Stuff</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-response-data"><i class="fa fa-check"></i><b>3.1</b> Cleaning Response Data</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-up-gender"><i class="fa fa-check"></i><b>3.1.1</b> Cleaning Up Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.2</b> Merging Data</a></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-univariate-outliers"><i class="fa fa-check"></i><b>3.3</b> Checking for Univariate Outliers</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-multivariate-outliers"><i class="fa fa-check"></i><b>3.3.1</b> Checking for Multivariate Outliers</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-skew-and-kurtosis"><i class="fa fa-check"></i><b>3.3.2</b> Checking for Skew and Kurtosis</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#exporting-data"><i class="fa fa-check"></i><b>3.3.3</b> Exporting Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Epistemology of Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#karl-popper"><i class="fa fa-check"></i><b>4.1</b> Karl Popper</a></li>
+<li class="chapter" data-level="4.2" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#r.a.-fisher"><i class="fa fa-check"></i><b>4.2</b> R.A. Fisher</a></li>
+<li class="chapter" data-level="4.3" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#neyman-pearson"><i class="fa fa-check"></i><b>4.3</b> Neyman-Pearson</a></li>
+<li class="chapter" data-level="4.4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#bayes"><i class="fa fa-check"></i><b>4.4</b> Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
+<li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#organizing-data"><i class="fa fa-check"></i><b>5.1.1</b> Organizing Data</a></li>
+<li class="chapter" data-level="5.1.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#shape-of-data"><i class="fa fa-check"></i><b>5.1.2</b> Shape of Data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#important-considerations-for-central-tendency"><i class="fa fa-check"></i><b>5.1.3</b> Important Considerations for Central Tendency</a></li>
+<li class="chapter" data-level="5.1.4" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#measures-of-variability"><i class="fa fa-check"></i><b>5.1.4</b> Measures of Variability</a></li>
+<li class="chapter" data-level="5.1.5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#properties-of-z-scores"><i class="fa fa-check"></i><b>5.1.5</b> Properties of z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#practice"><i class="fa fa-check"></i><b>5.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>7</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#steps-of-hypothesis-testing"><i class="fa fa-check"></i><b>7.1</b> Steps of Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#other-important-considerations."><i class="fa fa-check"></i><b>7.1.1</b> Other important considerations.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#two-sample"><i class="fa fa-check"></i><b>7.2</b> Two Sample</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html"><i class="fa fa-check"></i><b>8</b> Power, Confidence Intervals, Effect Size Measures</a><ul>
+<li class="chapter" data-level="8.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#power"><i class="fa fa-check"></i><b>8.1</b> Power</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#test-equations"><i class="fa fa-check"></i><b>8.1.1</b> Test Equations</a></li>
+<li class="chapter" data-level="8.1.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#factors-of-power"><i class="fa fa-check"></i><b>8.1.2</b> Factors of Power</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#confidence-ientervals"><i class="fa fa-check"></i><b>8.2</b> Confidence Ientervals</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#capture-percentage"><i class="fa fa-check"></i><b>8.2.1</b> Capture Percentage</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html"><i class="fa fa-check"></i><b>9</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="9.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#calculating-person-c"><i class="fa fa-check"></i><b>9.1</b> Calculating Person C</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
+<li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
+<li class="chapter" data-level="11.1" data-path="matched-t-test.html"><a href="matched-t-test.html#theory"><i class="fa fa-check"></i><b>11.1</b> Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>12</b> One Way ANOVA</a><ul>
+<li class="chapter" data-level="12.0.1" data-path="one-way-anova.html"><a href="one-way-anova.html#assumptions-of-anova"><i class="fa fa-check"></i><b>12.0.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="12.0.2" data-path="one-way-anova.html"><a href="one-way-anova.html#practice-1"><i class="fa fa-check"></i><b>12.0.2</b> Practice</a></li>
+<li class="chapter" data-level="12.1" data-path="one-way-anova.html"><a href="one-way-anova.html#effect-size-measures"><i class="fa fa-check"></i><b>12.1</b> Effect Size Measures</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html"><i class="fa fa-check"></i><b>13</b> Multiple Comparisons</a><ul>
+<li class="chapter" data-level="13.1" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html#trend-analysis"><i class="fa fa-check"></i><b>13.1</b> Trend analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="factorial-anova.html"><a href="factorial-anova.html"><i class="fa fa-check"></i><b>14</b> Factorial Anova</a><ul>
+<li class="chapter" data-level="14.1" data-path="factorial-anova.html"><a href="factorial-anova.html#assumptions-of-anova-1"><i class="fa fa-check"></i><b>14.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="14.2" data-path="factorial-anova.html"><a href="factorial-anova.html#power-and-sample-size-estimatoin"><i class="fa fa-check"></i><b>14.2</b> Power and Sample Size Estimatoin</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="factorial-anova.html"><a href="factorial-anova.html#three-way-factorial"><i class="fa fa-check"></i><b>14.2.1</b> Three Way Factorial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
+<li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
+<li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
+<li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#equal-variance"><i class="fa fa-check"></i><b>16.1.1</b> Equal Variance</a></li>
+<li class="chapter" data-level="16.1.2" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#simple-main-effects"><i class="fa fa-check"></i><b>16.1.2</b> Simple Main Effects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="17.1" data-path="multiple-regression.html"><a href="multiple-regression.html#conceptual-representation"><i class="fa fa-check"></i><b>17.1</b> Conceptual Representation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="multiple-regression.html"><a href="multiple-regression.html#second-part"><i class="fa fa-check"></i><b>17.1.1</b> Second Part</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="chi-square.html"><a href="chi-square.html"><i class="fa fa-check"></i><b>18</b> Chi-Square</a></li>
+<li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
+<li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
+<li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introduction-to-multiple-regression"><i class="fa fa-check"></i><b>21.1</b> Introduction to Multiple Regression</a></li>
+<li class="chapter" data-level="21.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#basics-of-multiple-regression"><i class="fa fa-check"></i><b>21.2</b> Basics of Multiple Regression</a></li>
+<li class="chapter" data-level="21.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#types-of-multiple-regression"><i class="fa fa-check"></i><b>21.3</b> Types of Multiple Regression</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#standard-multiple-regression"><i class="fa fa-check"></i><b>21.3.1</b> Standard Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#sequential-multiple-regression"><i class="fa fa-check"></i><b>21.3.2</b> Sequential Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#statistical-or-stepwise-multiple-regression"><i class="fa fa-check"></i><b>21.3.3</b> Statistical or Stepwise Multiple Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>21.4</b> Interpretation of Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#model-summary"><i class="fa fa-check"></i><b>21.4.1</b> Model Summary</a></li>
+<li class="chapter" data-level="21.4.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#anova"><i class="fa fa-check"></i><b>21.4.2</b> ANOVA</a></li>
+<li class="chapter" data-level="21.4.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#coefficients"><i class="fa fa-check"></i><b>21.4.3</b> Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.5</b> OLD MEDIATION MODERATION</a></li>
+<li class="chapter" data-level="21.6" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introductory-ramble"><i class="fa fa-check"></i><b>21.6</b> Introductory Ramble</a></li>
+<li class="chapter" data-level="21.7" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>21.7</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="21.7.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#spss-notes"><i class="fa fa-check"></i><b>21.7.1</b> SPSS Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="21.8" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#surpressor-variables"><i class="fa fa-check"></i><b>21.8</b> Surpressor Variables</a></li>
+<li class="chapter" data-level="21.9" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation-and-mediation"><i class="fa fa-check"></i><b>21.9</b> Moderation and Mediation</a><ul>
+<li class="chapter" data-level="21.9.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation"><i class="fa fa-check"></i><b>21.9.1</b> Moderation</a></li>
+</ul></li>
+<li class="chapter" data-level="21.10" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#centering"><i class="fa fa-check"></i><b>21.10</b> Centering</a></li>
+<li class="chapter" data-level="21.11" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#mediation"><i class="fa fa-check"></i><b>21.11</b> Mediation</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
+<li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
+<li class="chapter" data-level="24" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>24</b> ANCOVA</a><ul>
+<li class="chapter" data-level="24.1" data-path="ancova.html"><a href="ancova.html#theory-1"><i class="fa fa-check"></i><b>24.1</b> Theory</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="ancova.html"><a href="ancova.html#reducing-noise"><i class="fa fa-check"></i><b>24.1.1</b> Reducing Noise</a></li>
+<li class="chapter" data-level="24.1.2" data-path="ancova.html"><a href="ancova.html#assumptions-of-anova-2"><i class="fa fa-check"></i><b>24.1.2</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="24.1.3" data-path="ancova.html"><a href="ancova.html#best-practice"><i class="fa fa-check"></i><b>24.1.3</b> Best Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="ancova.html"><a href="ancova.html#practice-2"><i class="fa fa-check"></i><b>24.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="manova.html"><a href="manova.html"><i class="fa fa-check"></i><b>25</b> MANOVA</a></li>
+<li class="chapter" data-level="26" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html"><i class="fa fa-check"></i><b>26</b> Repeated Measures ANOVA</a><ul>
+<li class="chapter" data-level="26.0.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#null-hypothesis"><i class="fa fa-check"></i><b>26.0.1</b> Null Hypothesis</a></li>
+<li class="chapter" data-level="26.0.2" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#strength-of-association"><i class="fa fa-check"></i><b>26.0.2</b> Strength of association</a></li>
+<li class="chapter" data-level="26.0.3" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#limitation"><i class="fa fa-check"></i><b>26.0.3</b> Limitation</a></li>
+<li class="chapter" data-level="26.0.4" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#doubly-repeated-manova"><i class="fa fa-check"></i><b>26.0.4</b> Doubly Repeated MANOVA</a></li>
+<li class="chapter" data-level="26.0.5" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#post-tests"><i class="fa fa-check"></i><b>26.0.5</b> Post Tests</a></li>
+<li class="chapter" data-level="26.0.6" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts"><i class="fa fa-check"></i><b>26.0.6</b> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</a></li>
+<li class="chapter" data-level="26.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#practice-3"><i class="fa fa-check"></i><b>26.1</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
+<li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#theory-2"><i class="fa fa-check"></i><b>27.1</b> Theory</a><ul>
+<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#introduction"><i class="fa fa-check"></i><b>27.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.2</b> Factor Analysis Purposes</a></li>
+<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.3</b> Types of Analysis</a></li>
+<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.4</b> PCA</a></li>
+<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.5</b> Rotatation</a></li>
+<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.6</b> Assumptions</a></li>
+<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
+<li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
+</ul></li>
+<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-4"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
+<li class="chapter" data-level="29" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html"><i class="fa fa-check"></i><b>29</b> Latent Variable Modeling – Path, SEM, CFA</a><ul>
+<li class="chapter" data-level="29.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#path-analysis"><i class="fa fa-check"></i><b>29.1</b> Path Analysis</a><ul>
+<li class="chapter" data-level="29.1.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background"><i class="fa fa-check"></i><b>29.1.1</b> Background</a></li>
+<li class="chapter" data-level="29.1.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#getting-numeric"><i class="fa fa-check"></i><b>29.1.2</b> Getting Numeric</a></li>
+<li class="chapter" data-level="29.1.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-in-r"><i class="fa fa-check"></i><b>29.1.3</b> Doing It in R</a></li>
+<li class="chapter" data-level="29.1.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#an-example-in-r"><i class="fa fa-check"></i><b>29.1.4</b> An Example In R</a></li>
+<li class="chapter" data-level="29.1.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#indirect-effects"><i class="fa fa-check"></i><b>29.1.5</b> Indirect Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#basic-latent-variable-models-sem"><i class="fa fa-check"></i><b>29.2</b> Basic Latent Variable Models , SEM</a><ul>
+<li class="chapter" data-level="29.2.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background-1"><i class="fa fa-check"></i><b>29.2.1</b> Background</a></li>
+<li class="chapter" data-level="29.2.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#latent-variable-models"><i class="fa fa-check"></i><b>29.2.2</b> Latent Variable Models</a></li>
+<li class="chapter" data-level="29.2.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-with-two-latent-variables-in-r"><i class="fa fa-check"></i><b>29.2.3</b> Doing it With Two Latent Variables in R</a></li>
+<li class="chapter" data-level="29.2.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-sem-in-r"><i class="fa fa-check"></i><b>29.2.4</b> Doing SEM in R</a></li>
+<li class="chapter" data-level="29.2.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#reporting-results"><i class="fa fa-check"></i><b>29.2.5</b> Reporting Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="this-is-a-template-file.html"><a href="this-is-a-template-file.html"><i class="fa fa-check"></i><b>30</b> This is a template file</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Psych Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="factor-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 27</span> Factor Analysis</h1>
+<div id="theory-2" class="section level2">
+<h2><span class="header-section-number">27.1</span> Theory</h2>
+<div id="introduction" class="section level3">
+<h3><span class="header-section-number">27.1.1</span> Introduction</h3>
+<p>Factor analysis is used to uncover the latent structure of a set of variables. It reduces attribute space from a larger number of variables to a smaller number of factors and as such is a “non-dependent” procedure, meaning there is no outcome variable with this statistical procedure.</p>
+<p>We get all sorts of scores on all these things, too many for regression, so we run a factor analysis. Question then is are there some existing variables that we are measuring with all DVs, not directly, to capture one underlying construct. FA uses matrix algebra to analyze the correlation between variables. We run FA, throw everything into R and see if we get any really big factors. Then end goal is that these three things will eventually explain most of the variance.</p>
+<p>There are a lot of terms associated with factor analysis.</p>
+<p>Reduces attribute space from large to small factors. It’s a non-dependent procedure. It does not assume a DV is specified.</p>
+</div>
+<div id="factor-analysis-purposes" class="section level3">
+<h3><span class="header-section-number">27.1.2</span> Factor Analysis Purposes</h3>
+<p>There are a variety of reasons you might want to do a factor analysis…</p>
+<ul>
+<li>Reduce large number of variables to a small number of factors for modeling purposes</li>
+<li>Useful when large number of variables precludes modeling all the measures individually</li>
+<li>Establish that multiple tests measure the same factor</li>
+<li>Gives justification for administering fewer tests</li>
+<li>To validate a scale or index</li>
+<li>Done by demonstrating things that load on same factor</li>
+<li>Drop items which cross-load on more than one factor</li>
+<li>Select a subset of variables from larger set based on which original variables have the highest correlations with the principal component factors</li>
+<li>To create a set of factors to be treated as uncorrelated variables as one approach to handling multicollinearity in such procedures as multiple regression</li>
+<li>Identify clusters of cases/or outliers</li>
+<li>Cluster analysis happens with individuals</li>
+<li>To determine network groups, Q-Mode Factor</li>
+</ul>
+</div>
+<div id="types-of-analysis" class="section level3">
+<h3><span class="header-section-number">27.1.3</span> Types of Analysis</h3>
+<p>There are two main types of factor analysis <strong>Exploratory Factor Analysis</strong> or <strong>EFA</strong> and <strong>Confirmatory Factor Analysis</strong> or <strong>CFA</strong>. With Exploratory Factor Analysis, you are using theories to build some models. Often you will use a technique called <em>Principal Compenent Analysis</em> or <em>PCA</em> to do this. These two are not the same thing! The Andy Field book provides a brief description about the differences between the two, and some articles like Dombrowski, 2017 will go into detail about differences between using PCA or Factor Analysis based on if a latent variable is thought to be present. With <strong>CFA</strong> you are testing a theory.</p>
+<div id="factors-and-components" class="section level4">
+<h4><span class="header-section-number">27.1.3.1</span> Factors and Components</h4>
+<p>These are dimensions (or latent variables) identified with clusters of variables, as computed using factor analysis, Technically speaking, factors (as from Principal Factor Analysis PFA) represents the common variance of variables, excluding unique variance. This is a correlation focused approach seeking to reproduce the inter correlation among the variables. Components (as from PCA) reflect both common and unique variance of the variables Maybe be seen as variance focused approach seeking to reproduce both the total variable variance whit all components and to reproduce the correlations.</p>
+<p>PCA is far more common than PFA. It is common to sue “factors” interchangeable with “components” PCA is used when research purpose is data reduction, reduce data set.</p>
+<p>Factor Analysis is generally used when the research purpose is to identify latent variables which contribute to the common variance of the set of measured variables, excluding variable specific (unique) variance</p>
+<p>Factor Analysis looks at how variance is shared amongst items.</p>
+</div>
+</div>
+<div id="pca" class="section level3">
+<h3><span class="header-section-number">27.1.4</span> PCA</h3>
+<p>Principal Components Analysis (PCA) is most common form of FA that seeks linear combinations of variable such that the maximum variance is extracted from the variables. It then removes this variance and seeks a second linear combination which explains the maximum proportion of the remaining variance. This is called the principal axis method and results in orthogonal uncorrelated factors.</p>
+<p>???????Canonical factor analysis (what the hell is that?) also called d Rao’s canonical factor is different method few comping the same model as PCA. Looks for highest Caloocan correlation?????</p>
+<div id="common-factor-analysis" class="section level4">
+<h4><span class="header-section-number">27.1.4.1</span> Common factor analysis</h4>
+<p>Principal factor analysis (PFA) or principal axis factor (PAF), common Is form of FA which seeks the least number of factors which can account for the common variance (correlation) of a set of variables Again is different from PCA which seeks the set of factor switch can account for all the common and unique (specific plus error) variance in a set of variables For the geeks: PFA.</p>
+</div>
+<div id="pca-vs-common-factor-analysis" class="section level4">
+<h4><span class="header-section-number">27.1.4.2</span> PCA vs Common Factor Analysis</h4>
+<p>For most data sets PCA and common factor analysis lead to same thing (Paper!)</p>
+<p>PCA is preferred for purpose of data reduction. FA is preferred when the research purpose is detecting data structure or causal modeling. FA is also used in SEM.</p>
+<p>Other Extration Methods</p>
+<div id="image-factoring" class="section level5">
+<h5><span class="header-section-number">27.1.4.2.1</span> Image Factoring</h5>
+<p>based on correlation matrix of predicted variables rather than actual variables, where each variable is predicted from the others using multiple regression</p>
+</div>
+<div id="maximum-likelihood-factoring" class="section level5">
+<h5><span class="header-section-number">27.1.4.2.2</span> Maximum Likelihood factoring</h5>
+<ul>
+<li>Based on a linear combination of variables to form factors, where the parameter estimates are those most likely to have resulted in the observed correlation matrix, using MLE methods and assuming multivariate normality</li>
+<li>Correlations are weighted by each variable’s uniqueness</li>
+<li>Generates a chi-square goodness-of-fit test</li>
+</ul>
+</div>
+<div id="alpha-factoring" class="section level5">
+<h5><span class="header-section-number">27.1.4.2.3</span> Alpha factoring</h5>
+<ul>
+<li>Based on maximizing the reliability of factors, assuming variables are randomly sampled from a universe of variables</li>
+<li>All other methods assume cases to be sampled and variables fixed</li>
+</ul>
+</div>
+<div id="unweighted-lead-squares-factoring" class="section level5">
+<h5><span class="header-section-number">27.1.4.2.4</span> Unweighted lead squares factoring</h5>
+<ul>
+<li>Based on minimizing sum of squares …</li>
+</ul>
+</div>
+<div id="generalized-least-squares-factoring" class="section level5">
+<h5><span class="header-section-number">27.1.4.2.5</span> Generalized least squares factoring</h5>
+<ul>
+<li>Based on minimizing the sum of squared differences between observed and estimated correlation matrices, not counting the diagonal.</li>
+<li>Based on adjusting ULS by weighting the correlations inversely according to their uniqueness (more unique variables are weighted less)</li>
+<li>GLS also generates a chi-square goodness-of-fit test</li>
+</ul>
+</div>
+</div>
+<div id="factor-loadings" class="section level4">
+<h4><span class="header-section-number">27.1.4.3</span> Factor Loadings</h4>
+<p>Analogous to Pearson’s <span class="math inline">\(R\)</span>, the squared factor loading is the percent of variance in that indicator variable explained by the factor. Also called component loading in PCA. If it’s high we call it an indicator variable, as long as it’s not highly correlated with other variables. To get the percent of variance in all variables accounted for by each factor, add the sum of the squared factor loading for that factor (column ) and divide by the number of variables. The number of variables equals the sum of their variance as the variance of standard variable is 1. This is the same as dividing the factor’s eigen value by the number of variables.</p>
+</div>
+<div id="communality-or-h2" class="section level4">
+<h4><span class="header-section-number">27.1.4.4</span> Communality or <span class="math inline">\(h^2\)</span></h4>
+<p>This is the squared multiple correlation for the variable as dependent using the factors as predictors. The commonality measures the percent of variance in a given variable expand by all the factors JOINTLY and may be interpreted as the RELLIABILITY OF THE INDICATOR.</p>
+<div id="low-communality" class="section level5">
+<h5><span class="header-section-number">27.1.4.4.1</span> Low Communality</h5>
+<p>When an indicator variable has a low communality, the factor model is not working well for that indicator and possibly it should be removed from the model. Low communalities communalities across the set of variables indicates the variables are little related to each other However communalities must be interpreted in relation to the interpretability of the factors.</p>
+<p>If item has LOW commonality, might want to think about removing that variable. Related in relation to interpreitablity of the factors.</p>
+<p>A commonality of .75 seems high but is meaningless unless the factor on which the variable is loaded in interpretable, though it usually will be. A commonality of .25 seems low but may be meaningful if the item is contributing to a well-defined factor.</p>
+<p>What is critical is not the coefficient per se, but rather the extent to which the item plays a role in the interpretation of the factor, though often this role is greater when communally is high.</p>
+</div>
+<div id="suprrious-solutions" class="section level5">
+<h5><span class="header-section-number">27.1.4.4.2</span> Suprrious solutions</h5>
+<p>If the commonality exceeds 1, there is a supruious solution, which reflect too small a sample or the researcher has too many or two few factors. If it looks too good, it probably is. Every model we come up with in psychology is underspecified.</p>
+</div>
+</div>
+<div id="eigenvalues" class="section level4">
+<h4><span class="header-section-number">27.1.4.5</span> Eigenvalues</h4>
+<p>These are byproduct of of matrix transformations. Eigenvalue for given factor measure the variance in all the variable which is accounted for by that factor. Really what we are doing here is looking at correlations in a lot of different ways. The ration of eigen values = ration of explanatory importance of vectors with respect to the variables.</p>
+<p>The sum of eigen values of one factor over the sum of ALL the eigen values is the explanatory ability of that factor.</p>
+<p>If a factor ha a low eigen value then it is contribution little to the explanation of variance in the variables and maybe be ignored as reduction with more important factors.</p>
+<p>The eigenvalue is not the % of variance explained! It is a measure of amount of variance in relation to total variance. Since variables are standardized to have mean of 0 and variance of 1, total variance is equal to the number of variables.</p>
+<p>Criterial for determing the number of factors. There are no rules, just some pointers.</p>
+<div id="selecting-eigen-values" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.1</span> Selecting Eigen Values</h5>
+<p>The most important pointer for determining the number of factors is comprehensibility which is not mathematical criterion, these factors have to make sense. You have to be able to explain them at some point to another human being. In most FA you will find that once you get to beyond 2-3-4 factors, it’s hard to think what each of those factors represent. Often you use one or more of the methods below to determine an appropriate range of solutions to investigate.</p>
+</div>
+<div id="kaiser-criterion" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.2</span> Kaiser Criterion</h5>
+<p>A commons rule of thumb for dropping the least important factor from the analysis in the KI rule Drop all components with eigenvalues under 1.0. This may overestimate or underestimate the true number of factors. Considerable simulation study evinced suggest it usually overestimates the true number of factors No recommended when used as the sole cut off criterion for estimated the number of factors.</p>
+</div>
+<div id="scree-plots" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.3</span> Scree Plots</h5>
+<p>The Cattell scree test plots the components as the X axis and the corresponding eigenvalues as the Y axis. As you move to the right, the eigenvalues drop. When the drop ceases and the curve make an below toward less steep decolien, Cattells scree test says to drop all further comments AFTER the one starting the elbow. This rule is sometimes criticized for begin amenable to research-controlled fudging. That is as picking the elbow as picking the “elbow” can be subjective because the curve has multiple elbows or is a smooth curve, the researcher may be tempted to set the cut-off at the number of factors desired by his or her research agenda. The scree criterion may result in fewer or more factor than the Kaiser criterion.</p>
+<p>Find the elbow and delete everything AFTER it.</p>
+</div>
+<div id="parallel-analysis" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.4</span> Parallel Analysis</h5>
+<p>New one, often recommended as best method to asses the true number of factors. Selects factors that are greater than random. The actual data are factor analyzed, and separately one does a factor analysis of a matrix of random numbers representing the same number of cases and variables For both actual an d random solutions, the number of factors on the x axis and cumulative eigenvalues on the y axis is plotted. When the two lines intersect determines the number of factors to be extracted.</p>
+</div>
+<div id="variance-explained-criteria" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.5</span> Variance Explained Criteria</h5>
+<p>Some researcher just just rule to keep enough factors to account for 90% of variation When the researchers goal emphasis parsimony (explaining with as few factor as possible) the criterion could be as low as 50%.</p>
+</div>
+<div id="joliffee-criterion" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.6</span> Joliffee Criterion</h5>
+<p>Delete all components with eigen values under .7. May restful in twice as many factors as the Kaiser criterion. A less used, liberal rule of them.</p>
+</div>
+<div id="mean-eigen-value" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.7</span> Mean Eigen Value</h5>
+<p>Use factors whose eigen values are at or above the mean. This strict rule may result in too few factors.</p>
+</div>
+<div id="precautions" class="section level5">
+<h5><span class="header-section-number">27.1.4.5.8</span> Precautions</h5>
+<p>Before dropping a factor below one’s cut-off. Check it’s correlation with the DV. A very small factor can have a large correlation with DV, in which it should not be dropped Problem. You have to know what your DV is. As a rule of thumb, factors should have at least three high, interpretable loadings. Fewwer may suggest that he research has asked for too may factors. Want at least three items that that load on each factor.</p>
+</div>
+</div>
+</div>
+<div id="rotatation" class="section level3">
+<h3><span class="header-section-number">27.1.5</span> Rotatation</h3>
+<p>Serves to make the output more understandable and is usually needed to facilitate the interpretation of factors. If you multiply a matrix by sign and cosines, it rotates it in space and what it does is minimize small correlations and maximizes big ones. Rotation retains all the information, but then just changes it. You are just rotation the matrix of factor loadings.</p>
+<p>Normally you do rotation after.</p>
+<p>The sum of the eigen values is not affected by rotation. Rotation will alter the eigenvalues (and percent of variance explained) of particular factors and will change the factor loadings. Since alternative rotations may explain the same variance. This is a problem often cited as a drawback factor. You can get different meanings based on different rotations!</p>
+<p>If factor analysis is used, you might want to look for different rotations method to see which lead to the most interpretable factor structure. Realistically, you will often get very similar solutions (at least relatively).</p>
+<p>No rotation is the default in SPSS. The original, unrotated principal components solution maximizes the sum of squared factor loadings, efficiently creating a set of factors which explain as much of the variance in the original variables as possible. The amount explained is reflected in the sum of the eigenvalues of all factors. However,unrotated solutions are hard to interpret because variables tend to load on multiple factors. Big problem with not rotating is that variables load on multiple factors.</p>
+<div id="varimax-rotation" class="section level4">
+<h4><span class="header-section-number">27.1.5.1</span> Varimax Rotation</h4>
+<p>An orthogonal rotation of the factor axes to maximize the variance of the squared loadings of a factor (column) on all the variables (rows) in a factor matrix Has the effect of of differentiating the original variables by extracted factor. Each factor will tend to have either large or small loadings of any particular variable. A varimax solution yields results which make it as easy as possible to identify each variable with a single factor. This is the most common rotation option.</p>
+<p>Orthogonality assumes that the latent variables are not related to one another, they are independent.</p>
+</div>
+<div id="quartimax-rotation" class="section level4">
+<h4><span class="header-section-number">27.1.5.2</span> Quartimax Rotation</h4>
+<p>An orhtogonal alternative which minimizes the number of factors needed to explain each variable. This type of rotation generates a general factor on which most variables are loaded to a high or medium degree. Such a factor structure is usually not helpful to the research purpose. Maximizes loading on one most important factor.</p>
+</div>
+<div id="equimax-rotation" class="section level4">
+<h4><span class="header-section-number">27.1.5.3</span> Equimax Rotation</h4>
+<p>A compromise between equimax and quartimax.</p>
+</div>
+<div id="direct-oblmin" class="section level4">
+<h4><span class="header-section-number">27.1.5.4</span> Direct Oblmin</h4>
+<p>The standard method when you want a non-orthogonal (oblique) solution. As such, factors are allowed to be correlated This is will result in higher eigen values but diminishes interpretation of the factors.</p>
+</div>
+<div id="promax-rotation" class="section level4">
+<h4><span class="header-section-number">27.1.5.5</span> Promax Rotation</h4>
+<p>An alternative non-orthogonal (oblique) rotation method which is computationally faster than than the direct oblimn method ad therefore is sometimes used for very large datasets.</p>
+</div>
+<div id="oblique-rotation" class="section level4">
+<h4><span class="header-section-number">27.1.5.6</span> Oblique Rotation</h4>
+<p>In oblique rotation you get both a patter matrix and a structure matrix. The structure matrix is simply the factor loading matrix as in orthogonal rotation. The pattern matrix, in contrast, contains coefficient which just represents unique contributions. The more factors, the lower the pattern coefficient as a rule since there will be more common contributes to variance explained. For oblique rotation, research looks at both the structure and patter coefficient when attributing a label to a factor.</p>
+</div>
+</div>
+<div id="assumptions-1" class="section level3">
+<h3><span class="header-section-number">27.1.6</span> Assumptions</h3>
+<p>Interval data is assumed. Kim and Mueller (1978 b 74-75) note that ordinal data may be used if it is though that the assignment of ordinal categories other that do not seriously distort the underlying metric scaling.</p>
+</div>
+<div id="problems-wiht-catheorica-variables" class="section level3">
+<h3><span class="header-section-number">27.1.7</span> Problems wiht Catheorica Variables</h3>
+<p>Note that categorical variables with similar splits will necessarily tend to correlate with each other, regardless of their content (see Gorsuch, 1983). This is particularly apt to occur when dichotomies are used. The correlation will reflect similarity of “difficulty” for items in a testing context, hence such correlated variables are called difficulty factors. The researcher should examine the factor loadings of categorical variables with care to assess whether common loading reflects a difficulty factor or substantive correlation. Improper use of dichotomies can result in too many factors.</p>
+<div id="problems-with-dichotomous-data" class="section level5">
+<h5><span class="header-section-number">27.1.7.0.1</span> Problems with Dichotomous Data</h5>
+<p>Dichotomous data tend to yield many factors (by the usual Kaiser criterion), and many variables loaded on these factors (by the usual .40 cutoff), even for randomly generated data.</p>
+</div>
+<div id="valid-imputation-of-factor-labels" class="section level4">
+<h4><span class="header-section-number">27.1.7.1</span> Valid Imputation of Factor Labels</h4>
+<p>Factor analysis is notorious for the subjective involved in imputing factor labels from factor loading.</p>
+<div id="no-selection-biasproper-specification" class="section level5">
+<h5><span class="header-section-number">27.1.7.1.1</span> No selection bias/proper specification</h5>
+<p>The exclusion of relevant variables and inclusion of irrelevant variable in correlation matrix being factored will affect, often substantially, the factors which are uncovered.</p>
+</div>
+<div id="no-outliers" class="section level5">
+<h5><span class="header-section-number">27.1.7.1.2</span> No Outliers</h5>
+<p>Outlive can impact correlations heavily distorting results. The better your correlations, but better your factor analysis.</p>
+</div>
+<div id="linearity" class="section level5">
+<h5><span class="header-section-number">27.1.7.1.3</span> Linearity</h5>
+<p>Same as other tests</p>
+</div>
+<div id="multivariate-nomrality" class="section level5">
+<h5><span class="header-section-number">27.1.7.1.4</span> Multivariate nomrality</h5>
+<p>Ideally also MVN.</p>
+</div>
+<div id="homoscedacity" class="section level5">
+<h5><span class="header-section-number">27.1.7.1.5</span> Homoscedacity</h5>
+<p>Since factors are linear function of measured variables, homscedascity of the relationship is assumed. Not considered a critical assumption of factor analysis.</p>
+</div>
+</div>
+</div>
+<div id="running-it" class="section level3">
+<h3><span class="header-section-number">27.1.8</span> Running It</h3>
+<ol style="list-style-type: decimal">
+<li>Select and measures variables</li>
+<li>Prepare the correlation matrix</li>
+<li>Extract factors</li>
+<li>Determine Number of Factors</li>
+<li>Rotate factors</li>
+<li>Interpret results</li>
+<li>Selecting and Measuring Variables 8 Sample size: T&amp;F recommends at least 300. Number of variables to include, at least 3 measures per factor, preferable 4 or more.</li>
+</ol>
+<div id="breezin" class="section level4">
+<h4><span class="header-section-number">27.1.8.1</span> Breezin’</h4>
+<p>Factor Extraction</p>
+<p>Extraction is the process by which factors are determined from a larger set of variables. Are multiple factor extraction methods PCA is the most common extraction method. The goal is to extract factors that explain as much variance as possible with s few factors as possible– parsimony!</p>
+<p>Determien Number of Factors Kaisers? Scree? A priori?</p>
+<p>Factor Rotation Rotation is sued to improve interpret ability Orthogonal rotation == Factors are ind == Varimax</p>
+<p>Oblique Rotation Factors are allowed to correlate Promax is recommended by Russel (2002)</p>
+<p>Interpretation Interpret from rotation solution Naming Components, Ideally want variable to load &gt;.40 on one factor and &lt;.3 on all other factors. Generally exclude variable that load &lt;.3 when interpreting a factor. Print option in SPSS to help interpretation: do not print loading &lt; .30. order variable according to loading starting with Factor I.</p>
+<p>If one item loads highly on 2, either new rotation or throw it out.</p>
+<p>[FIND AND LINK THESE CITATIONS] Further Readings… Kim, Jae-On and Charles W. Mueller (1978a). Introduction to factor analysis: What it is and how to do it. Thousand Oaks, CA: Sage Publications, Quantitative Applications in the Social Sciences Series, No. 13. Kim, Jae-On and Charles W. Mueller (1978b). Factor Analysis: Statistical methods and practical issues. Thousand Oaks, CA: Sage Publications, Quantitative Applications in the Social Sciences Series, No. 14. Kline, Rex B. (1998). Principles and practice of structural equation modeling. NY: Guilford Press. Covers confirmatory factor analysis using SEM techniques. See esp. Ch. 7. Lance, Charles E, Marcus M. Butts, and Lawrence C. Michels (2006). The sources of four commonly reported cutoff criteria: What did they really say? Organizational Research Methods 9(2): 202-220. Discusses Kaiser and other criteria for selecting number of factors.</p>
+</div>
+</div>
+</div>
+<div id="practice-4" class="section level2">
+<h2><span class="header-section-number">27.2</span> Practice</h2>
+<div id="data-preparation" class="section level3">
+<h3><span class="header-section-number">27.2.1</span> Data Preparation</h3>
+<p>Load in data, clean it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(psych)
+<span class="kw">require</span>(MASS)</code></pre></div>
+<pre><code>## Loading required package: MASS</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(GPArotation)</code></pre></div>
+<pre><code>## Loading required package: GPArotation</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+fa7111data &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;datasets/sexRoles.csv&quot;</span>)
+fa7111matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(fa7111data)</code></pre></div>
+<p>Initial Assumptions Tests</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">KMO</span>(fa7111matrix)</code></pre></div>
+<pre><code>## Kaiser-Meyer-Olkin factor adequacy
+## Call: KMO(r = fa7111matrix)
+## Overall MSA =  0.84
+## MSA for each item = 
+##    subno  helpful  reliant   defbel yielding cheerful    indpt   athlet 
+##     0.52     0.90     0.87     0.85     0.86     0.76     0.85     0.77 
+##      shy   assert  strpers forceful   affect  flatter    loyal   analyt 
+##     0.84     0.88     0.87     0.87     0.83     0.76     0.82     0.86 
+## feminine sympathy    moody sensitiv undstand  compass leaderab   soothe 
+##     0.74     0.89     0.63     0.83     0.88     0.85     0.83     0.87 
+##     risk   decide selfsuff conscien dominant masculin    stand    happy 
+##     0.85     0.86     0.84     0.87     0.90     0.81     0.88     0.77 
+## softspok     warm truthful   tender gullible  leadact childlik  individ 
+##     0.78     0.89     0.70     0.88     0.72     0.81     0.67     0.86 
+## foullang  lovchil  compete ambitiou   gentle 
+##     0.64     0.74     0.82     0.81     0.87</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cortest.bartlett</span>(fa7111matrix,<span class="dt">n=</span><span class="dv">369</span>)</code></pre></div>
+<pre><code>## R was not square, finding R from data</code></pre>
+<pre><code>## $chisq
+## [1] 5809.284
+## 
+## $p.value
+## [1] 0
+## 
+## $df
+## [1] 990</code></pre>
+</div>
+<div id="analysis-i" class="section level3">
+<h3><span class="header-section-number">27.2.2</span> Analysis I</h3>
+<p>Look at all factor model</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">allFactor7111 &lt;-<span class="st"> </span><span class="kw">fa</span>(fa7111matrix,<span class="dt">nfactors=</span><span class="dv">45</span>,<span class="dt">rotate=</span><span class="st">&quot;none&quot;</span>)
+<span class="kw">plot</span>(allFactor7111<span class="op">$</span>values)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p>Do a 2 factor analysis with rotation</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">twoFactor7111 &lt;-<span class="st"> </span><span class="kw">fa</span>(fa7111matrix,<span class="dt">nfactors=</span><span class="dv">2</span>,<span class="dt">rotate=</span><span class="st">&quot;varimax&quot;</span>)
+twoFactor7111<span class="op">$</span>loadings</code></pre></div>
+<pre><code>## 
+## Loadings:
+##          MR1    MR2   
+## subno    -0.108       
+## helpful   0.312  0.389
+## reliant   0.462  0.144
+## defbel    0.439  0.199
+## yielding -0.140  0.344
+## cheerful  0.146  0.384
+## indpt     0.539       
+## athlet    0.265       
+## shy      -0.406       
+## assert    0.606       
+## strpers   0.658       
+## forceful  0.642 -0.115
+## affect    0.160  0.542
+## flatter          0.224
+## loyal     0.146  0.419
+## analyt    0.301  0.127
+## feminine         0.336
+## sympathy         0.531
+## moody           -0.173
+## sensitiv  0.121  0.429
+## undstand         0.621
+## compass          0.631
+## leaderab  0.740       
+## soothe           0.590
+## risk      0.439  0.162
+## decide    0.545  0.131
+## selfsuff  0.526  0.157
+## conscien  0.320  0.330
+## dominant  0.667 -0.237
+## masculin  0.282 -0.287
+## stand     0.617  0.183
+## happy     0.114  0.441
+## softspok -0.235  0.326
+## warm             0.712
+## truthful  0.110  0.313
+## tender           0.694
+## gullible -0.172  0.118
+## leadact   0.734       
+## childlik -0.101 -0.120
+## individ   0.464       
+## foullang         0.138
+## lovchil          0.318
+## compete   0.450       
+## ambitiou  0.419  0.142
+## gentle           0.691
+## 
+##                  MR1   MR2
+## SS loadings    6.060 5.189
+## Proportion Var 0.135 0.115
+## Cumulative Var 0.135 0.250</code></pre>
+</div>
+<div id="analysis-i-1" class="section level3">
+<h3><span class="header-section-number">27.2.3</span> Analysis I</h3>
+<p>Using the criterion that items should load at least .4 on one factor and less than .3 on another factor, the following items were sorted out of the initial factor analysis. Taken together, these items seem to load on a factor that I would deem as patriarchal.</p>
+<ul>
+<li>3 reliant 0.452 0.123 A</li>
+<li>4 defbel 0.433 0.198 A</li>
+<li>7 indpt 0.521 A</li>
+<li>10 assert 0.605 A</li>
+<li>11 strpers 0.657 A</li>
+<li>12 forceful 0.650 -0.118 A</li>
+<li>23 leaderab 0.764 A</li>
+<li>25 risk 0.439 0.167 A</li>
+<li>26 decide 0.540 0.120 A</li>
+<li>27 selfsuff 0.509 0.141 A</li>
+<li>29 dominant 0.671 -0.236 A</li>
+<li>31 stand 0.605 0.179 A</li>
+<li>38 leadact 0.761 A</li>
+<li>40 individ 0.444 A</li>
+<li>42 lovchil 0.326 A</li>
+<li>43 compete 0.451 A</li>
+<li>44 ambitiou 0.412 0.142 A</li>
+</ul>
+<p>And the following items loaded on the second factor and given the high loadings of certain items, I think that this factor could be deemed as matriarchal.</p>
+<ul>
+<li>5 yielding -0.136 0.336 B</li>
+<li>6 cheerful 0.147 0.373 B</li>
+<li>13 affect 0.171 0.556 B</li>
+<li>15 loyal 0.146 0.419 B</li>
+<li>17 feminine 0.108 0.325 B</li>
+<li>18 sympathy 0.526 B</li>
+<li>20 sensitiv 0.129 0.426 B</li>
+<li>21 undstand 0.611 B</li>
+<li>22 compass 0.106 0.628 B</li>
+<li>24 soothe 0.581 B</li>
+<li>32 happy 0.113 0.433 B</li>
+<li>33 softspok -0.236 0.334 B</li>
+<li>34 warm 0.720 B</li>
+<li>35 truthful 0.106 0.316 B</li>
+<li>36 tender 0.711 B</li>
+<li>45 gentle 0.702 B</li>
+</ul>
+<div id="interpretation" class="section level4">
+<h4><span class="header-section-number">27.2.3.1</span> Interpretation</h4>
+<p>Interpret the meaning of the two factors (make up a story one or two paragraphs long based on which variable load heaviest on which factors). In other words, does factor one seem to capture some underlying characteristic of the variables, and does factor two seem to capture some different underlying characteristic of the variables. To make your task easier, I have listed the variable labels and the items to which they refer below.</p>
+<p>I think the two characteristics here exemplify two qualities that pertain to gender roles that people are assumed to take in the public discourse. On one hand, the first factor has tons of items that seem like they would describe individuals that exemplify traditional patriarchal values (ala Butler, hooks). People who are able to identify with those types of values seem to benefit from societies that are based around power structures where it’s advantageous to be able to be on top of the competition in a very alpha-male-ish kind of way. That is not to say these qualities are intrinsically good or bad, but they seem to be the types of values that are valued by more conservative, traditional cultures and seen as strong desirable characteristics.</p>
+<p>The second factor seems to load more on things that you would ascribe to matriarchal culture. Here you have a lot of the words that would traditionally be associated with motherhood. While this again is not claiming any sort of value judgment, or making a is/ought fallacy, I think most people would agree (especially in older generations) that the words in the second factor tend to be more associated with values that women in society are expected to adhere to and when they step outside of those bounds, are looked on as abnormal.</p>
+</div>
+</div>
+<div id="analysis-ii" class="section level3">
+<h3><span class="header-section-number">27.2.4</span> Analysis II</h3>
+<p>Since I used the suggested criterion of factors loading above .4 on one factor an less than .3 on the other, I decided to remove items that did not adhere to those loadings.</p>
+<div id="instructions" class="section level5">
+<h5><span class="header-section-number">27.2.4.0.1</span> Instructions</h5>
+<p>Delete these variables from the analysis, and re-run the factor analysis (eigenvalues over 2.0). What effects did this have on your results (for example, look at variance explained among other things)?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Removal of Items</span>
+removed_fa7111data &lt;-<span class="st"> </span>fa7111data[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">23</span>,<span class="dv">25</span>,<span class="dv">27</span>,<span class="dv">29</span>,<span class="dv">31</span>,<span class="dv">38</span>,<span class="dv">40</span>,<span class="dv">42</span>,<span class="dv">43</span>,<span class="dv">44</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">32</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>,<span class="dv">36</span>,<span class="dv">45</span>)]
+<span class="kw">str</span>(removed_fa7111data)</code></pre></div>
+<pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   369 obs. of  32 variables:
+##  $ reliant : int  7 6 6 6 6 6 4 6 6 4 ...
+##  $ defbel  : int  5 6 4 7 7 7 6 7 6 7 ...
+##  $ indpt   : int  7 3 5 6 7 6 3 7 5 5 ...
+##  $ assert  : int  7 4 4 4 7 4 3 5 5 5 ...
+##  $ strpers : int  7 1 4 3 7 2 4 6 7 6 ...
+##  $ forceful: int  2 3 3 3 5 2 1 6 6 4 ...
+##  $ leaderab: int  6 4 4 2 7 3 1 6 5 4 ...
+##  $ risk    : int  2 3 3 5 7 1 1 4 4 2 ...
+##  $ selfsuff: int  7 5 6 6 5 7 4 6 6 5 ...
+##  $ dominant: int  1 4 2 4 6 2 1 4 5 4 ...
+##  $ stand   : int  7 4 4 6 7 7 5 7 7 6 ...
+##  $ leadact : int  2 4 3 3 6 3 1 5 6 5 ...
+##  $ individ : int  7 4 6 5 6 7 5 7 6 6 ...
+##  $ lovchil : int  7 7 5 6 7 7 7 6 5 7 ...
+##  $ compete : int  7 4 2 4 7 1 1 4 3 4 ...
+##  $ ambitiou: int  7 4 4 6 7 5 1 4 5 4 ...
+##  $ yielding: int  5 6 4 4 4 4 6 5 4 4 ...
+##  $ cheerful: int  7 2 5 6 7 6 6 6 4 7 ...
+##  $ affect  : int  7 5 5 5 7 5 7 7 6 7 ...
+##  $ loyal   : int  7 5 7 7 7 7 6 7 6 7 ...
+##  $ feminine: int  2 5 6 6 4 7 4 6 6 5 ...
+##  $ sympathy: int  6 5 5 5 7 6 7 6 4 5 ...
+##  $ sensitiv: int  7 5 4 6 7 5 6 6 6 5 ...
+##  $ undstand: int  7 5 6 6 6 5 6 6 6 6 ...
+##  $ compass : int  7 4 6 6 7 5 6 6 5 6 ...
+##  $ soothe  : int  7 4 7 6 7 5 6 5 5 6 ...
+##  $ happy   : int  7 4 6 6 6 6 5 6 3 7 ...
+##  $ softspok: int  7 6 4 5 4 6 1 6 4 6 ...
+##  $ warm    : int  7 5 5 6 7 6 5 6 5 7 ...
+##  $ truthful: int  7 6 7 6 7 7 5 7 6 7 ...
+##  $ tender  : int  7 5 6 5 7 4 5 6 5 6 ...
+##  $ gentle  : int  7 4 5 5 7 6 5 6 5 7 ...
+##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_fa7111matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(removed_fa7111data)
+<span class="co">#View(removed_fa7111matrix)</span>
+removed_all &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">32</span>, <span class="dt">rotate=</span><span class="st">&quot;none&quot;</span>)
+<span class="kw">plot</span>(removed_all<span class="op">$</span>values) <span class="co"># Run Two factor model</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">2</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
+removed_all_<span class="dv">2</span><span class="op">$</span>loadings</code></pre></div>
+<pre><code>## 
+## Loadings:
+##          MR1    MR2   
+## reliant   0.448  0.123
+## defbel    0.436  0.201
+## indpt     0.529       
+## assert    0.617       
+## strpers   0.684       
+## forceful  0.661 -0.104
+## leaderab  0.737       
+## risk      0.435  0.170
+## selfsuff  0.495  0.129
+## dominant  0.676 -0.228
+## stand     0.605  0.185
+## leadact   0.733       
+## individ   0.461       
+## lovchil          0.314
+## compete   0.449       
+## ambitiou  0.416  0.128
+## yielding -0.135  0.329
+## cheerful  0.151  0.367
+## affect    0.184  0.546
+## loyal     0.145  0.418
+## feminine  0.101  0.313
+## sympathy         0.540
+## sensitiv  0.123  0.446
+## undstand         0.628
+## compass   0.102  0.654
+## soothe           0.589
+## happy     0.109  0.418
+## softspok -0.235  0.307
+## warm             0.725
+## truthful         0.319
+## tender           0.697
+## gentle           0.697
+## 
+##                  MR1   MR2
+## SS loadings    5.106 4.673
+## Proportion Var 0.160 0.146
+## Cumulative Var 0.160 0.306</code></pre>
+<p>After removing the items that did not load on to the big variables, the amount of variance explained went up, as did the individual factor loadings.</p>
+</div>
+<div id="instructions-1" class="section level5">
+<h5><span class="header-section-number">27.2.4.0.2</span> Instructions</h5>
+<p>Re-run the factor analysis one more time, this time, set eigenvalues to be over 1.0. What effects did this have on your results (for example, how many factors are there now compared to your 2nd and 3rd runs, also look at variance explained among other things)?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#removed_all &lt;- fa(removed_fa7111matrix, nfactors = 32, rotate=&quot;none&quot;)</span>
+<span class="kw">plot</span>(removed_all<span class="op">$</span>values) <span class="co"># Run Two factor model</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">removed_all_<span class="fl">2.1</span> &lt;-<span class="st"> </span><span class="kw">fa</span>(removed_fa7111matrix, <span class="dt">nfactors =</span> <span class="dv">5</span>, <span class="dt">rotate =</span> <span class="st">&quot;varimax&quot;</span>)
+removed_all_<span class="fl">2.1</span><span class="op">$</span>loadings</code></pre></div>
+<pre><code>## 
+## Loadings:
+##          MR1    MR2    MR3    MR4    MR5   
+## reliant   0.200         0.104  0.616       
+## defbel    0.402  0.150  0.195  0.215       
+## indpt     0.279                0.603  0.102
+## assert    0.634                0.141  0.120
+## strpers   0.701  0.140         0.149  0.149
+## forceful  0.721                0.132       
+## leaderab  0.517                0.347  0.404
+## risk      0.260  0.119  0.111  0.155  0.390
+## selfsuff  0.154                0.692  0.180
+## dominant  0.626 -0.178         0.186  0.249
+## stand     0.508  0.165  0.149  0.287  0.140
+## leadact   0.554                0.308  0.372
+## individ   0.262  0.120         0.346  0.225
+## lovchil          0.299  0.120              
+## compete   0.258  0.100                0.622
+## ambitiou  0.134                0.170  0.644
+## yielding -0.250  0.221  0.184         0.106
+## cheerful         0.467         0.219       
+## affect    0.240  0.628  0.194 -0.117       
+## loyal     0.183  0.477  0.147              
+## feminine         0.250  0.154  0.211       
+## sympathy         0.166  0.680              
+## sensitiv                0.617  0.106       
+## undstand         0.247  0.685  0.148       
+## compass          0.282  0.734              
+## soothe           0.314  0.552              
+## happy            0.578         0.205       
+## softspok -0.436  0.209  0.130  0.171       
+## warm             0.675  0.322         0.125
+## truthful         0.312  0.153  0.116 -0.117
+## tender           0.659  0.285         0.196
+## gentle   -0.187  0.626  0.292         0.219
+## 
+##                  MR1   MR2   MR3   MR4   MR5
+## SS loadings    3.570 3.231 2.714 2.078 1.641
+## Proportion Var 0.112 0.101 0.085 0.065 0.051
+## Cumulative Var 0.112 0.213 0.297 0.362 0.414</code></pre>
+<p>Now that we have five factors, the amount of total variance explained goes down and the factors as they are do not seem to make much sense. The earlier interpretation of the data seemed to be much clearer.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="repeated-measures-anova-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mixed-effects-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/24-factoranalysis.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Psych Handbook</title>
+  <meta name="description" content="A handbook for psychologists at LSU to get started with R and Statistics.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Psych Handbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Psych Handbook" />
+  
+  <meta name="twitter:description" content="A handbook for psychologists at LSU to get started with R and Statistics." />
+  
+
+<meta name="author" content="David John Baker">
+
+
+<meta name="date" content="2018-05-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="mediation-and-moderation.html">
+<link rel="next" href="manova.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Psych Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#a-note-on-setting-the-working-directory"><i class="fa fa-check"></i><b>2.2</b> A Note on Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-basics"><i class="fa fa-check"></i><b>2.3</b> The Basics</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-as-calculator"><i class="fa fa-check"></i><b>2.4</b> R as Calculator</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#data-exploration"><i class="fa fa-check"></i><b>2.5</b> Data Exploration</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#indexing"><i class="fa fa-check"></i><b>2.6</b> Indexing</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#whirlwind-tour-of-r"><i class="fa fa-check"></i><b>2.7</b> Whirlwind Tour of R</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#functions-for-psychologists"><i class="fa fa-check"></i><b>2.8</b> Functions for Psychologists</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#resources"><i class="fa fa-check"></i><b>2.9</b> Resources</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#template-stuff"><i class="fa fa-check"></i><b>2.9.1</b> Template Stuff</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-response-data"><i class="fa fa-check"></i><b>3.1</b> Cleaning Response Data</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#cleaning-up-gender"><i class="fa fa-check"></i><b>3.1.1</b> Cleaning Up Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.2</b> Merging Data</a></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-univariate-outliers"><i class="fa fa-check"></i><b>3.3</b> Checking for Univariate Outliers</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-multivariate-outliers"><i class="fa fa-check"></i><b>3.3.1</b> Checking for Multivariate Outliers</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#checking-for-skew-and-kurtosis"><i class="fa fa-check"></i><b>3.3.2</b> Checking for Skew and Kurtosis</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#exporting-data"><i class="fa fa-check"></i><b>3.3.3</b> Exporting Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html"><i class="fa fa-check"></i><b>4</b> Epistemology of Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#karl-popper"><i class="fa fa-check"></i><b>4.1</b> Karl Popper</a></li>
+<li class="chapter" data-level="4.2" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#r.a.-fisher"><i class="fa fa-check"></i><b>4.2</b> R.A. Fisher</a></li>
+<li class="chapter" data-level="4.3" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#neyman-pearson"><i class="fa fa-check"></i><b>4.3</b> Neyman-Pearson</a></li>
+<li class="chapter" data-level="4.4" data-path="epistemology-of-statistics.html"><a href="epistemology-of-statistics.html#bayes"><i class="fa fa-check"></i><b>4.4</b> Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html"><i class="fa fa-check"></i><b>5</b> Descriptive Statistics, z Scores, Central Limit</a><ul>
+<li class="chapter" data-level="5.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#descriptive-statistics-and-the-normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Descriptive Statistics and the Normal Distribution</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#organizing-data"><i class="fa fa-check"></i><b>5.1.1</b> Organizing Data</a></li>
+<li class="chapter" data-level="5.1.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#shape-of-data"><i class="fa fa-check"></i><b>5.1.2</b> Shape of Data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#important-considerations-for-central-tendency"><i class="fa fa-check"></i><b>5.1.3</b> Important Considerations for Central Tendency</a></li>
+<li class="chapter" data-level="5.1.4" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#measures-of-variability"><i class="fa fa-check"></i><b>5.1.4</b> Measures of Variability</a></li>
+<li class="chapter" data-level="5.1.5" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#properties-of-z-scores"><i class="fa fa-check"></i><b>5.1.5</b> Properties of z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="descriptive-statistics-z-scores-central-limit.html"><a href="descriptive-statistics-z-scores-central-limit.html#practice"><i class="fa fa-check"></i><b>5.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>7</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#steps-of-hypothesis-testing"><i class="fa fa-check"></i><b>7.1</b> Steps of Hypothesis Testing</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#other-important-considerations."><i class="fa fa-check"></i><b>7.1.1</b> Other important considerations.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#two-sample"><i class="fa fa-check"></i><b>7.2</b> Two Sample</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html"><i class="fa fa-check"></i><b>8</b> Power, Confidence Intervals, Effect Size Measures</a><ul>
+<li class="chapter" data-level="8.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#power"><i class="fa fa-check"></i><b>8.1</b> Power</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#test-equations"><i class="fa fa-check"></i><b>8.1.1</b> Test Equations</a></li>
+<li class="chapter" data-level="8.1.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#factors-of-power"><i class="fa fa-check"></i><b>8.1.2</b> Factors of Power</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#confidence-ientervals"><i class="fa fa-check"></i><b>8.2</b> Confidence Ientervals</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="power-confidence-intervals-effect-size-measures.html"><a href="power-confidence-intervals-effect-size-measures.html#capture-percentage"><i class="fa fa-check"></i><b>8.2.1</b> Capture Percentage</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html"><i class="fa fa-check"></i><b>9</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="9.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#calculating-person-c"><i class="fa fa-check"></i><b>9.1</b> Calculating Person C</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="correlation-and-regression.html"><a href="correlation-and-regression.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
+<li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
+<li class="chapter" data-level="11.1" data-path="matched-t-test.html"><a href="matched-t-test.html#theory"><i class="fa fa-check"></i><b>11.1</b> Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>12</b> One Way ANOVA</a><ul>
+<li class="chapter" data-level="12.0.1" data-path="one-way-anova.html"><a href="one-way-anova.html#assumptions-of-anova"><i class="fa fa-check"></i><b>12.0.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="12.0.2" data-path="one-way-anova.html"><a href="one-way-anova.html#practice-1"><i class="fa fa-check"></i><b>12.0.2</b> Practice</a></li>
+<li class="chapter" data-level="12.1" data-path="one-way-anova.html"><a href="one-way-anova.html#effect-size-measures"><i class="fa fa-check"></i><b>12.1</b> Effect Size Measures</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html"><i class="fa fa-check"></i><b>13</b> Multiple Comparisons</a><ul>
+<li class="chapter" data-level="13.1" data-path="multiple-comparisons.html"><a href="multiple-comparisons.html#trend-analysis"><i class="fa fa-check"></i><b>13.1</b> Trend analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="factorial-anova.html"><a href="factorial-anova.html"><i class="fa fa-check"></i><b>14</b> Factorial Anova</a><ul>
+<li class="chapter" data-level="14.1" data-path="factorial-anova.html"><a href="factorial-anova.html#assumptions-of-anova-1"><i class="fa fa-check"></i><b>14.1</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="14.2" data-path="factorial-anova.html"><a href="factorial-anova.html#power-and-sample-size-estimatoin"><i class="fa fa-check"></i><b>14.2</b> Power and Sample Size Estimatoin</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="factorial-anova.html"><a href="factorial-anova.html#three-way-factorial"><i class="fa fa-check"></i><b>14.2.1</b> Three Way Factorial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
+<li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
+<li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
+<li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#equal-variance"><i class="fa fa-check"></i><b>16.1.1</b> Equal Variance</a></li>
+<li class="chapter" data-level="16.1.2" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#simple-main-effects"><i class="fa fa-check"></i><b>16.1.2</b> Simple Main Effects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="17.1" data-path="multiple-regression.html"><a href="multiple-regression.html#conceptual-representation"><i class="fa fa-check"></i><b>17.1</b> Conceptual Representation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="multiple-regression.html"><a href="multiple-regression.html#second-part"><i class="fa fa-check"></i><b>17.1.1</b> Second Part</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="chi-square.html"><a href="chi-square.html"><i class="fa fa-check"></i><b>18</b> Chi-Square</a></li>
+<li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
+<li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
+<li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introduction-to-multiple-regression"><i class="fa fa-check"></i><b>21.1</b> Introduction to Multiple Regression</a></li>
+<li class="chapter" data-level="21.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#basics-of-multiple-regression"><i class="fa fa-check"></i><b>21.2</b> Basics of Multiple Regression</a></li>
+<li class="chapter" data-level="21.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#types-of-multiple-regression"><i class="fa fa-check"></i><b>21.3</b> Types of Multiple Regression</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#standard-multiple-regression"><i class="fa fa-check"></i><b>21.3.1</b> Standard Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#sequential-multiple-regression"><i class="fa fa-check"></i><b>21.3.2</b> Sequential Multiple Regression</a></li>
+<li class="chapter" data-level="21.3.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#statistical-or-stepwise-multiple-regression"><i class="fa fa-check"></i><b>21.3.3</b> Statistical or Stepwise Multiple Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>21.4</b> Interpretation of Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#model-summary"><i class="fa fa-check"></i><b>21.4.1</b> Model Summary</a></li>
+<li class="chapter" data-level="21.4.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#anova"><i class="fa fa-check"></i><b>21.4.2</b> ANOVA</a></li>
+<li class="chapter" data-level="21.4.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#coefficients"><i class="fa fa-check"></i><b>21.4.3</b> Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.5</b> OLD MEDIATION MODERATION</a></li>
+<li class="chapter" data-level="21.6" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introductory-ramble"><i class="fa fa-check"></i><b>21.6</b> Introductory Ramble</a></li>
+<li class="chapter" data-level="21.7" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>21.7</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="21.7.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#spss-notes"><i class="fa fa-check"></i><b>21.7.1</b> SPSS Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="21.8" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#surpressor-variables"><i class="fa fa-check"></i><b>21.8</b> Surpressor Variables</a></li>
+<li class="chapter" data-level="21.9" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation-and-mediation"><i class="fa fa-check"></i><b>21.9</b> Moderation and Mediation</a><ul>
+<li class="chapter" data-level="21.9.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation"><i class="fa fa-check"></i><b>21.9.1</b> Moderation</a></li>
+</ul></li>
+<li class="chapter" data-level="21.10" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#centering"><i class="fa fa-check"></i><b>21.10</b> Centering</a></li>
+<li class="chapter" data-level="21.11" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#mediation"><i class="fa fa-check"></i><b>21.11</b> Mediation</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
+<li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
+<li class="chapter" data-level="24" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>24</b> ANCOVA</a><ul>
+<li class="chapter" data-level="24.1" data-path="ancova.html"><a href="ancova.html#theory-1"><i class="fa fa-check"></i><b>24.1</b> Theory</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="ancova.html"><a href="ancova.html#reducing-noise"><i class="fa fa-check"></i><b>24.1.1</b> Reducing Noise</a></li>
+<li class="chapter" data-level="24.1.2" data-path="ancova.html"><a href="ancova.html#assumptions-of-anova-2"><i class="fa fa-check"></i><b>24.1.2</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="24.1.3" data-path="ancova.html"><a href="ancova.html#best-practice"><i class="fa fa-check"></i><b>24.1.3</b> Best Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="ancova.html"><a href="ancova.html#practice-2"><i class="fa fa-check"></i><b>24.2</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="manova.html"><a href="manova.html"><i class="fa fa-check"></i><b>25</b> MANOVA</a></li>
+<li class="chapter" data-level="26" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html"><i class="fa fa-check"></i><b>26</b> Repeated Measures ANOVA</a><ul>
+<li class="chapter" data-level="26.0.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#null-hypothesis"><i class="fa fa-check"></i><b>26.0.1</b> Null Hypothesis</a></li>
+<li class="chapter" data-level="26.0.2" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#strength-of-association"><i class="fa fa-check"></i><b>26.0.2</b> Strength of association</a></li>
+<li class="chapter" data-level="26.0.3" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#limitation"><i class="fa fa-check"></i><b>26.0.3</b> Limitation</a></li>
+<li class="chapter" data-level="26.0.4" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#doubly-repeated-manova"><i class="fa fa-check"></i><b>26.0.4</b> Doubly Repeated MANOVA</a></li>
+<li class="chapter" data-level="26.0.5" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#post-tests"><i class="fa fa-check"></i><b>26.0.5</b> Post Tests</a></li>
+<li class="chapter" data-level="26.0.6" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#testing-interactions---simple-effects-simple-comparisons-and-interaction-contrasts"><i class="fa fa-check"></i><b>26.0.6</b> Testing interactions - Simple Effects, Simple Comparisons and Interaction Contrasts</a></li>
+<li class="chapter" data-level="26.1" data-path="repeated-measures-anova-1.html"><a href="repeated-measures-anova-1.html#practice-3"><i class="fa fa-check"></i><b>26.1</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
+<li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#theory-2"><i class="fa fa-check"></i><b>27.1</b> Theory</a><ul>
+<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#introduction"><i class="fa fa-check"></i><b>27.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.2</b> Factor Analysis Purposes</a></li>
+<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.3</b> Types of Analysis</a></li>
+<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.4</b> PCA</a></li>
+<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.5</b> Rotatation</a></li>
+<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.6</b> Assumptions</a></li>
+<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
+<li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
+</ul></li>
+<li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-4"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
+<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
+<li class="chapter" data-level="29" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html"><i class="fa fa-check"></i><b>29</b> Latent Variable Modeling – Path, SEM, CFA</a><ul>
+<li class="chapter" data-level="29.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#path-analysis"><i class="fa fa-check"></i><b>29.1</b> Path Analysis</a><ul>
+<li class="chapter" data-level="29.1.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background"><i class="fa fa-check"></i><b>29.1.1</b> Background</a></li>
+<li class="chapter" data-level="29.1.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#getting-numeric"><i class="fa fa-check"></i><b>29.1.2</b> Getting Numeric</a></li>
+<li class="chapter" data-level="29.1.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-in-r"><i class="fa fa-check"></i><b>29.1.3</b> Doing It in R</a></li>
+<li class="chapter" data-level="29.1.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#an-example-in-r"><i class="fa fa-check"></i><b>29.1.4</b> An Example In R</a></li>
+<li class="chapter" data-level="29.1.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#indirect-effects"><i class="fa fa-check"></i><b>29.1.5</b> Indirect Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#basic-latent-variable-models-sem"><i class="fa fa-check"></i><b>29.2</b> Basic Latent Variable Models , SEM</a><ul>
+<li class="chapter" data-level="29.2.1" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#background-1"><i class="fa fa-check"></i><b>29.2.1</b> Background</a></li>
+<li class="chapter" data-level="29.2.2" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#latent-variable-models"><i class="fa fa-check"></i><b>29.2.2</b> Latent Variable Models</a></li>
+<li class="chapter" data-level="29.2.3" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-it-with-two-latent-variables-in-r"><i class="fa fa-check"></i><b>29.2.3</b> Doing it With Two Latent Variables in R</a></li>
+<li class="chapter" data-level="29.2.4" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#doing-sem-in-r"><i class="fa fa-check"></i><b>29.2.4</b> Doing SEM in R</a></li>
+<li class="chapter" data-level="29.2.5" data-path="latent-variable-modeling-path-sem-cfa.html"><a href="latent-variable-modeling-path-sem-cfa.html#reporting-results"><i class="fa fa-check"></i><b>29.2.5</b> Reporting Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="this-is-a-template-file.html"><a href="this-is-a-template-file.html"><i class="fa fa-check"></i><b>30</b> This is a template file</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Psych Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ancova" class="section level1">
+<h1><span class="header-section-number">Chapter 24</span> ANCOVA</h1>
+<div id="theory-1" class="section level2">
+<h2><span class="header-section-number">24.1</span> Theory</h2>
+<div id="reducing-noise" class="section level3">
+<h3><span class="header-section-number">24.1.1</span> Reducing Noise</h3>
+<p>Just like the ANOVA (Analysis of Variance), the ANCOVA (Analysis of Covariance) is used to analyze experiments by calculating an F ratio for more than 2 groups. As with any F calculation, differences in the dependent variable are caused by two things:</p>
+<ol style="list-style-type: decimal">
+<li>The independent variable (signal, systematic variation)</li>
+<li>Error (noise, unsysematic variation)</li>
+</ol>
+<p>The F statistic captures this</p>
+<p><span class="math display">\[ F = \frac{Variation\ Due\ to\ IV}{Variation\ Due\ to\ Error} \]</span></p>
+<p>When there is small variation within groups and large variation between groups, we get a large F.</p>
+<p>CHART HERE</p>
+<p>When there is large variatin within groups and small variation between groups, we get a small F.</p>
+<p>The idea with the ANCOVA is that you can reduce your error term (the denominator from above) by choosing a covariate (CV) that is related to the DV and will soak up some random variation in your F test to give you a clearer picture of what is going on. Usually this means controlling for some sort of variable. The classic example is if you wanted to give some kids a test of some mental ability in a between subjects design but you don’t want their age to skew your results. You might have had a control condition, an intervention, and some sort of alternate intervention. Typically you would run an ANOVA on the three groups, but since you know age has been accounted for and you want to remove that effect from the model, you enter age as a covariate in this calculation. Outside of this there are <strong>three</strong> major applications for ANCOVA.</p>
+<ol style="list-style-type: decimal">
+<li>Increase test sensitivity by using the CV(s) to account for more of the error variance</li>
+<li>Adjust DV scores to what they would be if everyone scored the same on the CV(s)</li>
+<li>Adjustment of a DV for other DVs taken as CVs</li>
+</ol>
+<p>Note that use of a CV can adjust DV scores and show a larger effect or the CV can even eliminate the effect. Looking at this another way:</p>
+<ol style="list-style-type: decimal">
+<li>Reduces random error by increasing the size of F</li>
+<li>Reduces systematic error by adjusting for differences in means</li>
+<li>May increase differences by soaking up error</li>
+</ol>
+<p>It’s a <strong>good</strong> idea to use ANCOVA when you are removing variance in the DV related to covariate, but not related to the grouping variable. This decreases the error term and increases power.</p>
+<p>It’sa <strong>bad</strong> idea to use ANCOVA when groups differ on their mean level of the covariate. Usually here the covariate and the grouping variable are not independent. An example of this might be when “controlling” for anxiety when studying people with and without depression. Clearly people with depression will have higher levels of anxiety than their controls by nature of having depression!</p>
+</div>
+<div id="assumptions-of-anova-2" class="section level3">
+<h3><span class="header-section-number">24.1.2</span> Assumptions of ANOVA</h3>
+<ol style="list-style-type: decimal">
+<li>All ANOVA assumptions apply (errors are RIND)</li>
+</ol>
+<ul>
+<li>Random</li>
+<li>Independent</li>
+<li>Normally distributed</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>The Covariate z is unrelated to x, and that z is related to, and in a sense, acts as a suppressor of y</li>
+<li>The covariate has a <strong>linear</strong> relationship with the dependent variable</li>
+<li>Variance of groups are equal.</li>
+<li>Correlation between y and z is equal for all levels of x (Homogeneity of Regression)</li>
+</ol>
+<p>You test for homogeneity of regression slopes by including a covariate by group interaction. If it’s significant, you violated an assumption and can’t to ANCOVA!</p>
+<p>CHART</p>
+<p>CHART</p>
+</div>
+<div id="best-practice" class="section level3">
+<h3><span class="header-section-number">24.1.3</span> Best Practice</h3>
+<p>Things you should control for: 1. Broad Descriptors (Age, Social Class) 2. General Ability (intellgience, memory, speed of movement) 3. Personality measures (extraversion, neuroticism) 4. Things you think are relevant 5. Pick CVs that are correlated with DV * Height good for basketball * Height poor for test of math skills 6. CV should not be influenced by treatment</p>
+</div>
+</div>
+<div id="practice-2" class="section level2">
+<h2><span class="header-section-number">24.2</span> Practice</h2>
+<p>In order to get our hands dirty with ANCOVA we’re going to look at a dataset where a bunch of sheep were slaughtered. We have three types of sheep (ewe, wether, ram) and a measure of fatness and weight.</p>
+<p>Let’s first run an ANOVA to see if fatness differs between animal type.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+deadsheep &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;datasets/deadsheep.csv&quot;</span>)
+deadsheep[, Animal <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">as.factor</span>(animal)]
+sheep.model.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep)
+<span class="kw">summary</span>(sheep.model.<span class="dv">1</span>)</code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Animal       2  124.4   62.21   3.165 0.0566 .
+## Residuals   30  589.6   19.65                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Looking at the output, we note that There was no significant effect of fatness on levels of animal, <span class="math display">\[F(2,30)=3.165, p &gt; .05\]</span>.</p>
+<p>Now since we know that the whole weight of the animal might be confounding our answer (it’s related to the DV of fatness, but not nessecarily related to the type of sheep), let’s run an ANCOVA with carcass weight as a covariate and see if that changes our answer.</p>
+<p>Before we run the ANCOVA, we need to first check that our IV is not significantly related to our CV. We do this by running an ANOVA predicting weigth by animal.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Test IND of IV and CV</span>
+ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Animal, <span class="dt">data=</span>deadsheep) ## Check CV for IV indep, want non-sig
+<span class="kw">summary</span>(ind.sheep) <span class="co"># p=.104</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Animal       2  14.20   7.102   2.438  0.104
+## Residuals   30  87.41   2.914</code></pre>
+<p>Here we get<span class="math display">\[ F(2,30) = 2.44, p&gt; .05\]</span> and can move forward. Let’s now run our ANCOVA. Note that R’s default is Type I Sum of Squares, we need to load the <code>car</code> package to give us the correct sum of squares. For further reading on this, check out the Andy Field book on this.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sheepANCOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>Animal <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data=</span>deadsheep)
+<span class="kw">library</span>(car)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;car&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:psych&#39;:
+## 
+##     logit</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Anova</span>(sheepANCOVA, <span class="dt">type=</span><span class="st">&quot;III&quot;</span>)</code></pre></div>
+<pre><code>## Anova Table (Type III tests)
+## 
+## Response: fatness
+##             Sum Sq Df F value    Pr(&gt;F)    
+## (Intercept) 117.17  1  26.529 1.669e-05 ***
+## Animal      332.31  2  37.621 8.772e-09 ***
+## weight      461.56  1 104.506 3.994e-11 ***
+## Residuals   128.08 29                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>We can then report</p>
+<p>The covariate, weight, was not significantly related to the the fatness of the animal, <span class="math display">\[F(1, 29) =,p=.0565 \]</span> and that there was a significant effect of the animal after controlling for weight of the animal, <span class="math display">\[F(2,28) = 37.62, p &lt; .05.\]</span>.</p>
+<p>Let’s now check on our marginal means. These are our group means after we have controlled for our covariate. For this we need the <code>effects</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(effects)</code></pre></div>
+<pre><code>## Loading required package: carData</code></pre>
+<pre><code>## 
+## Attaching package: &#39;carData&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:car&#39;:
+## 
+##     Guyer, UN, Vocab</code></pre>
+<pre><code>## lattice theme set by effectsTheme()
+## See ?effectsTheme for details.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean.sheep &lt;-<span class="st"> </span><span class="kw">effect</span>(<span class="st">&quot;Animal&quot;</span>, sheepANCOVA, <span class="dt">se=</span><span class="ot">TRUE</span>)
+<span class="kw">summary</span>(mean.sheep)</code></pre></div>
+<pre><code>## 
+##  Animal effect
+## Animal
+##      Ewe      Ram   Wether 
+## 18.90219 10.53996 14.83058 
+## 
+##  Lower 95 Percent Confidence Limits
+## Animal
+##       Ewe       Ram    Wether 
+## 17.565871  9.183322 13.532447 
+## 
+##  Upper 95 Percent Confidence Limits
+## Animal
+##      Ewe      Ram   Wether 
+## 20.23851 11.89660 16.12870</code></pre>
+<p>We can then note the estimated marginal means here (18.9 for Ewe, 10.53 for Ram, and 14.83 for Wether) are mean values for fatness once the CV of weight has been controlled for.</p>
+<p>Lastly, let’s test the homogenaity of the regression slopes assumption (though we should have done this first!). We do this by running the model with an interaction term included.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hoRS.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>Animal <span class="op">+</span><span class="st"> </span>animal<span class="op">:</span>weight, <span class="dt">data=</span>deadsheep)
+<span class="kw">Anova</span>(hoRS.sheep, <span class="dt">type=</span><span class="st">&quot;III&quot;</span>)</code></pre></div>
+<pre><code>## Anova Table (Type III tests)
+## 
+## Response: fatness
+##                Sum Sq Df F value    Pr(&gt;F)    
+## (Intercept)    64.571  1 14.6355 0.0007007 ***
+## weight        180.144  1 40.8308 7.624e-07 ***
+## Animal          5.293  2  0.5998 0.5560672    
+## weight:animal   8.957  2  1.0151 0.3757923    
+## Residuals     119.123 27                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>The interaction term is not significant, thus no violation. We can also plot this to see it. All regression lines should be pointing in the same direction when we plot the groups separately.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(deadsheep, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> fatness, <span class="dt">color =</span> Animal)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Homogeneity of Regression Slopes&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Weight&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fatness&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p>If one of these lines would be pointed downwards, we would have an interaction.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mediation-and-moderation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="manova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/21-ancova.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
