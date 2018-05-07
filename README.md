@@ -7,6 +7,7 @@ Material from the book stems primarily from Jason Hicks' 4111 Intermediate Stati
 
 This book is a handbook that will allow anyone wanting to go through the psychologoical statistics rotation at LSU and be able to learn R in the process.
 
+[To see the current build of the book check out the link here!!(https://davidjohnbaker1.github.io/rForPsychHandbook/)
 
 ## To Do List
 
