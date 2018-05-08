@@ -59,7 +59,7 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 * [ ] samplingDistributions
 * [ ] hypothesisTesting
 * [ ] powereffect
-* [ ] correlation
+* [X] correlation
 * [ ] Regression
 * [ ] matchedTTest
 * [ ] oneWayAnova
@@ -90,7 +90,7 @@ This book is a handbook that will allow anyone wanting to go through the psychol
 * [ ] samplingDistributions
 * [ ] hypothesisTesting
 * [ ] powereffect
-* [ ] correlation
+* [X] correlation
 * [ ] Regression
 * [ ] matchedTTest
 * [ ] oneWayAnova

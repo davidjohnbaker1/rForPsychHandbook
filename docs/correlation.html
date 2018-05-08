@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-05-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -164,6 +164,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1" data-path="correlation.html"><a href="correlation.html#calculating-persons-r"><i class="fa fa-check"></i><b>9.1</b> Calculating Person’s r</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="correlation.html"><a href="correlation.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
 </ul></li>
+<li class="chapter" data-level="9.2" data-path="correlation.html"><a href="correlation.html#testing-the-significance-of-the-correlation-coefficient."><i class="fa fa-check"></i><b>9.2</b> Testing the significance of the correlation coefficient.</a></li>
+<li class="chapter" data-level="9.3" data-path="correlation.html"><a href="correlation.html#spearmans-rho"><i class="fa fa-check"></i><b>9.3</b> Spearman’s Rho</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
 <li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
@@ -186,6 +188,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
 <li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
 <li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+<li class="chapter" data-level="15.3" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#db-notes"><i class="fa fa-check"></i><b>15.3</b> DB Notes</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#af-example"><i class="fa fa-check"></i><b>15.3.1</b> AF Example</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
 <li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
@@ -404,53 +409,72 @@ zNoOfPublications</code></pre></div>
 <li>The observations were randomly sampled. 5.The relationship between the variables is linear, rather than curvilinear. Values of rare uninterpretable (and are underestimates) for curvilinear relationships.</li>
 <li>If the range on one or both variables is restricted (i.e., the group is very homogeneous on X and/or Y), then the value of rtends to become smaller.</li>
 </ol>
-<p>Theoretically, the correlation can get bigger with range restriction, although this is VERY rare with moderate-to-large sample sizes.</p>
-<p>[DB LEFT OFF HERE]</p>
-<div class="figure">
-<img src="img/hickscor11.png" alt="Hicks" />
-<p class="caption">Hicks</p>
-</div>
-<p>The sample size will not affect the value of r(except when N= 2), but will affect its accuracyin terms of statistical significance. -when N= 2, rALWAYS equals ±1.0 c.The coefficient of determinationrepresents the amount of variance in Ythat can be associated with the variance in X.</p>
-<div class="figure">
-<img src="img/hickscor12.png" alt="Hicks" />
-<p class="caption">Hicks</p>
-</div>
-<p>Conceptual</p>
+<p>For example, if you look at the two scatter plots below, both being created with the same dataset, but one truncated, we can see that there is a change in correlation coeffecient.</p>
+<p>[PLOT HERE]</p>
+<p>There are a couple of other factors that impact how one interprets a linear correlation. If the range on one or both variables is restricted (i.e., the group is very homogeneous on X and/or Y), then the value of <span class="math inline">\(r\)</span> tends to become smaller. Theoretically, the correlation can get bigger with range restriction, although this is VERY rare with moderate-to-large sample sizes.</p>
+<p>It’s also worth mentioning that sample size will not affect the value of r (unless N = 2), but it will affect its accuracy in terms of statistical significance. If you do run a correlation with two points you are always going to get a perfect correlation!</p>
+<p>In addition to <span class="math inline">\(r\)</span>, there is <span class="math inline">\(r^2\)</span> which is referred to as the coeffecient of determination that represents the amount of variance in Y that can be associated with the variance in X.</p>
+<p>We can calculate <span class="math inline">\(r^2\)</span> with the following formula. <span class="math display">\[r^2 = \frac{s^2_X}{s^2_Y} = \frac{S^2_X}{s^2_X + s^2_{Res}}\]</span></p>
+<p>In the formula above, <span class="math inline">\(r^2\)</span> is the coeffecient of determination, <span class="math inline">\(s^2\)</span> is the ??variation?? in <span class="math inline">\(s^2_X\)</span>, and <span class="math inline">\(s^2_Y\)</span> is the ??variation?? in Y. The formula on the far right also notes you can have <span class="math inline">\(r^2\)</span> values that account for other types of variation. For example if know residuals of other variables…</p>
+<p>And we can see conceptual representations of <span class="math inline">\(r^2\)</span> below.</p>
 <div class="figure">
 <img src="img/hickscor13.png" alt="Hicks" />
 <p class="caption">Hicks</p>
 </div>
-<p>Finally, a measured correlation says nothing about whether Xand Yare causally linked, only that there is an association. There are three generic possible reasons for the association.</p>
+<p>Finally, a measured correlation says nothing about whether X and Y are <em>causally</em> linked, only that there is an association. There are three generic possible reasons for the association.</p>
+<ol style="list-style-type: decimal">
+<li>X could be driving the relationship with Y</li>
+<li>Y could be driving the relationship with X</li>
+<li>A third, unaccounted variable Z, could be driving both relationships!</li>
+</ol>
 <div class="figure">
 <img src="img/hickscor14.png" alt="Hicks" />
 <p class="caption">Hicks</p>
 </div>
-<p>Testing the “significance” of the correlation coefficient. a.Is the correlation different from 0?</p>
-<div class="figure">
-<img src="img/hickscor15.png" alt="Hicks" />
-<p class="caption">Hicks</p>
 </div>
-<p>Or look up critical values in A5 and compare with r 48df .05 alpha of .273</p>
-<div class="figure">
-<img src="img/hickscor16.png" alt="Hicks" />
-<p class="caption">Hicks</p>
 </div>
-<div class="figure">
-<img src="img/hickscor17.png" alt="Hicks" />
-<p class="caption">Hicks</p>
+<div id="testing-the-significance-of-the-correlation-coefficient." class="section level2">
+<h2><span class="header-section-number">9.2</span> Testing the significance of the correlation coefficient.</h2>
+<p>It’s important to note here that just like all tests of significance, you are only testing whether or not the correlation is different from 0! Represented numerically, our null hypothesis for testing the significance of the correlation coeffecient is that <span class="math inline">\(H_0 : \rho = 0\)</span>. We then use a <span class="math inline">\(t\)</span> statistic to find our critical value.</p>
+<p><span class="math display">\[t = r\sqrt{\frac{n-2}{1-r^2}}= \frac{r - \rho_0}{\sqrt{\frac{1-r^2}{N-2}}}\]</span></p>
+<p>Walking through the above formula, we are multiplying our correlation coeffecient (<span class="math inline">\(r\)</span>) by the square root of our sample size <span class="math inline">\(n\)</span> subtract 2, divided by <span class="math inline">\(1\)</span> subtract our coeffecient of determination. We find our degrees of freedom by subtracting 2 from our sample size.</p>
+<p>Using our data from above, it would look like:</p>
+<p><span class="math display">\[t = .83\sqrt{\frac{50-2}{1-.82^2}}=10.31\]</span></p>
+<p>With an <span class="math inline">\(\alpha\)</span> of .05 and <span class="math inline">\(50 - 2 = 48\)</span> degrees of freedom, using a two tailed test, we get a crticial value of about 2.01. Or since there is a table of [critical values associated with correlations] in your textbook in Table A5, we can compare….</p>
+<p>We can then also test… [[Add text here to these formulas]]</p>
+<p><span class="math display">\[H_0 : \rho = \alpha\]</span> <span class="math display">\[z_r = r&#39; = \frac{1}{2}log_e\frac{1+r}{1-r}\]</span></p>
+<p>See table A.6.</p>
+<p><span class="math display">\[z = \frac{z_r-z_p}{S_{z_r}}\]</span> <span class="math display">\[s_{z_r}= \sqrt{\frac{1}{n-3}}\]</span></p>
+<p>Is the correlation greter than .60?</p>
+<p><span class="math display">\[H_0: \rho = .60\]</span> <span class="math display">\[z_r = \frac{1}{2}log_e\frac{1+.83}{1-.83}=1.88\]</span> <span class="math display">\[s_{z_r}=\sqrt{\frac{1}{50-3}}=0.15\]</span> <span class="math display">\[z= \frac{1.19-0.69}{0.15}=3.33\]</span></p>
 </div>
+<div id="spearmans-rho" class="section level2">
+<h2><span class="header-section-number">9.3</span> Spearman’s Rho</h2>
 <p>There is a correlation coefficient to deal with ordinal variables, or those measured by ranks, called Spearman rho.</p>
-<div class="figure">
-<img src="img/hickscor18.png" alt="Hicks" />
-<p class="caption">Hicks</p>
-</div>
-<p>d= the difference between paired ranks, rather than paired scores.</p>
-<div class="figure">
-<img src="img/hickscor19.png" alt="Hicks" />
-<p class="caption">Hicks</p>
-</div>
+<p><span class="math display">\[\rho = 1 - \frac{6\Sigma d^2}{n(n^2-1)}\]</span></p>
+<p>Where d is equal to the difference between paired ranks, rather than paired scores.</p>
+<p>So using this formula and some new data, we can then calculate Spearman’s <span class="math inline">\(\rho\)</span>! First thing we need to do is load in some new data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rhoX &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">595</span>,<span class="dv">520</span>,<span class="dv">715</span>,<span class="dv">405</span>,<span class="dv">680</span>,<span class="dv">490</span>,<span class="dv">565</span>,<span class="dv">580</span>,<span class="dv">615</span>,<span class="dv">435</span>,<span class="dv">440</span>,<span class="dv">515</span>,<span class="dv">380</span>,<span class="dv">510</span>,<span class="dv">565</span>)
+rhoY &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">68</span>,<span class="dv">55</span>,<span class="dv">65</span>,<span class="dv">42</span>,<span class="dv">64</span>,<span class="dv">45</span>,<span class="dv">56</span>,<span class="dv">59</span>,<span class="dv">56</span>,<span class="dv">42</span>,<span class="dv">38</span>,<span class="dv">50</span>,<span class="dv">37</span>,<span class="dv">42</span>,<span class="dv">53</span>)
+rhoData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(rhoX, rhoY)</code></pre></div>
+<p>The first thing we need to do is transform both of our variables into rank order data with the highest number getting the lowest value. To do that we can use R’s <code>rank()</code> function. Note that R normally has the rank order with the lowest the highest number, so if we just negate our vector, we get what we want.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rhoXRanked &lt;-<span class="st"> </span><span class="kw">rank</span>(<span class="op">-</span>rhoX,<span class="dt">ties.method =</span> <span class="st">&quot;average&quot;</span>)
+rhoYRanked &lt;-<span class="st"> </span><span class="kw">rank</span>(<span class="op">-</span>rhoY, <span class="dt">ties.method =</span> <span class="st">&quot;average&quot;</span>)</code></pre></div>
+<p>With these ranks, we can then subtract our Y ranks <em>from </em> our X ranks. After subtracting, we will then square them.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rhoDifference &lt;-<span class="st"> </span>rhoXRanked <span class="op">-</span><span class="st"> </span>rhoYRanked
+rhoDifferenceSquared &lt;-<span class="st"> </span>rhoDifference<span class="op">^</span><span class="dv">2</span>
+<span class="kw">sum</span>(rhoDifferenceSquared)</code></pre></div>
+<pre><code>## [1] 36.5</code></pre>
+<p>We then take these <span class="math inline">\(d^2\)</span> values, and plug them into our formula from above.</p>
+<p><span class="math display">\[\rho = 1 - \frac{6\Sigma d^2}{n(n^2-1)}= 1 - \frac{6 * 36.5}{15(15^2-1)} = 1 -.065=.935\]</span></p>
+<p>Which we can then check wiht R’s <code>cor()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(rhoX, rhoY, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</code></pre></div>
+<pre><code>## [1] 0.9344764</code></pre>
+<p>Note that if we run this same data with <span class="math inline">\(r\)</span> or Pearson’s we get a smaller value!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(rhoX, rhoY, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</code></pre></div>
+<pre><code>## [1] 0.9029575</code></pre>
+<p>It’s worth mentioning that there is one more method called <a href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient">Kendall’s Tau</a> (<span class="math inline">\(\tau\)</span>) which is a type of correlation you can also use with Rank order where you need to count the number of concordant and or discordant pairs and then divide accordintly. In the Andy Field book, he notes that Kendall’s Tau is often used for small sample sizes (CITE).</p>
 
-</div>
 </div>
 </div>
             </section>

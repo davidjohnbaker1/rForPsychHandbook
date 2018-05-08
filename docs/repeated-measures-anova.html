@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-05-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -164,6 +164,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1" data-path="correlation.html"><a href="correlation.html#calculating-persons-r"><i class="fa fa-check"></i><b>9.1</b> Calculating Person’s r</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="correlation.html"><a href="correlation.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
 </ul></li>
+<li class="chapter" data-level="9.2" data-path="correlation.html"><a href="correlation.html#testing-the-significance-of-the-correlation-coefficient."><i class="fa fa-check"></i><b>9.2</b> Testing the significance of the correlation coefficient.</a></li>
+<li class="chapter" data-level="9.3" data-path="correlation.html"><a href="correlation.html#spearmans-rho"><i class="fa fa-check"></i><b>9.3</b> Spearman’s Rho</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
 <li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
@@ -186,6 +188,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
 <li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
 <li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+<li class="chapter" data-level="15.3" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#db-notes"><i class="fa fa-check"></i><b>15.3</b> DB Notes</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#af-example"><i class="fa fa-check"></i><b>15.3.1</b> AF Example</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
 <li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
@@ -345,7 +350,99 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">15.2</span> Effect Size</h2>
 <p>An effect size measure, f, is used to represent the population SD between groups from the grand mean, versus population SD within a group</p>
 <p><img src="img/hicksrma15.png" alt="rma" /> <img src="img/hicksrma16.png" alt="rma" /> <img src="img/hicksrma17.png" alt="rma" /> <img src="img/hicksrma18.png" alt="rma" /> <img src="img/hicksrma19.png" alt="rma" /> <img src="img/hicksrma20.png" alt="rma" /></p>
+</div>
+<div id="db-notes" class="section level2">
+<h2><span class="header-section-number">15.3</span> DB Notes</h2>
+<p>Just like regular ANOVA, but now have the assumption of spherecity.</p>
+<p>Compound symmetery – variances across conditions are equal and covariances between pairs of conditions are equal. Don’t need this as much in RMANOVA. Spherecity is differences in variation. You do this with Mauchley’s test of sphereicity.</p>
+<p>If you violate spherecity, come back here. Can do Greehouse Geisser correction or the Huynh-Feldt corection.</p>
+<div id="af-example" class="section level3">
+<h3><span class="header-section-number">15.3.1</span> AF Example</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">participant &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;P1&quot;</span>,<span class="st">&quot;P2&quot;</span>,<span class="st">&quot;P3&quot;</span>,<span class="st">&quot;P4&quot;</span>,<span class="st">&quot;P5&quot;</span>,<span class="st">&quot;P6&quot;</span>,<span class="st">&quot;P7&quot;</span>,<span class="st">&quot;P8&quot;</span>)
+stick_insect &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">12</span>)
+kangaroo_testicle &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">6</span>)
+fish_eye &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)
+witch_grub &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">1</span>)
+bush &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(participant, stick_insect, kangaroo_testicle, fish_eye, witch_grub))</code></pre></div>
+<p>Though needs to be long for RMANOVA</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;reshape&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:data.table&#39;:
+## 
+##     melt</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">longBush &lt;-<span class="st"> </span><span class="kw">melt</span>(bush,   <span class="dt">id =</span> <span class="st">&quot;participant&quot;</span>, <span class="dt">measured =</span> <span class="kw">c</span>(<span class="st">&quot;stick_insect&quot;</span>, <span class="st">&quot;kangaroo_testicle&quot;</span>,<span class="st">&quot;fish_eye&quot;</span>,<span class="st">&quot;witch_grub&quot;</span>))
+<span class="kw">names</span>(longBush) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Participant&quot;</span>,<span class="st">&quot;Animal&quot;</span>,<span class="st">&quot;Retch&quot;</span>)
 
+longBush<span class="op">$</span>Animal &lt;-<span class="st"> </span><span class="kw">factor</span>(longBush<span class="op">$</span>Animal, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Stick Insect&quot;</span>,<span class="st">&quot;Kangaroo&quot;</span>,<span class="st">&quot;Fish Eye&quot;</span>, <span class="st">&quot;Witch&quot;</span>))
+longBush</code></pre></div>
+<pre><code>##    Participant       Animal Retch
+## 1           P1 Stick Insect     8
+## 2           P2 Stick Insect     9
+## 3           P3 Stick Insect     6
+## 4           P4 Stick Insect     5
+## 5           P5 Stick Insect     8
+## 6           P6 Stick Insect     7
+## 7           P7 Stick Insect    10
+## 8           P8 Stick Insect    12
+## 9           P1     Kangaroo     7
+## 10          P2     Kangaroo     5
+## 11          P3     Kangaroo     2
+## 12          P4     Kangaroo     3
+## 13          P5     Kangaroo     4
+## 14          P6     Kangaroo     5
+## 15          P7     Kangaroo     2
+## 16          P8     Kangaroo     6
+## 17          P1     Fish Eye     1
+## 18          P2     Fish Eye     2
+## 19          P3     Fish Eye     3
+## 20          P4     Fish Eye     1
+## 21          P5     Fish Eye     5
+## 22          P6     Fish Eye     6
+## 23          P7     Fish Eye     7
+## 24          P8     Fish Eye     8
+## 25          P1        Witch     6
+## 26          P2        Witch     5
+## 27          P3        Witch     8
+## 28          P4        Witch     9
+## 29          P5        Witch     8
+## 30          P6        Witch     7
+## 31          P7        Witch     2
+## 32          P8        Witch     1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PartsVWhole &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)
+TestVEye &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)
+SticVGrub &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>)
+<span class="kw">contrasts</span>(longBush<span class="op">$</span>Animal)&lt;-<span class="kw">cbind</span>(PartsVWhole,TestVEye,SticVGrub)
+longBush<span class="op">$</span>Animal</code></pre></div>
+<pre><code>##  [1] Stick Insect Stick Insect Stick Insect Stick Insect Stick Insect
+##  [6] Stick Insect Stick Insect Stick Insect Kangaroo     Kangaroo    
+## [11] Kangaroo     Kangaroo     Kangaroo     Kangaroo     Kangaroo    
+## [16] Kangaroo     Fish Eye     Fish Eye     Fish Eye     Fish Eye    
+## [21] Fish Eye     Fish Eye     Fish Eye     Fish Eye     Witch       
+## [26] Witch        Witch        Witch        Witch        Witch       
+## [31] Witch        Witch       
+## attr(,&quot;contrasts&quot;)
+##              PartsVWhole TestVEye SticVGrub
+## Stick Insect           1        0        -1
+## Kangaroo              -1       -1         0
+## Fish Eye              -1        1         0
+## Witch                  1        0         1
+## Levels: Stick Insect Kangaroo Fish Eye Witch</code></pre>
+<p>Running It</p>
+<p>THIS IS BROKEN</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ez)
+<span class="kw">str</span>(longBush)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    32 obs. of  3 variables:
+##  $ Participant: Factor w/ 8 levels &quot;P1&quot;,&quot;P2&quot;,&quot;P3&quot;,..: 1 2 3 4 5 6 7 8 1 2 ...
+##  $ Animal     : Factor w/ 4 levels &quot;Stick Insect&quot;,..: 1 1 1 1 1 1 1 1 2 2 ...
+##   ..- attr(*, &quot;contrasts&quot;)= num [1:4, 1:3] 1 -1 -1 1 0 -1 1 0 -1 0 ...
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : chr  &quot;Stick Insect&quot; &quot;Kangaroo&quot; &quot;Fish Eye&quot; &quot;Witch&quot;
+##   .. .. ..$ : chr  &quot;PartsVWhole&quot; &quot;TestVEye&quot; &quot;SticVGrub&quot;
+##  $ Retch      : Factor w/ 11 levels &quot;10&quot;,&quot;12&quot;,&quot;5&quot;,..: 6 7 4 3 6 5 1 2 5 3 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#bushModel &lt;- ezANOVA(data = longBush, dv = .(Retch), wid = .(Participant), within = .(Animal), detailed = TRUE, type = 3)</span></code></pre></div>
+
+</div>
 </div>
 </div>
             </section>

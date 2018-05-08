@@ -140,44 +140,122 @@ All correlations require a certain set of assumptions:
 5.The relationship between the variables is linear, rather than curvilinear. Values of rare uninterpretable (and are underestimates) for curvilinear relationships.
 6. If the range on one or both variables is restricted (i.e., the group is very homogeneous on X and/or Y), then the value of rtends to become smaller.
 
+For example, if you look at the two scatter plots below, both being created with the same dataset, but one truncated, we can see that there is a change in correlation coeffecient.
+
+[PLOT HERE]
+
+There are a couple of other factors that impact how one interprets a linear correlation.
+If the range on one or both variables is restricted (i.e., the group is very homogeneous on X and/or Y), then the value of $r$ tends to become smaller.
 Theoretically, the correlation can get bigger with range restriction, although this is VERY rare with moderate-to-large sample sizes.
 
-[DB LEFT OFF HERE]
+It's also worth mentioning that sample size will not affect the value of r (unless N = 2), but it will affect its accuracy in terms of statistical significance.
+If you do run a correlation with two points you are always going to get a perfect correlation!
 
-![Hicks](img/hickscor11.png)
+In addition to $r$, there is $r^2$ which is referred to as the coeffecient of determination that represents the amount of variance in Y that can be associated with the variance in X.
 
-The sample size will not affect the value of r(except when N= 2), but will affect its accuracyin terms of statistical significance.
--when N= 2, rALWAYS equals ±1.0
-c.The coefficient of determinationrepresents the amount of variance in Ythat can be associated with the variance in X.
+We can calculate $r^2$ with the following formula.
+$$r^2 = \frac{s^2_X}{s^2_Y} = \frac{S^2_X}{s^2_X + s^2_{Res}}$$
 
-![Hicks](img/hickscor12.png)
+In the formula above, $r^2$ is the coeffecient of determination, $s^2$ is the ??variation?? in $s^2_X$, and $s^2_Y$ is the ??variation?? in Y.
+The formula on the far right also notes you can have $r^2$ values that account for other types of variation.
+For example if know residuals of other variables...
 
-Conceptual 
+And we can see conceptual representations of $r^2$ below.
 
 ![Hicks](img/hickscor13.png)
 
 
-Finally, a measured correlation says nothing about whether Xand Yare causally linked, only that there is an association. There are three generic possible reasons for the association.
+Finally, a measured correlation says nothing about whether X and Y are *causally* linked, only that there is an association. 
+There are three generic possible reasons for the association.
+
+1. X could be driving the relationship with Y
+2. Y could be driving the relationship with X
+3. A third, unaccounted variable Z, could be driving both relationships! 
 
 ![Hicks](img/hickscor14.png)
 
-Testing the “significance” of the correlation coefficient.
-a.Is the correlation different from 0?
+## Testing the significance of the correlation coefficient.
 
-![Hicks](img/hickscor15.png)
+It's important to note here that just like all tests of significance, you are only testing whether or not the correlation is different from 0! 
+Represented numerically, our null hypothesis for testing the significance of the correlation coeffecient is that $H_0 : \rho = 0$.
+We then use a $t$ statistic to find our critical value.
 
-Or look up critical values in A5 and compare with r 48df .05 alpha of .273
+$$t = r\sqrt{\frac{n-2}{1-r^2}}= \frac{r - \rho_0}{\sqrt{\frac{1-r^2}{N-2}}}$$
 
-![Hicks](img/hickscor16.png)
+Walking through the above formula, we are multiplying our correlation coeffecient ($r$) by the square root of our sample size $n$ subtract 2, divided by $1$ subtract our coeffecient of determination.
+We find our degrees of freedom by subtracting 2 from our sample size. 
 
-![Hicks](img/hickscor17.png)
+Using our data from above, it would look like:
 
+$$t = .83\sqrt{\frac{50-2}{1-.82^2}}=10.31$$
+
+With an $\alpha$ of .05 and $50 - 2 = 48$ degrees of freedom, using a two tailed test, we get a crticial value of about 2.01. 
+Or since there is a table of [critical values associated with correlations] in your textbook in Table A5, we can compare....
+
+We can then also test...
+[[Add text here to these formulas]]
+
+$$H_0 : \rho = \alpha$$
+$$z_r = r' = \frac{1}{2}log_e\frac{1+r}{1-r}$$
+
+See table A.6.
+
+$$z = \frac{z_r-z_p}{S_{z_r}}$$
+$$s_{z_r}= \sqrt{\frac{1}{n-3}}$$
+
+Is the correlation greter than .60?
+
+$$H_0: \rho = .60$$
+$$z_r = \frac{1}{2}log_e\frac{1+.83}{1-.83}=1.88$$
+$$s_{z_r}=\sqrt{\frac{1}{50-3}}=0.15$$
+$$z= \frac{1.19-0.69}{0.15}=3.33$$
+
+## Spearman's Rho
 
 There is a correlation coefficient to deal with ordinal variables, or those
 measured by ranks, called Spearman rho.
 
-![Hicks](img/hickscor18.png)
+$$\rho = 1 - \frac{6\Sigma d^2}{n(n^2-1)}$$
 
-d= the difference between paired ranks, rather than paired scores.
+Where d is equal to the difference between paired ranks, rather than paired scores.
 
-![Hicks](img/hickscor19.png)
+So using this formula and some new data, we can then calculate Spearman's $\rho$!
+First thing we need to do is load in some new data
+
+```{r}
+rhoX <- c(595,520,715,405,680,490,565,580,615,435,440,515,380,510,565)
+rhoY <- c(68,55,65,42,64,45,56,59,56,42,38,50,37,42,53)
+rhoData <- data.frame(rhoX, rhoY)
+```
+
+The first thing we need to do is transform both of our variables into rank order data with the highest number getting the lowest value.
+To do that we can use R's ```rank()``` function.
+Note that R normally has the rank order with the lowest the highest number, so if we just negate our vector, we get what we want. 
+
+```{r}
+rhoXRanked <- rank(-rhoX,ties.method = "average")
+rhoYRanked <- rank(-rhoY, ties.method = "average")
+```
+With these ranks, we can then subtract our Y ranks *from * our X ranks.
+After subtracting, we will then square them.
+```{r}
+rhoDifference <- rhoXRanked - rhoYRanked
+rhoDifferenceSquared <- rhoDifference^2
+sum(rhoDifferenceSquared)
+```
+We then take these $d^2$ values, and plug them into our formula from above.
+
+$$\rho = 1 - \frac{6\Sigma d^2}{n(n^2-1)}= 1 - \frac{6 * 36.5}{15(15^2-1)} = 1 -.065=.935$$
+
+Which we can then check wiht R's ```cor()``` function.
+
+```{r}
+cor(rhoX, rhoY, method = "spearman")
+```
+Note that if we run this same data with $r$ or Pearson's we get a smaller value!
+```{r}
+cor(rhoX, rhoY, method = "pearson")
+```
+It's worth mentioning that there is one more method called [Kendall's Tau](https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient) ($\tau$) which is a type of correlation you can also use with Rank order where you need to count the number of concordant and or discordant pairs and then divide accordintly.
+In the Andy Field book, he notes that Kendall's Tau is often used for small sample sizes (CITE).
+

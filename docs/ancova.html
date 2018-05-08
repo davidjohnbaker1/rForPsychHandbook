@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-05-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -164,6 +164,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1" data-path="correlation.html"><a href="correlation.html#calculating-persons-r"><i class="fa fa-check"></i><b>9.1</b> Calculating Person’s r</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="correlation.html"><a href="correlation.html#assumptions"><i class="fa fa-check"></i><b>9.1.1</b> Assumptions</a></li>
 </ul></li>
+<li class="chapter" data-level="9.2" data-path="correlation.html"><a href="correlation.html#testing-the-significance-of-the-correlation-coefficient."><i class="fa fa-check"></i><b>9.2</b> Testing the significance of the correlation coefficient.</a></li>
+<li class="chapter" data-level="9.3" data-path="correlation.html"><a href="correlation.html#spearmans-rho"><i class="fa fa-check"></i><b>9.3</b> Spearman’s Rho</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a></li>
 <li class="chapter" data-level="11" data-path="matched-t-test.html"><a href="matched-t-test.html"><i class="fa fa-check"></i><b>11</b> Matched T Test</a><ul>
@@ -186,6 +188,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html"><i class="fa fa-check"></i><b>15</b> Repeated Measures ANOVA:</a><ul>
 <li class="chapter" data-level="15.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#assumptions-of-rmanova"><i class="fa fa-check"></i><b>15.1</b> Assumptions of RMANOVA</a></li>
 <li class="chapter" data-level="15.2" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#effect-size"><i class="fa fa-check"></i><b>15.2</b> Effect Size</a></li>
+<li class="chapter" data-level="15.3" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#db-notes"><i class="fa fa-check"></i><b>15.3</b> DB Notes</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="repeated-measures-anova.html"><a href="repeated-measures-anova.html#af-example"><i class="fa fa-check"></i><b>15.3.1</b> AF Example</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html"><i class="fa fa-check"></i><b>16</b> Factorial Designs with Repeated Measures</a><ul>
 <li class="chapter" data-level="16.1" data-path="factorial-designs-with-repeated-measures.html"><a href="factorial-designs-with-repeated-measures.html#assumptions-of-mixed-anova"><i class="fa fa-check"></i><b>16.1</b> Assumptions of Mixed ANOVA</a><ul>
@@ -385,6 +390,9 @@ ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span
 <p>Here we get<span class="math display">\[ F(2,30) = 2.44, p&gt; .05\]</span> and can move forward. Let’s now run our ANCOVA. Note that R’s default is Type I Sum of Squares, we need to load the <code>car</code> package to give us the correct sum of squares. For further reading on this, check out the Andy Field book on this.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sheepANCOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(fatness <span class="op">~</span><span class="st"> </span>Animal <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data=</span>deadsheep)
 <span class="kw">library</span>(car)</code></pre></div>
+<pre><code>## Warning: package &#39;car&#39; was built under R version 3.4.4</code></pre>
+<pre><code>## Loading required package: carData</code></pre>
+<pre><code>## Warning: package &#39;carData&#39; was built under R version 3.4.4</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;car&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:psych&#39;:
@@ -405,12 +413,7 @@ ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span
 <p>The covariate, weight, was not significantly related to the the fatness of the animal, <span class="math display">\[F(1, 29) =,p=.0565 \]</span> and that there was a significant effect of the animal after controlling for weight of the animal, <span class="math display">\[F(2,28) = 37.62, p &lt; .05.\]</span>.</p>
 <p>Let’s now check on our marginal means. These are our group means after we have controlled for our covariate. For this we need the <code>effects</code> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(effects)</code></pre></div>
-<pre><code>## Loading required package: carData</code></pre>
-<pre><code>## 
-## Attaching package: &#39;carData&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:car&#39;:
-## 
-##     Guyer, UN, Vocab</code></pre>
+<pre><code>## Warning: package &#39;effects&#39; was built under R version 3.4.4</code></pre>
 <pre><code>## lattice theme set by effectsTheme()
 ## See ?effectsTheme for details.</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean.sheep &lt;-<span class="st"> </span><span class="kw">effect</span>(<span class="st">&quot;Animal&quot;</span>, sheepANCOVA, <span class="dt">se=</span><span class="ot">TRUE</span>)
@@ -451,7 +454,7 @@ ind.sheep &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Homogeneity of Regression Slopes&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Weight&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fatness&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <p>If one of these lines would be pointed downwards, we would have an interaction.</p>
 
 </div>
