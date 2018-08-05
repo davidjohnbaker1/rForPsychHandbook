@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-05-09">
+<meta name="date" content="2018-08-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -217,29 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
 <li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
 <li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a><ul>
-<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introduction-to-multiple-regression"><i class="fa fa-check"></i><b>21.1</b> Introduction to Multiple Regression</a></li>
-<li class="chapter" data-level="21.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#basics-of-multiple-regression"><i class="fa fa-check"></i><b>21.2</b> Basics of Multiple Regression</a></li>
-<li class="chapter" data-level="21.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#types-of-multiple-regression"><i class="fa fa-check"></i><b>21.3</b> Types of Multiple Regression</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#standard-multiple-regression"><i class="fa fa-check"></i><b>21.3.1</b> Standard Multiple Regression</a></li>
-<li class="chapter" data-level="21.3.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#sequential-multiple-regression"><i class="fa fa-check"></i><b>21.3.2</b> Sequential Multiple Regression</a></li>
-<li class="chapter" data-level="21.3.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#statistical-or-stepwise-multiple-regression"><i class="fa fa-check"></i><b>21.3.3</b> Statistical or Stepwise Multiple Regression</a></li>
-</ul></li>
-<li class="chapter" data-level="21.4" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>21.4</b> Interpretation of Results</a><ul>
-<li class="chapter" data-level="21.4.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#model-summary"><i class="fa fa-check"></i><b>21.4.1</b> Model Summary</a></li>
-<li class="chapter" data-level="21.4.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#anova"><i class="fa fa-check"></i><b>21.4.2</b> ANOVA</a></li>
-<li class="chapter" data-level="21.4.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#coefficients"><i class="fa fa-check"></i><b>21.4.3</b> Coefficients</a></li>
-</ul></li>
-<li class="chapter" data-level="21.5" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.5</b> OLD MEDIATION MODERATION</a></li>
-<li class="chapter" data-level="21.6" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introductory-ramble"><i class="fa fa-check"></i><b>21.6</b> Introductory Ramble</a></li>
-<li class="chapter" data-level="21.7" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>21.7</b> Multiple Regression</a><ul>
-<li class="chapter" data-level="21.7.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#spss-notes"><i class="fa fa-check"></i><b>21.7.1</b> SPSS Notes</a></li>
-</ul></li>
-<li class="chapter" data-level="21.8" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#surpressor-variables"><i class="fa fa-check"></i><b>21.8</b> Surpressor Variables</a></li>
-<li class="chapter" data-level="21.9" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation-and-mediation"><i class="fa fa-check"></i><b>21.9</b> Moderation and Mediation</a><ul>
-<li class="chapter" data-level="21.9.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation"><i class="fa fa-check"></i><b>21.9.1</b> Moderation</a></li>
-</ul></li>
-<li class="chapter" data-level="21.10" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#centering"><i class="fa fa-check"></i><b>21.10</b> Centering</a></li>
-<li class="chapter" data-level="21.11" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#mediation"><i class="fa fa-check"></i><b>21.11</b> Mediation</a></li>
+<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.1</b> OLD MEDIATION MODERATION</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
 <li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
@@ -263,20 +269,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
 <li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#theory-3"><i class="fa fa-check"></i><b>27.1</b> Theory</a><ul>
-<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#introduction"><i class="fa fa-check"></i><b>27.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.2</b> Factor Analysis Purposes</a></li>
-<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.3</b> Types of Analysis</a></li>
-<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.4</b> PCA</a></li>
-<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.5</b> Rotatation</a></li>
-<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.6</b> Assumptions</a></li>
-<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
-<li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
+<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.1</b> Factor Analysis Purposes</a></li>
+<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.2</b> Types of Analysis</a></li>
+<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.3</b> PCA</a></li>
+<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.4</b> Rotatation</a></li>
+<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.5</b> Assumptions</a></li>
+<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.6</b> Problems wiht Catheorica Variables</a></li>
+<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.7</b> Running It</a></li>
 </ul></li>
 <li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-5"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
 <li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
 <li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
 <li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
-<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
@@ -320,104 +324,303 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="advanced-multiple-regression" class="section level1">
 <h1><span class="header-section-number">Chapter 21</span> Advanced Multiple Regression</h1>
-<div id="introduction-to-multiple-regression" class="section level2">
-<h2><span class="header-section-number">21.1</span> Introduction to Multiple Regression</h2>
-<p>With multiple regression you are using multiple dependent varibles to predict one DV. When we interpret these Univariate regression we have r. Multiple regression we have R, the multivariate regression coeffecient. This R^2 takes in multiple independant variables. We use multiple regression to test relationship between DV and two or more IVs. We can look at that relationship multiple different ways. We want to know how well this set of DVs predict our IV. More often we look at contribution of individual predictors. How important is X2 in predicting Y.<br />
-What is seffect of IV when controlling for effect of others IV. What is effect of gender on income we get after we control for educational background.</p>
-<p>With multiple regression, we can also compare sets of IVs to look at DV. Based on a number of things (ideally theory), we have one model that predicts others. Finally parameter estimation, the Bs are samples of paramters in population. We can estimate the actual value of these weights in population. There are a lot of really intersting questions we can answer with multiple regression.</p>
-<p>There is peril and limitations! Number one, with correlation you can’t say anything about causation. Another limiation of multiple regression is how many variables do you put in equation? If you have soemthing like census data, you can use tons of IVs. We we select IVs theoretically, ideally we have some DV, we choose IVs to predict it. We run prescreening to see if IVs are good predictors. We want IVs that are correlated with the DV. The IV’s co-vary with the DV. In a perfect world we want no correlation between the IVs. Ideally, but never happens. When we choose IVs to put in equation, important to to decide. Multiple regression is very sensitive to what we do as researchers. The ORDER which we put things in has interesting and counterintuitive results. In some rare cases, this can make cherubs or unicorns. What they are is statistical quirks from things we added to the model at some point.</p>
-</div>
-<div id="basics-of-multiple-regression" class="section level2">
-<h2><span class="header-section-number">21.2</span> Basics of Multiple Regression</h2>
-<p>Tests we are going to run have assumptions. First thing we want to do is prescreen data for normality, linearity, outliers. After we run it we check residual plots. The first thing we need to check that you can’t check with outliers is appropriate Ns. We need enough to run a good test, but we don’t want too many. Textbooks suggests where N &gt; 50 + 8m where m is number of variables. That rule is for general prediction. Is it a good model, just interested in model. This is only one rule of thumb, for general regression. For specific predictors and beta weights. N &gt; 104 + m. So if we want to see if type of shoe is a good predictor of kicking and spitting. This is to check for specific predictors in the model. If we’re interested in type of shoe, we don’t want to go a lot more above this. If your N is too high, you will get a significant result. Regression is really sensitive to sample size. Total model becomes significant if you make it too big, same with beta weights. At that point we’re more interested in effect size, aka the coefficient.</p>
-<p>If you have a huge dataset, want to validate. Aka take a sample, test. If you get census data, everything is going to be significant. The more IVs we have, the blacker the box, the harder it is to understand the equation. Student suggests to keep sample at less than 5% of population.</p>
-<p>Next assumption of multivariate regression is outliers. Outliers can be very harmful, very important and most important in multiple regression. Effects solution to general model, can have strong effect on estimated coefficents. We always check for and be mindful of outliers. After we run regression, want to check with residuals.</p>
+<p>##Introduction to Multiple Regression</p>
+<p>With multiple regression you are using multiple dependent varibles to predict one DV.
+When we interpret these
+Univariate regression we have r.
+Multiple regression we have R, the multivariate regression coeffecient.
+This R^2 takes in multiple independant variables.
+We use multiple regression to test relationship between DV and two or more IVs.
+We can look at that relationship multiple different ways.
+We want to know how well this set of DVs predict our IV.
+More often we look at contribution of individual predictors.
+How important is X2 in predicting Y.<br />
+What is seffect of IV when controlling for effect of others IV.
+What is effect of gender on income we get after we control for educational background.</p>
+<p>With multiple regression, we can also compare sets of IVs to look at DV.
+Based on a number of things (ideally theory), we have one model that predicts others.
+Finally parameter estimation, the Bs are samples of paramters in population.
+We can estimate the actual value of these weights in population.
+There are a lot of really intersting questions we can answer with multiple regression.</p>
+<p>There is peril and limitations!
+Number one, with correlation you can’t say anything about causation.
+Another limiation of multiple regression is how many variables do you put in equation?
+If you have soemthing like census data, you can use tons of IVs.
+We we select IVs theoretically, ideally we have some DV, we choose IVs to predict it.
+We run prescreening to see if IVs are good predictors.
+We want IVs that are correlated with the DV.
+The IV’s co-vary with the DV.
+In a perfect world we want no correlation between the IVs.
+Ideally, but never happens.
+When we choose IVs to put in equation, important to to decide.
+Multiple regression is very sensitive to what we do as researchers.
+The ORDER which we put things in has interesting and counterintuitive results.
+In some rare cases, this can make cherubs or unicorns.
+What they are is statistical quirks from things we added to the model at some point.</p>
+<p>##Basics of Multiple Regression</p>
+<p>Tests we are going to run have assumptions.
+First thing we want to do is prescreen data for normality, linearity, outliers.
+After we run it we check residual plots.
+The first thing we need to check that you can’t check with outliers is appropriate Ns.
+We need enough to run a good test, but we don’t want too many.
+Textbooks suggests where N &gt; 50 + 8m where m is number of variables.
+That rule is for general prediction.
+Is it a good model, just interested in model.
+This is only one rule of thumb, for general regression.
+For specific predictors and beta weights.
+N &gt; 104 + m.
+So if we want to see if type of shoe is a good predictor of kicking and spitting.
+This is to check for specific predictors in the model.
+If we’re interested in type of shoe, we don’t want to go a lot more above this.
+If your N is too high, you will get a significant result.
+Regression is really sensitive to sample size.
+Total model becomes significant if you make it too big, same with beta weights.
+At that point we’re more interested in effect size, aka the coefficient.</p>
+<p>If you have a huge dataset, want to validate.
+Aka take a sample, test.
+If you get census data, everything is going to be significant.
+The more IVs we have, the blacker the box, the harder it is to understand the equation.
+Student suggests to keep sample at less than 5% of population.</p>
+<p>Next assumption of multivariate regression is outliers.
+Outliers can be very harmful, very important and most important in multiple regression.
+Effects solution to general model, can have strong effect on estimated coefficents.
+We always check for and be mindful of outliers.
+After we run regression, want to check with residuals.</p>
 <p>Sometimes residuals are a bit misleading (supposedly from text).</p>
-<p>Want to always check for multicollinearity. Correlations above .9 can be very dangerous. Can check for singularity with correlation matricies, but normally that’s a logical thing. We want to check tolerance (0-1) and variance inflation factor. You want tolerance to be higher. If VIF is over 10 you are in trouble.</p>
-<p>Finally, check for normality, linerity, and homoscedacity of residuals. We check these univariatly, are they normal, do we have to transform? We can’t prescreen check, but we can check most of these with residual plot. Non linearity of residuals looks like an inverted U, or maybe exponential. We are looking at overal pattern of bivariate pattern. All non-linearity does is weaken your results. If ou have an inverse U, you are going to have weaker effect. What is important about this is theoretical. If you are running a linear result, but if we want to describe the world more accureatly then you want to use the right type of relationship. Normality is a bit more serious of an assumpiton. If we violate normality, it has importatn type I error implications. If you have messed up residuals, increases type II error.</p>
-</div>
-<div id="types-of-multiple-regression" class="section level2">
-<h2><span class="header-section-number">21.3</span> Types of Multiple Regression</h2>
-<div id="standard-multiple-regression" class="section level3">
-<h3><span class="header-section-number">21.3.1</span> Standard Multiple Regression</h3>
-<p>We are interested in a full set of IVs to predict at DV. We put all of them in at the same time. All of the predictors at tested at the same time. Equation is built with all variables in at the same time.</p>
-</div>
-<div id="sequential-multiple-regression" class="section level3">
-<h3><span class="header-section-number">21.3.2</span> Sequential Multiple Regression</h3>
-<p>Most people call it the third type. But in sequential, we enter IVs in steps. So if we are interested in gender, age gap and want to control for educaiton level. First do educaiton level and income. Then we add gender. Our solution will tell us how good is predictor variable after our first one. In this case we are interested in how much the R^2 changes. Often we will put in sets of IVs. Normally we control for demographics first. Things like age, gender, race, SES. Then we add in sets of IVs. What is important about squential regression is that order that IVs are put in is by the researcher, guided by either theory or the question we want to answer.</p>
-</div>
-<div id="statistical-or-stepwise-multiple-regression" class="section level3">
-<h3><span class="header-section-number">21.3.3</span> Statistical or Stepwise Multiple Regression</h3>
-<p>Basic gist of this is we put in all IVs, the let computer figure out what to add in what order to give us the best equation. This is essentially machine learning. Put in as much data as possible to predict. We have a few types <em>Forward Selection-mix them all up to find strongest </em>Backward Deletion - all IVs in at once, use tolerance to see if taking IVs out will take out ones that don’t matter *Stepwise Regression- does a bit of both Some people have a problem of this because it’s hard to generlize these models. These capitalize on random error, these methods are purely statistical. Only calculated based on idea of how thingsin one dataset predict things in this dataset. Any random corelation between is going to have magnified influence in the proceedures.</p>
-<p>Anytimes that you do a stitistical or stepwise regression you need to use validation. If we are only interested in predicting, don’t care what predicts. We always want to cross validate. We could either get new sample. If it’s a big dataset, 50/50. If not can split 80/20. Almost always, your predicition will be worse on second dataset. This is because the models are overfit. They capitalize on every correlation, even if it’s random.</p>
-<p>This is problem with machine learning. Huge amount of data. With a machine learning, you run into start up problem. With cognitive models, you have a starting assumption. Most of the people in this class, we are working on theory. Every so often you can use a tool to help narrow it down.</p>
-<p>If we have situation where all IVs don’t correlate with each other but do with DV, our analysis is simple. We R^2 which is proportion of IVs accoutned for by DV. We also have beta weights that tell us relationhip between unit increase in IV and DV. If IV and DV are correlated, we have problem with interpretation. This is because IV will share variance with DV it is predicting. IV has to have some relationhip with DV to be helpful in regression equation.</p>
-<p>These help explain difference between partial and semipartial coeffecients. In standard multiple regression, we have a correlation between IV and DV. When we get to our analysis this is zero order correlation. Bivariate rlationiop between IV and the DV. Zero order correlation shows us as if other circles were not there. In multivariate regression, we have all IVs in at once. We get partial and semi-partial correlation. In SPSS the call semi-partial part correlation. It tells us the unique amount of variance accounted for in the DV by th DV. Partial correlation tells us unique correlation that’s acounted for if we took it out. Semi-partial correlation tells us (more important in pscyhology as mesure of influence), it give us the same portion of unique variance but out of the DV without any of the other items.</p>
+<p>Want to always check for multicollinearity.
+Correlations above .9 can be very dangerous.
+Can check for singularity with correlation matricies, but normally that’s a logical thing.
+We want to check tolerance (0-1) and variance inflation factor.
+You want tolerance to be higher.
+If VIF is over 10 you are in trouble.</p>
+<p>Finally, check for normality, linerity, and homoscedacity of residuals.
+We check these univariatly, are they normal, do we have to transform?
+We can’t prescreen check, but we can check most of these with residual plot.
+Non linearity of residuals looks like an inverted U, or maybe exponential.
+We are looking at overal pattern of bivariate pattern.
+All non-linearity does is weaken your results.
+If ou have an inverse U, you are going to have weaker effect.
+What is important about this is theoretical.
+If you are running a linear result, but if we want to describe the world more accureatly then you want to use the right type of relationship.
+Normality is a bit more serious of an assumpiton.
+If we violate normality, it has importatn type I error implications.
+If you have messed up residuals, increases type II error.</p>
+<p>##Types of Multiple Regression
+###Standard Multiple Regression
+We are interested in a full set of IVs to predict at DV.
+We put all of them in at the same time.
+All of the predictors at tested at the same time.
+Equation is built with all variables in at the same time.</p>
+<p>###Sequential Multiple Regression
+Most people call it the third type.
+But in sequential, we enter IVs in steps.
+So if we are interested in gender, age gap and want to control for educaiton level.
+First do educaiton level and income.
+Then we add gender.
+Our solution will tell us how good is predictor variable after our first one.
+In this case we are interested in how much the R^2 changes.
+Often we will put in sets of IVs.
+Normally we control for demographics first.
+Things like age, gender, race, SES.
+Then we add in sets of IVs.
+What is important about squential regression is that order that IVs are put in is by the researcher, guided by either theory or the question we want to answer.</p>
+<p>###Statistical or Stepwise Multiple Regression
+Basic gist of this is we put in all IVs, the let computer figure out what to add in what order to give us the best equation.
+This is essentially machine learning.
+Put in as much data as possible to predict.
+We have a few types
+<em>Forward Selection-mix them all up to find strongest
+</em>Backward Deletion - all IVs in at once, use tolerance to see if taking IVs out will take out ones that don’t matter
+*Stepwise Regression- does a bit of both
+Some people have a problem of this because it’s hard to generlize these models.
+These capitalize on random error, these methods are purely statistical.
+Only calculated based on idea of how thingsin one dataset predict things in this dataset.
+Any random corelation between is going to have magnified influence in the proceedures.</p>
+<p>Anytimes that you do a stitistical or stepwise regression you need to use validation.
+If we are only interested in predicting, don’t care what predicts.
+We always want to cross validate.
+We could either get new sample.
+If it’s a big dataset, 50/50.
+If not can split 80/20.
+Almost always, your predicition will be worse on second dataset.
+This is because the models are overfit.
+They capitalize on every correlation, even if it’s random.</p>
+<p>This is problem with machine learning.
+Huge amount of data.
+With a machine learning, you run into start up problem.
+With cognitive models, you have a starting assumption.
+Most of the people in this class, we are working on theory.
+Every so often you can use a tool to help narrow it down.</p>
+<p>If we have situation where all IVs don’t correlate with each other but do with DV, our analysis is simple.
+We R^2 which is proportion of IVs accoutned for by DV.
+We also have beta weights that tell us relationhip between unit increase in IV and DV.
+If IV and DV are correlated, we have problem with interpretation.
+This is because IV will share variance with DV it is predicting.
+IV has to have some relationhip with DV to be helpful in regression equation.</p>
+<p>These help explain difference between partial and semipartial coeffecients.
+In standard multiple regression, we have a correlation between IV and DV.
+When we get to our analysis this is zero order correlation.
+Bivariate rlationiop between IV and the DV.
+Zero order correlation shows us as if other circles were not there.
+In multivariate regression, we have all IVs in at once.
+We get partial and semi-partial correlation.
+In SPSS the call semi-partial part correlation.
+It tells us the unique amount of variance accounted for in the DV by th DV.
+Partial correlation tells us unique correlation that’s acounted for if we took it out.
+Semi-partial correlation tells us (more important in pscyhology as mesure of influence), it give us the same portion of unique variance but out of the DV without any of the other items.</p>
 <p>LOOK AT HICKS CHAPTER NOTES TO UNDERSTAND PART VS SEMIPARTIAL CORRELATIONS!</p>
-</div>
-</div>
-<div id="interpretation-of-results" class="section level2">
-<h2><span class="header-section-number">21.4</span> Interpretation of Results</h2>
+<p>##Interpretation of Results</p>
 <p>Our initial output on SPSS is confusing as hell.</p>
-<div id="model-summary" class="section level3">
-<h3><span class="header-section-number">21.4.1</span> Model Summary</h3>
-<p>First output we get is model summary. We get R, R^2, and R^2 adjusted. These are global indicators of fit. How strong is realtionhip between set of IVs and DVs. They include all the IVs in our model and the DV all at once. Both of these measures in multiple reegression are inflated. Usually we look at R^2 adjusted to look at strength of model. If we are doing stepwise regression, we also get change in R^2.</p>
-</div>
-<div id="anova" class="section level3">
-<h3><span class="header-section-number">21.4.2</span> ANOVA</h3>
-<p>The next section of analysis is called ANOVA. ANOVA is significance test for that statistic. It gives us an F statistic and p value. Th F statistics tests for linear relationship between set of IVs and DV.</p>
-</div>
-<div id="coefficients" class="section level3">
-<h3><span class="header-section-number">21.4.3</span> Coefficients</h3>
-<p>Usually most interesting part of output. It gives us our bs, or multivariate regresion coeffients. It gives us our betas, our standardized regression coeffiecnts. Usually we report betas in multiple regression because IVs are on different scales. Makes it easier to look at effect sizes. Each of these will have t-test with a p value. Holding all other IVs constatnt is estimated weight of constant when contorl for others. Is that unique variance significant. That coeffecient also tells us our zero order bivariate correlations. It also gives up the partial and the part correlations.</p>
-</div>
-</div>
+<p>###Model Summary
+First output we get is model summary.
+We get R, R^2, and R^2 adjusted.
+These are global indicators of fit.
+How strong is realtionhip between set of IVs and DVs.
+They include all the IVs in our model and the DV all at once.
+Both of these measures in multiple reegression are inflated.
+Usually we look at R^2 adjusted to look at strength of model.
+If we are doing stepwise regression, we also get change in R^2.</p>
+<p>###ANOVA
+The next section of analysis is called ANOVA.
+ANOVA is significance test for that statistic.
+It gives us an F statistic and p value.
+Th F statistics tests for linear relationship between set of IVs and DV.</p>
+<p>###Coefficients
+Usually most interesting part of output.
+It gives us our bs, or multivariate regresion coeffients.
+It gives us our betas, our standardized regression coeffiecnts.
+Usually we report betas in multiple regression because IVs are on different scales.
+Makes it easier to look at effect sizes.
+Each of these will have t-test with a p value.
+Holding all other IVs constatnt is estimated weight of constant when contorl for others.
+Is that unique variance significant.
+That coeffecient also tells us our zero order bivariate correlations.
+It also gives up the partial and the part correlations.</p>
 <div id="old-mediation-moderation" class="section level2">
-<h2><span class="header-section-number">21.5</span> OLD MEDIATION MODERATION</h2>
-</div>
-<div id="introductory-ramble" class="section level2">
-<h2><span class="header-section-number">21.6</span> Introductory Ramble</h2>
-<p>Do work that’s important and changes the world. Ger? “Moving goal posts: training for life”</p>
-</div>
-<div id="multiple-regression-1" class="section level2">
-<h2><span class="header-section-number">21.7</span> Multiple Regression</h2>
-<p>If you do serious mediation analysis, you have to read at least two full books. You could read a book for every paragraph in Tabachnink and Fidel. With multiple regression, want to predict DV based on two or more IVs. Because coefficients are often on different scales, we often use beta weights. We use real constants when it comes to real life stuff.</p>
-<div id="spss-notes" class="section level3">
-<h3><span class="header-section-number">21.7.1</span> SPSS Notes</h3>
-<p>Model summary is global summary. R^2 is amount of variance explained by whole model. We use adjusted R^2, always use that.</p>
-<p>ANOVA table has regression, residual, and total. Everything that is used to calculated our F test. Mostly just interested in F and p value. This is looking for significant linear relationships between all of IVs and DV. The null hypothesis is that there is no relationship between the two. Also have to look at change statistics, need to look if changed or not. Does the addition of a new IV in step II significantly improve our prediction?</p>
-<p>For each model, there is a significance test for each coefficient. Each test is looking at significant relationship with IV and DV with other IVs held constant.</p>
-<p>Zero sum correlation is each IV and the DV. Other IVs considered is where we get into partial and semi partial correlations. Partial correlations are unique variance given all the IVs that one IV accounts for. One IV by itself with no overlap by other IVs. The semi partial correlation is the variance that is accounted for by the other IVs. Semi partial is variance that isn’t already accounted for by something else. Semi partial tells us if IV addition in last step increases the predictability of our model.</p>
-</div>
-</div>
-<div id="surpressor-variables" class="section level2">
-<h2><span class="header-section-number">21.8</span> Surpressor Variables</h2>
-<p>Variables in MR equation that are beneficial because of their effect on other IVs, but not the DV. They improve the equation, but not because they predict DV, because they have a quirky effect on other IVs. The way they work is by suppressing irrelevant variance that would normally decrease other IV’s ability to predict. Suppressor variables will improve R^2, even if it doesn’t relate to the DV. How you find a suppressor variable is find variable with high correlation with DV. Hallmarks of suppressor variable is correlation between DV IV correlation and now beta weight. If there is high positive relationship with DV and negative correlation (or VV). If the signs change, that is indicator of suppressor variable. Tabachnik and Fidel outline three types. 1. Classical Suppression - correlates with one other IV but not DV 2. Cooperative/Reciprocal Suppression - suppressor correlates with DV, neg with an IV 3.Negative/Net Suppression - Sign of correlation and coefficient are opposite.</p>
-<p>There are no rules in identifying a suppressor variable. Look at model with and without IVs, see how it improves. You can put it in the model, but identify it as a suppressor. You want it because it improves your predictability, but have to report it!</p>
-</div>
-<div id="moderation-and-mediation" class="section level2">
-<h2><span class="header-section-number">21.9</span> Moderation and Mediation</h2>
-<p>Moderation and Mediation, all in mediation. Suggested reading.</p>
-<div id="moderation" class="section level3">
-<h3><span class="header-section-number">21.9.1</span> Moderation</h3>
-<p>Moderation is another word for interaction in multiple regression. The effect of on IV on a DV changes on a third variable. We have IV that predicts a DV, but that depends on IV. Example is that SES can predict smoking, but if you change stress, smoking changes. Classic iteration, the chart would flip.</p>
-<p>We create new iV for or interaction which is product of moderators. So in this case we would have Y= SES + Smoking + SES * Smoking We usually put in interactions last. If the coefficient for B_3 is relationship, we have interaction B_3 is amount of change in slope of regression of Y on X when Z changes by 1 unit. (Z is x 2) When we have simple interaction, we need to figure out what that means. We get old school and just create graphs to find that out. To interpret and communicate a significant interaction, you plot regression at different increments.</p>
-</div>
-</div>
-<div id="centering" class="section level2">
-<h2><span class="header-section-number">21.10</span> Centering</h2>
-<p>Centering can sometimes be helpful. When you put in an interaction, you have a “weird ass combination” of things already in our model. If you have a moderator, you have to center your variables. Centering variables does two things. 1. Makes interpretation easier 2. Purported to reduce multicollinearity without affecting other statistics or measures.</p>
-<p>Centering is not normalizing. We are subtracting one variable from it’s mean. This creates a variable that becomes a difference score. This is a new variable. Nothing about the ordinality, distance between points, variability stays the same. But now the mean is zero. If you think multicollinearity, then you want to center all you IVs. Centering is only done on continuous variables. You want to center all three of them. Want to run the analysis uncentered before running it centered.</p>
-<p>This increases interpreability you’re just dealing with more standardized without zero point. Dirty secret that Tab and Fidel allude to (books on moderation and suppression), this does salivate multicollinearity. Centering most of the time in simple interactions doesn’t really help. That will probably help later in class. Centering all in moderation.</p>
-</div>
-<div id="mediation" class="section level2">
-<h2><span class="header-section-number">21.11</span> Mediation</h2>
-<p>Mediation is first step towards structural equation modelling. Correlation does not cause causation is kind of sort of true. If there is a good theory and good correlations, could argue for causation.</p>
-<p>In mediation we have hypothetical causal sequence of three or more variables. We have IV1, IV2, and DV. In mediation we say that IV1 predicts something in IV2, which predicts the DV. We can have full mediation, we have IV1 predicts DV. Then when you put it all in model, IV1 loses it relationship to DV. If you put in IV2 theoretically you think IV1 causes IV2, put it all in IV1 and DV goes away. Then you have full mediation. Need to have a temporal element?</p>
-<p>Example is that we have relationship between parenting and externalizing behavior. But maybe causally, bad parenting causes other things like self esteem. It’s then self esteem that leads to externalizing behaviors. If we put SE in the measure, and the relationship between parenting and DV go away, it’s that parenting that leads to self esteem. When it’s all in model, let’s say we still see relationship between parenting and DV, it’s partial mediation. You list coefficient with and coefficient without. Test that for significance. This is common in social and cognitive psychology. Aiken and west have great work on mediation. Chris Preacher has books on mediation.</p>
+<h2><span class="header-section-number">21.1</span> OLD MEDIATION MODERATION</h2>
+<p>##Introductory Ramble</p>
+<p>Do work that’s important and changes the world.
+Ger?
+“Moving goal posts: training for life”</p>
+<p>##Multiple Regression
+If you do serious mediation analysis, you have to read at least two full books.
+You could read a book for every paragraph in Tabachnink and Fidel.
+With multiple regression, want to predict DV based on two or more IVs.
+Because coefficients are often on different scales, we often use beta weights.
+We use real constants when it comes to real life stuff.</p>
+<p>###SPSS Notes</p>
+<p>Model summary is global summary.
+R^2 is amount of variance explained by whole model.
+We use adjusted R^2, always use that.</p>
+<p>ANOVA table has regression, residual, and total.
+Everything that is used to calculated our F test.
+Mostly just interested in F and p value.
+This is looking for significant linear relationships between all of IVs and DV.
+The null hypothesis is that there is no relationship between the two.
+Also have to look at change statistics, need to look if changed or not.
+Does the addition of a new IV in step II significantly improve our prediction?</p>
+<p>For each model, there is a significance test for each coefficient.
+Each test is looking at significant relationship with IV and DV with other IVs held constant.</p>
+<p>Zero sum correlation is each IV and the DV.
+Other IVs considered is where we get into partial and semi partial correlations.
+Partial correlations are unique variance given all the IVs that one IV accounts for.
+One IV by itself with no overlap by other IVs.
+The semi partial correlation is the variance that is accounted for by the other IVs.
+Semi partial is variance that isn’t already accounted for by something else.
+Semi partial tells us if IV addition in last step increases the predictability of our model.</p>
+<p>##Surpressor Variables</p>
+<p>Variables in MR equation that are beneficial because of their effect on other IVs, but not the DV.
+They improve the equation, but not because they predict DV, because they have a quirky effect on other IVs.
+The way they work is by suppressing irrelevant variance that would normally decrease other IV’s ability to predict.
+Suppressor variables will improve R^2, even if it doesn’t relate to the DV.
+How you find a suppressor variable is find variable with high correlation with DV.
+Hallmarks of suppressor variable is correlation between DV IV correlation and now beta weight.
+If there is high positive relationship with DV and negative correlation (or VV).
+If the signs change, that is indicator of suppressor variable.
+Tabachnik and Fidel outline three types.
+1. Classical Suppression - correlates with one other IV but not DV
+2. Cooperative/Reciprocal Suppression - suppressor correlates with DV, neg with an IV
+3.Negative/Net Suppression - Sign of correlation and coefficient are opposite.</p>
+<p>There are no rules in identifying a suppressor variable.
+Look at model with and without IVs, see how it improves.
+You can put it in the model, but identify it as a suppressor.
+You want it because it improves your predictability, but have to report it!</p>
+<p>##Moderation and Mediation</p>
+<p>Moderation and Mediation, all in mediation.
+Suggested reading.</p>
+<p>###Moderation</p>
+<p>Moderation is another word for interaction in multiple regression.
+The effect of on IV on a DV changes on a third variable.
+We have IV that predicts a DV, but that depends on IV.
+Example is that SES can predict smoking, but if you change stress, smoking changes.
+Classic iteration, the chart would flip.</p>
+<p>We create new iV for or interaction which is product of moderators.
+So in this case we would have Y= SES + Smoking + SES * Smoking
+We usually put in interactions last.
+If the coefficient for B_3 is relationship, we have interaction
+B_3 is amount of change in slope of regression of Y on X when Z changes by 1 unit. (Z is x 2)
+When we have simple interaction, we need to figure out what that means.
+We get old school and just create graphs to find that out.
+To interpret and communicate a significant interaction, you plot regression at different increments.</p>
+<p>##Centering</p>
+<p>Centering can sometimes be helpful.
+When you put in an interaction, you have a “weird ass combination” of things already in our model.
+If you have a moderator, you have to center your variables.
+Centering variables does two things.
+1. Makes interpretation easier
+2. Purported to reduce multicollinearity without affecting other statistics or measures.</p>
+<p>Centering is not normalizing.
+We are subtracting one variable from it’s mean.
+This creates a variable that becomes a difference score.
+This is a new variable.
+Nothing about the ordinality, distance between points, variability stays the same.
+But now the mean is zero.
+If you think multicollinearity, then you want to center all you IVs.
+Centering is only done on continuous variables.
+You want to center all three of them.
+Want to run the analysis uncentered before running it centered.</p>
+<p>This increases interpreability you’re just dealing with more standardized without zero point.
+Dirty secret that Tab and Fidel allude to (books on moderation and suppression), this does salivate multicollinearity.
+Centering most of the time in simple interactions doesn’t really help.
+That will probably help later in class.
+Centering all in moderation.</p>
+<p>##Mediation</p>
+<p>Mediation is first step towards structural equation modelling.
+Correlation does not cause causation is kind of sort of true.
+If there is a good theory and good correlations, could argue for causation.</p>
+<p>In mediation we have hypothetical causal sequence of three or more variables.
+We have IV1, IV2, and DV.
+In mediation we say that IV1 predicts something in IV2, which predicts the DV.
+We can have full mediation, we have IV1 predicts DV.
+Then when you put it all in model, IV1 loses it relationship to DV.
+If you put in IV2 theoretically you think IV1 causes IV2, put it all in IV1 and DV goes away.
+Then you have full mediation.
+Need to have a temporal element?</p>
+<p>Example is that we have relationship between parenting and externalizing behavior.
+But maybe causally, bad parenting causes other things like self esteem.
+It’s then self esteem that leads to externalizing behaviors.
+If we put SE in the measure, and the relationship between parenting and DV go away, it’s that parenting that leads to self esteem.
+When it’s all in model, let’s say we still see relationship between parenting and DV, it’s partial mediation.
+You list coefficient with and coefficient without.
+Test that for significance.
+This is common in social and cognitive psychology.
+Aiken and west have great work on mediation.
+Chris Preacher has books on mediation.</p>
 <p>There are a few ways to test for significance.</p>
-<p>Golden Rules for Mediation, confirmed if 1. There is significant relationship between IV1 and DV 2. Significant relationship between IV1 and IV2. 3. IV2 predicts DV, when controlling for IV1. 4. The relationship between IV1 and IV2 is reduced when IV2 is in equation. If it’s reduced to 0, it’s perfect mediation. Can’t have mediation without common sense. This is first step in proving causation with correlation. Need logic and theory!</p>
-<p>Mark is DV. We have 2 IVs, comp is IV 1, score on compulsory paper CERTIF is midterm exam We are using those to predict We’re gonna do everything!</p>
+<p>Golden Rules for Mediation, confirmed if
+1. There is significant relationship between IV1 and DV
+2. Significant relationship between IV1 and IV2.
+3. IV2 predicts DV, when controlling for IV1.
+4. The relationship between IV1 and IV2 is reduced when IV2 is in equation.
+If it’s reduced to 0, it’s perfect mediation.
+Can’t have mediation without common sense.
+This is first step in proving causation with correlation.
+Need logic and theory!</p>
+<p>Mark is DV.
+We have 2 IVs, comp is IV 1, score on compulsory paper
+CERTIF is midterm exam
+We are using those to predict
+We’re gonna do everything!</p>
 
 </div>
 </div>
@@ -473,7 +676,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

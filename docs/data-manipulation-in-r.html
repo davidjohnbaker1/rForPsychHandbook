@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-05-09">
+<meta name="date" content="2018-08-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -217,29 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
 <li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
 <li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a><ul>
-<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introduction-to-multiple-regression"><i class="fa fa-check"></i><b>21.1</b> Introduction to Multiple Regression</a></li>
-<li class="chapter" data-level="21.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#basics-of-multiple-regression"><i class="fa fa-check"></i><b>21.2</b> Basics of Multiple Regression</a></li>
-<li class="chapter" data-level="21.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#types-of-multiple-regression"><i class="fa fa-check"></i><b>21.3</b> Types of Multiple Regression</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#standard-multiple-regression"><i class="fa fa-check"></i><b>21.3.1</b> Standard Multiple Regression</a></li>
-<li class="chapter" data-level="21.3.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#sequential-multiple-regression"><i class="fa fa-check"></i><b>21.3.2</b> Sequential Multiple Regression</a></li>
-<li class="chapter" data-level="21.3.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#statistical-or-stepwise-multiple-regression"><i class="fa fa-check"></i><b>21.3.3</b> Statistical or Stepwise Multiple Regression</a></li>
-</ul></li>
-<li class="chapter" data-level="21.4" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>21.4</b> Interpretation of Results</a><ul>
-<li class="chapter" data-level="21.4.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#model-summary"><i class="fa fa-check"></i><b>21.4.1</b> Model Summary</a></li>
-<li class="chapter" data-level="21.4.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#anova"><i class="fa fa-check"></i><b>21.4.2</b> ANOVA</a></li>
-<li class="chapter" data-level="21.4.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#coefficients"><i class="fa fa-check"></i><b>21.4.3</b> Coefficients</a></li>
-</ul></li>
-<li class="chapter" data-level="21.5" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.5</b> OLD MEDIATION MODERATION</a></li>
-<li class="chapter" data-level="21.6" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introductory-ramble"><i class="fa fa-check"></i><b>21.6</b> Introductory Ramble</a></li>
-<li class="chapter" data-level="21.7" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>21.7</b> Multiple Regression</a><ul>
-<li class="chapter" data-level="21.7.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#spss-notes"><i class="fa fa-check"></i><b>21.7.1</b> SPSS Notes</a></li>
-</ul></li>
-<li class="chapter" data-level="21.8" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#surpressor-variables"><i class="fa fa-check"></i><b>21.8</b> Surpressor Variables</a></li>
-<li class="chapter" data-level="21.9" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation-and-mediation"><i class="fa fa-check"></i><b>21.9</b> Moderation and Mediation</a><ul>
-<li class="chapter" data-level="21.9.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation"><i class="fa fa-check"></i><b>21.9.1</b> Moderation</a></li>
-</ul></li>
-<li class="chapter" data-level="21.10" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#centering"><i class="fa fa-check"></i><b>21.10</b> Centering</a></li>
-<li class="chapter" data-level="21.11" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#mediation"><i class="fa fa-check"></i><b>21.11</b> Mediation</a></li>
+<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.1</b> OLD MEDIATION MODERATION</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
 <li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
@@ -263,20 +269,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
 <li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#theory-3"><i class="fa fa-check"></i><b>27.1</b> Theory</a><ul>
-<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#introduction"><i class="fa fa-check"></i><b>27.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.2</b> Factor Analysis Purposes</a></li>
-<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.3</b> Types of Analysis</a></li>
-<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.4</b> PCA</a></li>
-<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.5</b> Rotatation</a></li>
-<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.6</b> Assumptions</a></li>
-<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
-<li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
+<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.1</b> Factor Analysis Purposes</a></li>
+<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.2</b> Types of Analysis</a></li>
+<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.3</b> PCA</a></li>
+<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.4</b> Rotatation</a></li>
+<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.5</b> Assumptions</a></li>
+<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.6</b> Problems wiht Catheorica Variables</a></li>
+<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.7</b> Running It</a></li>
 </ul></li>
 <li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-5"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
 <li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
 <li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
 <li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
-<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
@@ -320,8 +324,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-manipulation-in-r" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Data Manipulation in R</h1>
-<p>This chapter will take you through a brief walk through of cleaning some data in R. When starting out with R, it’s not important that you memorize every command and learn every line, but rather that you start to think about how a computer programmer would solve a question (you!) rather than get an undergrad RA to fix it by hand.</p>
-<p>The first thing that you want to do to any script is to put a header on it. It should cover a few things such as</p>
+<p>This chapter will take you through a brief walk through of cleaning some data in R.
+When starting out with R, it’s not important that you memorize every command and learn every line, but rather that you start to think about how a computer programmer would solve a question (you!) rather than get an undergrad RA to fix it by hand.</p>
+<p>The first thing that you want to do to any script is to put a header on it.
+It should cover a few things such as</p>
 <ul>
 <li>A Title</li>
 <li>Who wrote the script?</li>
@@ -330,28 +336,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>How does it work?</li>
 <li>Does it take anything in specific?</li>
 </ul>
-<p>The more information you can provide, the better. Remember that 6-Month-From-You now is going to be either your best or worst collaborator.</p>
-<p>Each script in R out to follow a general pattern. First list out some information about it, then load in your libraries, and then set your working directory and load your data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># Import Libraries </span>
- <span class="kw">library</span>(stringr)</code></pre></div>
+<p>The more information you can provide, the better.
+Remember that 6-Month-From-You now is going to be either your best or worst collaborator.</p>
+<p>Each script in R out to follow a general pattern.
+First list out some information about it, then load in your libraries, and then set your working directory and load your data.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"> <span class="co"># Import Libraries </span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"> <span class="kw">library</span>(stringr)</a></code></pre></div>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.4.3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(data.table)</code></pre></div>
-<pre><code>## Warning: package &#39;data.table&#39; was built under R version 3.4.2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">library</span>(psych)</code></pre></div>
-<p>Next thing you would do is set your working directory and load in your data. Note here that you need to tell R exactly where to look!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make sure to load in both datasets as we will want them both in our analysis.</span>
-<span class="co"># We also want to make sure to clean both datasets as we are going. </span>
-experiment.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/Demographic_Data.csv&quot;</span>)
-item.level.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/ItemLevelData.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"> <span class="kw">library</span>(data.table)</a></code></pre></div>
+<pre><code>## Warning: package &#39;data.table&#39; was built under R version 3.4.4</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"> <span class="kw">library</span>(psych)</a></code></pre></div>
+<p>Next thing you would do is set your working directory and load in your data.
+Note here that you need to tell R exactly where to look!</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co"># Make sure to load in both datasets as we will want them both in our analysis.</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="co"># We also want to make sure to clean both datasets as we are going. </span></a>
+<a class="sourceLine" id="cb91-3" data-line-number="3">experiment.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/Demographic_Data.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb91-4" data-line-number="4">item.level.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;datasets/ItemLevelData.csv&quot;</span>)</a></code></pre></div>
 <p>You can also import data using RStudio’s ‘Import Data’ function in the top right corner.</p>
 <div class="figure">
 <img src="img/importdatagui.png" alt="Import Data via RStudio’s GUI" />
 <p class="caption">Import Data via RStudio’s GUI</p>
 </div>
 <p>If you do do that, make sure to add in any of the libraries and code in your script that is printed out below in RStudio’s consle!</p>
-<p>Next you should familiarize yourself with what your data looks like. Not only do you have to be cautious of the shape of your data (wide vs. long), but there are a few different types of data that R uses in its functionality.</p>
-<p>Looking at the dataset from this experiment, we see lots of different types of data listed. R did its best to guess what ‘kind’ of data each one is, but sometimes you have to change data types.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(experiment.data) <span class="co"># Check to see if R guessed correctly on data types</span></code></pre></div>
+<p>Next you should familiarize yourself with what your data looks like.
+Not only do you have to be cautious of the shape of your data (wide vs. long), but there are a few different types of data that R uses in its functionality.</p>
+<p>Looking at the dataset from this experiment, we see lots of different types of data listed.
+R did its best to guess what ‘kind’ of data each one is, but sometimes you have to change data types.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">str</span>(experiment.data) <span class="co"># Check to see if R guessed correctly on data types</span></a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    251 obs. of  67 variables:
 ##  $ Sub               : int  10 11 12 13 14 15 16 17 18 19 ...
 ##  $ ACTIVE            : int  38 37 39 33 48 47 55 42 36 36 ...
@@ -420,18 +431,23 @@ item.level.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<
 ##  $ jv_NoGMSI         : int  0 0 0 0 0 0 0 0 0 0 ...
 ##  $ jv_nonNative      : int  0 0 0 0 0 0 0 1 0 0 ...
 ##  $ jv_noOspan        : int  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
-<p>Using <code>read.csv()</code> with its default setting, R had a couple of bad guesses on variables we might need. We will have to reassign the variable types or else we’ll run into trouble later. In R we use factor for grouping and analysis, best practice is to not set it as that until you are OK with the format. It’s easist to manipulate a character or string. There are much more elegant ways to do this, but just to make a point, I’ve gone through and fixed each one manually.</p>
+<p>Using <code>read.csv()</code> with its default setting, R had a couple of bad guesses on variables we might need.
+We will have to reassign the variable types or else we’ll run into trouble later.
+In R we use factor for grouping and analysis, best practice is to not set it as that
+until you are OK with the format.
+It’s easist to manipulate a character or string.
+There are much more elegant ways to do this, but just to make a point, I’ve gone through and fixed each one manually.</p>
 <p>Notice how the output of <code>str()</code> has changed.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>inst &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>inst)
-experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Gender)
-experiment.data<span class="op">$</span>Major &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Major)
-experiment.data<span class="op">$</span>Minor &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Minor)
-experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>BeginTrain)
-experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>AbsPitch)
-experiment.data<span class="op">$</span>Live12Mo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(experiment.data<span class="op">$</span>Live12Mo)
-experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>ActListenMin)
-
-<span class="kw">str</span>(experiment.data) <span class="co"># Notice how that our character columns now have &quot; &quot; around them.</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">experiment.data<span class="op">$</span>inst &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>inst)</a>
+<a class="sourceLine" id="cb94-2" data-line-number="2">experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Gender)</a>
+<a class="sourceLine" id="cb94-3" data-line-number="3">experiment.data<span class="op">$</span>Major &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Major)</a>
+<a class="sourceLine" id="cb94-4" data-line-number="4">experiment.data<span class="op">$</span>Minor &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>Minor)</a>
+<a class="sourceLine" id="cb94-5" data-line-number="5">experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>BeginTrain)</a>
+<a class="sourceLine" id="cb94-6" data-line-number="6">experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>AbsPitch)</a>
+<a class="sourceLine" id="cb94-7" data-line-number="7">experiment.data<span class="op">$</span>Live12Mo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(experiment.data<span class="op">$</span>Live12Mo)</a>
+<a class="sourceLine" id="cb94-8" data-line-number="8">experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </span><span class="kw">as.character</span>(experiment.data<span class="op">$</span>ActListenMin)</a>
+<a class="sourceLine" id="cb94-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb94-10" data-line-number="10"><span class="kw">str</span>(experiment.data) <span class="co"># Notice how that our character columns now have &quot; &quot; around them.</span></a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    251 obs. of  67 variables:
 ##  $ Sub               : int  10 11 12 13 14 15 16 17 18 19 ...
 ##  $ ACTIVE            : int  38 37 39 33 48 47 55 42 36 36 ...
@@ -500,13 +516,17 @@ experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </sp
 ##  $ jv_NoGMSI         : int  0 0 0 0 0 0 0 0 0 0 ...
 ##  $ jv_nonNative      : int  0 0 0 0 0 0 0 1 0 0 ...
 ##  $ jv_noOspan        : int  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
-<p>The next thing we’d want to check in our data cleaning is for any sort of import errors. We can use combinations of the functions <code>names()</code>,<code>table()</code>, <code>is.na()</code>, and <code>complete.cases()</code> to get a brief summary of what is missing. You could also use R’s plotting funcitonality to see if there are any participants with weird subject numbers or maybe negative values where there should not be. If you find any problems, code in the solution in R! Resist the urge to fix it in the Excel file!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Check for Import Errors </span>
-<span class="kw">table</span>(<span class="kw">complete.cases</span>(experiment.data)) <span class="co"># Not all observations have everything! </span></code></pre></div>
+<p>The next thing we’d want to check in our data cleaning is for any sort of import errors.
+We can use combinations of the functions <code>names()</code>,<code>table()</code>, <code>is.na()</code>, and <code>complete.cases()</code> to get a brief summary of what is missing.
+You could also use R’s plotting funcitonality to see if there are any participants with weird subject numbers or maybe negative values where there should not be.
+If you find any problems, code in the solution in R!
+Resist the urge to fix it in the Excel file!</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># Check for Import Errors </span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="kw">table</span>(<span class="kw">complete.cases</span>(experiment.data)) <span class="co"># Not all observations have everything! </span></a></code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ##    74   177</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complete.cases</span>(experiment.data)</code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">complete.cases</span>(experiment.data)</a></code></pre></div>
 <pre><code>##   [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
 ##  [12] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE
 ##  [23]  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE
@@ -530,17 +550,24 @@ experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </sp
 ## [221]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE
 ## [232]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [243]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">is.na</span>(experiment.data))</code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">table</span>(<span class="kw">is.na</span>(experiment.data))</a></code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ## 16723    94</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Gotta decide what to do about it!!</span></code></pre></div>
-<p>Later we’ll cover how to change individual cases, but as I will note, you will want to avoid hard coding in any fixes if you can. Let’s first look at how we might fix a messy gender problem.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co"># Gotta decide what to do about it!!</span></a></code></pre></div>
+<p>Later we’ll cover how to change individual cases, but as I will note, you will want to avoid hard coding in any fixes if you can.
+Let’s first look at how we might fix a messy gender problem.</p>
 <div id="cleaning-response-data" class="section level2">
 <h2><span class="header-section-number">3.1</span> Cleaning Response Data</h2>
-<p>In your data cleaning before you might have noticed that participants were able to freely respond with whatever gender they wanted. Most data look to fall within the normal binary, but the computer needs things to be exactly the same before making an easy split? What would be the laziest, most effecient way to fix the gender column? What format does the variable have to be in order to make the changes that you need? When you have it figured out, make sure to run the code from top to bottom to make sure things go in the right order!!! As we are not dealing with huge amounts of data, the table() function will help out.</p>
-<p>Let’s now take a look at some of these problem ones Why, for example is Begin Training not working? Print the variable to see.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain</code></pre></div>
+<p>In your data cleaning before you might have noticed that participants were able to freely respond with whatever gender they wanted.
+Most data look to fall within the normal binary, but the computer needs things to be exactly the same before making an easy split?
+What would be the laziest, most effecient way to fix the gender column?
+What format does the variable have to be in order to make the changes that you need?
+When you have it figured out, make sure to run the code from top to bottom to make sure things go in the right order!!!
+As we are not dealing with huge amounts of data, the table() function will help out.</p>
+<p>Let’s now take a look at some of these problem ones
+Why, for example is Begin Training not working? Print the variable to see.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">experiment.data<span class="op">$</span>BeginTrain</a></code></pre></div>
 <pre><code>##   [1] &quot;9&quot;         &quot;10&quot;        &quot;10&quot;        &quot;11&quot;        &quot;&quot;         
 ##   [6] &quot;&quot;          &quot;8&quot;         &quot;6&quot;         &quot;12&quot;        &quot;6&quot;        
 ##  [11] &quot;&quot;          &quot;&quot;          &quot;10&quot;        &quot;&quot;          &quot;7&quot;        
@@ -592,12 +619,20 @@ experiment.data<span class="op">$</span>ActListenMin &lt;-<span class="st"> </sp
 ## [241] &quot;11&quot;        &quot;7&quot;         &quot;10&quot;        &quot;12&quot;        &quot;29&quot;       
 ## [246] &quot;5&quot;         &quot;13&quot;        &quot;9&quot;         &quot;9&quot;         &quot;7th grade&quot;
 ## [251] &quot;8&quot;</code></pre>
-<p>Some people didn’t respond, one person decided to tell us what grade they started. There are 2 ways to go about fixing this. We could “hardcode” the problem if this is the only time we will do this analysis on this dataset or we could try to write a line of code that doesn’t care what exact position the error is. On line 250 in this object is the thing that needs swapping out. We can access it with R’s indexing. Counting from index we see it’s in line 250.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>]</code></pre></div>
+<p>Some people didn’t respond, one person decided to tell us what grade they started.
+There are 2 ways to go about fixing this. We could “hardcode” the problem if this
+is the only time we will do this analysis on this dataset or we could try to write a
+line of code that doesn’t care what exact position the error is.
+On line 250 in this object is the thing that needs swapping out.
+We can access it with R’s indexing. Counting from index we see it’s in line 250.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;7th grade&quot;</code></pre>
-<p>Quick, ask yourself why we don’t use the comma here?! If you were set on using the comma, what would you change? Ok, now let’s swap in the value we want with &lt;- Remember we are putting a value into a character operator so it has to have “”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>] &lt;-<span class="st"> &quot;12&quot;</span>
-experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
+<p>Quick, ask yourself why we don’t use the comma here?!
+If you were set on using the comma, what would you change?
+Ok, now let’s swap in the value we want with &lt;-
+Remember we are putting a value into a character operator so it has to have &quot;&quot;</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">experiment.data<span class="op">$</span>BeginTrain[<span class="dv">250</span>] &lt;-<span class="st"> &quot;12&quot;</span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">experiment.data<span class="op">$</span>BeginTrain </a></code></pre></div>
 <pre><code>##   [1] &quot;9&quot;  &quot;10&quot; &quot;10&quot; &quot;11&quot; &quot;&quot;   &quot;&quot;   &quot;8&quot;  &quot;6&quot;  &quot;12&quot; &quot;6&quot;  &quot;&quot;   &quot;&quot;   &quot;10&quot; &quot;&quot;  
 ##  [15] &quot;7&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;15&quot; &quot;7&quot;  &quot;8&quot;  &quot;10&quot; &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;6&quot;  &quot;&quot;   &quot;17&quot;
 ##  [29] &quot;&quot;   &quot;&quot;   &quot;10&quot; &quot;15&quot; &quot;15&quot; &quot;8&quot;  &quot;6&quot;  &quot;13&quot; &quot;16&quot; &quot;&quot;   &quot;7&quot;  &quot;7&quot;  &quot;10&quot; &quot;&quot;  
@@ -616,8 +651,11 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [211] &quot;9&quot;  &quot;14&quot; &quot;5&quot;  &quot;11&quot; &quot;12&quot; &quot;8&quot;  &quot;9&quot;  &quot;11&quot; &quot;5&quot;  &quot;13&quot; &quot;10&quot; &quot;11&quot; &quot;9&quot;  &quot;9&quot; 
 ## [225] &quot;10&quot; &quot;5&quot;  &quot;8&quot;  &quot;10&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;7&quot;  &quot;13&quot; &quot;11&quot; &quot;11&quot; &quot;10&quot; &quot;9&quot; 
 ## [239] &quot;8&quot;  &quot;12&quot; &quot;11&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;29&quot; &quot;5&quot;  &quot;13&quot; &quot;9&quot;  &quot;9&quot;  &quot;12&quot; &quot;8&quot;</code></pre>
-<p>Nice, no more text data, but what if it’s not always in 250? For example, what do we do with all these blank spaces? Let’s use R’s inbuilt ifelse() function to go through this vector and swap out what we want!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain)</code></pre></div>
+<p>Nice, no more text data, but what if it’s not always in 250?
+For example, what do we do with all these blank spaces?
+Let’s use R’s inbuilt ifelse() function to go through this vector and swap
+out what we want!</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain)</a></code></pre></div>
 <pre><code>##   [1] &quot;9&quot;  &quot;10&quot; &quot;10&quot; &quot;11&quot; &quot;0&quot;  &quot;0&quot;  &quot;8&quot;  &quot;6&quot;  &quot;12&quot; &quot;6&quot;  &quot;0&quot;  &quot;0&quot;  &quot;10&quot; &quot;0&quot; 
 ##  [15] &quot;7&quot;  &quot;16&quot; &quot;10&quot; &quot;18&quot; &quot;15&quot; &quot;7&quot;  &quot;8&quot;  &quot;10&quot; &quot;11&quot; &quot;8&quot;  &quot;12&quot; &quot;6&quot;  &quot;0&quot;  &quot;17&quot;
 ##  [29] &quot;0&quot;  &quot;0&quot;  &quot;10&quot; &quot;15&quot; &quot;15&quot; &quot;8&quot;  &quot;6&quot;  &quot;13&quot; &quot;16&quot; &quot;0&quot;  &quot;7&quot;  &quot;7&quot;  &quot;10&quot; &quot;0&quot; 
@@ -636,10 +674,11 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [211] &quot;9&quot;  &quot;14&quot; &quot;5&quot;  &quot;11&quot; &quot;12&quot; &quot;8&quot;  &quot;9&quot;  &quot;11&quot; &quot;5&quot;  &quot;13&quot; &quot;10&quot; &quot;11&quot; &quot;9&quot;  &quot;9&quot; 
 ## [225] &quot;10&quot; &quot;5&quot;  &quot;8&quot;  &quot;10&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;10&quot; &quot;7&quot;  &quot;13&quot; &quot;11&quot; &quot;11&quot; &quot;10&quot; &quot;9&quot; 
 ## [239] &quot;8&quot;  &quot;12&quot; &quot;11&quot; &quot;7&quot;  &quot;10&quot; &quot;12&quot; &quot;29&quot; &quot;5&quot;  &quot;13&quot; &quot;9&quot;  &quot;9&quot;  &quot;12&quot; &quot;8&quot;</code></pre>
-<p>This works by going through each entry and doing the conditional on the value! Let’s now write over our old column and in the same step make everything a number.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain))</code></pre></div>
+<p>This works by going through each entry and doing the conditional on the value!
+Let’s now write over our old column and in the same step make everything a number.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">experiment.data<span class="op">$</span>BeginTrain &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(experiment.data<span class="op">$</span>BeginTrain <span class="op">==</span><span class="st"> &quot;&quot;</span>,<span class="st">&quot;0&quot;</span>,experiment.data<span class="op">$</span>BeginTrain))</a></code></pre></div>
 <p>And Alas!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>BeginTrain</code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">experiment.data<span class="op">$</span>BeginTrain</a></code></pre></div>
 <pre><code>##   [1]  9 10 10 11  0  0  8  6 12  6  0  0 10  0  7 16 10 18 15  7  8 10 11
 ##  [24]  8 12  6  0 17  0  0 10 15 15  8  6 13 16  0  7  7 10  0 12  5 11  9
 ##  [47]  0 21  0 16 17 11  0 13  0 15  6 15  9 16 10 18  0 11  9 12 10  4  0
@@ -652,7 +691,7 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [208] 12 10  6  9 14  5 11 12  8  9 11  5 13 10 11  9  9 10  5  8 10  7 10
 ## [231] 12 10  7 13 11 11 10  9  8 12 11  7 10 12 29  5 13  9  9 12  8</code></pre>
 <p>Let’s now clean up the Gender column, first let’s look at it</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>Gender <span class="co"># Are there any common trends?</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">experiment.data<span class="op">$</span>Gender <span class="co"># Are there any common trends?</span></a></code></pre></div>
 <pre><code>##   [1] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;    &quot;female&quot;  &quot;FEMALE&quot; 
 ##   [8] &quot;female&quot;  &quot;MALE&quot;    &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
 ##  [15] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;male&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
@@ -689,7 +728,7 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ## [232] &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot; 
 ## [239] &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;MALE&quot;    &quot;MALE&quot;   
 ## [246] &quot;FEMALE&quot;  &quot;M&quot;       &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;  &quot;FEMALE&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(experiment.data<span class="op">$</span>Gender)</code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">table</span>(experiment.data<span class="op">$</span>Gender)</a></code></pre></div>
 <pre><code>## 
 ##         COUNTRY       f  female  Female  FEMALE female        m       M 
 ##       1       1       1      24       5     137       3       1       1 
@@ -697,23 +736,24 @@ experiment.data<span class="op">$</span>BeginTrain </code></pre></div>
 ##       9       7      59       1</code></pre>
 <div id="cleaning-up-gender" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Cleaning Up Gender</h3>
-<p>Pretty much two answers, how do we make them all say one thing? Let’s use the stringr package for this. Import it up top.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_to_lower</span>(experiment.data<span class="op">$</span>Gender)
-experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>Gender,<span class="st">&quot;^.*f.*$&quot;</span>,<span class="st">&quot;Female&quot;</span>)
-experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>Gender,<span class="st">&quot;^m.*$&quot;</span>,<span class="st">&quot;Male&quot;</span>)
-experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>Gender,<span class="st">&quot;^country$&quot;</span>,<span class="st">&quot;No Response&quot;</span>)
-
-experiment.data<span class="op">$</span>Gender[<span class="dv">30</span>] &lt;-<span class="st"> &quot;No Response&quot;</span> <span class="co">#Something Might Be Up w this datapoint?</span>
-experiment.data<span class="op">$</span>Gender[<span class="dv">63</span>] &lt;-<span class="st"> &quot;No Response&quot;</span> <span class="co">#Something Might Be Up w this datapoint?</span>
-
-experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">as.factor</span>(experiment.data<span class="op">$</span>Gender)
-<span class="kw">table</span>(experiment.data<span class="op">$</span>Gender)</code></pre></div>
+<p>Pretty much two answers, how do we make them all say one thing?
+Let’s use the stringr package for this. Import it up top.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1">experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_to_lower</span>(experiment.data<span class="op">$</span>Gender)</a>
+<a class="sourceLine" id="cb118-2" data-line-number="2">experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>Gender,<span class="st">&quot;^.*f.*$&quot;</span>,<span class="st">&quot;Female&quot;</span>)</a>
+<a class="sourceLine" id="cb118-3" data-line-number="3">experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>Gender,<span class="st">&quot;^m.*$&quot;</span>,<span class="st">&quot;Male&quot;</span>)</a>
+<a class="sourceLine" id="cb118-4" data-line-number="4">experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>Gender,<span class="st">&quot;^country$&quot;</span>,<span class="st">&quot;No Response&quot;</span>)</a>
+<a class="sourceLine" id="cb118-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb118-6" data-line-number="6">experiment.data<span class="op">$</span>Gender[<span class="dv">30</span>] &lt;-<span class="st"> &quot;No Response&quot;</span> <span class="co">#Something Might Be Up w this datapoint?</span></a>
+<a class="sourceLine" id="cb118-7" data-line-number="7">experiment.data<span class="op">$</span>Gender[<span class="dv">63</span>] &lt;-<span class="st"> &quot;No Response&quot;</span> <span class="co">#Something Might Be Up w this datapoint?</span></a>
+<a class="sourceLine" id="cb118-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb118-9" data-line-number="9">experiment.data<span class="op">$</span>Gender &lt;-<span class="st"> </span><span class="kw">as.factor</span>(experiment.data<span class="op">$</span>Gender)</a>
+<a class="sourceLine" id="cb118-10" data-line-number="10"><span class="kw">table</span>(experiment.data<span class="op">$</span>Gender)</a></code></pre></div>
 <pre><code>## 
 ##      Female        Male No Response 
 ##         170          78           3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#--------------------------------------------------</span>
-<span class="co"># Can we do same thing for AP?</span>
-experiment.data<span class="op">$</span>AbsPitch</code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="co">#--------------------------------------------------</span></a>
+<a class="sourceLine" id="cb120-2" data-line-number="2"><span class="co"># Can we do same thing for AP?</span></a>
+<a class="sourceLine" id="cb120-3" data-line-number="3">experiment.data<span class="op">$</span>AbsPitch</a></code></pre></div>
 <pre><code>##   [1] &quot;NO&quot;  &quot;no&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;no&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;no&quot;  &quot;NO&quot; 
 ##  [12] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;no&quot;  &quot;No&quot;  &quot;NO&quot;  &quot;no&quot;  &quot;NO&quot; 
 ##  [23] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;&quot;    &quot;No&quot;  &quot;NO&quot;  &quot;no&quot; 
@@ -737,11 +777,11 @@ experiment.data<span class="op">$</span>AbsPitch</code></pre></div>
 ## [221] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot; 
 ## [232] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;No&quot;  &quot;No&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot; 
 ## [243] &quot;no&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;no&quot;  &quot;NO&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">str_to_lower</span>(experiment.data<span class="op">$</span>AbsPitch)
-experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>AbsPitch,<span class="st">&quot;^.*n.*$&quot;</span>,<span class="st">&quot;no&quot;</span>)
-experiment.data<span class="op">$</span>AbsPitch[<span class="dv">30</span>] &lt;-<span class="st"> &quot;no&quot;</span>
-experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">as.factor</span>(experiment.data<span class="op">$</span>AbsPitch)
-<span class="kw">table</span>(experiment.data<span class="op">$</span>AbsPitch)</code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">str_to_lower</span>(experiment.data<span class="op">$</span>AbsPitch)</a>
+<a class="sourceLine" id="cb122-2" data-line-number="2">experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">str_replace</span>(experiment.data<span class="op">$</span>AbsPitch,<span class="st">&quot;^.*n.*$&quot;</span>,<span class="st">&quot;no&quot;</span>)</a>
+<a class="sourceLine" id="cb122-3" data-line-number="3">experiment.data<span class="op">$</span>AbsPitch[<span class="dv">30</span>] &lt;-<span class="st"> &quot;no&quot;</span></a>
+<a class="sourceLine" id="cb122-4" data-line-number="4">experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><span class="kw">as.factor</span>(experiment.data<span class="op">$</span>AbsPitch)</a>
+<a class="sourceLine" id="cb122-5" data-line-number="5"><span class="kw">table</span>(experiment.data<span class="op">$</span>AbsPitch)</a></code></pre></div>
 <pre><code>## 
 ##  no yes 
 ## 250   1</code></pre>
@@ -749,9 +789,15 @@ experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><
 </div>
 <div id="merging-data" class="section level2">
 <h2><span class="header-section-number">3.2</span> Merging Data</h2>
-<p>Often we will have data from other spreadsheets we want to attach such as demographic data to behavioral responses. Using the <code>data.table</code> functionality, let’s merge our two csv files together so that we have every variable accessible to us for this analysis. Note I like to work with the <code>data.table</code> package, though there are other ways to do this!</p>
-<p>In order to do this, we need 1 shared column between the two datasets. For most psychology cases, this is probably going to be a participant ID number. Note that for this to work, you need the columns to have an exact match of name! First let’s check that they are the same!!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(experiment.data)</code></pre></div>
+<p>Often we will have data from other spreadsheets we want to attach such as demographic data
+to behavioral responses.
+Using the <code>data.table</code> functionality, let’s merge our two csv files together so that we have every variable accessible to us for this analysis.
+Note I like to work with the <code>data.table</code> package, though there are other ways to do this!</p>
+<p>In order to do this, we need 1 shared column between the two datasets.
+For most psychology cases, this is probably going to be a participant ID number.
+Note that for this to work, you need the columns to have an exact match of name!
+First let’s check that they are the same!!</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">names</span>(experiment.data)</a></code></pre></div>
 <pre><code>##  [1] &quot;Sub&quot;                &quot;ACTIVE&quot;             &quot;PERCEPTUAL&quot;        
 ##  [4] &quot;MUSICAL&quot;            &quot;SINGING&quot;            &quot;EMOTIONS&quot;          
 ##  [7] &quot;GENERAL&quot;            &quot;inst&quot;               &quot;Age&quot;               
@@ -775,7 +821,7 @@ experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><
 ## [61] &quot;MelodicTot&quot;         &quot;MelodicAcc&quot;         &quot;Native&quot;            
 ## [64] &quot;Paid&quot;               &quot;jv_NoGMSI&quot;          &quot;jv_nonNative&quot;      
 ## [67] &quot;jv_noOspan&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(item.level.data)</code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="kw">names</span>(item.level.data)</a></code></pre></div>
 <pre><code>##  [1] &quot;tmp.dat.subject.1.&quot; &quot;X1&quot;                 &quot;X2&quot;                
 ##  [4] &quot;X3&quot;                 &quot;X4&quot;                 &quot;X5&quot;                
 ##  [7] &quot;X6&quot;                 &quot;X7&quot;                 &quot;X8&quot;                
@@ -790,7 +836,7 @@ experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><
 ## [34] &quot;X33&quot;                &quot;X34&quot;                &quot;X35&quot;               
 ## [37] &quot;X36&quot;                &quot;X37&quot;                &quot;X38&quot;</code></pre>
 <p>First off our subject ID columns are not the same. Let’s swap that.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(item.level.data)</code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">names</span>(item.level.data)</a></code></pre></div>
 <pre><code>##  [1] &quot;tmp.dat.subject.1.&quot; &quot;X1&quot;                 &quot;X2&quot;                
 ##  [4] &quot;X3&quot;                 &quot;X4&quot;                 &quot;X5&quot;                
 ##  [7] &quot;X6&quot;                 &quot;X7&quot;                 &quot;X8&quot;                
@@ -804,7 +850,7 @@ experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><
 ## [31] &quot;X30&quot;                &quot;X31&quot;                &quot;X32&quot;               
 ## [34] &quot;X33&quot;                &quot;X34&quot;                &quot;X35&quot;               
 ## [37] &quot;X36&quot;                &quot;X37&quot;                &quot;X38&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(experiment.data)</code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">names</span>(experiment.data)</a></code></pre></div>
 <pre><code>##  [1] &quot;Sub&quot;                &quot;ACTIVE&quot;             &quot;PERCEPTUAL&quot;        
 ##  [4] &quot;MUSICAL&quot;            &quot;SINGING&quot;            &quot;EMOTIONS&quot;          
 ##  [7] &quot;GENERAL&quot;            &quot;inst&quot;               &quot;Age&quot;               
@@ -828,30 +874,37 @@ experiment.data<span class="op">$</span>AbsPitch &lt;-<span class="st"> </span><
 ## [61] &quot;MelodicTot&quot;         &quot;MelodicAcc&quot;         &quot;Native&quot;            
 ## [64] &quot;Paid&quot;               &quot;jv_NoGMSI&quot;          &quot;jv_nonNative&quot;      
 ## [67] &quot;jv_noOspan&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setnames</span>(item.level.data,<span class="st">&quot;tmp.dat.subject.1.&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>)
-<span class="kw">setnames</span>(experiment.data,<span class="st">&quot;Sub&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>) <span class="co"># Make this clearer!!! </span></code></pre></div>
-<p>If you need to do more than 1, use the c() operator! Now if we look at this column, it’s all messe up. The code below fixes it, if you want to learn more about regex, check it out if not, just skip below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;C&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;CM&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)
-item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(item.level.data<span class="op">$</span>SubjectNo)</code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">setnames</span>(item.level.data,<span class="st">&quot;tmp.dat.subject.1.&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>)</a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">setnames</span>(experiment.data,<span class="st">&quot;Sub&quot;</span>,<span class="st">&quot;SubjectNo&quot;</span>) <span class="co"># Make this clearer!!! </span></a></code></pre></div>
+<p>If you need to do more than 1, use the c() operator!
+Now if we look at this column, it’s all messe up.
+The code below fixes it, if you want to learn more about regex, check it out
+if not, just skip below.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb133-2" data-line-number="2">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;C&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb133-3" data-line-number="3">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb133-4" data-line-number="4">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> item.level.data<span class="op">$</span>SubjectNo, <span class="dt">pattern =</span> <span class="st">&quot;CM&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb133-5" data-line-number="5">item.level.data<span class="op">$</span>SubjectNo &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(item.level.data<span class="op">$</span>SubjectNo)</a></code></pre></div>
 <p>Let’s just quickly check to see if all the subject numbers make sense</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo) <span class="co"># Cause for alarm! Negative values and placeholders!</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
-<p>Notice that the variable of <code>SubjectNo</code> has negative values and placeholders! We can use R’s indexing function to find these entries.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop those </span>
-experiment.data &lt;-<span class="st"> </span>experiment.data[experiment.data<span class="op">$</span>SubjectNo <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>experiment.data<span class="op">$</span>SubjectNo <span class="op">&lt;</span><span class="st"> </span><span class="dv">1000</span>,]</code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo) <span class="co"># Cause for alarm! Negative values and placeholders!</span></a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p>Notice that the variable of <code>SubjectNo</code> has negative values and placeholders!
+We can use R’s indexing function to find these entries.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="co"># Drop those </span></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2">experiment.data &lt;-<span class="st"> </span>experiment.data[experiment.data<span class="op">$</span>SubjectNo <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>experiment.data<span class="op">$</span>SubjectNo <span class="op">&lt;</span><span class="st"> </span><span class="dv">1000</span>,]</a></code></pre></div>
 <p>Note this works because the SubjectNo variable is numeric</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(item.level.data<span class="op">$</span>SubjectNo)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-36-2.png" width="672" /></p>
-<p>Ok, finally we merge our datasets. What we are doing here is called an “inner join” Here we will keep all of the ROWS of the dataset in the middle of the command Note we need to swap over our key to be a character value.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item.level.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(item.level.data)
-experiment.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(experiment.data)
-
-item.level.data</code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="kw">hist</span>(experiment.data<span class="op">$</span>SubjectNo)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="kw">hist</span>(item.level.data<span class="op">$</span>SubjectNo)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
+<p>Ok, finally we merge our datasets.
+What we are doing here is called an “inner join”
+Here we will keep all of the ROWS of the dataset in the middle of the command
+Note we need to swap over our key to be a character value.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">item.level.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(item.level.data)</a>
+<a class="sourceLine" id="cb138-2" data-line-number="2">experiment.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(experiment.data)</a>
+<a class="sourceLine" id="cb138-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb138-4" data-line-number="4">item.level.data</a></code></pre></div>
 <pre><code>##      SubjectNo X1 X2 X3 X4 X5 X6 X7 X8 X9 X10 X11 X12 X13 X14 X15 X16 X17
 ##   1:       100  2  1  5  4  1  5  5  1  4   5   7   1   5   4   3   5   6
 ##   2:       101  7  5  7  7  3  7  7  4  7   2   6   4   5   5   5   4   6
@@ -888,9 +941,9 @@ item.level.data</code></pre></div>
 ## 248:   5   5   4   5
 ## 249:   7   5   6   7
 ## 250:   7   2   6   7</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exp.data &lt;-<span class="st"> </span>item.level.data[experiment.data, on=<span class="st">&quot;SubjectNo&quot;</span>]
-
-exp.data</code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">exp.data &lt;-<span class="st"> </span>item.level.data[experiment.data, on=<span class="st">&quot;SubjectNo&quot;</span>]</a>
+<a class="sourceLine" id="cb140-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb140-3" data-line-number="3">exp.data</a></code></pre></div>
 <pre><code>##      SubjectNo X1 X2 X3 X4 X5 X6 X7 X8 X9 X10 X11 X12 X13 X14 X15 X16 X17
 ##   1:        10  2  2  5  6  5  4  7  3  4   6   7   4   6   6   5   4   4
 ##   2:        11  4  2  4  5  2  5  6  5  4   6   6   3   6   5   5   5   5
@@ -941,9 +994,9 @@ exp.data</code></pre></div>
 ## 249:   Bassoon  23 Female               Bassoon Performance
 ##                          Minor SchoolUGorG MuscMajMinor BeginTrain
 ##   1: HUMAN RESOURCE MANAGEMENT           1            1          9
-##   2:                        NA           1            1         10
+##   2:                      &lt;NA&gt;           1            1         10
 ##   3:               SOCIAL WORK           1            1         10
-##   4:                        NA           1            1         11
+##   4:                      &lt;NA&gt;           1            1         11
 ##   5:              Anthropology           1            1          0
 ##  ---                                                              
 ## 245:                                     1            1         13
@@ -1059,48 +1112,61 @@ exp.data</code></pre></div>
 ## 247:    2         0            0          0
 ## 248:    2         0            0          0
 ## 249:    2         0            0          0</code></pre>
-<p>Let’s reorganize our columns so individual stuff is at the back We could do this with data.table, but it’s a different syntax so let’s swap back Normally you try to stick to minimal switching, but we’re just taking a big tour du R right now and learning to think</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exp.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(exp.data)
-exp.data &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">39</span>)]</code></pre></div>
+<p>Let’s reorganize our columns so individual stuff is at the back
+We could do this with data.table, but it’s a different syntax so let’s swap back
+Normally you try to stick to minimal switching, but we’re just taking
+a big tour du R right now and learning to think</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">exp.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(exp.data)</a>
+<a class="sourceLine" id="cb142-2" data-line-number="2">exp.data &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">39</span>)]</a></code></pre></div>
 </div>
 <div id="checking-for-univariate-outliers" class="section level2">
 <h2><span class="header-section-number">3.3</span> Checking for Univariate Outliers</h2>
-<p>For this example, let’s imagine a univariate outlier is one with a zscore greater than 3. While we could write a bit of code to look for this, let’s use the pairs.panels() function in the psych pacakge to just get used to looking at our data The function is not the biggest fan of huge datasets, so let’s index our dataset to only grab what we need. Try to change the values and look at variables of interest.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs.panels</span>(exp.data[,<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>], <span class="dt">lm =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-<p>But of course we need to look at numbers in terms of their zscores! Let’s first standardize our entire dataset using the apply function Note we only can do this on numeric values!</p>
-<p>The apply function takes 3 argument The first is what you want to manipulate, the second is if it’s rows 1 or columns 2 (remeber this because it’s always rows then columns!), and the function. You can even write your own (though we’ll get to functions later)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.scores &lt;-<span class="st"> </span><span class="kw">apply</span>(exp.data[<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>],<span class="dv">2</span>,scale)
-
-exp.data.with.z &lt;-<span class="st"> </span><span class="kw">cbind</span>(exp.data, gmsi.z.scores)
-
-<span class="co">#Now we can index this to find values above whatever theshold we want!</span>
-
-<span class="kw">table</span>(gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<p>For this example, let’s imagine a univariate outlier is one with a zscore
+greater than 3. While we could write a bit of code to look for this, let’s use
+the pairs.panels() function in the psych pacakge to just get used to looking at our data
+The function is not the biggest fan of huge datasets, so let’s index our
+dataset to only grab what we need. Try to change the values and look
+at variables of interest.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="kw">pairs.panels</span>(exp.data[,<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>], <span class="dt">lm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p>But of course we need to look at numbers in terms of their zscores!
+Let’s first standardize our entire dataset using the apply function
+Note we only can do this on numeric values!</p>
+<p>The apply function takes 3 argument
+The first is what you want to manipulate, the second is if it’s rows 1 or columns 2
+(remeber this because it’s always rows then columns!), and the function.
+You can even write your own (though we’ll get to functions later)</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1">gmsi.z.scores &lt;-<span class="st"> </span><span class="kw">apply</span>(exp.data[<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>],<span class="dv">2</span>,scale)</a>
+<a class="sourceLine" id="cb144-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb144-3" data-line-number="3">exp.data.with.z &lt;-<span class="st"> </span><span class="kw">cbind</span>(exp.data, gmsi.z.scores)</a>
+<a class="sourceLine" id="cb144-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb144-5" data-line-number="5"><span class="co">#Now we can index this to find values above whatever theshold we want!</span></a>
+<a class="sourceLine" id="cb144-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb144-7" data-line-number="7"><span class="kw">table</span>(gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ##  1487     6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.z.indexer &lt;-<span class="st"> </span>gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>
-gmsi.z.scores[gmsi.z.indexer] <span class="co"># See what they are, find them , decide to get rid of</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1">gmsi.z.indexer &lt;-<span class="st"> </span>gmsi.z.scores <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb146-2" data-line-number="2">gmsi.z.scores[gmsi.z.indexer] <span class="co"># See what they are, find them , decide to get rid of</span></a></code></pre></div>
 <pre><code>## [1]       NA 2.053441 2.053441 2.142711 2.016431 2.142711 2.142711</code></pre>
 <div id="checking-for-multivariate-outliers" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Checking for Multivariate Outliers</h3>
 <p>A bit tricker, I leanred how to do this off a blog post.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gmsi.responses &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">63</span><span class="op">:</span><span class="dv">100</span>)]
-
-mahal &lt;-<span class="st"> </span><span class="kw">mahalanobis</span>(gmsi.responses,
-                     <span class="kw">colMeans</span>(gmsi.responses, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), 
-                     <span class="kw">cov</span>(gmsi.responses, 
-                         <span class="dt">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>))                    ## Create Distance Measures
-
-cutoff &lt;-<span class="st"> </span><span class="kw">qchisq</span>(.<span class="dv">999</span>, <span class="kw">ncol</span>(gmsi.responses))                                ## Create cutoff object .001 signifiance and DF = obs
-<span class="kw">summary</span>(mahal <span class="op">&lt;</span><span class="st"> </span>cutoff)                                                     ## 11 Subjects greater than 70 cutoff </code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1">gmsi.responses &lt;-<span class="st"> </span>exp.data[,<span class="kw">c</span>(<span class="dv">63</span><span class="op">:</span><span class="dv">100</span>)]</a>
+<a class="sourceLine" id="cb148-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb148-3" data-line-number="3">mahal &lt;-<span class="st"> </span><span class="kw">mahalanobis</span>(gmsi.responses,</a>
+<a class="sourceLine" id="cb148-4" data-line-number="4">                     <span class="kw">colMeans</span>(gmsi.responses, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), </a>
+<a class="sourceLine" id="cb148-5" data-line-number="5">                     <span class="kw">cov</span>(gmsi.responses, </a>
+<a class="sourceLine" id="cb148-6" data-line-number="6">                         <span class="dt">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>))                    ## Create Distance Measures</a>
+<a class="sourceLine" id="cb148-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb148-8" data-line-number="8">cutoff &lt;-<span class="st"> </span><span class="kw">qchisq</span>(.<span class="dv">999</span>, <span class="kw">ncol</span>(gmsi.responses))                                ## Create cutoff object .001 signifiance and DF = obs</a>
+<a class="sourceLine" id="cb148-9" data-line-number="9"><span class="kw">summary</span>(mahal <span class="op">&lt;</span><span class="st"> </span>cutoff)                                                     ## 11 Subjects greater than 70 cutoff </a></code></pre></div>
 <pre><code>##    Mode   FALSE    TRUE 
 ## logical      11     238</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add On Variables </span>
-exp.data<span class="op">$</span>mahal &lt;-<span class="st"> </span>mahal
-exp.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(exp.data) <span class="co"># To use easier indexer, needs data.table </span>
-exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><span class="st"> </span>cutoff]</code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="co"># Add On Variables </span></a>
+<a class="sourceLine" id="cb150-2" data-line-number="2">exp.data<span class="op">$</span>mahal &lt;-<span class="st"> </span>mahal</a>
+<a class="sourceLine" id="cb150-3" data-line-number="3">exp.data &lt;-<span class="st"> </span><span class="kw">data.table</span>(exp.data) <span class="co"># To use easier indexer, needs data.table </span></a>
+<a class="sourceLine" id="cb150-4" data-line-number="4">exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><span class="st"> </span>cutoff]</a></code></pre></div>
 <pre><code>##      SubjectNo ACTIVE PERCEPTUAL MUSICAL SINGING EMOTIONS GENERAL
 ##   1:        10     38         47      28      33       39      75
 ##   2:        11     37         47      16      22       32      67
@@ -1127,10 +1193,10 @@ exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><spa
 ## 238:   Bassoon  23 Female               Bassoon Performance
 ##                          Minor SchoolUGorG MuscMajMinor BeginTrain
 ##   1: HUMAN RESOURCE MANAGEMENT           1            1          9
-##   2:                        NA           1            1         10
+##   2:                      &lt;NA&gt;           1            1         10
 ##   3:               SOCIAL WORK           1            1         10
-##   4:                        NA           1            1         11
-##   5:                        NA           1            1          0
+##   4:                      &lt;NA&gt;           1            1         11
+##   5:                      &lt;NA&gt;           1            1          0
 ##  ---                                                              
 ## 234:                                     1            1         13
 ## 235:                 Sociology           1            1          9
@@ -1272,7 +1338,7 @@ exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><spa
 </div>
 <div id="checking-for-skew-and-kurtosis" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Checking for Skew and Kurtosis</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(gmsi.responses, <span class="dv">2</span>, skew)</code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="kw">apply</span>(gmsi.responses, <span class="dv">2</span>, skew)</a></code></pre></div>
 <pre><code>##           X1           X2           X3           X4           X5 
 ## -0.751959493  0.403676499 -1.078653410 -0.813983811  0.067614732 
 ##           X6           X7           X8           X9          X10 
@@ -1289,7 +1355,7 @@ exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><spa
 ## -1.037773224  0.068284056 -1.083784471 -1.825310783 -1.693280548 
 ##          X36          X37          X38 
 ## -0.651012271 -1.218176414 -2.364635137</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(gmsi.responses, <span class="dv">2</span> , kurtosi)</code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">apply</span>(gmsi.responses, <span class="dv">2</span> , kurtosi)</a></code></pre></div>
 <pre><code>##          X1          X2          X3          X4          X5          X6 
 ## -0.27214952 -0.83327603  1.14629947  0.02931285 -1.30675305  0.83305054 
 ##          X7          X8          X9         X10         X11         X12 
@@ -1307,8 +1373,10 @@ exp.data[exp.data<span class="op">$</span>mahal <span class="op">&lt;</span><spa
 </div>
 <div id="exporting-data" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Exporting Data</h3>
-<p>It’s best practice to separate your cleaning and your analysis into separate scripts. Export the dataset you have into a new csv file into a directory that would make sense to someone who has never seen your project before.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(exp.data,<span class="st">&quot;datasets/My_Experiment_Data.csv&quot;</span>)</code></pre></div>
+<p>It’s best practice to separate your cleaning and your analysis into separate scripts.
+Export the dataset you have into a new csv file into a directory that would make sense to
+someone who has never seen your project before.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">write.csv</span>(exp.data,<span class="st">&quot;datasets/My_Experiment_Data.csv&quot;</span>)</a></code></pre></div>
 
 </div>
 </div>
@@ -1365,7 +1433,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

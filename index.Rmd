@@ -33,5 +33,3 @@ At that point figured if I was going to learn, might as well be frustrated and g
 One thing to learn a lot by running these examples, though the best way forward is to find your own dataset and start to set up project with it.
 
 The book is still under construction and if you would like to help out with it, please get in touch!
-
-Let's get cooking.

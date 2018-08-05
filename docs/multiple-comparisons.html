@@ -25,7 +25,7 @@
 <meta name="author" content="David John Baker">
 
 
-<meta name="date" content="2018-05-09">
+<meta name="date" content="2018-08-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -217,29 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="19" data-path="non-parametric-data.html"><a href="non-parametric-data.html"><i class="fa fa-check"></i><b>19</b> Non-Parametric Data</a></li>
 <li class="chapter" data-level="20" data-path="advanced-data-cleaning.html"><a href="advanced-data-cleaning.html"><i class="fa fa-check"></i><b>20</b> Advanced Data Cleaning</a></li>
 <li class="chapter" data-level="21" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html"><i class="fa fa-check"></i><b>21</b> Advanced Multiple Regression</a><ul>
-<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introduction-to-multiple-regression"><i class="fa fa-check"></i><b>21.1</b> Introduction to Multiple Regression</a></li>
-<li class="chapter" data-level="21.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#basics-of-multiple-regression"><i class="fa fa-check"></i><b>21.2</b> Basics of Multiple Regression</a></li>
-<li class="chapter" data-level="21.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#types-of-multiple-regression"><i class="fa fa-check"></i><b>21.3</b> Types of Multiple Regression</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#standard-multiple-regression"><i class="fa fa-check"></i><b>21.3.1</b> Standard Multiple Regression</a></li>
-<li class="chapter" data-level="21.3.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#sequential-multiple-regression"><i class="fa fa-check"></i><b>21.3.2</b> Sequential Multiple Regression</a></li>
-<li class="chapter" data-level="21.3.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#statistical-or-stepwise-multiple-regression"><i class="fa fa-check"></i><b>21.3.3</b> Statistical or Stepwise Multiple Regression</a></li>
-</ul></li>
-<li class="chapter" data-level="21.4" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>21.4</b> Interpretation of Results</a><ul>
-<li class="chapter" data-level="21.4.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#model-summary"><i class="fa fa-check"></i><b>21.4.1</b> Model Summary</a></li>
-<li class="chapter" data-level="21.4.2" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#anova"><i class="fa fa-check"></i><b>21.4.2</b> ANOVA</a></li>
-<li class="chapter" data-level="21.4.3" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#coefficients"><i class="fa fa-check"></i><b>21.4.3</b> Coefficients</a></li>
-</ul></li>
-<li class="chapter" data-level="21.5" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.5</b> OLD MEDIATION MODERATION</a></li>
-<li class="chapter" data-level="21.6" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#introductory-ramble"><i class="fa fa-check"></i><b>21.6</b> Introductory Ramble</a></li>
-<li class="chapter" data-level="21.7" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>21.7</b> Multiple Regression</a><ul>
-<li class="chapter" data-level="21.7.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#spss-notes"><i class="fa fa-check"></i><b>21.7.1</b> SPSS Notes</a></li>
-</ul></li>
-<li class="chapter" data-level="21.8" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#surpressor-variables"><i class="fa fa-check"></i><b>21.8</b> Surpressor Variables</a></li>
-<li class="chapter" data-level="21.9" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation-and-mediation"><i class="fa fa-check"></i><b>21.9</b> Moderation and Mediation</a><ul>
-<li class="chapter" data-level="21.9.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#moderation"><i class="fa fa-check"></i><b>21.9.1</b> Moderation</a></li>
-</ul></li>
-<li class="chapter" data-level="21.10" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#centering"><i class="fa fa-check"></i><b>21.10</b> Centering</a></li>
-<li class="chapter" data-level="21.11" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#mediation"><i class="fa fa-check"></i><b>21.11</b> Mediation</a></li>
+<li class="chapter" data-level="21.1" data-path="advanced-multiple-regression.html"><a href="advanced-multiple-regression.html#old-mediation-moderation"><i class="fa fa-check"></i><b>21.1</b> OLD MEDIATION MODERATION</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>22</b> Logistic Regression</a></li>
 <li class="chapter" data-level="23" data-path="mediation-and-moderation.html"><a href="mediation-and-moderation.html"><i class="fa fa-check"></i><b>23</b> Mediation and Moderation</a></li>
@@ -263,20 +269,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="27" data-path="factor-analysis.html"><a href="factor-analysis.html"><i class="fa fa-check"></i><b>27</b> Factor Analysis</a><ul>
 <li class="chapter" data-level="27.1" data-path="factor-analysis.html"><a href="factor-analysis.html#theory-3"><i class="fa fa-check"></i><b>27.1</b> Theory</a><ul>
-<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#introduction"><i class="fa fa-check"></i><b>27.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.2</b> Factor Analysis Purposes</a></li>
-<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.3</b> Types of Analysis</a></li>
-<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.4</b> PCA</a></li>
-<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.5</b> Rotatation</a></li>
-<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.6</b> Assumptions</a></li>
-<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.7</b> Problems wiht Catheorica Variables</a></li>
-<li class="chapter" data-level="27.1.8" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.8</b> Running It</a></li>
+<li class="chapter" data-level="27.1.1" data-path="factor-analysis.html"><a href="factor-analysis.html#factor-analysis-purposes"><i class="fa fa-check"></i><b>27.1.1</b> Factor Analysis Purposes</a></li>
+<li class="chapter" data-level="27.1.2" data-path="factor-analysis.html"><a href="factor-analysis.html#types-of-analysis"><i class="fa fa-check"></i><b>27.1.2</b> Types of Analysis</a></li>
+<li class="chapter" data-level="27.1.3" data-path="factor-analysis.html"><a href="factor-analysis.html#pca"><i class="fa fa-check"></i><b>27.1.3</b> PCA</a></li>
+<li class="chapter" data-level="27.1.4" data-path="factor-analysis.html"><a href="factor-analysis.html#rotatation"><i class="fa fa-check"></i><b>27.1.4</b> Rotatation</a></li>
+<li class="chapter" data-level="27.1.5" data-path="factor-analysis.html"><a href="factor-analysis.html#assumptions-1"><i class="fa fa-check"></i><b>27.1.5</b> Assumptions</a></li>
+<li class="chapter" data-level="27.1.6" data-path="factor-analysis.html"><a href="factor-analysis.html#problems-wiht-catheorica-variables"><i class="fa fa-check"></i><b>27.1.6</b> Problems wiht Catheorica Variables</a></li>
+<li class="chapter" data-level="27.1.7" data-path="factor-analysis.html"><a href="factor-analysis.html#running-it"><i class="fa fa-check"></i><b>27.1.7</b> Running It</a></li>
 </ul></li>
 <li class="chapter" data-level="27.2" data-path="factor-analysis.html"><a href="factor-analysis.html#practice-5"><i class="fa fa-check"></i><b>27.2</b> Practice</a><ul>
 <li class="chapter" data-level="27.2.1" data-path="factor-analysis.html"><a href="factor-analysis.html#data-preparation"><i class="fa fa-check"></i><b>27.2.1</b> Data Preparation</a></li>
 <li class="chapter" data-level="27.2.2" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i"><i class="fa fa-check"></i><b>27.2.2</b> Analysis I</a></li>
 <li class="chapter" data-level="27.2.3" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-i-1"><i class="fa fa-check"></i><b>27.2.3</b> Analysis I</a></li>
-<li class="chapter" data-level="27.2.4" data-path="factor-analysis.html"><a href="factor-analysis.html#analysis-ii"><i class="fa fa-check"></i><b>27.2.4</b> Analysis II</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="28" data-path="mixed-effects-models.html"><a href="mixed-effects-models.html"><i class="fa fa-check"></i><b>28</b> Mixed Effects Models</a></li>
@@ -320,37 +324,89 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="multiple-comparisons" class="section level1">
 <h1><span class="header-section-number">Chapter 13</span> Multiple Comparisons</h1>
-<p>In past lectures we have discussed the problem with the familywise (or what your text calls “experimentwise”) Type I error rate.</p>
-<p>There are different methods for holding the familywise error rate at no more than .05. This methodology is most commonly used in post hoc tests designed to test specific contrasts among conditions following a significant ANOVA.</p>
-<p>In addition to comparisons done post hoc, others can be done a priori, commonly known as planned comparisons. Because such comparisons are usually done with a particular theoretical outcome in mind, they are not as conservative as post hoc comparisons.</p>
+<p>In past lectures we have discussed the problem with the familywise (or
+what your text calls “experimentwise”) Type I error rate.</p>
+<p>There are different methods for holding the familywise error rate at no
+more than .05. This methodology is most commonly used in post hoc tests
+designed to test specific contrasts among conditions following a significant
+ANOVA.</p>
+<p>In addition to comparisons done post hoc, others can be done a priori,
+commonly known as planned comparisons. Because such comparisons are
+usually done with a particular theoretical outcome in mind, they are not as
+conservative as post hoc comparisons.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Familywise Type I error rate = , where j = number of independent t tests to be conducted.</li>
-<li>When comparisons are not independent, the familywise rate can be approximated by the formula .</li>
+<li>Familywise Type I error rate = , where j = number of
+independent t tests to be conducted.</li>
+<li>When comparisons are not independent, the familywise rate can be
+approximated by the formula .</li>
 <li>The comparisonwise error rate is the Type I error rate per comparison.</li>
-<li>Comparisons are orthogonal if the outcome of one test is not redundant with the outcome of another. There are (k – 1) orthogonal comparisons in a data set, which will be discussed in more detail.</li>
+<li>Comparisons are orthogonal if the outcome of one test is not
+redundant with the outcome of another. There are (k – 1) orthogonal
+comparisons in a data set, which will be discussed in more detail.</li>
 </ol>
-<p>There are different methods for holding the familywise error rate at no more than .05. This methodology is most commonly used in post hoc tests designed to test specific contrasts among conditions following a significant ANOVA.</p>
-<p>The simplest, and most powerful test, is called the Fisher Least Significant Difference test (LSD). It is sometimes called the “protected t” test, and the formula is:</p>
+<p>There are different methods for holding the familywise error rate at no
+more than .05. This methodology is most commonly used in post hoc tests
+designed to test specific contrasts among conditions following a significant
+ANOVA.</p>
+<p>The simplest, and most powerful test, is called the Fisher Least Significant
+Difference test (LSD). It is sometimes called the “protected t” test, and the
+formula is:</p>
 <div class="figure">
 <img src="img/hicksphc1.png" alt="IMG" />
 <p class="caption">IMG</p>
 </div>
-<p>You then use the df from the overall error term for finding the critical value of t. This test should be used only following a significant F test, and for no more than 3 groups. If homogeneity of variance is not tenable, then use the individual variances from the groups being tested, as the case for a traditional separate variances t test with df = N - 2.</p>
+<p>You then use the df from the overall error term for finding the critical value
+of t. This test should be used only following a significant F test, and for no
+more than 3 groups. If homogeneity of variance is not tenable, then use the
+individual variances from the groups being tested, as the case for a
+traditional separate variances t test with df = N - 2.</p>
 <p>How does the Fisher LSD protect against Type I error inflation with only 3 groups?</p>
 <p>Complete null is true</p>
 <p><span class="math inline">\(H_0 : \mu_1 = \mu_2 = \mu_3\)</span></p>
-<p>In this case, if the overall F is significant, you have already committed a Type I error and any more of them don’t contribute further to αFW (i.e., you are just going to commit the ‘same’ error in a particular pairwise comparison. This is the case no matter how many groups are in the experiment.</p>
+<p>In this case, if the overall
+F is significant, you have
+already committed a Type I
+error and any more of them
+don’t contribute further to
+αFW (i.e., you are just going
+to commit the ‘same’ error
+in a particular pairwise
+comparison.
+This is the case no matter
+how many groups are in the
+experiment.</p>
 <p>Partial null is true</p>
 <p><span class="math inline">\(H_0 : \mu_1 = \mu_2 != \mu_3\)</span></p>
-<p>With 3 groups, if the overall F is significant, it was not a Type I error; there is only one real chance of a Type I error—that being when the partial null is true. Here αFW was never in danger of being more than .05. But with more than 3 groups, and when more than one partial null is true, you have the chance of committing multiple errors.</p>
-<p>Another common method is to use the studentized range (Q) sampling distribution as the source of critical values for minimum differences needed to declare population means significantly different.</p>
-<p>The Tukey method computes the minimum difference needed for any pair of means to be significantly different. We use alpha, the number of means being compared (r), and the df associated with MSW to find a critical Q value.</p>
+<p>With 3 groups, if the overall
+F is significant, it was not
+a Type I error; there is only
+one real chance of a Type I
+error—that being when the
+partial null is true. Here
+αFW was never in danger of
+being more than .05.
+But with more than 3 groups,
+and when more than one partial
+null is true, you have the chance
+of committing multiple errors.</p>
+<p>Another common method is to use the studentized range (Q)
+sampling distribution as the source of critical values for minimum
+differences needed to declare population means significantly
+different.</p>
+<p>The Tukey method computes the minimum difference needed
+for any pair of means to be significantly different. We use alpha,
+the number of means being compared (r), and the df associated
+with MSW to find a critical Q value.</p>
 <div class="figure">
 <img src="img/hicksphc2.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>With this method, you are protecting yourself against the most extreme possible Type I error (i.e., between the largest and smallest means), and therefore all other comparisons are likewise protected.</p>
-<p>Scenario: A researcher gives a test of creativity to four groups of children. The age difference between each group is 2 years (range 4-10 years). Do the children demonstrate significantly different levels of creativity?</p>
+<p>With this method, you are protecting yourself against the most
+extreme possible Type I error (i.e., between the largest and smallest
+means), and therefore all other comparisons are likewise protected.</p>
+<p>Scenario: A researcher gives a test of creativity to four groups of children.
+The age difference between each group is 2 years (range 4-10 years). Do the
+children demonstrate significantly different levels of creativity?</p>
 <div class="figure">
 <img src="img/hicksphc3.png" alt="Image" />
 <p class="caption">Image</p>
@@ -359,8 +415,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="img/hicksphc4.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>The Student Newman-Keuls method is similar to the Tukey, except that the critical value is determined by the number of steps separating each pair of means (r): range = i – k + 1</p>
-<p>Problem: we do lose some control over αEW, as it actually goes over .05</p>
+<p>The Student Newman-Keuls method is similar to the Tukey,
+except that the critical value is determined by the number of
+steps separating each pair of means (r): range = i – k + 1</p>
+<p>Problem: we do lose some control over αEW, as it actually goes over
+.05</p>
 <div class="figure">
 <img src="img/hicksphc5.png" alt="Image" />
 <p class="caption">Image</p>
@@ -373,22 +432,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="img/hicksphc7.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>The Tukey/Kramer method is used when sample sizes are unequal. We calculate the harmonic mean of the sample sizes to achieve the appropriate number in the denominator:</p>
+<p>The Tukey/Kramer method is used when sample sizes are unequal.
+We calculate the harmonic mean of the sample sizes to achieve
+the appropriate number in the denominator:</p>
 <div class="figure">
 <img src="img/hicksphc8.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>The Ryan (or REGWQ) test is a modification of the SNK to achieve increased power but also keeps αEW no greater than .05. It is preferred over Tukey to get better power and over SNK to keep αEW ≤ .05. This means it uses fractional values of alpha that are not easy to tabulate—but SPSS and other packages offer it as an option so it’s easy to use.</p>
+<p>The Ryan (or REGWQ) test is a modification of the SNK to
+achieve increased power but also keeps αEW no greater than .05.
+It is preferred over Tukey to get better power and over SNK to
+keep αEW ≤ .05. This means it uses fractional values of alpha
+that are not easy to tabulate—but SPSS and other packages
+offer it as an option so it’s easy to use.</p>
 <div class="figure">
 <img src="img/hicksphc9.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>Another conservative method, the Scheffeaccent test, uses the F distribution, but can also be used to test complex comparisons involving combined groups, called linear contrasts.</p>
+<p>Another conservative method, the Scheffeaccent test, uses the F distribution,
+but can also be used to test complex comparisons involving combined
+groups, called linear contrasts.</p>
 <div class="figure">
 <img src="img/hicksphc10.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>The critical value of F sets the experimentwise error rate against all possible linear contrasts, not just pairwise contrasts.</p>
+<p>The critical value of F sets the experimentwise error rate against all
+possible linear contrasts, not just pairwise contrasts.</p>
 <div class="figure">
 <img src="img/hicksphc11.png" alt="Image" />
 <p class="caption">Image</p>
@@ -409,10 +478,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="img/hicksphc15.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>In addition to comparisons done post hoc, others can be done a priori, commonly known as planned comparisons. Because such comparisons are usually done with a particular theoretical outcome in mind, they are typically not as conservative as post hoc comparisons.</p>
-<p>The linear contrast described earlier is generally used to complete planned comparisons. There are two primary differences as compared to the post hoc version of the test. If multiple contrasts are to be done, then it’s best if they are orthogonal, or independent. There are K – 1 orthogonal comparisons available in any one set of contrasts. Most (e.g., your text author) argue that you can keep each contrast at α = .05 when the set is orthogonal.</p>
-<p><img src="img/hicksphc16.png" alt="Image" /> <img src="img/hicksphc17.png" alt="Image" /></p>
-<p>The linear contrast method described earlier is also used to complete planned comparisons. There are two primary differences as compared to the post hoc Scheffé test. Because of the orthogonality principle, the critical value for each comparison allows for more power (i.e., it is more liberal than the post hoc version Scheffé developed):</p>
+<p>In addition to comparisons done post hoc, others can be done a priori,
+commonly known as planned comparisons. Because such comparisons are
+usually done with a particular theoretical outcome in mind, they are
+typically not as conservative as post hoc comparisons.</p>
+<p>The linear contrast described earlier is generally used to complete planned
+comparisons. There are two primary differences as compared to the post
+hoc version of the test.
+If multiple contrasts are to be done, then it’s best if they are orthogonal, or
+independent. There are K – 1 orthogonal comparisons available in any one
+set of contrasts. Most (e.g., your text author) argue that you can keep each
+contrast at α = .05 when the set is orthogonal.</p>
+<p><img src="img/hicksphc16.png" alt="Image" />
+<img src="img/hicksphc17.png" alt="Image" /></p>
+<p>The linear contrast method described earlier is also used to complete
+planned comparisons. There are two primary differences as compared to
+the post hoc Scheffé test.
+Because of the orthogonality principle, the critical value for each
+comparison allows for more power (i.e., it is more liberal than the post hoc
+version Scheffé developed):</p>
 <p><span class="math inline">\(F_{cv}=F_{1,N-K}\)</span></p>
 <div class="figure">
 <img src="img/hicksphc18.png" alt="Image" />
@@ -422,13 +506,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="img/hicksphc19.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>A very conservative, but simple, method is to figure the comparisonwise error rate is to divide the familywise error rate by the number of comparisons one wishes to make. This is known as the Bonferroni test or the Dunn test.</p>
+<p>A very conservative, but simple, method is to figure the
+comparisonwise error rate is to divide the familywise error rate
+by the number of comparisons one wishes to make. This is known
+as the Bonferroni test or the Dunn test.</p>
 <p><span class="math inline">\(\alpha_{pc}= \alpha_{EW}/J\)</span></p>
-<p>For example, with 3 comparisons, α = .05/3 = .0167. You don’t set the modified alpha based on all possible comparisons, just based on the number you wish to conduct.</p>
+<p>For example, with 3 comparisons, α = .05/3 = .0167.
+You don’t set the modified alpha based on all possible comparisons,
+just based on the number you wish to conduct.</p>
 <div id="trend-analysis" class="section level2">
 <h2><span class="header-section-number">13.1</span> Trend analysis</h2>
-<p>A statistical procedure called trend analysis can be done to examine the functional relationship between a quantitative IV and the DV (e.g., linear, quadratic, cubic).</p>
-<p>The same linear contrast comparison method is used as with regular contrasts, and the trend contrast coefficients are a special set of orthogonal comparisons based on K.</p>
+<p>A statistical procedure called trend analysis can be done to examine the
+functional relationship between a quantitative IV and the DV (e.g., linear,
+quadratic, cubic).</p>
+<p>The same linear contrast comparison method is used as with regular
+contrasts, and the trend contrast coefficients are a special set of orthogonal
+comparisons based on K.</p>
 <div class="figure">
 <img src="img/hicksphc20.png" alt="Image" />
 <p class="caption">Image</p>
@@ -437,12 +530,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="img/hicksphc21.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p><img src="img/hicksphc22.png" alt="Image" /> <img src="img/hicksphc23.png" alt="Image" /> <img src="img/hicksphc24.png" alt="Image" /></p>
+<p><img src="img/hicksphc22.png" alt="Image" />
+<img src="img/hicksphc23.png" alt="Image" />
+<img src="img/hicksphc24.png" alt="Image" /></p>
 <div class="figure">
 <img src="img/hicksphc25.png" alt="Image" />
 <p class="caption">Image</p>
 </div>
-<p>A statistical procedure called trend analysis can be done to examine the functional relationship between a quantitative IV and the DV (e.g., linear, quadratic, cubic). Trend analysis works only when the IV is a quantitative variable (e.g., drug dosage). More than one trend may be significant, and therefore inspecting a graph of the means in tandem with the analysis is highly recommended.</p>
+<p>A statistical procedure called trend analysis can be done to examine the
+functional relationship between a quantitative IV and the DV (e.g., linear,
+quadratic, cubic).
+Trend analysis works only when the IV is a quantitative variable (e.g., drug
+dosage).
+More than one trend may be significant, and therefore inspecting a graph of
+the means in tandem with the analysis is highly recommended.</p>
 <div class="figure">
 <img src="img/hicksphc26.png" alt="Image" />
 <p class="caption">Image</p>
@@ -502,7 +603,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

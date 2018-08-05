@@ -3,7 +3,7 @@
 Before starting out, it's worth mentioning that R has a steep learning curve compared to other statistical softwares. 
 While there are tons of blog posts as to why you should learn R, I will keep my list quick so if you get discouraged at any point, you can come back to this list and get re-inspired before R starts paying you back.
 
-1. The R community is fantastic, check out [#rstats](https://twitter.com/search?q=%23rstats&src=typd) on Twitter as well as everyone affiliated with the [TidyVerse](https://www.tidyverse.org/)
+1. The R community is fantastic, check out [#rstats](https://twitter.com/search?q=%23rstats&src=typd) on Twitter as well as everyone affiliated with the [tidyVerse](https://www.tidyverse.org/)
 2. R will always be free because the people behind it believe in [open source](https://en.wikipedia.org/wiki/Open-source_software) principles.
 3. Time spent learning R is time spent learning how computers work. If you learn about R, you are also learning computer programming. Time spent in something like SPSS or SAS does not easily transfer to other programs.
 4. On [r-jobs.com](https://www.r-users.com/#open) the way they decide to split jobs is jobs that make above and below $100,000.
@@ -83,47 +83,54 @@ sqrt(81)
 ```
 
 You don't always want to print your output and retype it in. 
-Idea is to be very lazy (efficient).
+The idea of being a good programmer is to be very lazy (efficient).
 
-Save some math to an object with the <- operator, then manipulate that.
+One of the best ways to be efficient when programming is to save variables to objects.
+Below is some example code that uses the ```<-``` operator to assign some math to an object.
+After you assign it to an object, you can then manipulate it like you would any other number.
 
 ```{r}
 foo <- 2 * 3
 foo * 6
 ```
 
+After running these two lines of code, notice what has popped up in your environment in RStudio!
+You should see that you now have any object in the Environment called `foo`.
 
-Notice what has popped up in your environment in RStudio!
-
-Let's get more efficient.
+In addition to saving single values to objects, you can also store a collection of values.
+Below we use an example that might have a bit more meaning, the below stores what could be some data into an object that represents what it might be. 
 
 ```{r}
 yearsInGradSchool <- c(2,1,4,5,6,7,3,2,4,5,3)
 ```
 
-talk about the ```c()``` function.
+The way that the line above works is that we use the ```c()``` function (c for concatenate) to group together a bunch of the same type of data (numbers) into a vector.
+Once we have everything concatenated and stored into an object, we can then manipulate all the numbers in the object just like we did above with a single number.
+For example, we could multiply all the numbers by three. 
 
 ```{r}
 yearsInGradSchool * 3
 ```
 
-Or this 
+Or maybe we realized that our inputs were wrong and we need to shave off two years off of each of the entries.
 
 ```{r}
 yearsInGradSchool - 2
 ```
 
+Or perhaps we want to find out which of our pieces of data (and other data associated with that observation) are less than 2.
+
 ```{r}
 yearsInGradSchool < 2
 ```
 
+Any sort of mathematical operation can be performed on a vector!
+In addition to treating it like a mathematical operation, we can also run functions on objects.
+By looking at the name of each function and it's output, take a guess at what each of the below functions does.
 
 ```{r}
 mean(yearsInGradSchool)
 sd(yearsInGradSchool)
-```
-
-```{r}
 hist(yearsInGradSchool)
 scale(yearsInGradSchool)
 range(yearsInGradSchool)
@@ -133,18 +140,39 @@ str(yearsInGradSchool)
 summary(yearsInGradSchool)
 ```
 
+Often working with data, we don't want to just play with one group of numbers.
+Most of the time we are trying to compare diffrent observations in psychology.
+If we then create two vectors (one of which we have already made!) and then combine them together into a data frame, we have something sort of looking like a spreadsheet.
+
 
 ```{r}
 yearsInGradSchool <- c(2,1,4,5,6,7,3,2,4,5,3)
 classesTaken <- c(5,2,5,7,9,9,2,8,4,7,2)
 gradData <- data.frame(yearsInGradSchool,classesTaken)
+gradData
 ```
+
+Now if we wanted to use something like R's correlation function we could just pass in the two objects that we have like this and get a correlation value. 
 
 ```{r}
 cor(yearsInGradSchool,classesTaken)
 ```
+But often our data will be saved in data frames and we need to be able to access one of our vectors inside our data frame. 
+To access a piece of information in a data frame we use the ```$``` operator.
 
-Basic plots, arguments. ggplot and libraries
+```{r}
+gradData$yearsInGradSchool
+```
+
+Running the above code will print out the vector called ```yearsInGradSchool``` from the data frame ```gradData```.
+Using this form, we can then use this with the correrlation function.
+
+```{r}
+cor(gradData$yearsInGradSchool,gradData$classesTaken)
+```
+
+In addition to just getting numeric output, we also want to be able to look at our data.
+Take a look at the code below and try to figure out what the function call is, as well as what each argument (or thing you pass to a function) does. 
 
 ```{r}
 plot(yearsInGradSchool,classesTaken, 
@@ -153,6 +181,16 @@ plot(yearsInGradSchool,classesTaken,
      xlab = "Years in Grad School", 
      ylab = "Classes Taken")
 ```
+
+If you are having a hard time understanding arguments, one thing that might help to think about is that each argument is like a click in a software program like SPSS.
+Imagine you want to make the same plot with this data in SSPSS, what would you do?
+The first thing you would do is to go to the top of the bar and find the ```Plot``` function and click it.
+This is the same as typing out ```plot()``` in R.
+Then you would have to tell that new pop up screen what two variables you want to plot and click on the related variables.
+Dragging and dropping those variables into your plot builder is the same as just typing out the variables you want.
+Laslty you want to put names on your axes and a title on your plot.
+The same logic would follow. 
+We'll explore these ideas a bit more in the next section.
 
 ## Data Exploration
 
