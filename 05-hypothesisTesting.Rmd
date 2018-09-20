@@ -1,17 +1,24 @@
 # Hypothesis Testing
 
-The sampling distribution of the mean helps us to make hypotheses about the likelihood that a given sample mean comes from a sampling distribution with a given mean.
+Hypothesis testing rests on the assumption that by using the logic of null hypothesis significance testing, we can make repeatable predictions about the likelihood that a given sample mean comes from a sampling distribution with a given mean.
+Stated differently, a hypothesis test helps us determine whether the oberved difference that we see between two groups is either negligible or meaningful.
 
-Stated differently, a hypothesis test helps us determine whether the observed difference between a sample mean and a hypothetical population mean is either negligible or meaningful.
+There are two main hypotheses we generally talk about in NHST:
 
-The Null Hypothesis $H_o : \mu = some value$ 
-The alternative Hypothesis $H_o : != \mu = some value$
+* The Null Hypothesis: there are no meaningful differences between any conditions 
+* The Alternative Hypothesis: some meaningful differences exist between our conditions, but we don't know what direction they are in. 
 
-The Alternative Hypothesis
+## The Alternative Hypothesis
 
-A sample mean of a given sample size is produced and compared to the hypothetical sampling distribution’s mean to test the null hypothesis
+Let's imagine there is some distribution where we **know** that the true mean of the sample is 455.
+Most of the time you don't know what this true mean is, but it's helpful to assume to explain how this works.
 
-Imagine we know the population (for some reason) and the True value is 455.
+```{R}
+library(ggplot2)
+valuesNormal455 <- rnorm(n = 1000,sd = 8,mean = 455)
+distributions <- data.frame(valuesNormal455)
+ggplot(distributions,aes(valuesNormal455)) + geom_histogram() + labs(title = "Random Samples with true mean of 455", y = "Count", x = "Samples from Population") 
+```
 
 ![True Value is 455](img/hicksonesample1.png)
 
