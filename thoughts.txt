@@ -1,0 +1,5 @@
+Need to update this book since poldrack is better version
+
+Should be more about learning statistics with R and programming in the functions.
+
+Start with Example, talk about formula, then code it in R, few examples with base R.
